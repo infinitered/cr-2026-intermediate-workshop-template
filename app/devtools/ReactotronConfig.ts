@@ -3,12 +3,13 @@
  * free desktop app for inspecting and debugging your React Native app.
  * @see https://github.com/infinitered/reactotron
  */
-import { Platform, NativeModules } from "react-native"
+import { Platform } from "react-native"
+import { openMenu } from "expo-dev-menu"
+import { router } from "expo-router"
 import { ArgType } from "reactotron-core-client"
 import { ReactotronReactNative } from "reactotron-react-native"
 import mmkvPlugin from "reactotron-react-native-mmkv"
 
-import { goBack, resetRoot, navigate } from "@/navigators/navigationUtilities"
 import { storage } from "@/utils/storage"
 
 import { Reactotron } from "./ReactotronClient"
@@ -44,11 +45,11 @@ if (Platform.OS !== "web") {
  */
 reactotron.onCustomCommand({
   title: "Show Dev Menu",
-  description: "Opens the React Native dev menu",
+  description: "Opens the Expo dev menu",
   command: "showDevMenu",
   handler: () => {
-    Reactotron.log("Showing React Native dev menu")
-    NativeModules.DevMenu.show()
+    Reactotron.log("Showing Expo dev menu")
+    openMenu()
   },
 })
 
@@ -58,7 +59,7 @@ reactotron.onCustomCommand({
   command: "resetNavigation",
   handler: () => {
     Reactotron.log("resetting navigation state")
-    resetRoot({ index: 0, routes: [] })
+    router.replace("/")
   },
 })
 
@@ -68,8 +69,7 @@ reactotron.onCustomCommand<[{ name: "route"; type: ArgType.String }]>({
     const { route } = args ?? {}
     if (route) {
       Reactotron.log(`Navigating to: ${route}`)
-      // @ts-ignore
-      navigate(route as any) // this should be tied to the navigator, but since this is for debugging, we can navigate to illegal routes
+      router.navigate(route as any) // this should be tied to the navigator, but since this is for debugging, we can navigate to illegal routes
     } else {
       Reactotron.log("Could not navigate. No route provided.")
     }
@@ -84,8 +84,12 @@ reactotron.onCustomCommand({
   description: "Goes back",
   command: "goBack",
   handler: () => {
-    Reactotron.log("Going back")
-    goBack()
+    if (router.canGoBack()) {
+      Reactotron.log("Going back")
+      router.back()
+    } else {
+      Reactotron.log("Cannot navigate back")
+    }
   },
 })
 
