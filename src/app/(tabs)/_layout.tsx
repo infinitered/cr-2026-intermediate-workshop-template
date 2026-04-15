@@ -40,6 +40,10 @@ export default function TabsLayout() {
         name="genres"
         options={{
           title: "Genres",
+          headerShown: true,
+          headerStyle: { backgroundColor: colors.palette.lemon500 },
+          headerTintColor: colors.palette.purpleMuted900,
+          headerTitleStyle: { fontFamily: typeScale.headline1.fontFamily },
           tabBarIcon: ({ color: _color }) => null,
         }}
       />

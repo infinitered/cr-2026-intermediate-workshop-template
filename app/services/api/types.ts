@@ -50,6 +50,7 @@ export interface Game {
   added_by_status: Record<string, number>
   esrb_rating: EsrbRating | null
   platforms: GamePlatform[]
+  genres: Genre[]
 }
 
 /** Game detail — returned by /games/{id} */
