@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react"
 import { Slot, SplashScreen } from "expo-router"
 import { useFonts } from "@expo-google-fonts/space-grotesk"
+import { QueryClientProvider } from "@tanstack/react-query"
 import { KeyboardProvider } from "react-native-keyboard-controller"
 import { initialWindowMetrics, SafeAreaProvider } from "react-native-safe-area-context"
 
 import { initI18n } from "@/i18n"
+import { queryClient } from "@/services/queryClient"
 import { ThemeProvider } from "@/theme/context"
 import { customFontsToLoad } from "@/theme/typography"
 import { loadDateFnsLocale } from "@/utils/formatDate"
@@ -48,12 +50,6 @@ export default function Root() {
     }
   }, [loaded])
 
-  useEffect(() => {
-    fetch("https://api.rawg.io/api/games")
-      .then((res) => res.json())
-      .then((data) => console.log("MSW test:", data))
-  }, [])
-
   if (!loaded) {
     return null
   }
@@ -62,7 +58,9 @@ export default function Root() {
     <SafeAreaProvider initialMetrics={initialWindowMetrics}>
       <ThemeProvider>
         <KeyboardProvider>
-          <Slot />
+          <QueryClientProvider client={queryClient}>
+            <Slot />
+          </QueryClientProvider>
         </KeyboardProvider>
       </ThemeProvider>
     </SafeAreaProvider>
