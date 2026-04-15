@@ -6,7 +6,7 @@ import { KeyboardProvider } from "react-native-keyboard-controller"
 import { initialWindowMetrics, SafeAreaProvider } from "react-native-safe-area-context"
 
 import { initI18n } from "@/i18n"
-import { queryClient } from "@/services/queryClient"
+import { queryClient } from "@/services/api/queryClient"
 import { ThemeProvider } from "@/theme/context"
 import { customFontsToLoad } from "@/theme/typography"
 import { loadDateFnsLocale } from "@/utils/formatDate"
@@ -23,9 +23,9 @@ if (__DEV__) {
   //
   // To use actual API responses, make sure to set the
   // EXPO_PUBLIC_RAWG_API_KEY var and comment out these lines
-  require("@/services/mocks/msw.polyfills")
-  const { server } = require("@/services/mocks/server")
-  server.listen()
+  // require("@/services/mocks/msw.polyfills")
+  // const { server } = require("@/services/mocks/server")
+  // server.listen()
 }
 
 export default function Root() {
