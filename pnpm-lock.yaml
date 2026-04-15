@@ -8,9 +8,9 @@ importers:
 
   .:
     dependencies:
-      '@expo-google-fonts/space-grotesk':
-        specifier: ^0.4.0
-        version: 0.4.1
+      '@expo-google-fonts/oxanium':
+        specifier: 0.4.2
+        version: 0.4.2
       '@expo/metro-runtime':
         specifier: ~55.0.6
         version: 55.0.9(@expo/dom-webview@55.0.5)(expo@55.0.15)(react-dom@19.2.0(react@19.2.0))(react-native@0.83.4(@babel/core@7.29.0)(@types/react@19.2.14)(react@19.2.0))(react@19.2.0)
@@ -1099,8 +1099,8 @@ packages:
   '@expo-google-fonts/material-symbols@0.4.30':
     resolution: {integrity: sha512-ZCfA0jcVG/dHJGbweOmIRz6vQ53fR8reuvGSd+GcWzOwMm2Y4tkMIAXhrekltiG8sx4KM9bm4LE18RN8wTxmHg==}
 
-  '@expo-google-fonts/space-grotesk@0.4.1':
-    resolution: {integrity: sha512-ZVQYw4Ok/pgcSJiufP8oRZE3AVxS9xtmKEUfsurbHkHNdMc/GA1gDXP9G4Cr7KL4KqSc0haexR2TuMigotCn4Q==}
+  '@expo-google-fonts/oxanium@0.4.2':
+    resolution: {integrity: sha512-e7Dt1s34ZYHNM/jiuhanQ+KTxQUFFhJEV4v5uVM64dQXcThL6rQk2UL597Ml8FhmEmv2zvISAV6zrPMUzu1sKQ==}
 
   '@expo/cli@55.0.24':
     resolution: {integrity: sha512-Z6Xh0WNTg1LvoZQ77zO3snF2cFiv1xf0VguDlwTL1Ql87oMOp30f7mjl9jeaSHqoWkgiAbmxgCKKIGjVX/keiA==}
@@ -6633,7 +6633,7 @@ snapshots:
 
   '@expo-google-fonts/material-symbols@0.4.30': {}
 
-  '@expo-google-fonts/space-grotesk@0.4.1': {}
+  '@expo-google-fonts/oxanium@0.4.2': {}
 
   '@expo/cli@55.0.24(@expo/dom-webview@55.0.5)(@expo/metro-runtime@55.0.9)(expo-constants@55.0.14)(expo-font@55.0.6)(expo-router@55.0.12)(expo@55.0.15)(react-dom@19.2.0(react@19.2.0))(react-native@0.83.4(@babel/core@7.29.0)(@types/react@19.2.14)(react@19.2.0))(react@19.2.0)(typescript@5.9.3)':
     dependencies:

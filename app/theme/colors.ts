@@ -1,85 +1,78 @@
 const palette = {
-  neutral100: "#FFFFFF",
-  neutral200: "#F4F2F1",
-  neutral300: "#D7CEC9",
-  neutral400: "#B6ACA6",
-  neutral500: "#978F8A",
-  neutral600: "#564E4A",
-  neutral700: "#3C3836",
-  neutral800: "#191015",
-  neutral900: "#000000",
+  // Gray
+  gray50: "#F2F2F2",
+  gray100: "#E6E6E6",
+  gray200: "#CCCCCC",
+  gray300: "#B3B3B3",
+  gray400: "#999999",
+  gray500: "#808080",
+  gray600: "#666666",
+  gray700: "#4D4D4D",
+  gray800: "#333333",
+  gray900: "#1A1A1A",
 
-  primary100: "#F4E0D9",
-  primary200: "#E8C1B4",
-  primary300: "#DDA28E",
-  primary400: "#D28468",
-  primary500: "#C76542",
-  primary600: "#A54F31",
+  // Lemon
+  lemon50: "#F4F4F0",
+  lemon100: "#EBEDDE",
+  lemon200: "#E1EAAE",
+  lemon300: "#DFF075",
+  lemon400: "#DEFA38",
+  lemon500: "#DBFF00",
+  lemon600: "#ABC705",
+  lemon700: "#798A0F",
+  lemon800: "#485115",
+  lemon900: "#1F2112",
 
-  secondary100: "#DCDDE9",
-  secondary200: "#BCC0D6",
-  secondary300: "#9196B9",
-  secondary400: "#626894",
-  secondary500: "#41476E",
+  // Purple
+  purple50: "#F4F0F4",
+  purple100: "#EDDEEC",
+  purple200: "#E7B1E6",
+  purple300: "#EA7BE8",
+  purple400: "#F042ED",
+  purple500: "#F20DEE",
+  purple600: "#BD0FBA",
+  purple700: "#841582",
+  purple800: "#4E184D",
+  purple900: "#211220",
 
-  accent100: "#FFEED4",
-  accent200: "#FFE1B2",
-  accent300: "#FDD495",
-  accent400: "#FBC878",
-  accent500: "#FFBB50",
+  // Purple Muted
+  purpleMuted50: "#F3F2F3",
+  purpleMuted100: "#E7E4E7",
+  purpleMuted200: "#D3C5D3",
+  purpleMuted300: "#C0A5C0",
+  purpleMuted400: "#AE84AE",
+  purpleMuted500: "#9B649B",
+  purpleMuted600: "#7B517B",
+  purpleMuted700: "#5A3F5A",
+  purpleMuted800: "#3A2C3A",
+  purpleMuted900: "#1B181B",
 
-  angry100: "#F2D6CD",
-  angry500: "#C03403",
+  // Red
+  red50: "#F4F0F1",
+  red100: "#ECDFDF",
+  red200: "#E7B1B3",
+  red300: "#E97C7F",
+  red400: "#EF4348",
+  red500: "#F10E16",
+  red600: "#BC1015",
+  red700: "#831619",
+  red800: "#4E181A",
+  red900: "#201313",
 
-  overlay20: "rgba(25, 16, 21, 0.2)",
-  overlay50: "rgba(25, 16, 21, 0.5)",
+  overlay20: "rgba(27, 24, 27, 0.2)",
+  overlay50: "rgba(27, 24, 27, 0.5)",
 } as const
 
 export const colors = {
-  /**
-   * The palette is available to use, but prefer using the name.
-   * This is only included for rare, one-off cases. Try to use
-   * semantic names as much as possible.
-   */
   palette,
-  /**
-   * A helper for making something see-thru.
-   */
   transparent: "rgba(0, 0, 0, 0)",
-  /**
-   * The default text color in many components.
-   */
-  text: palette.neutral800,
-  /**
-   * Secondary text information.
-   */
-  textDim: palette.neutral600,
-  /**
-   * The default color of the screen background.
-   */
-  background: palette.neutral200,
-  /**
-   * The default border color.
-   */
-  border: palette.neutral400,
-  /**
-   * The main tinting color.
-   */
-  tint: palette.primary500,
-  /**
-   * The inactive tinting color.
-   */
-  tintInactive: palette.neutral300,
-  /**
-   * A subtle color used for lines.
-   */
-  separator: palette.neutral300,
-  /**
-   * Error messages.
-   */
-  error: palette.angry500,
-  /**
-   * Error Background.
-   */
-  errorBackground: palette.angry100,
+  text: palette.gray900,
+  textDim: palette.gray600,
+  background: palette.gray50,
+  border: palette.gray300,
+  tint: palette.purple600,
+  tintInactive: palette.gray300,
+  separator: palette.gray200,
+  error: palette.red500,
+  errorBackground: palette.red100,
 } as const

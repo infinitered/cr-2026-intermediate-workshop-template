@@ -1,71 +1,47 @@
-// TODO: write documentation about fonts and typography along with guides on how to add custom fonts in own
-// markdown file and add links from here
-
 import { Platform } from "react-native"
 import {
-  SpaceGrotesk_300Light as spaceGroteskLight,
-  SpaceGrotesk_400Regular as spaceGroteskRegular,
-  SpaceGrotesk_500Medium as spaceGroteskMedium,
-  SpaceGrotesk_600SemiBold as spaceGroteskSemiBold,
-  SpaceGrotesk_700Bold as spaceGroteskBold,
-} from "@expo-google-fonts/space-grotesk"
+  Oxanium_400Regular as oxaniumRegular,
+  Oxanium_500Medium as oxaniumMedium,
+  Oxanium_600SemiBold as oxaniumSemiBold,
+  Oxanium_700Bold as oxaniumBold,
+} from "@expo-google-fonts/oxanium"
 
 export const customFontsToLoad = {
-  spaceGroteskLight,
-  spaceGroteskRegular,
-  spaceGroteskMedium,
-  spaceGroteskSemiBold,
-  spaceGroteskBold,
+  oxaniumRegular,
+  oxaniumMedium,
+  oxaniumSemiBold,
+  oxaniumBold,
 }
 
 const fonts = {
-  spaceGrotesk: {
-    // Cross-platform Google font.
-    light: "spaceGroteskLight",
-    normal: "spaceGroteskRegular",
-    medium: "spaceGroteskMedium",
-    semiBold: "spaceGroteskSemiBold",
-    bold: "spaceGroteskBold",
-  },
-  helveticaNeue: {
-    // iOS only font.
-    thin: "HelveticaNeue-Thin",
-    light: "HelveticaNeue-Light",
-    normal: "Helvetica Neue",
-    medium: "HelveticaNeue-Medium",
+  oxanium: {
+    normal: "oxaniumRegular",
+    medium: "oxaniumMedium",
+    semiBold: "oxaniumSemiBold",
+    bold: "oxaniumBold",
   },
   courier: {
-    // iOS only font.
     normal: "Courier",
   },
-  sansSerif: {
-    // Android only font.
-    thin: "sans-serif-thin",
-    light: "sans-serif-light",
-    normal: "sans-serif",
-    medium: "sans-serif-medium",
-  },
   monospace: {
-    // Android only font.
     normal: "monospace",
   },
 }
 
+/** Type scale from Figma design tokens */
+export const typeScale = {
+  display: { fontSize: 36, lineHeight: 44, fontFamily: fonts.oxanium.normal },
+  headline1: { fontSize: 28, lineHeight: 36, fontFamily: fonts.oxanium.semiBold },
+  headline2: { fontSize: 24, lineHeight: 32, fontFamily: fonts.oxanium.semiBold },
+  title1: { fontSize: 16, lineHeight: 24, fontFamily: fonts.oxanium.medium },
+  title2: { fontSize: 14, lineHeight: 20, fontFamily: fonts.oxanium.medium },
+  label1: { fontSize: 14, lineHeight: 20, fontFamily: fonts.oxanium.bold },
+  label2: { fontSize: 12, lineHeight: 16, fontFamily: fonts.oxanium.bold },
+  body: { fontSize: 14, lineHeight: 20, fontFamily: fonts.oxanium.normal },
+} as const
+
 export const typography = {
-  /**
-   * The fonts are available to use, but prefer using the semantic name.
-   */
   fonts,
-  /**
-   * The primary font. Used in most places.
-   */
-  primary: fonts.spaceGrotesk,
-  /**
-   * An alternate font used for perhaps titles and stuff.
-   */
-  secondary: Platform.select({ ios: fonts.helveticaNeue, android: fonts.sansSerif }),
-  /**
-   * Lets get fancy with a monospace font!
-   */
+  primary: fonts.oxanium,
   code: Platform.select({ ios: fonts.courier, android: fonts.monospace }),
 }
