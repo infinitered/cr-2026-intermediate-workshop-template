@@ -1,4 +1,3 @@
-import { NavigationContainer } from "@react-navigation/native"
 import { render } from "@testing-library/react-native"
 
 import { Text } from "./Text"
@@ -13,9 +12,7 @@ describe("Text", () => {
   it("should render the component", () => {
     const { getByText } = render(
       <ThemeProvider>
-        <NavigationContainer>
-          <Text text={testText} />
-        </NavigationContainer>
+        <Text text={testText} />
       </ThemeProvider>,
     )
     expect(getByText(testText)).toBeDefined()

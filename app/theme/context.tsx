@@ -8,11 +8,6 @@ import {
   useMemo,
 } from "react"
 import { StyleProp, useColorScheme } from "react-native"
-import {
-  DarkTheme as NavDarkTheme,
-  DefaultTheme as NavDefaultTheme,
-  Theme as NavTheme,
-} from "@react-navigation/native"
 import { useMMKVString } from "react-native-mmkv"
 
 import { storage } from "@/utils/storage"
@@ -29,7 +24,6 @@ import type {
 } from "./types"
 
 export type ThemeContextType = {
-  navigationTheme: NavTheme
   setThemeContextOverride: (newTheme: ThemeContextModeT) => void
   theme: Theme
   themeContext: ImmutableThemeContextModeT
@@ -83,15 +77,6 @@ export const ThemeProvider: FC<PropsWithChildren<ThemeProviderProps>> = ({
     return t === "dark" ? "dark" : "light"
   }, [initialContext, themeScheme, systemColorScheme])
 
-  const navigationTheme: NavTheme = useMemo(() => {
-    switch (themeContext) {
-      case "dark":
-        return NavDarkTheme
-      default:
-        return NavDefaultTheme
-    }
-  }, [themeContext])
-
   const theme: Theme = useMemo(() => {
     switch (themeContext) {
       case "dark":
@@ -122,7 +107,6 @@ export const ThemeProvider: FC<PropsWithChildren<ThemeProviderProps>> = ({
   )
 
   const value = {
-    navigationTheme,
     theme,
     themeContext,
     setThemeContextOverride,
