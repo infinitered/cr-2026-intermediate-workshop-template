@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
-import { Slot, SplashScreen } from "expo-router"
 import { useFonts } from "expo-font"
+import { Stack, SplashScreen } from "expo-router"
 import { QueryClientProvider } from "@tanstack/react-query"
 import { KeyboardProvider } from "react-native-keyboard-controller"
 import { initialWindowMetrics, SafeAreaProvider } from "react-native-safe-area-context"
@@ -59,7 +59,13 @@ export default function Root() {
       <ThemeProvider>
         <KeyboardProvider>
           <QueryClientProvider client={queryClient}>
-            <Slot />
+            <Stack screenOptions={{ headerShown: false }}>
+              <Stack.Screen name="(tabs)" />
+              <Stack.Screen
+                name="game/[id]"
+                options={{ headerShown: true, title: "Game Detail" }}
+              />
+            </Stack>
           </QueryClientProvider>
         </KeyboardProvider>
       </ThemeProvider>

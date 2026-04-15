@@ -56,8 +56,12 @@ export interface Game {
 export interface GameDetail extends Game {
   name_original: string
   description: string
+  description_raw: string
   background_image_additional: string | null
   website: string
+  genres: { id: number; name: string; slug: string }[]
+  developers: { id: number; name: string; slug: string }[]
+  publishers: { id: number; name: string; slug: string }[]
   screenshots_count: number
   movies_count: number
   creators_count: number
