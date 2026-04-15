@@ -16,6 +16,14 @@ if (__DEV__) {
   // include this in our production bundle, so we are using `if (__DEV__)`
   // to only execute this in development.
   require("@/devtools/ReactotronConfig")
+
+  // Enable MSW mocking of api responses
+  //
+  // To use actual API responses, make sure to set the
+  // EXPO_PUBLIC_RAWG_API_KEY var and comment out these lines
+  require("@/services/mocks/msw.polyfills")
+  const { server } = require("@/services/mocks/server")
+  server.listen()
 }
 
 export default function Root() {
@@ -39,6 +47,12 @@ export default function Root() {
       SplashScreen.hideAsync()
     }
   }, [loaded])
+
+  useEffect(() => {
+    fetch("https://api.rawg.io/api/games")
+      .then((res) => res.json())
+      .then((data) => console.log("MSW test:", data))
+  }, [])
 
   if (!loaded) {
     return null

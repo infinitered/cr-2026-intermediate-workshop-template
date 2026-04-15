@@ -84,6 +84,8 @@ web-build/
 
 # Configurations
 !env.js
+.env*
+!.env.example
 
 /coverage
 
