@@ -154,7 +154,7 @@ const $heroImage: ImageStyle = {
   height: 180,
 }
 
-const $favoriteOverlay: ThemedStyle<ViewStyle> = ({ spacing, colors }) => ({
+const $favoriteOverlay: ThemedStyle<ViewStyle> = ({ spacing }) => ({
   position: "absolute",
   top: spacing.xs,
   right: spacing.xs,
@@ -163,8 +163,6 @@ const $favoriteOverlay: ThemedStyle<ViewStyle> = ({ spacing, colors }) => ({
   gap: spacing.xs,
   paddingHorizontal: spacing.sm,
   paddingVertical: spacing.xxs,
-  backgroundColor: "transparent",
-  borderRadius: spacing.sm,
 })
 
 const $favoriteText: ViewStyle & { color: string } = {
