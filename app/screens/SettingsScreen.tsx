@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { Alert, TouchableOpacity, View, ViewStyle, TextStyle } from "react-native"
+import { useRouter } from "expo-router"
 import Slider from "@react-native-community/slider"
 
 import { Button } from "@/components/Button"
@@ -14,10 +15,11 @@ const SORT_OPTIONS = ["Rating", "Name", "Release Date"] as const
 type SortOrder = (typeof SORT_OPTIONS)[number]
 
 export function SettingsScreen() {
-  const { themed, theme } = useAppTheme()
+  const { themed, theme, themeContext, setThemeContextOverride } = useAppTheme()
+  const router = useRouter()
 
   const [displayName, setDisplayName] = useState("")
-  const [darkMode, setDarkMode] = useState(false)
+  const isDarkMode = themeContext === "dark"
   const [hideMature, setHideMature] = useState(false)
   const [minRating, setMinRating] = useState(3)
   const [sortOrder, setSortOrder] = useState<SortOrder>("Rating")
@@ -39,7 +41,10 @@ export function SettingsScreen() {
       <Text preset="subheading" text="Appearance" style={themed($sectionHeader)} />
       <View style={themed($toggleRow)}>
         <Text preset="bold" text="Dark Mode" />
-        <Switch value={darkMode} onValueChange={setDarkMode} />
+        <Switch
+          value={isDarkMode}
+          onValueChange={(value) => setThemeContextOverride(value ? "dark" : "light")}
+        />
       </View>
 
       <View style={themed($separator)} />
@@ -61,9 +66,9 @@ export function SettingsScreen() {
           step={1}
           value={minRating}
           onValueChange={setMinRating}
-          minimumTrackTintColor={theme.colors.palette.lemon500}
-          maximumTrackTintColor={theme.colors.palette.purpleMuted500}
-          thumbTintColor={theme.colors.palette.lemon500}
+          minimumTrackTintColor={theme.colors.brandSurface}
+          maximumTrackTintColor={theme.colors.trackInactive}
+          thumbTintColor={theme.colors.brandSurface}
         />
       </View>
 
@@ -105,12 +110,7 @@ export function SettingsScreen() {
       <Button
         text="About"
         preset="default"
-        onPress={() =>
-          Alert.alert(
-            "Game Vault",
-            "Version 1.0.0\nBuilt with Ignite + Expo\nA CR 2026 Workshop App",
-          )
-        }
+        onPress={() => router.push("/disclosures")}
         style={themed($button)}
       />
     </Screen>
@@ -147,28 +147,28 @@ const $sortRow: ViewStyle = {
   gap: 8,
 }
 
-const $sortPill: ThemedStyle<ViewStyle> = ({ spacing }) => ({
+const $sortPill: ThemedStyle<ViewStyle> = ({ spacing, colors }) => ({
   paddingVertical: spacing.xxs,
   paddingHorizontal: spacing.sm,
   borderRadius: spacing.md,
   borderWidth: 2,
-  borderColor: "#000",
+  borderColor: colors.border,
 })
 
 const $sortPillSelected: ThemedStyle<ViewStyle> = ({ colors }) => ({
-  backgroundColor: colors.palette.purple800,
+  backgroundColor: colors.brandAccent,
 })
 
 const $sortPillUnselected: ThemedStyle<ViewStyle> = ({ colors }) => ({
-  backgroundColor: colors.palette.lemon500,
+  backgroundColor: colors.brandSurface,
 })
 
 const $sortPillTextSelected: ThemedStyle<TextStyle> = ({ colors }) => ({
-  color: colors.palette.lemon500,
+  color: colors.brandAccentText,
 })
 
 const $sortPillTextUnselected: ThemedStyle<TextStyle> = ({ colors }) => ({
-  color: colors.palette.purple800,
+  color: colors.brandSurfaceText,
 })
 
 const $separator: ThemedStyle<ViewStyle> = ({ colors, spacing }) => ({

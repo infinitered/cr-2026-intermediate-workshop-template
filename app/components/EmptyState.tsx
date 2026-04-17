@@ -197,7 +197,7 @@ export function EmptyState(props: EmptyStateProps) {
           source={imageSource}
           {...ImageProps}
           style={$imageStyles}
-          tintColor={theme.colors.palette.gray900}
+          tintColor={theme.colors.text}
         />
       )}
 

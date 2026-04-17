@@ -210,17 +210,13 @@ const $viewPresets: Record<Presets, ThemedStyleArray<ViewStyle>> = {
   default: [
     $styles.row,
     $baseViewStyle,
-    () => ({
-      backgroundColor: "#DBFF00",
+    ({ colors }) => ({
+      backgroundColor: colors.brandSurface,
       borderWidth: 2,
-      borderColor: "#000",
+      borderColor: colors.border,
     }),
   ],
-  filled: [
-    $styles.row,
-    $baseViewStyle,
-    ({ colors }) => ({ backgroundColor: colors.palette.purple800 }),
-  ],
+  filled: [$styles.row, $baseViewStyle, ({ colors }) => ({ backgroundColor: colors.brandAccent })],
   reversed: [
     $styles.row,
     $baseViewStyle,
@@ -229,26 +225,26 @@ const $viewPresets: Record<Presets, ThemedStyleArray<ViewStyle>> = {
 }
 
 const $textPresets: Record<Presets, ThemedStyleArray<TextStyle>> = {
-  default: [$baseTextStyle, ({ colors }) => ({ color: colors.palette.purple800 })],
-  filled: [$baseTextStyle, ({ colors }) => ({ color: colors.palette.lemon500 })],
+  default: [$baseTextStyle, ({ colors }) => ({ color: colors.brandAccent })],
+  filled: [$baseTextStyle, ({ colors }) => ({ color: colors.brandAccentText })],
   reversed: [$baseTextStyle, ({ colors }) => ({ color: colors.palette.gray100 })],
 }
 
 const $pressedViewPresets: Record<Presets, ThemedStyle<ViewStyle>> = {
   default: ({ colors }) => ({
-    backgroundColor: colors.palette.purple800,
+    backgroundColor: colors.brandAccent,
     shadowColor: "#000",
     shadowOffset: { width: 4, height: 4 },
     shadowOpacity: 1,
     shadowRadius: 0,
     elevation: 4,
   }),
-  filled: ({ colors }) => ({ backgroundColor: colors.palette.lemon500 }),
+  filled: ({ colors }) => ({ backgroundColor: colors.brandSurface }),
   reversed: ({ colors }) => ({ backgroundColor: colors.palette.gray700 }),
 }
 
 const $pressedTextPresets: Record<Presets, ThemedStyle<TextStyle>> = {
-  default: ({ colors }) => ({ color: colors.palette.lemon500 }),
-  filled: ({ colors }) => ({ color: colors.palette.purple800 }),
+  default: ({ colors }) => ({ color: colors.brandSurfaceText }),
+  filled: ({ colors }) => ({ color: colors.brandAccentText }),
   reversed: () => ({ opacity: 0.9 }),
 }

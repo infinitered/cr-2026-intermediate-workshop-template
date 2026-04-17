@@ -53,7 +53,7 @@ const $cardOuter: ThemedStyle<ViewStyle> = ({ spacing }) => ({
 })
 
 const $cardInner: ThemedStyle<ViewStyle> = ({ colors, spacing }) => ({
-  backgroundColor: colors.palette.lemon500,
+  backgroundColor: colors.brandSurface,
   borderColor: "#000",
   borderWidth: 2,
   borderRadius: spacing.sm,
@@ -74,5 +74,5 @@ const $textContainer: ThemedStyle<ViewStyle> = ({ spacing }) => ({
 })
 
 const $cardText: ThemedStyle<TextStyle> = ({ colors }) => ({
-  color: colors.palette.purpleMuted900,
+  color: colors.brandSurfaceText,
 })

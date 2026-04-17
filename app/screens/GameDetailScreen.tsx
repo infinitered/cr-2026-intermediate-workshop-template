@@ -227,7 +227,7 @@ const $writeReviewSection: ThemedStyle<ViewStyle> = ({ spacing }) => ({
 })
 
 const $reviewButton: ThemedStyle<ViewStyle> = ({ colors, spacing }) => ({
-  backgroundColor: colors.palette.lemon500,
+  backgroundColor: colors.brandSurface,
   borderRadius: spacing.xs,
 })
 

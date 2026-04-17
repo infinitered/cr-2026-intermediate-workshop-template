@@ -254,8 +254,8 @@ const $inputWrapperStyle: ThemedStyle<ViewStyle> = ({ colors }) => ({
   alignItems: "flex-start",
   borderWidth: 1,
   borderRadius: 4,
-  backgroundColor: colors.palette.gray200,
-  borderColor: colors.palette.gray400,
+  backgroundColor: colors.background,
+  borderColor: colors.border,
   overflow: "hidden",
 })
 

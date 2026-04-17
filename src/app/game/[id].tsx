@@ -15,8 +15,8 @@ export default function GameDetailRoute() {
         options={{
           title: game?.name ?? "Game Detail",
           headerBackTitle: "Back",
-          headerStyle: { backgroundColor: theme.colors.palette.lemon500 },
-          headerTintColor: theme.colors.palette.purpleMuted900,
+          headerStyle: { backgroundColor: theme.colors.brandSurface },
+          headerTintColor: theme.colors.brandSurfaceText,
         }}
       />
       <GameDetailScreen id={Number(id)} />

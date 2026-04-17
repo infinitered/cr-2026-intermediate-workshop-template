@@ -88,13 +88,13 @@ function SwitchInput(props: SwitchInputProps) {
   const offBackgroundColor = [
     disabled && colors.palette.gray400,
     status === "error" && colors.errorBackground,
-    colors.palette.purpleMuted500,
+    colors.trackInactive,
   ].filter(Boolean)[0]
 
   const onBackgroundColor = [
     disabled && colors.transparent,
     status === "error" && colors.errorBackground,
-    colors.palette.purple800,
+    colors.brandAccent,
   ].filter(Boolean)[0]
 
   const knobBackgroundColor = (function () {
@@ -103,14 +103,14 @@ function SwitchInput(props: SwitchInputProps) {
         $detailStyleOverride?.backgroundColor,
         status === "error" && colors.error,
         disabled && colors.palette.gray600,
-        colors.palette.lemon500,
+        colors.brandSurface,
       ].filter(Boolean)[0]
     } else {
       return [
         $innerStyleOverride?.backgroundColor,
         disabled && colors.palette.gray600,
         status === "error" && colors.error,
-        colors.palette.purpleMuted800,
+        colors.separator,
       ].filter(Boolean)[0]
     }
   })()

@@ -66,7 +66,8 @@ const palette = {
 export const colors = {
   palette,
   transparent: "rgba(0, 0, 0, 0)",
-  text: palette.lemon500,
+  text: palette.gray200,
+  textEmphasis: palette.lemon500,
   textDim: palette.purpleMuted400,
   background: palette.purpleMuted900,
   border: palette.purpleMuted700,
@@ -75,4 +76,9 @@ export const colors = {
   separator: palette.purpleMuted800,
   error: palette.red500,
   errorBackground: palette.red900,
+  brandSurface: palette.purple800,
+  brandSurfaceText: palette.lemon500,
+  brandAccent: palette.lemon500,
+  brandAccentText: palette.purple800,
+  trackInactive: palette.purpleMuted500,
 } as const

@@ -65,6 +65,7 @@ export default function Root() {
                 name="game/[id]"
                 options={{ headerShown: true, title: "Game Detail" }}
               />
+              <Stack.Screen name="disclosures" />
             </Stack>
           </QueryClientProvider>
         </KeyboardProvider>

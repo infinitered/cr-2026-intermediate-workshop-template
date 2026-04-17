@@ -99,17 +99,15 @@ const $baseStyle: ThemedStyle<TextStyle> = (theme) => ({
   color: theme.colors.text,
 })
 
+const $emphasisColor: ThemedStyle<TextStyle> = (theme) => ({
+  color: theme.colors.textEmphasis,
+})
+
 const $presets: Record<Presets, ThemedStyleArray<TextStyle>> = {
   default: [$baseStyle],
-  bold: [$baseStyle, { ...$fontWeightStyles.bold }],
-  heading: [
-    $baseStyle,
-    {
-      ...$sizeStyles.xxl,
-      ...$fontWeightStyles.bold,
-    },
-  ],
-  subheading: [$baseStyle, { ...$sizeStyles.lg, ...$fontWeightStyles.medium }],
+  bold: [$baseStyle, { ...$fontWeightStyles.bold }, $emphasisColor],
+  heading: [$baseStyle, { ...$sizeStyles.xxl, ...$fontWeightStyles.bold }, $emphasisColor],
+  subheading: [$baseStyle, { ...$sizeStyles.lg, ...$fontWeightStyles.medium }, $emphasisColor],
   formLabel: [$baseStyle, { ...$fontWeightStyles.medium }],
   formHelper: [$baseStyle, { ...$sizeStyles.sm, ...$fontWeightStyles.normal }],
 }

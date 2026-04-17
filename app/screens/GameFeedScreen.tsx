@@ -61,6 +61,6 @@ const $toggleRow: ThemedStyle<ViewStyle> = ({ spacing, colors }) => ({
   paddingHorizontal: spacing.lg,
   paddingVertical: spacing.sm,
   borderBottomWidth: 2,
-  borderBottomColor: "#000",
-  backgroundColor: colors.palette.gray50,
+  borderBottomColor: colors.border,
+  backgroundColor: colors.background,
 })

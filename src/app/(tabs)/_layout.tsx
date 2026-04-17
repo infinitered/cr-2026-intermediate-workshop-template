@@ -10,18 +10,28 @@ export default function TabsLayout() {
     theme: { colors },
   } = useAppTheme()
 
+  const barBg = colors.brandSurface
+  const barTint = colors.brandSurfaceText
+  const barBorder = colors.border
+
+  const headerStyle = {
+    backgroundColor: barBg,
+    borderBottomWidth: 2,
+    borderBottomColor: barBorder,
+  }
+
   return (
     <Tabs
       screenOptions={{
         headerShown: false,
         tabBarStyle: {
-          backgroundColor: colors.palette.lemon500,
-          borderTopColor: "#000",
+          backgroundColor: barBg,
+          borderTopColor: barBorder,
           borderTopWidth: 2,
           paddingTop: 8,
         } satisfies ViewStyle,
-        tabBarActiveTintColor: colors.palette.purple800,
-        tabBarInactiveTintColor: colors.palette.purpleMuted500,
+        tabBarActiveTintColor: colors.brandAccent,
+        tabBarInactiveTintColor: colors.trackInactive,
         tabBarLabelStyle: {
           fontFamily: typeScale.label2.fontFamily,
           fontSize: typeScale.label2.fontSize,
@@ -33,12 +43,8 @@ export default function TabsLayout() {
         options={{
           title: "Games",
           headerShown: true,
-          headerStyle: {
-            backgroundColor: colors.palette.lemon500,
-            borderBottomWidth: 2,
-            borderBottomColor: "#000",
-          },
-          headerTintColor: colors.palette.purpleMuted900,
+          headerStyle,
+          headerTintColor: barTint,
           headerTitleStyle: { fontFamily: typeScale.headline1.fontFamily },
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="game-controller" size={size} color={color} />
@@ -50,12 +56,8 @@ export default function TabsLayout() {
         options={{
           title: "Genres",
           headerShown: true,
-          headerStyle: {
-            backgroundColor: colors.palette.lemon500,
-            borderBottomWidth: 2,
-            borderBottomColor: "#000",
-          },
-          headerTintColor: colors.palette.purpleMuted900,
+          headerStyle,
+          headerTintColor: barTint,
           headerTitleStyle: { fontFamily: typeScale.headline1.fontFamily },
           tabBarIcon: ({ color, size }) => <Ionicons name="grid" size={size} color={color} />,
         }}
@@ -65,12 +67,8 @@ export default function TabsLayout() {
         options={{
           title: "Settings",
           headerShown: true,
-          headerStyle: {
-            backgroundColor: colors.palette.lemon500,
-            borderBottomWidth: 2,
-            borderBottomColor: "#000",
-          },
-          headerTintColor: colors.palette.purpleMuted900,
+          headerStyle,
+          headerTintColor: barTint,
           headerTitleStyle: { fontFamily: typeScale.headline1.fontFamily },
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="settings-sharp" size={size} color={color} />

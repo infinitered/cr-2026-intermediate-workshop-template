@@ -41,7 +41,7 @@ const $container: ThemedStyle<ViewStyle> = ({ spacing }) => ({
 
 const $badge: ThemedStyle<ViewStyle> = ({ colors, spacing }) => ({
   alignSelf: "flex-start",
-  backgroundColor: colors.palette.purple800,
+  backgroundColor: colors.brandAccent,
   borderRadius: spacing.md,
   borderWidth: 2,
   borderColor: "#000",
@@ -52,7 +52,7 @@ const $badge: ThemedStyle<ViewStyle> = ({ colors, spacing }) => ({
 })
 
 const $badgeText: ThemedStyle<TextStyle> = ({ colors }) => ({
-  color: colors.palette.lemon500,
+  color: colors.brandAccentText,
 })
 
 const $listContent: ThemedStyle<ViewStyle> = ({ spacing }) => ({
