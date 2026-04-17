@@ -50,7 +50,7 @@ export function GameDetailScreen({ id }: GameDetailScreenProps) {
       {/* Hero image with favorites overlay at top-right */}
       <View>
         {game.background_image && (
-          <Image source={{ uri: game.background_image }} style={$heroImage} />
+          <Image source={{ uri: game.background_image }} style={$heroImage} blurRadius={3} />
         )}
         <View style={themed($favoriteOverlay)}>
           <Text weight="bold" size="xs" text="Add to Favorites" style={$favoriteText} />
@@ -154,7 +154,7 @@ const $heroImage: ImageStyle = {
   height: 180,
 }
 
-const $favoriteOverlay: ThemedStyle<ViewStyle> = ({ spacing }) => ({
+const $favoriteOverlay: ThemedStyle<ViewStyle> = ({ spacing, colors }) => ({
   position: "absolute",
   top: spacing.xs,
   right: spacing.xs,
@@ -163,7 +163,7 @@ const $favoriteOverlay: ThemedStyle<ViewStyle> = ({ spacing }) => ({
   gap: spacing.xs,
   paddingHorizontal: spacing.sm,
   paddingVertical: spacing.xxs,
-  backgroundColor: "rgba(0,0,0,0.5)",
+  backgroundColor: "transparent",
   borderRadius: spacing.sm,
 })
 

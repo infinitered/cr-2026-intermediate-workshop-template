@@ -51,6 +51,10 @@ export default function TabsLayout() {
         name="settings"
         options={{
           title: "Settings",
+          headerShown: true,
+          headerStyle: { backgroundColor: colors.palette.lemon500 },
+          headerTintColor: colors.palette.purpleMuted900,
+          headerTitleStyle: { fontFamily: typeScale.headline1.fontFamily },
           tabBarIcon: ({ color: _color }) => null,
         }}
       />

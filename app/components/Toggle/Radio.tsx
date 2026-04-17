@@ -49,26 +49,26 @@ function RadioInput(props: RadioInputProps) {
   }, [on])
 
   const offBackgroundColor = [
-    disabled && colors.palette.neutral400,
+    disabled && colors.palette.gray400,
     status === "error" && colors.errorBackground,
-    colors.palette.neutral200,
+    colors.palette.gray200,
   ].filter(Boolean)[0]
 
   const outerBorderColor = [
-    disabled && colors.palette.neutral400,
+    disabled && colors.palette.gray400,
     status === "error" && colors.error,
-    !on && colors.palette.neutral800,
+    !on && colors.palette.gray800,
     colors.palette.secondary500,
   ].filter(Boolean)[0]
 
   const onBackgroundColor = [
     disabled && colors.transparent,
     status === "error" && colors.errorBackground,
-    colors.palette.neutral100,
+    colors.palette.gray100,
   ].filter(Boolean)[0]
 
   const dotBackgroundColor = [
-    disabled && colors.palette.neutral600,
+    disabled && colors.palette.gray600,
     status === "error" && colors.error,
     colors.palette.secondary500,
   ].filter(Boolean)[0]

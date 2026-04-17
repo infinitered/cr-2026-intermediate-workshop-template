@@ -61,15 +61,15 @@ function CheckboxInput(props: CheckboxInputProps) {
   }, [on])
 
   const offBackgroundColor = [
-    disabled && colors.palette.neutral400,
+    disabled && colors.palette.gray400,
     status === "error" && colors.errorBackground,
-    colors.palette.neutral200,
+    colors.palette.gray200,
   ].filter(Boolean)[0]
 
   const outerBorderColor = [
-    disabled && colors.palette.neutral400,
+    disabled && colors.palette.gray400,
     status === "error" && colors.error,
-    !on && colors.palette.neutral800,
+    !on && colors.palette.gray800,
     colors.palette.secondary500,
   ].filter(Boolean)[0]
 
@@ -80,7 +80,7 @@ function CheckboxInput(props: CheckboxInputProps) {
   ].filter(Boolean)[0]
 
   const iconTintColor = [
-    disabled && colors.palette.neutral600,
+    disabled && colors.palette.gray600,
     status === "error" && colors.error,
     colors.palette.accent100,
   ].filter(Boolean)[0]
