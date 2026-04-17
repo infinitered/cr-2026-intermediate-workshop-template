@@ -17,7 +17,7 @@ export default function DisclosuresRoute() {
           headerStyle: {
             backgroundColor: theme.colors.brandSurface,
             borderBottomWidth: 2,
-            borderBottomColor: theme.colors.border,
+            borderBottomColor: theme.colors.brandBorder,
           },
           headerTintColor: theme.colors.brandSurfaceText,
           headerTitleStyle: { fontFamily: typeScale.headline1.fontFamily },

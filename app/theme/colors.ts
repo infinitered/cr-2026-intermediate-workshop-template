@@ -80,5 +80,6 @@ export const colors = {
   brandSurfaceText: palette.purpleMuted900,
   brandAccent: palette.purple800,
   brandAccentText: palette.lemon500,
+  brandBorder: palette.gray900,
   trackInactive: palette.purpleMuted500,
 } as const

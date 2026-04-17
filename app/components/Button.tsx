@@ -213,7 +213,7 @@ const $viewPresets: Record<Presets, ThemedStyleArray<ViewStyle>> = {
     ({ colors }) => ({
       backgroundColor: colors.brandSurface,
       borderWidth: 2,
-      borderColor: colors.border,
+      borderColor: colors.brandBorder,
     }),
   ],
   filled: [$styles.row, $baseViewStyle, ({ colors }) => ({ backgroundColor: colors.brandAccent })],
@@ -225,7 +225,7 @@ const $viewPresets: Record<Presets, ThemedStyleArray<ViewStyle>> = {
 }
 
 const $textPresets: Record<Presets, ThemedStyleArray<TextStyle>> = {
-  default: [$baseTextStyle, ({ colors }) => ({ color: colors.brandAccent })],
+  default: [$baseTextStyle, ({ colors }) => ({ color: colors.text })],
   filled: [$baseTextStyle, ({ colors }) => ({ color: colors.brandAccentText })],
   reversed: [$baseTextStyle, ({ colors }) => ({ color: colors.palette.gray100 })],
 }
@@ -244,7 +244,7 @@ const $pressedViewPresets: Record<Presets, ThemedStyle<ViewStyle>> = {
 }
 
 const $pressedTextPresets: Record<Presets, ThemedStyle<TextStyle>> = {
-  default: ({ colors }) => ({ color: colors.brandSurfaceText }),
+  default: ({ colors }) => ({ color: colors.brandAccentText }),
   filled: ({ colors }) => ({ color: colors.brandAccentText }),
   reversed: () => ({ opacity: 0.9 }),
 }

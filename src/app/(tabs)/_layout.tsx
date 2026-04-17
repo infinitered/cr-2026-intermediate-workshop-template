@@ -12,7 +12,7 @@ export default function TabsLayout() {
 
   const barBg = colors.brandSurface
   const barTint = colors.brandSurfaceText
-  const barBorder = colors.border
+  const barBorder = colors.brandBorder
 
   const headerStyle = {
     backgroundColor: barBg,

@@ -152,7 +152,7 @@ const $sortPill: ThemedStyle<ViewStyle> = ({ spacing, colors }) => ({
   paddingHorizontal: spacing.sm,
   borderRadius: spacing.md,
   borderWidth: 2,
-  borderColor: colors.border,
+  borderColor: colors.brandBorder,
 })
 
 const $sortPillSelected: ThemedStyle<ViewStyle> = ({ colors }) => ({
