@@ -180,12 +180,11 @@ export function Button(props: ButtonProps) {
 
 const $baseViewStyle: ThemedStyle<ViewStyle> = ({ spacing }) => ({
   minHeight: 56,
-  borderRadius: 4,
+  borderRadius: 16,
   justifyContent: "center",
   alignItems: "center",
   paddingVertical: spacing.sm,
-  paddingHorizontal: spacing.sm,
-  overflow: "hidden",
+  paddingHorizontal: spacing.lg,
 })
 
 const $baseTextStyle: ThemedStyle<TextStyle> = ({ typography }) => ({
@@ -211,16 +210,16 @@ const $viewPresets: Record<Presets, ThemedStyleArray<ViewStyle>> = {
   default: [
     $styles.row,
     $baseViewStyle,
-    ({ colors }) => ({
-      borderWidth: 1,
-      borderColor: colors.palette.gray400,
-      backgroundColor: colors.palette.gray100,
+    () => ({
+      backgroundColor: "#DBFF00",
+      borderWidth: 2,
+      borderColor: "#000",
     }),
   ],
   filled: [
     $styles.row,
     $baseViewStyle,
-    ({ colors }) => ({ backgroundColor: colors.palette.gray300 }),
+    ({ colors }) => ({ backgroundColor: colors.palette.purple800 }),
   ],
   reversed: [
     $styles.row,
@@ -230,19 +229,26 @@ const $viewPresets: Record<Presets, ThemedStyleArray<ViewStyle>> = {
 }
 
 const $textPresets: Record<Presets, ThemedStyleArray<TextStyle>> = {
-  default: [$baseTextStyle],
-  filled: [$baseTextStyle],
+  default: [$baseTextStyle, ({ colors }) => ({ color: colors.palette.purple800 })],
+  filled: [$baseTextStyle, ({ colors }) => ({ color: colors.palette.lemon500 })],
   reversed: [$baseTextStyle, ({ colors }) => ({ color: colors.palette.gray100 })],
 }
 
 const $pressedViewPresets: Record<Presets, ThemedStyle<ViewStyle>> = {
-  default: ({ colors }) => ({ backgroundColor: colors.palette.gray200 }),
-  filled: ({ colors }) => ({ backgroundColor: colors.palette.gray400 }),
+  default: ({ colors }) => ({
+    backgroundColor: colors.palette.purple800,
+    shadowColor: "#000",
+    shadowOffset: { width: 4, height: 4 },
+    shadowOpacity: 1,
+    shadowRadius: 0,
+    elevation: 4,
+  }),
+  filled: ({ colors }) => ({ backgroundColor: colors.palette.lemon500 }),
   reversed: ({ colors }) => ({ backgroundColor: colors.palette.gray700 }),
 }
 
 const $pressedTextPresets: Record<Presets, ThemedStyle<TextStyle>> = {
-  default: () => ({ opacity: 0.9 }),
-  filled: () => ({ opacity: 0.9 }),
+  default: ({ colors }) => ({ color: colors.palette.lemon500 }),
+  filled: ({ colors }) => ({ color: colors.palette.purple800 }),
   reversed: () => ({ opacity: 0.9 }),
 }
