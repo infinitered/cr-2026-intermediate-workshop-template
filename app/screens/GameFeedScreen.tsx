@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { ActivityIndicator, View, ViewStyle } from "react-native"
+import { ActivityIndicator, ScrollView, View, ViewStyle } from "react-native"
 
 import { EmptyState } from "@/components/EmptyState"
 import { Screen } from "@/components/Screen"
@@ -8,6 +8,7 @@ import { Switch } from "@/components/Toggle/Switch"
 import { YearSection } from "@/components/YearSection"
 import { useGamesByYear } from "@/services/api/games"
 import { useAppTheme } from "@/theme/context"
+import { $styles } from "@/theme/styles"
 import type { ThemedStyle } from "@/theme/types"
 
 export function GameFeedScreen() {
@@ -32,15 +33,17 @@ export function GameFeedScreen() {
   }
 
   return (
-    <Screen preset="scroll">
+    <Screen preset="fixed" contentContainerStyle={$styles.flex1}>
       <View style={themed($toggleRow)}>
-        <Text preset="bold" text="Show Favorites" />
+        <Text text="Show Favorites" />
         <Switch value={showFavorites} onValueChange={setShowFavorites} />
       </View>
 
-      {yearGroups.map((group) => (
-        <YearSection key={group.year} year={group.year} games={group.games} />
-      ))}
+      <ScrollView>
+        {yearGroups.map((group) => (
+          <YearSection key={group.year} year={group.year} games={group.games} />
+        ))}
+      </ScrollView>
     </Screen>
   )
 }
@@ -51,10 +54,13 @@ const $centered: ViewStyle = {
   alignItems: "center",
 }
 
-const $toggleRow: ThemedStyle<ViewStyle> = ({ spacing }) => ({
+const $toggleRow: ThemedStyle<ViewStyle> = ({ spacing, colors }) => ({
   flexDirection: "row",
   alignItems: "center",
   justifyContent: "space-between",
   paddingHorizontal: spacing.lg,
   paddingVertical: spacing.sm,
+  borderBottomWidth: 2,
+  borderBottomColor: "#000",
+  backgroundColor: colors.palette.gray50,
 })

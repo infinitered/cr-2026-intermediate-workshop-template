@@ -148,26 +148,27 @@ const $sortRow: ViewStyle = {
 }
 
 const $sortPill: ThemedStyle<ViewStyle> = ({ spacing }) => ({
-  paddingVertical: spacing.xs,
-  paddingHorizontal: spacing.md,
-  borderRadius: 20,
+  paddingVertical: spacing.xxs,
+  paddingHorizontal: spacing.sm,
+  borderRadius: spacing.md,
+  borderWidth: 2,
+  borderColor: "#000",
 })
 
 const $sortPillSelected: ThemedStyle<ViewStyle> = ({ colors }) => ({
-  backgroundColor: colors.palette.lemon500,
+  backgroundColor: colors.palette.purple800,
 })
 
 const $sortPillUnselected: ThemedStyle<ViewStyle> = ({ colors }) => ({
-  borderWidth: 1,
-  borderColor: colors.separator,
+  backgroundColor: colors.palette.lemon500,
 })
 
 const $sortPillTextSelected: ThemedStyle<TextStyle> = ({ colors }) => ({
-  color: colors.palette.purpleMuted900,
+  color: colors.palette.lemon500,
 })
 
 const $sortPillTextUnselected: ThemedStyle<TextStyle> = ({ colors }) => ({
-  color: colors.text,
+  color: colors.palette.purple800,
 })
 
 const $separator: ThemedStyle<ViewStyle> = ({ colors, spacing }) => ({

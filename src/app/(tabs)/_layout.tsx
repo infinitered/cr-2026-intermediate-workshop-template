@@ -16,7 +16,8 @@ export default function TabsLayout() {
         headerShown: false,
         tabBarStyle: {
           backgroundColor: colors.palette.lemon500,
-          borderTopColor: colors.palette.lemon600,
+          borderTopColor: "#000",
+          borderTopWidth: 2,
           paddingTop: 8,
         } satisfies ViewStyle,
         tabBarActiveTintColor: colors.palette.purple800,
@@ -32,7 +33,11 @@ export default function TabsLayout() {
         options={{
           title: "Games",
           headerShown: true,
-          headerStyle: { backgroundColor: colors.palette.lemon500 },
+          headerStyle: {
+            backgroundColor: colors.palette.lemon500,
+            borderBottomWidth: 2,
+            borderBottomColor: "#000",
+          },
           headerTintColor: colors.palette.purpleMuted900,
           headerTitleStyle: { fontFamily: typeScale.headline1.fontFamily },
           tabBarIcon: ({ color, size }) => (
@@ -45,7 +50,11 @@ export default function TabsLayout() {
         options={{
           title: "Genres",
           headerShown: true,
-          headerStyle: { backgroundColor: colors.palette.lemon500 },
+          headerStyle: {
+            backgroundColor: colors.palette.lemon500,
+            borderBottomWidth: 2,
+            borderBottomColor: "#000",
+          },
           headerTintColor: colors.palette.purpleMuted900,
           headerTitleStyle: { fontFamily: typeScale.headline1.fontFamily },
           tabBarIcon: ({ color, size }) => <Ionicons name="grid" size={size} color={color} />,
@@ -56,7 +65,11 @@ export default function TabsLayout() {
         options={{
           title: "Settings",
           headerShown: true,
-          headerStyle: { backgroundColor: colors.palette.lemon500 },
+          headerStyle: {
+            backgroundColor: colors.palette.lemon500,
+            borderBottomWidth: 2,
+            borderBottomColor: "#000",
+          },
           headerTintColor: colors.palette.purpleMuted900,
           headerTitleStyle: { fontFamily: typeScale.headline1.fontFamily },
           tabBarIcon: ({ color, size }) => (

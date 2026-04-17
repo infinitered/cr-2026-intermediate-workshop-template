@@ -18,40 +18,51 @@ export function GameCard({ game }: GameCardProps) {
   return (
     <TouchableOpacity
       activeOpacity={0.8}
-      style={themed($card)}
+      style={themed($cardOuter)}
       onPress={() => router.push(`/game/${game.id}`)}
     >
-      {game.background_image ? (
-        <Image source={{ uri: game.background_image }} style={themed($image)} />
-      ) : (
-        <View style={themed([$image, $imagePlaceholder])} />
-      )}
-      <View style={themed($textContainer)}>
-        <Text weight="bold" size="xxs" numberOfLines={2} style={themed($cardText)}>
-          {game.name}
-        </Text>
-        <Text size="xxs" style={themed($cardText)}>
-          {game.released ? formatDate(game.released) : "TBA"}
-        </Text>
+      <View style={themed($cardInner)}>
+        {game.background_image ? (
+          <Image source={{ uri: game.background_image }} style={themed($image)} />
+        ) : (
+          <View style={themed([$image, $imagePlaceholder])} />
+        )}
+        <View style={themed($textContainer)}>
+          <Text weight="bold" size="xxs" numberOfLines={1} style={themed($cardText)}>
+            {game.name}
+          </Text>
+          <Text size="xxs" style={themed($cardText)}>
+            {game.released ? formatDate(game.released) : "TBA"}
+          </Text>
+        </View>
       </View>
     </TouchableOpacity>
   )
 }
 
-const CARD_WIDTH = 120
+const CARD_WIDTH = 150
 
-const $card: ThemedStyle<ViewStyle> = ({ colors, spacing }) => ({
-  backgroundColor: colors.palette.lemon500,
-  borderColor: colors.palette.purpleMuted800,
-  borderWidth: 1,
-  borderRadius: spacing.sm,
+const $cardOuter: ThemedStyle<ViewStyle> = ({ spacing }) => ({
   width: CARD_WIDTH,
+  borderRadius: spacing.sm,
+  shadowColor: "#000",
+  shadowOffset: { width: 4, height: 4 },
+  shadowOpacity: 1,
+  shadowRadius: 0,
+  elevation: 4,
+})
+
+const $cardInner: ThemedStyle<ViewStyle> = ({ colors, spacing }) => ({
+  backgroundColor: colors.palette.lemon500,
+  borderColor: "#000",
+  borderWidth: 2,
+  borderRadius: spacing.sm,
   overflow: "hidden",
 })
 
 const $image: ThemedStyle<ImageStyle> = () => ({
   width: CARD_WIDTH,
-  height: 170,
+  height: 213,
 })
 
 const $imagePlaceholder: ThemedStyle<ViewStyle> = ({ colors }) => ({

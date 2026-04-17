@@ -68,7 +68,7 @@ export const colors = {
   transparent: "rgba(0, 0, 0, 0)",
   text: palette.gray900,
   textDim: palette.gray600,
-  background: palette.gray50,
+  background: "#FFFFFF",
   border: palette.gray300,
   tint: palette.purple600,
   tintInactive: palette.gray300,

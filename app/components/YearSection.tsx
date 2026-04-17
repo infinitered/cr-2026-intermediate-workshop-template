@@ -35,13 +35,16 @@ export function YearSection({ year, games }: YearSectionProps) {
 }
 
 const $container: ThemedStyle<ViewStyle> = ({ spacing }) => ({
-  marginBottom: spacing.lg,
+  marginBottom: spacing.sm,
+  marginTop: spacing.sm,
 })
 
 const $badge: ThemedStyle<ViewStyle> = ({ colors, spacing }) => ({
   alignSelf: "flex-start",
-  backgroundColor: colors.palette.lemon500,
-  borderRadius: spacing.sm,
+  backgroundColor: colors.palette.purple800,
+  borderRadius: spacing.md,
+  borderWidth: 2,
+  borderColor: "#000",
   paddingHorizontal: spacing.sm,
   paddingVertical: spacing.xxs,
   marginBottom: spacing.sm,
@@ -49,10 +52,11 @@ const $badge: ThemedStyle<ViewStyle> = ({ colors, spacing }) => ({
 })
 
 const $badgeText: ThemedStyle<TextStyle> = ({ colors }) => ({
-  color: colors.palette.purpleMuted900,
+  color: colors.palette.lemon500,
 })
 
 const $listContent: ThemedStyle<ViewStyle> = ({ spacing }) => ({
   paddingHorizontal: spacing.lg,
+  paddingBottom: spacing.xs,
   gap: spacing.sm,
 })
