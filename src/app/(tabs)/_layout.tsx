@@ -1,5 +1,6 @@
 import { ViewStyle } from "react-native"
 import { Tabs } from "expo-router"
+import { Ionicons } from "@expo/vector-icons"
 
 import { useAppTheme } from "@/theme/context"
 import { typeScale } from "@/theme/typography"
@@ -14,10 +15,11 @@ export default function TabsLayout() {
       screenOptions={{
         headerShown: false,
         tabBarStyle: {
-          backgroundColor: colors.palette.purpleMuted900,
-          borderTopColor: colors.palette.purpleMuted800,
+          backgroundColor: colors.palette.lemon500,
+          borderTopColor: colors.palette.lemon600,
+          paddingTop: 8,
         } satisfies ViewStyle,
-        tabBarActiveTintColor: colors.palette.lemon500,
+        tabBarActiveTintColor: colors.palette.purple800,
         tabBarInactiveTintColor: colors.palette.purpleMuted500,
         tabBarLabelStyle: {
           fontFamily: typeScale.label2.fontFamily,
@@ -33,7 +35,9 @@ export default function TabsLayout() {
           headerStyle: { backgroundColor: colors.palette.lemon500 },
           headerTintColor: colors.palette.purpleMuted900,
           headerTitleStyle: { fontFamily: typeScale.headline1.fontFamily },
-          tabBarIcon: ({ color: _color }) => null,
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="game-controller" size={size} color={color} />
+          ),
         }}
       />
       <Tabs.Screen
@@ -44,7 +48,7 @@ export default function TabsLayout() {
           headerStyle: { backgroundColor: colors.palette.lemon500 },
           headerTintColor: colors.palette.purpleMuted900,
           headerTitleStyle: { fontFamily: typeScale.headline1.fontFamily },
-          tabBarIcon: ({ color: _color }) => null,
+          tabBarIcon: ({ color, size }) => <Ionicons name="grid" size={size} color={color} />,
         }}
       />
       <Tabs.Screen
@@ -55,7 +59,9 @@ export default function TabsLayout() {
           headerStyle: { backgroundColor: colors.palette.lemon500 },
           headerTintColor: colors.palette.purpleMuted900,
           headerTitleStyle: { fontFamily: typeScale.headline1.fontFamily },
-          tabBarIcon: ({ color: _color }) => null,
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="settings-sharp" size={size} color={color} />
+          ),
         }}
       />
     </Tabs>
