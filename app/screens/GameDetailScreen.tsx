@@ -1,4 +1,3 @@
-import { useState } from "react"
 import { ActivityIndicator, FlatList, Image, ImageStyle, View, ViewStyle } from "react-native"
 
 import { Button } from "@/components/Button"
@@ -7,6 +6,7 @@ import { Screen } from "@/components/Screen"
 import { Text } from "@/components/Text"
 import { Switch } from "@/components/Toggle/Switch"
 import { useGameDetail, useGameScreenshots } from "@/services/api/games"
+import { useFavorites } from "@/stores/favorites"
 import { useAppTheme } from "@/theme/context"
 import { $styles } from "@/theme/styles"
 import type { ThemedStyle } from "@/theme/types"
@@ -20,7 +20,7 @@ export function GameDetailScreen({ id }: GameDetailScreenProps) {
   const { themed, theme } = useAppTheme()
   const { data: game, isLoading, isError } = useGameDetail(id)
   const { data: screenshots } = useGameScreenshots(id)
-  const [isFavorite, setIsFavorite] = useState(false)
+  const { isFavorite, toggleFavorite } = useFavorites()
 
   if (isLoading) {
     return (
@@ -54,7 +54,7 @@ export function GameDetailScreen({ id }: GameDetailScreenProps) {
         )}
         <View style={themed($favoriteOverlay)}>
           <Text weight="bold" size="xs" text="Add to Favorites" style={$favoriteText} />
-          <Switch value={isFavorite} onValueChange={setIsFavorite} />
+          <Switch value={isFavorite(id)} onValueChange={() => toggleFavorite(id)} />
         </View>
       </View>
 

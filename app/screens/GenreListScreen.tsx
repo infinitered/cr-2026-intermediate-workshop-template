@@ -1,4 +1,3 @@
-import { useState } from "react"
 import { ActivityIndicator, FlatList, Image, ImageStyle, View, ViewStyle } from "react-native"
 
 import { EmptyState } from "@/components/EmptyState"
@@ -7,6 +6,7 @@ import { Text } from "@/components/Text"
 import { Checkbox } from "@/components/Toggle/Checkbox"
 import { useGenres } from "@/services/api/genres"
 import { Genre } from "@/services/api/types"
+import { useGenreFilter } from "@/stores/genreFilter"
 import { useAppTheme } from "@/theme/context"
 import { $styles } from "@/theme/styles"
 import type { ThemedStyle } from "@/theme/types"
@@ -14,21 +14,9 @@ import type { ThemedStyle } from "@/theme/types"
 export function GenreListScreen() {
   const { themed, theme } = useAppTheme()
   const { data, isLoading, isError } = useGenres()
-  const [selectedIds, setSelectedIds] = useState<Set<number>>(new Set())
+  const { isSelected, toggleGenre } = useGenreFilter()
 
   const genres = data?.results ?? []
-
-  function toggleGenre(id: number) {
-    setSelectedIds((prev) => {
-      const next = new Set(prev)
-      if (next.has(id)) {
-        next.delete(id)
-      } else {
-        next.add(id)
-      }
-      return next
-    })
-  }
 
   if (isLoading) {
     return (
@@ -60,7 +48,7 @@ export function GenreListScreen() {
         renderItem={({ item }) => (
           <GenreRow
             genre={item}
-            selected={selectedIds.has(item.id)}
+            selected={isSelected(item.id)}
             onToggle={() => toggleGenre(item.id)}
           />
         )}

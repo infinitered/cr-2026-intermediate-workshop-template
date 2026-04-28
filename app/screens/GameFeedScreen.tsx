@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useMemo, useState } from "react"
 import { ActivityIndicator, ScrollView, View, ViewStyle } from "react-native"
 
 import { EmptyState } from "@/components/EmptyState"
@@ -7,6 +7,7 @@ import { Text } from "@/components/Text"
 import { Switch } from "@/components/Toggle/Switch"
 import { YearSection } from "@/components/YearSection"
 import { useGamesByYear } from "@/services/api/games"
+import { useFavorites } from "@/stores/favorites"
 import { useAppTheme } from "@/theme/context"
 import { $styles } from "@/theme/styles"
 import type { ThemedStyle } from "@/theme/types"
@@ -15,6 +16,17 @@ export function GameFeedScreen() {
   const { themed, theme } = useAppTheme()
   const { data: yearGroups, isLoading, isError } = useGamesByYear()
   const [showFavorites, setShowFavorites] = useState(false)
+  const { ids: favoriteIds } = useFavorites()
+
+  const filteredYearGroups = useMemo(() => {
+    if (!yearGroups || !showFavorites) return yearGroups
+    return yearGroups
+      .map((group) => ({
+        ...group,
+        games: group.games.filter((game) => favoriteIds.includes(game.id)),
+      }))
+      .filter((group) => group.games.length > 0)
+  }, [yearGroups, showFavorites, favoriteIds])
 
   if (isLoading) {
     return (
@@ -40,9 +52,13 @@ export function GameFeedScreen() {
       </View>
 
       <ScrollView>
-        {yearGroups.map((group) => (
-          <YearSection key={group.year} year={group.year} games={group.games} />
-        ))}
+        {filteredYearGroups && filteredYearGroups.length > 0 ? (
+          filteredYearGroups.map((group) => (
+            <YearSection key={group.year} year={group.year} games={group.games} />
+          ))
+        ) : showFavorites ? (
+          <EmptyState heading="No Favorites Yet" />
+        ) : null}
       </ScrollView>
     </Screen>
   )

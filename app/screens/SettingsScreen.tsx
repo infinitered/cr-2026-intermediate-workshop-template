@@ -1,4 +1,3 @@
-import { useState } from "react"
 import { Alert, TouchableOpacity, View, ViewStyle, TextStyle } from "react-native"
 import { useRouter } from "expo-router"
 import Slider from "@react-native-community/slider"
@@ -8,21 +7,23 @@ import { Screen } from "@/components/Screen"
 import { Text } from "@/components/Text"
 import { TextField } from "@/components/TextField"
 import { Switch } from "@/components/Toggle/Switch"
+import { clearFavorites } from "@/stores/favorites"
+import { useSettings } from "@/stores/settings"
 import { useAppTheme } from "@/theme/context"
 import type { ThemedStyle } from "@/theme/types"
 
 const SORT_OPTIONS = ["Rating", "Name", "Release Date"] as const
-type SortOrder = (typeof SORT_OPTIONS)[number]
 
 export function SettingsScreen() {
   const { themed, theme, themeContext, setThemeContextOverride } = useAppTheme()
   const router = useRouter()
-
-  const [displayName, setDisplayName] = useState("")
+  const {
+    displayName, setDisplayName,
+    hideMature, setHideMature,
+    minRating, setMinRating,
+    sortOrder, setSortOrder,
+  } = useSettings()
   const isDarkMode = themeContext === "dark"
-  const [hideMature, setHideMature] = useState(false)
-  const [minRating, setMinRating] = useState(3)
-  const [sortOrder, setSortOrder] = useState<SortOrder>("Rating")
 
   return (
     <Screen preset="scroll" contentContainerStyle={themed($container)}>
@@ -104,7 +105,10 @@ export function SettingsScreen() {
       <Button
         text="Clear Favorites"
         preset="default"
-        onPress={() => Alert.alert("Favorites Cleared", "All favorites have been removed.")}
+        onPress={() => {
+          clearFavorites()
+          Alert.alert("Favorites Cleared", "All favorites have been removed.")
+        }}
         style={themed($button)}
       />
       <Button
