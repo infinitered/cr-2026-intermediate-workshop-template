@@ -1,13 +1,17 @@
 import { useSyncExternalStore } from "react"
 
+import { load, save } from "@/utils/storage"
+
 export interface Store<T> {
   getSnapshot: () => T
   subscribe: (listener: () => void) => () => void
   setState: (partial: Partial<T> | ((prev: T) => Partial<T>)) => void
 }
 
-export function createStore<T>(initialState: T): Store<T> {
-  let state = initialState
+export function createStore<T>(initialState: T, persistKey?: string): Store<T> {
+  let state = persistKey
+    ? { ...initialState, ...(load<Partial<T>>(persistKey) ?? {}) }
+    : initialState
   const listeners = new Set<() => void>()
 
   return {
@@ -26,6 +30,7 @@ export function createStore<T>(initialState: T): Store<T> {
       )
         return
       state = merged
+      if (persistKey) save(persistKey, state)
       listeners.forEach((l) => l())
     },
   }
