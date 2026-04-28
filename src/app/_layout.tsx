@@ -65,6 +65,11 @@ export default function Root() {
                 name="game/[id]"
                 options={{ headerShown: true, title: "Game Detail" }}
               />
+              <Stack.Screen name="genre/[id]" options={{ headerShown: true, title: "Genre" }} />
+              <Stack.Screen
+                name="review/[gameId]"
+                options={{ headerShown: true, presentation: "modal" }}
+              />
               <Stack.Screen name="disclosures" />
             </Stack>
           </QueryClientProvider>

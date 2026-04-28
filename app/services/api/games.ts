@@ -51,6 +51,20 @@ export const useGamesByYear = () => {
   return useQuery({ queryKey: gamesByYearKey, queryFn: gamesByYearFn })
 }
 
+export const useGamesByGenre = (genreId: number) => {
+  return useQuery({
+    queryKey: gamesByYearKey,
+    queryFn: gamesByYearFn,
+    select: (yearGroups): YearGroup[] =>
+      yearGroups
+        .map((group) => ({
+          ...group,
+          games: group.games.filter((game) => game.genres.some((g) => g.id === genreId)),
+        }))
+        .filter((group) => group.games.length > 0),
+  })
+}
+
 export const useFeedGenres = () => {
   return useQuery({
     queryKey: gamesByYearKey,

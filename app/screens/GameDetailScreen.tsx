@@ -1,4 +1,15 @@
-import { ActivityIndicator, FlatList, Image, ImageStyle, View, ViewStyle } from "react-native"
+import {
+  ActivityIndicator,
+  Alert,
+  FlatList,
+  Image,
+  ImageStyle,
+  Pressable,
+  TextStyle,
+  View,
+  ViewStyle,
+} from "react-native"
+import { router } from "expo-router"
 
 import { Button } from "@/components/Button"
 import { EmptyState } from "@/components/EmptyState"
@@ -7,6 +18,7 @@ import { Text } from "@/components/Text"
 import { Switch } from "@/components/Toggle/Switch"
 import { useGameDetail, useGameScreenshots } from "@/services/api/games"
 import { useFavorites } from "@/stores/favorites"
+import { deleteReview, type Review, useReviews } from "@/stores/reviews"
 import { useAppTheme } from "@/theme/context"
 import { $styles } from "@/theme/styles"
 import type { ThemedStyle } from "@/theme/types"
@@ -21,6 +33,7 @@ export function GameDetailScreen({ id }: GameDetailScreenProps) {
   const { data: game, isLoading, isError } = useGameDetail(id)
   const { data: screenshots } = useGameScreenshots(id)
   const { isFavorite, toggleFavorite } = useFavorites()
+  const localReviews = useReviews(id)
 
   if (isLoading) {
     return (
@@ -43,7 +56,6 @@ export function GameDetailScreen({ id }: GameDetailScreenProps) {
   const thumbScreenshots = screenshotImages.slice(0, 6)
   const genres = game.genres?.map((g) => g.name).join(", ")
   const studio = game.developers?.map((d) => d.name).join(", ")
-  const reviewCount = Number(game.reviews_text_count) || 0
 
   return (
     <Screen preset="scroll">
@@ -124,20 +136,79 @@ export function GameDetailScreen({ id }: GameDetailScreenProps) {
       {/* Reviews section */}
       <View style={themed($reviewsHeader)}>
         <Text weight="bold" size="sm">
-          Reviews: {reviewCount}
+          Reviews: {localReviews.length}
         </Text>
       </View>
 
       <View style={themed($writeReviewSection)}>
-        <Button text="Write A Review" style={themed($reviewButton)} />
+        <Button
+          text="Write A Review"
+          style={themed($reviewButton)}
+          onPress={() =>
+            router.push({
+              pathname: "/review/[gameId]",
+              params: { gameId: id, gameName: game.name },
+            })
+          }
+        />
       </View>
 
-      {reviewCount === 0 && (
-        <View style={themed($emptyReviews)}>
-          <EmptyState heading="There's Nothing Here..." />
-        </View>
-      )}
+      {localReviews.map((review) => (
+        <ReviewCard key={review.id} review={review} gameId={id} gameName={game.name} />
+      ))}
     </Screen>
+  )
+}
+
+function ReviewCard({
+  review,
+  gameId,
+  gameName,
+}: {
+  review: Review
+  gameId: number
+  gameName: string
+}) {
+  const { themed } = useAppTheme()
+  const stars = "★".repeat(review.rating) + "☆".repeat(5 - review.rating)
+
+  function handleLongPress() {
+    Alert.alert("Review", undefined, [
+      {
+        text: "Edit",
+        onPress: () =>
+          router.push({
+            pathname: "/review/[gameId]",
+            params: {
+              gameId,
+              gameName,
+              reviewId: review.id,
+              rating: review.rating,
+              text: review.text,
+            },
+          }),
+      },
+      {
+        text: "Delete",
+        style: "destructive",
+        onPress: () => deleteReview(gameId, review.id),
+      },
+      { text: "Cancel", style: "cancel" },
+    ])
+  }
+
+  return (
+    <Pressable style={themed($reviewCard)} onLongPress={handleLongPress}>
+      <View style={$reviewCardHeader}>
+        <Text size="xs" style={themed($starText)}>
+          {stars}
+        </Text>
+        <Text size="xxs" style={themed($reviewDate)}>
+          {formatDate(review.createdAt)}
+        </Text>
+      </View>
+      <Text size="xs">{review.text}</Text>
+    </Pressable>
   )
 }
 
@@ -231,7 +302,24 @@ const $reviewButton: ThemedStyle<ViewStyle> = ({ colors, spacing }) => ({
   borderRadius: spacing.xs,
 })
 
-const $emptyReviews: ThemedStyle<ViewStyle> = ({ spacing }) => ({
-  paddingVertical: spacing.xxl,
+const $reviewCard: ThemedStyle<ViewStyle> = ({ spacing, colors }) => ({
+  paddingHorizontal: spacing.lg,
+  paddingVertical: spacing.sm,
+  borderTopWidth: 1,
+  borderTopColor: colors.separator,
+})
+
+const $reviewCardHeader: ViewStyle = {
+  flexDirection: "row",
+  justifyContent: "space-between",
   alignItems: "center",
+  marginBottom: 4,
+}
+
+const $starText: ThemedStyle<TextStyle> = ({ colors }) => ({
+  color: colors.brandAccent,
+})
+
+const $reviewDate: ThemedStyle<TextStyle> = ({ colors }) => ({
+  color: colors.textDim,
 })

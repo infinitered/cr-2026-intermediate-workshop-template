@@ -1,9 +1,18 @@
-import { ActivityIndicator, FlatList, Image, ImageStyle, View, ViewStyle } from "react-native"
+import {
+  ActivityIndicator,
+  FlatList,
+  Image,
+  ImageStyle,
+  TextStyle,
+  TouchableOpacity,
+  View,
+  ViewStyle,
+} from "react-native"
+import { router } from "expo-router"
 
 import { EmptyState } from "@/components/EmptyState"
 import { Screen } from "@/components/Screen"
 import { Text } from "@/components/Text"
-import { Checkbox } from "@/components/Toggle/Checkbox"
 import { type FeedGenre, useFeedGenres } from "@/services/api/games"
 import { useGenreFilter } from "@/stores/genreFilter"
 import { useAppTheme } from "@/theme/context"
@@ -13,7 +22,7 @@ import type { ThemedStyle } from "@/theme/types"
 export function GenreListScreen() {
   const { themed, theme } = useAppTheme()
   const { data: genres = [], isLoading, isError } = useFeedGenres()
-  const { isSelected, toggleGenre } = useGenreFilter()
+  const { isSelected } = useGenreFilter()
 
   if (isLoading) {
     return (
@@ -35,20 +44,14 @@ export function GenreListScreen() {
     <Screen preset="fixed">
       <View style={themed($header)}>
         <Text size="xs" style={themed($headerText)}>
-          Select your favorite genres to personalize your feed.
+          Tap a genre to browse games and add it to your feed filter.
         </Text>
       </View>
 
       <FlatList<FeedGenre>
         data={genres}
         keyExtractor={(item) => String(item.id)}
-        renderItem={({ item }) => (
-          <GenreRow
-            genre={item}
-            selected={isSelected(item.id)}
-            onToggle={() => toggleGenre(item.id)}
-          />
-        )}
+        renderItem={({ item }) => <GenreRow genre={item} inFeed={isSelected(item.id)} />}
         contentContainerStyle={themed($listContent)}
         ItemSeparatorComponent={() => <View style={themed($separator)} />}
       />
@@ -58,40 +61,44 @@ export function GenreListScreen() {
 
 interface GenreRowProps {
   genre: FeedGenre
-  selected: boolean
-  onToggle: () => void
+  inFeed: boolean
 }
 
-function GenreRow({ genre, selected, onToggle }: GenreRowProps) {
+function GenreRow({ genre, inFeed }: GenreRowProps) {
   const { themed } = useAppTheme()
 
   return (
-    <Checkbox
-      value={selected}
-      onValueChange={onToggle}
-      labelPosition="right"
-      containerStyle={themed($row)}
-      inputWrapperStyle={$styles.flex1}
-      LabelTextProps={{
-        children: (
-          <View style={[$styles.row, $styles.flex1, $rowContent]}>
-            {genre.image_background ? (
-              <Image source={{ uri: genre.image_background }} style={themed($thumbnail)} />
-            ) : (
-              <View style={[themed($thumbnail), themed($thumbnailPlaceholder)]} />
-            )}
-            <View style={$textColumn}>
-              <Text weight="bold" size="sm">
-                {genre.name}
-              </Text>
-              <Text size="xxs" style={themed($dimText)}>
-                {genre.gameCount} {genre.gameCount === 1 ? "game" : "games"} in feed
-              </Text>
-            </View>
+    <TouchableOpacity
+      activeOpacity={0.7}
+      style={themed($row)}
+      onPress={() => router.push(`/genre/${genre.id}`)}
+    >
+      <View style={[$styles.row, $styles.flex1, $rowContent]}>
+        {genre.image_background ? (
+          <Image source={{ uri: genre.image_background }} style={themed($thumbnail)} />
+        ) : (
+          <View style={[themed($thumbnail), themed($thumbnailPlaceholder)]} />
+        )}
+        <View style={$textColumn}>
+          <Text weight="bold" size="sm">
+            {genre.name}
+          </Text>
+          <Text size="xxs" style={themed($dimText)}>
+            {genre.gameCount} {genre.gameCount === 1 ? "game" : "games"} in feed
+          </Text>
+        </View>
+        {inFeed && (
+          <View style={themed($feedBadge)}>
+            <Text weight="bold" size="xxs" style={themed($feedBadgeText)}>
+              In Feed
+            </Text>
           </View>
-        ),
-      }}
-    />
+        )}
+        <Text size="lg" style={themed($chevron)}>
+          {">"}
+        </Text>
+      </View>
+    </TouchableOpacity>
   )
 }
 
@@ -143,6 +150,21 @@ const $thumbnailPlaceholder: ThemedStyle<ViewStyle> = ({ colors }) => ({
   backgroundColor: colors.border,
 })
 
-const $dimText: ThemedStyle<ViewStyle> = ({ colors }) => ({
+const $dimText: ThemedStyle<TextStyle> = ({ colors }) => ({
+  color: colors.textDim,
+})
+
+const $feedBadge: ThemedStyle<ViewStyle> = ({ colors, spacing }) => ({
+  backgroundColor: colors.brandAccent,
+  borderRadius: spacing.xs,
+  paddingHorizontal: spacing.xs,
+  paddingVertical: spacing.xxs,
+})
+
+const $feedBadgeText: ThemedStyle<TextStyle> = ({ colors }) => ({
+  color: colors.brandAccentText,
+})
+
+const $chevron: ThemedStyle<TextStyle> = ({ colors }) => ({
   color: colors.textDim,
 })

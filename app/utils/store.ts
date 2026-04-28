@@ -30,9 +30,7 @@ export function createStore<T>(initialState: T, persistKey?: string): Store<T> {
       const next = typeof partial === "function" ? partial(state) : partial
       const merged = { ...state, ...next }
       if (
-        Object.keys(next as object).every((k) =>
-          Object.is((state as any)[k], (merged as any)[k]),
-        )
+        Object.keys(next as object).every((k) => Object.is((state as any)[k], (merged as any)[k]))
       )
         return
       state = merged

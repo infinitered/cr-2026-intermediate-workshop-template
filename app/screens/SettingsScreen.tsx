@@ -18,10 +18,14 @@ export function SettingsScreen() {
   const { themed, theme, themeContext, setThemeContextOverride } = useAppTheme()
   const router = useRouter()
   const {
-    displayName, setDisplayName,
-    hideMature, setHideMature,
-    minRating, setMinRating,
-    sortOrder, setSortOrder,
+    displayName,
+    setDisplayName,
+    hideMature,
+    setHideMature,
+    minRating,
+    setMinRating,
+    sortOrder,
+    setSortOrder,
   } = useSettings()
   const isDarkMode = themeContext === "dark"
 
