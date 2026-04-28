@@ -8,6 +8,7 @@ import { Switch } from "@/components/Toggle/Switch"
 import { YearSection } from "@/components/YearSection"
 import { useGamesByYear } from "@/services/api/games"
 import { useFavorites } from "@/stores/favorites"
+import { useGenreFilter } from "@/stores/genreFilter"
 import { useAppTheme } from "@/theme/context"
 import { $styles } from "@/theme/styles"
 import type { ThemedStyle } from "@/theme/types"
@@ -17,16 +18,26 @@ export function GameFeedScreen() {
   const { data: yearGroups, isLoading, isError } = useGamesByYear()
   const [showFavorites, setShowFavorites] = useState(false)
   const { ids: favoriteIds } = useFavorites()
+  const { selectedIds: genreIds } = useGenreFilter()
 
   const filteredYearGroups = useMemo(() => {
-    if (!yearGroups || !showFavorites) return yearGroups
+    if (!yearGroups) return yearGroups
+    const hasGenreFilter = genreIds.length > 0
+    const hasFavFilter = showFavorites
+
+    if (!hasGenreFilter && !hasFavFilter) return yearGroups
+
     return yearGroups
       .map((group) => ({
         ...group,
-        games: group.games.filter((game) => favoriteIds.includes(game.id)),
+        games: group.games.filter((game) => {
+          if (hasFavFilter && !favoriteIds.includes(game.id)) return false
+          if (hasGenreFilter && !game.genres.some((g) => genreIds.includes(g.id))) return false
+          return true
+        }),
       }))
       .filter((group) => group.games.length > 0)
-  }, [yearGroups, showFavorites, favoriteIds])
+  }, [yearGroups, showFavorites, favoriteIds, genreIds])
 
   if (isLoading) {
     return (
@@ -56,9 +67,9 @@ export function GameFeedScreen() {
           filteredYearGroups.map((group) => (
             <YearSection key={group.year} year={group.year} games={group.games} />
           ))
-        ) : showFavorites ? (
-          <EmptyState heading="No Favorites Yet" />
-        ) : null}
+        ) : (
+          <EmptyState heading={showFavorites ? "No Favorites Yet" : "No Games Match Filters"} />
+        )}
       </ScrollView>
     </Screen>
   )

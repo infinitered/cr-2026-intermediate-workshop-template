@@ -4,8 +4,7 @@ import { EmptyState } from "@/components/EmptyState"
 import { Screen } from "@/components/Screen"
 import { Text } from "@/components/Text"
 import { Checkbox } from "@/components/Toggle/Checkbox"
-import { useGenres } from "@/services/api/genres"
-import { Genre } from "@/services/api/types"
+import { type FeedGenre, useFeedGenres } from "@/services/api/games"
 import { useGenreFilter } from "@/stores/genreFilter"
 import { useAppTheme } from "@/theme/context"
 import { $styles } from "@/theme/styles"
@@ -13,10 +12,8 @@ import type { ThemedStyle } from "@/theme/types"
 
 export function GenreListScreen() {
   const { themed, theme } = useAppTheme()
-  const { data, isLoading, isError } = useGenres()
+  const { data: genres = [], isLoading, isError } = useFeedGenres()
   const { isSelected, toggleGenre } = useGenreFilter()
-
-  const genres = data?.results ?? []
 
   if (isLoading) {
     return (
@@ -26,7 +23,7 @@ export function GenreListScreen() {
     )
   }
 
-  if (isError || genres.length === 0) {
+  if (isError || (!isLoading && genres.length === 0)) {
     return (
       <Screen preset="fixed" contentContainerStyle={$centered}>
         <EmptyState heading="There's Nothing Here..." />
@@ -42,7 +39,7 @@ export function GenreListScreen() {
         </Text>
       </View>
 
-      <FlatList
+      <FlatList<FeedGenre>
         data={genres}
         keyExtractor={(item) => String(item.id)}
         renderItem={({ item }) => (
@@ -60,7 +57,7 @@ export function GenreListScreen() {
 }
 
 interface GenreRowProps {
-  genre: Genre
+  genre: FeedGenre
   selected: boolean
   onToggle: () => void
 }
@@ -88,7 +85,7 @@ function GenreRow({ genre, selected, onToggle }: GenreRowProps) {
                 {genre.name}
               </Text>
               <Text size="xxs" style={themed($dimText)}>
-                {genre.games_count.toLocaleString()} games
+                {genre.gameCount} {genre.gameCount === 1 ? "game" : "games"} in feed
               </Text>
             </View>
           </View>

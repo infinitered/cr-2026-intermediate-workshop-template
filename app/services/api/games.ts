@@ -23,22 +23,58 @@ export interface YearGroup {
   games: Game[]
 }
 
+export interface FeedGenre {
+  id: number
+  name: string
+  image_background: string | null
+  gameCount: number
+}
+
+const gamesByYearKey = ["games", "byYear"]
+
+const gamesByYearFn = async (): Promise<YearGroup[]> => {
+  const years = Array.from({ length: END_YEAR - START_YEAR + 1 }, (_, i) => START_YEAR + i)
+  const results = await Promise.all(
+    years.map(async (y) => {
+      const data = await rawgFetch<PaginatedResponse<Game>>("/games", {
+        page_size: String(GAMES_PER_YEAR),
+        ordering: "-rating",
+        dates: `${y}-01-01,${y}-12-31`,
+      })
+      return { year: String(y), games: data.results }
+    }),
+  )
+  return results.filter((group) => group.games.length > 0)
+}
+
 export const useGamesByYear = () => {
+  return useQuery({ queryKey: gamesByYearKey, queryFn: gamesByYearFn })
+}
+
+export const useFeedGenres = () => {
   return useQuery({
-    queryKey: ["games", "byYear"],
-    queryFn: async (): Promise<YearGroup[]> => {
-      const years = Array.from({ length: END_YEAR - START_YEAR + 1 }, (_, i) => START_YEAR + i)
-      const results = await Promise.all(
-        years.map(async (y) => {
-          const data = await rawgFetch<PaginatedResponse<Game>>("/games", {
-            page_size: String(GAMES_PER_YEAR),
-            ordering: "-rating",
-            dates: `${y}-01-01,${y}-12-31`,
-          })
-          return { year: String(y), games: data.results }
-        }),
-      )
-      return results.filter((group) => group.games.length > 0)
+    queryKey: gamesByYearKey,
+    queryFn: gamesByYearFn,
+    select: (yearGroups): FeedGenre[] => {
+      const genreMap = new Map<number, FeedGenre>()
+      for (const group of yearGroups) {
+        for (const game of group.games) {
+          for (const g of game.genres) {
+            const existing = genreMap.get(g.id)
+            if (existing) {
+              existing.gameCount++
+            } else {
+              genreMap.set(g.id, {
+                id: g.id,
+                name: g.name,
+                image_background: game.background_image,
+                gameCount: 1,
+              })
+            }
+          }
+        }
+      }
+      return Array.from(genreMap.values()).sort((a, b) => a.name.localeCompare(b.name))
     },
   })
 }
