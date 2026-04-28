@@ -9,9 +9,15 @@ export interface Store<T> {
 }
 
 export function createStore<T>(initialState: T, persistKey?: string): Store<T> {
-  let state = persistKey
-    ? { ...initialState, ...(load<Partial<T>>(persistKey) ?? {}) }
-    : initialState
+  let state = initialState
+  if (persistKey) {
+    try {
+      const persisted = load<Partial<T>>(persistKey)
+      if (persisted) state = { ...initialState, ...persisted }
+    } catch {
+      save(persistKey, initialState)
+    }
+  }
   const listeners = new Set<() => void>()
 
   return {

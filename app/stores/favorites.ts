@@ -1,6 +1,10 @@
 import { createStore, useStore } from "@/utils/store"
 
-const store = createStore<{ ids: number[] }>({ ids: [] }, "favorites")
+interface FavoritesState {
+  ids: number[]
+}
+
+const store = createStore<FavoritesState>({ ids: [] }, "favorites")
 
 export function toggleFavorite(id: number) {
   store.setState((prev) => ({

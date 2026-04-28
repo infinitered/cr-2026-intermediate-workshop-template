@@ -1,6 +1,10 @@
 import { createStore, useStore } from "@/utils/store"
 
-const store = createStore<{ selectedIds: number[] }>({ selectedIds: [] }, "genreFilter")
+interface GenreFilterState {
+  selectedIds: number[]
+}
+
+const store = createStore<GenreFilterState>({ selectedIds: [] }, "genreFilter")
 
 export function toggleGenre(id: number) {
   store.setState((prev) => ({
