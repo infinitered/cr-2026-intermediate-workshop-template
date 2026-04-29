@@ -18,7 +18,7 @@ export function addReview(gameId: number, text: string, rating: number) {
     const key = String(gameId)
     const existing = prev.byGameId[key] ?? []
     const review: Review = {
-      id: `${gameId}-${Date.now()}`,
+      id: `${gameId}-${Date.now()}-${Math.random().toString(36).slice(2, 9)}`,
       text,
       rating,
       createdAt: new Date().toISOString(),

@@ -13,7 +13,9 @@ export function createStore<T>(initialState: T, persistKey?: string): Store<T> {
   if (persistKey) {
     try {
       const persisted = load<Partial<T>>(persistKey)
-      if (persisted) state = { ...initialState, ...persisted }
+      if (persisted && typeof persisted === "object" && !Array.isArray(persisted)) {
+        state = { ...initialState, ...persisted }
+      }
     } catch {
       save(persistKey, initialState)
     }

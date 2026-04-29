@@ -29,7 +29,7 @@ export function GameFeedScreen() {
   useLayoutEffect(() => {
     navigation.setOptions({
       headerRight: () => (
-        <Pressable onPress={() => setShowFilters((v) => !v)} hitSlop={8} style={{ marginRight: 16 }}>
+        <Pressable onPress={() => setShowFilters((v) => !v)} hitSlop={8} style={$filterButton}>
           <Ionicons
             name={showFilters ? "funnel" : "funnel-outline"}
             size={22}
@@ -112,6 +112,10 @@ export function GameFeedScreen() {
       </ScrollView>
     </Screen>
   )
+}
+
+const $filterButton: ViewStyle = {
+  marginRight: 16,
 }
 
 const $centered: ViewStyle = {
