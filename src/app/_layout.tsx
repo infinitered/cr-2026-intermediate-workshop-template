@@ -70,6 +70,10 @@ export default function Root() {
                 name="review/[gameId]"
                 options={{ headerShown: true, presentation: "modal" }}
               />
+              <Stack.Screen
+                name="shared"
+                options={{ headerShown: true, presentation: "modal" }}
+              />
               <Stack.Screen name="disclosures" />
             </Stack>
           </QueryClientProvider>

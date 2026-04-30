@@ -36,6 +36,30 @@ module.exports = ({ config }: ConfigContext): Partial<ExpoConfig> => {
         ],
       },
     },
-    plugins: [...existingPlugins],
+    plugins: [
+      ...existingPlugins,
+      "./plugins/withShareExtensionDevClient",
+      [
+        "expo-sharing",
+        {
+          ios: {
+            enabled: true,
+            extensionBundleIdentifier:
+              "com.infinitered.cr2026intermediateworkshop.share-extension",
+            appGroupId: "group.com.infinitered.cr2026intermediateworkshop",
+            activationRule: {
+              supportsText: true,
+              supportsWebUrlWithMaxCount: 1,
+              supportsImageWithMaxCount: 3,
+            },
+          },
+          android: {
+            enabled: true,
+            singleShareMimeTypes: ["text/plain", "image/*"],
+            multipleShareMimeTypes: ["image/*"],
+          },
+        },
+      ],
+    ],
   }
 }
