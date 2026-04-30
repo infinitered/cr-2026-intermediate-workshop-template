@@ -21,8 +21,7 @@
       "foregroundImage": "./assets/images/app-icon-android-adaptive-foreground.png",
       "backgroundImage": "./assets/images/app-icon-android-adaptive-background.png"
     },
-    "allowBackup": false,
-    "edgeToEdgeEnabled": true
+    "allowBackup": false
   },
   "ios": {
     "icon": "./assets/images/app-icon-ios.png",
