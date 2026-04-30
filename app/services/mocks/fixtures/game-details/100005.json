@@ -1,0 +1,143 @@
+{
+  "id": 100005,
+  "slug": "mega-storm-plus",
+  "name": "Mega Storm Plus",
+  "name_original": "Mega Storm Plus",
+  "description": "<p>Navigate treacherous pixelated landscapes in this classic side-scrolling adventure. Battle through waves of enemies using power-ups scattered across each level. Originally released for home consoles and arcade cabinets.</p>",
+  "metacritic": null,
+  "metacritic_platforms": [],
+  "released": "1981-12-15",
+  "tba": false,
+  "updated": "2011-01-01T00:00:00",
+  "background_image": "https://picsum.photos/seed/game4/600/400",
+  "background_image_additional": null,
+  "website": "",
+  "rating": 4.54,
+  "rating_top": 5,
+  "ratings": [
+    {
+      "id": 5,
+      "title": "exceptional",
+      "count": 0,
+      "percent": 0
+    },
+    {
+      "id": 4,
+      "title": "recommended",
+      "count": 5,
+      "percent": 71.43
+    },
+    {
+      "id": 3,
+      "title": "meh",
+      "count": 2,
+      "percent": 28.57
+    },
+    {
+      "id": 1,
+      "title": "skip",
+      "count": 0,
+      "percent": 0
+    }
+  ],
+  "reactions": {},
+  "added": 10,
+  "added_by_status": {
+    "yet": 7,
+    "owned": 10,
+    "beaten": 5,
+    "toplay": 3,
+    "dropped": 4,
+    "playing": 1
+  },
+  "playtime": 13,
+  "screenshots_count": 6,
+  "movies_count": 0,
+  "creators_count": 0,
+  "achievements_count": 0,
+  "parent_achievements_count": "0",
+  "reddit_url": "",
+  "reddit_name": "",
+  "reddit_description": "",
+  "reddit_logo": "",
+  "reddit_count": 0,
+  "twitch_count": "0",
+  "youtube_count": "0",
+  "reviews_text_count": 3,
+  "ratings_count": 8,
+  "suggestions_count": 57,
+  "alternative_names": [],
+  "metacritic_url": "",
+  "parents_count": 0,
+  "additions_count": 0,
+  "game_series_count": 0,
+  "user_game": null,
+  "reviews_count": 11,
+  "saturated_color": "0f0f0f",
+  "dominant_color": "0f0f0f",
+  "parent_platforms": [
+    {
+      "platform": {
+        "id": 8,
+        "name": "Sega",
+        "slug": "sega"
+      }
+    }
+  ],
+  "platforms": [
+    {
+      "platform": {
+        "id": 43,
+        "name": "ZX Spectrum",
+        "slug": "zx-spectrum"
+      }
+    },
+    {
+      "platform": {
+        "id": 49,
+        "name": "NES",
+        "slug": "nes"
+      }
+    },
+    {
+      "platform": {
+        "id": 79,
+        "name": "SNES",
+        "slug": "snes"
+      }
+    },
+    {
+      "platform": {
+        "id": 26,
+        "name": "Commodore 64",
+        "slug": "commodore-64"
+      }
+    }
+  ],
+  "stores": [],
+  "developers": [
+    {
+      "id": 16262,
+      "name": "Taito",
+      "slug": "taito"
+    }
+  ],
+  "genres": [
+    {
+      "id": 3,
+      "name": "Adventure",
+      "slug": "adventure"
+    }
+  ],
+  "tags": [],
+  "publishers": [
+    {
+      "id": 10685,
+      "name": "Atari",
+      "slug": "atari"
+    }
+  ],
+  "esrb_rating": null,
+  "clip": null,
+  "description_raw": "Navigate treacherous pixelated landscapes in this classic side-scrolling adventure. Battle through waves of enemies using power-ups scattered across each level. Originally released for home consoles and arcade cabinets."
+}

@@ -1,0 +1,28 @@
+{
+  "count": 3,
+  "next": null,
+  "previous": null,
+  "results": [
+    {
+      "id": 10004750,
+      "image": "https://picsum.photos/seed/ss46/588/419",
+      "width": 588,
+      "height": 419,
+      "is_deleted": false
+    },
+    {
+      "id": 10004751,
+      "image": "https://picsum.photos/seed/ss47/588/419",
+      "width": 588,
+      "height": 419,
+      "is_deleted": false
+    },
+    {
+      "id": 10004752,
+      "image": "https://picsum.photos/seed/ss48/588/419",
+      "width": 588,
+      "height": 419,
+      "is_deleted": false
+    }
+  ]
+}

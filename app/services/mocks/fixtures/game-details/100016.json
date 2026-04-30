@@ -1,0 +1,129 @@
+{
+  "id": 100016,
+  "slug": "power-knight-dx",
+  "name": "Power Knight DX",
+  "name_original": "Power Knight DX",
+  "description": "<p>Explore a vast dungeon filled with monsters, traps, and treasures. Level up your character and discover powerful equipment to aid your journey. The procedurally generated levels ensure no two playthroughs are alike.</p>",
+  "metacritic": null,
+  "metacritic_platforms": [],
+  "released": "1982-01-25",
+  "tba": false,
+  "updated": "2012-01-01T00:00:00",
+  "background_image": "https://picsum.photos/seed/game15/600/400",
+  "background_image_additional": null,
+  "website": "",
+  "rating": 2.87,
+  "rating_top": 5,
+  "ratings": [
+    {
+      "id": 5,
+      "title": "exceptional",
+      "count": 4,
+      "percent": 23.53
+    },
+    {
+      "id": 4,
+      "title": "recommended",
+      "count": 9,
+      "percent": 52.94
+    },
+    {
+      "id": 3,
+      "title": "meh",
+      "count": 2,
+      "percent": 11.76
+    },
+    {
+      "id": 1,
+      "title": "skip",
+      "count": 2,
+      "percent": 11.76
+    }
+  ],
+  "reactions": {},
+  "added": 56,
+  "added_by_status": {
+    "yet": 1,
+    "owned": 6,
+    "beaten": 12,
+    "toplay": 15,
+    "dropped": 3,
+    "playing": 1
+  },
+  "playtime": 9,
+  "screenshots_count": 7,
+  "movies_count": 0,
+  "creators_count": 0,
+  "achievements_count": 0,
+  "parent_achievements_count": "0",
+  "reddit_url": "",
+  "reddit_name": "",
+  "reddit_description": "",
+  "reddit_logo": "",
+  "reddit_count": 0,
+  "twitch_count": "0",
+  "youtube_count": "0",
+  "reviews_text_count": 5,
+  "ratings_count": 10,
+  "suggestions_count": 40,
+  "alternative_names": [],
+  "metacritic_url": "",
+  "parents_count": 0,
+  "additions_count": 0,
+  "game_series_count": 0,
+  "user_game": null,
+  "reviews_count": 11,
+  "saturated_color": "0f0f0f",
+  "dominant_color": "0f0f0f",
+  "parent_platforms": [
+    {
+      "platform": {
+        "id": 8,
+        "name": "Sega",
+        "slug": "sega"
+      }
+    }
+  ],
+  "platforms": [
+    {
+      "platform": {
+        "id": 24,
+        "name": "Game Boy Advance",
+        "slug": "game-boy-advance"
+      }
+    },
+    {
+      "platform": {
+        "id": 43,
+        "name": "ZX Spectrum",
+        "slug": "zx-spectrum"
+      }
+    }
+  ],
+  "stores": [],
+  "developers": [
+    {
+      "id": 16264,
+      "name": "Williams",
+      "slug": "williams"
+    }
+  ],
+  "genres": [
+    {
+      "id": 7,
+      "name": "Puzzle",
+      "slug": "puzzle"
+    }
+  ],
+  "tags": [],
+  "publishers": [
+    {
+      "id": 10684,
+      "name": "Namco",
+      "slug": "namco"
+    }
+  ],
+  "esrb_rating": null,
+  "clip": null,
+  "description_raw": "Explore a vast dungeon filled with monsters, traps, and treasures. Level up your character and discover powerful equipment to aid your journey. The procedurally generated levels ensure no two playthroughs are alike."
+}

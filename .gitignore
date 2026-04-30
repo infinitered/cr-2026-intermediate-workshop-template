@@ -92,3 +92,6 @@ web-build/
 # Dependency Graph Visualizations
 app-dependency-graph.svg
 app-dependency-graph.png
+
+# RAWG fixture backup (pending license approval)
+rawg-fixtures-backup.tar.gz

@@ -1,0 +1,127 @@
+{
+  "id": 100068,
+  "slug": "super-quest-dx",
+  "name": "Super Quest DX",
+  "name_original": "Super Quest DX",
+  "description": "<p>Join a band of heroes on their quest to save the realm from an ancient evil. Turn-based combat and a rich storyline make this an unforgettable adventure. Features multiple endings based on player choices.</p>",
+  "metacritic": null,
+  "metacritic_platforms": [],
+  "released": "1987-05-15",
+  "tba": false,
+  "updated": "2017-01-01T00:00:00",
+  "background_image": "https://picsum.photos/seed/game67/600/400",
+  "background_image_additional": null,
+  "website": "",
+  "rating": 4.87,
+  "rating_top": 5,
+  "ratings": [
+    {
+      "id": 5,
+      "title": "exceptional",
+      "count": 4,
+      "percent": 23.53
+    },
+    {
+      "id": 4,
+      "title": "recommended",
+      "count": 9,
+      "percent": 52.94
+    },
+    {
+      "id": 3,
+      "title": "meh",
+      "count": 1,
+      "percent": 5.88
+    },
+    {
+      "id": 1,
+      "title": "skip",
+      "count": 3,
+      "percent": 17.65
+    }
+  ],
+  "reactions": {},
+  "added": 60,
+  "added_by_status": {
+    "yet": 7,
+    "owned": 29,
+    "beaten": 17,
+    "toplay": 3,
+    "dropped": 8,
+    "playing": 2
+  },
+  "playtime": 15,
+  "screenshots_count": 6,
+  "movies_count": 0,
+  "creators_count": 0,
+  "achievements_count": 0,
+  "parent_achievements_count": "0",
+  "reddit_url": "",
+  "reddit_name": "",
+  "reddit_description": "",
+  "reddit_logo": "",
+  "reddit_count": 0,
+  "twitch_count": "0",
+  "youtube_count": "0",
+  "reviews_text_count": 1,
+  "ratings_count": 44,
+  "suggestions_count": 181,
+  "alternative_names": [],
+  "metacritic_url": "",
+  "parents_count": 0,
+  "additions_count": 0,
+  "game_series_count": 0,
+  "user_game": null,
+  "reviews_count": 45,
+  "saturated_color": "0f0f0f",
+  "dominant_color": "0f0f0f",
+  "parent_platforms": [
+    {
+      "platform": {
+        "id": 8,
+        "name": "Sega",
+        "slug": "sega"
+      }
+    }
+  ],
+  "platforms": [
+    {
+      "platform": {
+        "id": 24,
+        "name": "Game Boy Advance",
+        "slug": "game-boy-advance"
+      }
+    }
+  ],
+  "stores": [],
+  "developers": [
+    {
+      "id": 16258,
+      "name": "Konami",
+      "slug": "konami"
+    }
+  ],
+  "genres": [
+    {
+      "id": 5,
+      "name": "RPG",
+      "slug": "rpg"
+    },
+    {
+      "id": 83,
+      "name": "Platformer",
+      "slug": "platformer"
+    }
+  ],
+  "tags": [],
+  "publishers": [
+    {
+      "id": 10682,
+      "name": "Capcom",
+      "slug": "capcom"
+    }
+  ],
+  "esrb_rating": null,
+  "clip": null,
+  "description_raw": "Join a band of heroes on their quest to save the realm from an ancient evil. Turn-based combat and a rich storyline make this an unforgettable adventure. Features multiple endings based on player choices."
+}

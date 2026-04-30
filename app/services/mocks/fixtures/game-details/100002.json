@@ -1,0 +1,136 @@
+{
+  "id": 100002,
+  "slug": "runner",
+  "name": "Runner",
+  "name_original": "Runner",
+  "description": "<p>Test your skills in this precision-based platformer. Tight controls and clever level design create a satisfying challenge for players of all skill levels. Hidden collectibles reward thorough exploration.</p>",
+  "metacritic": null,
+  "metacritic_platforms": [],
+  "released": "1981-10-15",
+  "tba": false,
+  "updated": "2011-01-01T00:00:00",
+  "background_image": "https://picsum.photos/seed/game1/600/400",
+  "background_image_additional": null,
+  "website": "",
+  "rating": 3.19,
+  "rating_top": 5,
+  "ratings": [
+    {
+      "id": 5,
+      "title": "exceptional",
+      "count": 6,
+      "percent": 27.27
+    },
+    {
+      "id": 4,
+      "title": "recommended",
+      "count": 10,
+      "percent": 45.45
+    },
+    {
+      "id": 3,
+      "title": "meh",
+      "count": 4,
+      "percent": 18.18
+    },
+    {
+      "id": 1,
+      "title": "skip",
+      "count": 2,
+      "percent": 9.09
+    }
+  ],
+  "reactions": {},
+  "added": 17,
+  "added_by_status": {
+    "yet": 6,
+    "owned": 29,
+    "beaten": 19,
+    "toplay": 1,
+    "dropped": 10,
+    "playing": 2
+  },
+  "playtime": 7,
+  "screenshots_count": 4,
+  "movies_count": 0,
+  "creators_count": 0,
+  "achievements_count": 0,
+  "parent_achievements_count": "0",
+  "reddit_url": "",
+  "reddit_name": "",
+  "reddit_description": "",
+  "reddit_logo": "",
+  "reddit_count": 0,
+  "twitch_count": "0",
+  "youtube_count": "0",
+  "reviews_text_count": 0,
+  "ratings_count": 34,
+  "suggestions_count": 153,
+  "alternative_names": [],
+  "metacritic_url": "",
+  "parents_count": 0,
+  "additions_count": 0,
+  "game_series_count": 0,
+  "user_game": null,
+  "reviews_count": 34,
+  "saturated_color": "0f0f0f",
+  "dominant_color": "0f0f0f",
+  "parent_platforms": [
+    {
+      "platform": {
+        "id": 1,
+        "name": "PC",
+        "slug": "pc"
+      }
+    }
+  ],
+  "platforms": [
+    {
+      "platform": {
+        "id": 26,
+        "name": "Commodore 64",
+        "slug": "commodore-64"
+      }
+    },
+    {
+      "platform": {
+        "id": 79,
+        "name": "SNES",
+        "slug": "snes"
+      }
+    },
+    {
+      "platform": {
+        "id": 34,
+        "name": "Atari ST",
+        "slug": "atari-st"
+      }
+    }
+  ],
+  "stores": [],
+  "developers": [
+    {
+      "id": 16263,
+      "name": "Atari",
+      "slug": "atari"
+    }
+  ],
+  "genres": [
+    {
+      "id": 2,
+      "name": "Shooter",
+      "slug": "shooter"
+    }
+  ],
+  "tags": [],
+  "publishers": [
+    {
+      "id": 10681,
+      "name": "Konami",
+      "slug": "konami"
+    }
+  ],
+  "esrb_rating": null,
+  "clip": null,
+  "description_raw": "Test your skills in this precision-based platformer. Tight controls and clever level design create a satisfying challenge for players of all skill levels. Hidden collectibles reward thorough exploration."
+}

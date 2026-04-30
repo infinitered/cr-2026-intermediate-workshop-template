@@ -1,0 +1,160 @@
+{
+  "id": 100030,
+  "slug": "turbo-patrol-turbo",
+  "name": "Turbo Patrol Turbo",
+  "name_original": "Turbo Patrol Turbo",
+  "description": "<p>Navigate treacherous pixelated landscapes in this classic side-scrolling adventure. Battle through waves of enemies using power-ups scattered across each level. Originally released for home consoles and arcade cabinets.</p>",
+  "metacritic": 66,
+  "metacritic_platforms": [],
+  "released": "1983-10-13",
+  "tba": false,
+  "updated": "2013-01-01T00:00:00",
+  "background_image": "https://picsum.photos/seed/game29/600/400",
+  "background_image_additional": null,
+  "website": "",
+  "rating": 4.65,
+  "rating_top": 5,
+  "ratings": [
+    {
+      "id": 5,
+      "title": "exceptional",
+      "count": 2,
+      "percent": 14.29
+    },
+    {
+      "id": 4,
+      "title": "recommended",
+      "count": 7,
+      "percent": 50
+    },
+    {
+      "id": 3,
+      "title": "meh",
+      "count": 5,
+      "percent": 35.71
+    },
+    {
+      "id": 1,
+      "title": "skip",
+      "count": 0,
+      "percent": 0
+    }
+  ],
+  "reactions": {},
+  "added": 31,
+  "added_by_status": {
+    "yet": 6,
+    "owned": 10,
+    "beaten": 13,
+    "toplay": 4,
+    "dropped": 10,
+    "playing": 3
+  },
+  "playtime": 8,
+  "screenshots_count": 6,
+  "movies_count": 0,
+  "creators_count": 0,
+  "achievements_count": 0,
+  "parent_achievements_count": "0",
+  "reddit_url": "",
+  "reddit_name": "",
+  "reddit_description": "",
+  "reddit_logo": "",
+  "reddit_count": 0,
+  "twitch_count": "0",
+  "youtube_count": "0",
+  "reviews_text_count": 2,
+  "ratings_count": 33,
+  "suggestions_count": 72,
+  "alternative_names": [],
+  "metacritic_url": "",
+  "parents_count": 0,
+  "additions_count": 0,
+  "game_series_count": 0,
+  "user_game": null,
+  "reviews_count": 36,
+  "saturated_color": "0f0f0f",
+  "dominant_color": "0f0f0f",
+  "parent_platforms": [
+    {
+      "platform": {
+        "id": 7,
+        "name": "Nintendo",
+        "slug": "nintendo"
+      }
+    },
+    {
+      "platform": {
+        "id": 9,
+        "name": "Atari",
+        "slug": "atari"
+      }
+    }
+  ],
+  "platforms": [
+    {
+      "platform": {
+        "id": 167,
+        "name": "Sega Genesis",
+        "slug": "sega-genesis"
+      }
+    },
+    {
+      "platform": {
+        "id": 24,
+        "name": "Game Boy Advance",
+        "slug": "game-boy-advance"
+      }
+    },
+    {
+      "platform": {
+        "id": 26,
+        "name": "Commodore 64",
+        "slug": "commodore-64"
+      }
+    },
+    {
+      "platform": {
+        "id": 4,
+        "name": "PC",
+        "slug": "pc"
+      }
+    }
+  ],
+  "stores": [],
+  "developers": [
+    {
+      "id": 16261,
+      "name": "Namco",
+      "slug": "namco"
+    }
+  ],
+  "genres": [
+    {
+      "id": 11,
+      "name": "Arcade",
+      "slug": "arcade"
+    },
+    {
+      "id": 7,
+      "name": "Puzzle",
+      "slug": "puzzle"
+    },
+    {
+      "id": 14,
+      "name": "Simulation",
+      "slug": "simulation"
+    }
+  ],
+  "tags": [],
+  "publishers": [
+    {
+      "id": 10684,
+      "name": "Namco",
+      "slug": "namco"
+    }
+  ],
+  "esrb_rating": null,
+  "clip": null,
+  "description_raw": "Navigate treacherous pixelated landscapes in this classic side-scrolling adventure. Battle through waves of enemies using power-ups scattered across each level. Originally released for home consoles and arcade cabinets."
+}

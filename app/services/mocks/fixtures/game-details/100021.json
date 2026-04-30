@@ -1,0 +1,148 @@
+{
+  "id": 100021,
+  "slug": "ultra-fighters-plus",
+  "name": "Ultra Fighters Plus",
+  "name_original": "Ultra Fighters Plus",
+  "description": "<p>Explore a vast dungeon filled with monsters, traps, and treasures. Level up your character and discover powerful equipment to aid your journey. The procedurally generated levels ensure no two playthroughs are alike.</p>",
+  "metacritic": 73,
+  "metacritic_platforms": [],
+  "released": "1983-03-26",
+  "tba": false,
+  "updated": "2013-01-01T00:00:00",
+  "background_image": "https://picsum.photos/seed/game20/600/400",
+  "background_image_additional": null,
+  "website": "",
+  "rating": 2.8,
+  "rating_top": 5,
+  "ratings": [
+    {
+      "id": 5,
+      "title": "exceptional",
+      "count": 3,
+      "percent": 20
+    },
+    {
+      "id": 4,
+      "title": "recommended",
+      "count": 6,
+      "percent": 40
+    },
+    {
+      "id": 3,
+      "title": "meh",
+      "count": 5,
+      "percent": 33.33
+    },
+    {
+      "id": 1,
+      "title": "skip",
+      "count": 1,
+      "percent": 6.67
+    }
+  ],
+  "reactions": {},
+  "added": 89,
+  "added_by_status": {
+    "yet": 4,
+    "owned": 23,
+    "beaten": 15,
+    "toplay": 11,
+    "dropped": 9,
+    "playing": 5
+  },
+  "playtime": 11,
+  "screenshots_count": 7,
+  "movies_count": 0,
+  "creators_count": 0,
+  "achievements_count": 0,
+  "parent_achievements_count": "0",
+  "reddit_url": "",
+  "reddit_name": "",
+  "reddit_description": "",
+  "reddit_logo": "",
+  "reddit_count": 0,
+  "twitch_count": "0",
+  "youtube_count": "0",
+  "reviews_text_count": 2,
+  "ratings_count": 40,
+  "suggestions_count": 31,
+  "alternative_names": [],
+  "metacritic_url": "",
+  "parents_count": 0,
+  "additions_count": 0,
+  "game_series_count": 0,
+  "user_game": null,
+  "reviews_count": 40,
+  "saturated_color": "0f0f0f",
+  "dominant_color": "0f0f0f",
+  "parent_platforms": [
+    {
+      "platform": {
+        "id": 8,
+        "name": "Sega",
+        "slug": "sega"
+      }
+    }
+  ],
+  "platforms": [
+    {
+      "platform": {
+        "id": 167,
+        "name": "Sega Genesis",
+        "slug": "sega-genesis"
+      }
+    },
+    {
+      "platform": {
+        "id": 79,
+        "name": "SNES",
+        "slug": "snes"
+      }
+    },
+    {
+      "platform": {
+        "id": 4,
+        "name": "PC",
+        "slug": "pc"
+      }
+    },
+    {
+      "platform": {
+        "id": 49,
+        "name": "NES",
+        "slug": "nes"
+      }
+    }
+  ],
+  "stores": [],
+  "developers": [
+    {
+      "id": 16262,
+      "name": "Taito",
+      "slug": "taito"
+    }
+  ],
+  "genres": [
+    {
+      "id": 11,
+      "name": "Arcade",
+      "slug": "arcade"
+    },
+    {
+      "id": 7,
+      "name": "Puzzle",
+      "slug": "puzzle"
+    }
+  ],
+  "tags": [],
+  "publishers": [
+    {
+      "id": 10682,
+      "name": "Capcom",
+      "slug": "capcom"
+    }
+  ],
+  "esrb_rating": null,
+  "clip": null,
+  "description_raw": "Explore a vast dungeon filled with monsters, traps, and treasures. Level up your character and discover powerful equipment to aid your journey. The procedurally generated levels ensure no two playthroughs are alike."
+}

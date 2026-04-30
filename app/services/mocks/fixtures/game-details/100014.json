@@ -1,0 +1,129 @@
+{
+  "id": 100014,
+  "slug": "cyber-knight-ii",
+  "name": "Cyber Knight II",
+  "name_original": "Cyber Knight II",
+  "description": "<p>Race against the clock in this adrenaline-pumping action game. Dodge obstacles, collect bonuses, and reach the finish line before time runs out. Simple controls hide surprising depth.</p>",
+  "metacritic": null,
+  "metacritic_platforms": [],
+  "released": "1982-06-14",
+  "tba": false,
+  "updated": "2012-01-01T00:00:00",
+  "background_image": "https://picsum.photos/seed/game13/600/400",
+  "background_image_additional": null,
+  "website": "",
+  "rating": 2.28,
+  "rating_top": 5,
+  "ratings": [
+    {
+      "id": 5,
+      "title": "exceptional",
+      "count": 6,
+      "percent": 31.58
+    },
+    {
+      "id": 4,
+      "title": "recommended",
+      "count": 8,
+      "percent": 42.11
+    },
+    {
+      "id": 3,
+      "title": "meh",
+      "count": 3,
+      "percent": 15.79
+    },
+    {
+      "id": 1,
+      "title": "skip",
+      "count": 2,
+      "percent": 10.53
+    }
+  ],
+  "reactions": {},
+  "added": 88,
+  "added_by_status": {
+    "yet": 9,
+    "owned": 16,
+    "beaten": 13,
+    "toplay": 1,
+    "dropped": 2,
+    "playing": 2
+  },
+  "playtime": 16,
+  "screenshots_count": 7,
+  "movies_count": 0,
+  "creators_count": 0,
+  "achievements_count": 0,
+  "parent_achievements_count": "0",
+  "reddit_url": "",
+  "reddit_name": "",
+  "reddit_description": "",
+  "reddit_logo": "",
+  "reddit_count": 0,
+  "twitch_count": "0",
+  "youtube_count": "0",
+  "reviews_text_count": 4,
+  "ratings_count": 18,
+  "suggestions_count": 25,
+  "alternative_names": [],
+  "metacritic_url": "",
+  "parents_count": 0,
+  "additions_count": 0,
+  "game_series_count": 0,
+  "user_game": null,
+  "reviews_count": 18,
+  "saturated_color": "0f0f0f",
+  "dominant_color": "0f0f0f",
+  "parent_platforms": [
+    {
+      "platform": {
+        "id": 7,
+        "name": "Nintendo",
+        "slug": "nintendo"
+      }
+    }
+  ],
+  "platforms": [
+    {
+      "platform": {
+        "id": 49,
+        "name": "NES",
+        "slug": "nes"
+      }
+    },
+    {
+      "platform": {
+        "id": 26,
+        "name": "Commodore 64",
+        "slug": "commodore-64"
+      }
+    }
+  ],
+  "stores": [],
+  "developers": [
+    {
+      "id": 16264,
+      "name": "Williams",
+      "slug": "williams"
+    }
+  ],
+  "genres": [
+    {
+      "id": 15,
+      "name": "Sports",
+      "slug": "sports"
+    }
+  ],
+  "tags": [],
+  "publishers": [
+    {
+      "id": 10683,
+      "name": "Sega",
+      "slug": "sega"
+    }
+  ],
+  "esrb_rating": null,
+  "clip": null,
+  "description_raw": "Race against the clock in this adrenaline-pumping action game. Dodge obstacles, collect bonuses, and reach the finish line before time runs out. Simple controls hide surprising depth."
+}

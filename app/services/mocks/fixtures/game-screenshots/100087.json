@@ -1,0 +1,56 @@
+{
+  "count": 7,
+  "next": null,
+  "previous": null,
+  "results": [
+    {
+      "id": 10008750,
+      "image": "https://picsum.photos/seed/ss86/588/419",
+      "width": 588,
+      "height": 419,
+      "is_deleted": false
+    },
+    {
+      "id": 10008751,
+      "image": "https://picsum.photos/seed/ss87/588/419",
+      "width": 588,
+      "height": 419,
+      "is_deleted": false
+    },
+    {
+      "id": 10008752,
+      "image": "https://picsum.photos/seed/ss88/588/419",
+      "width": 588,
+      "height": 419,
+      "is_deleted": false
+    },
+    {
+      "id": 10008753,
+      "image": "https://picsum.photos/seed/ss89/588/419",
+      "width": 588,
+      "height": 419,
+      "is_deleted": false
+    },
+    {
+      "id": 10008754,
+      "image": "https://picsum.photos/seed/ss90/588/419",
+      "width": 588,
+      "height": 419,
+      "is_deleted": false
+    },
+    {
+      "id": 10008755,
+      "image": "https://picsum.photos/seed/ss91/588/419",
+      "width": 588,
+      "height": 419,
+      "is_deleted": false
+    },
+    {
+      "id": 10008756,
+      "image": "https://picsum.photos/seed/ss92/588/419",
+      "width": 588,
+      "height": 419,
+      "is_deleted": false
+    }
+  ]
+}

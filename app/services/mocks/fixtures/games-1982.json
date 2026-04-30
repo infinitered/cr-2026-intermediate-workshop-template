@@ -1,0 +1,1208 @@
+{
+  "count": 10,
+  "next": null,
+  "previous": null,
+  "results": [
+    {
+      "slug": "star-phantom",
+      "name": "Star Phantom",
+      "playtime": 1,
+      "platforms": [
+        {
+          "platform": {
+            "id": 26,
+            "name": "Commodore 64",
+            "slug": "commodore-64"
+          }
+        },
+        {
+          "platform": {
+            "id": 34,
+            "name": "Atari ST",
+            "slug": "atari-st"
+          }
+        },
+        {
+          "platform": {
+            "id": 167,
+            "name": "Sega Genesis",
+            "slug": "sega-genesis"
+          }
+        }
+      ],
+      "stores": null,
+      "released": "1982-12-27",
+      "tba": false,
+      "background_image": "https://picsum.photos/seed/game10/600/400",
+      "rating": 2.83,
+      "rating_top": 5,
+      "ratings": [
+        {
+          "id": 5,
+          "title": "exceptional",
+          "count": 5,
+          "percent": 33.33
+        },
+        {
+          "id": 4,
+          "title": "recommended",
+          "count": 7,
+          "percent": 46.67
+        },
+        {
+          "id": 3,
+          "title": "meh",
+          "count": 0,
+          "percent": 0
+        },
+        {
+          "id": 1,
+          "title": "skip",
+          "count": 3,
+          "percent": 20
+        }
+      ],
+      "ratings_count": 39,
+      "reviews_text_count": 5,
+      "added": 60,
+      "added_by_status": {
+        "yet": 10,
+        "owned": 11,
+        "beaten": 20,
+        "toplay": 9,
+        "dropped": 8,
+        "playing": 0
+      },
+      "metacritic": 84,
+      "suggestions_count": 103,
+      "updated": "2012-01-01T00:00:00",
+      "id": 100011,
+      "score": null,
+      "clip": null,
+      "tags": [],
+      "esrb_rating": null,
+      "user_game": null,
+      "reviews_count": 40,
+      "saturated_color": "0f0f0f",
+      "dominant_color": "0f0f0f",
+      "short_screenshots": [
+        {
+          "id": -1,
+          "image": "https://picsum.photos/seed/game10/600/400"
+        },
+        {
+          "id": 10001100,
+          "image": "https://picsum.photos/seed/ss10/588/419"
+        },
+        {
+          "id": 10001101,
+          "image": "https://picsum.photos/seed/ss11/588/419"
+        }
+      ],
+      "parent_platforms": [
+        {
+          "platform": {
+            "id": 1,
+            "name": "PC",
+            "slug": "pc"
+          }
+        }
+      ],
+      "genres": [
+        {
+          "id": 10,
+          "name": "Strategy",
+          "slug": "strategy"
+        }
+      ]
+    },
+    {
+      "slug": "warriors",
+      "name": "Warriors",
+      "playtime": 10,
+      "platforms": [
+        {
+          "platform": {
+            "id": 4,
+            "name": "PC",
+            "slug": "pc"
+          }
+        },
+        {
+          "platform": {
+            "id": 79,
+            "name": "SNES",
+            "slug": "snes"
+          }
+        },
+        {
+          "platform": {
+            "id": 167,
+            "name": "Sega Genesis",
+            "slug": "sega-genesis"
+          }
+        },
+        {
+          "platform": {
+            "id": 24,
+            "name": "Game Boy Advance",
+            "slug": "game-boy-advance"
+          }
+        }
+      ],
+      "stores": null,
+      "released": "1982-05-17",
+      "tba": false,
+      "background_image": "https://picsum.photos/seed/game11/600/400",
+      "rating": 3.6,
+      "rating_top": 5,
+      "ratings": [
+        {
+          "id": 5,
+          "title": "exceptional",
+          "count": 6,
+          "percent": 46.15
+        },
+        {
+          "id": 4,
+          "title": "recommended",
+          "count": 5,
+          "percent": 38.46
+        },
+        {
+          "id": 3,
+          "title": "meh",
+          "count": 1,
+          "percent": 7.69
+        },
+        {
+          "id": 1,
+          "title": "skip",
+          "count": 1,
+          "percent": 7.69
+        }
+      ],
+      "ratings_count": 5,
+      "reviews_text_count": 4,
+      "added": 23,
+      "added_by_status": {
+        "yet": 0,
+        "owned": 17,
+        "beaten": 8,
+        "toplay": 4,
+        "dropped": 10,
+        "playing": 5
+      },
+      "metacritic": null,
+      "suggestions_count": 198,
+      "updated": "2012-01-01T00:00:00",
+      "id": 100012,
+      "score": null,
+      "clip": null,
+      "tags": [],
+      "esrb_rating": null,
+      "user_game": null,
+      "reviews_count": 5,
+      "saturated_color": "0f0f0f",
+      "dominant_color": "0f0f0f",
+      "short_screenshots": [
+        {
+          "id": -1,
+          "image": "https://picsum.photos/seed/game11/600/400"
+        },
+        {
+          "id": 10001200,
+          "image": "https://picsum.photos/seed/ss11/588/419"
+        },
+        {
+          "id": 10001201,
+          "image": "https://picsum.photos/seed/ss12/588/419"
+        }
+      ],
+      "parent_platforms": [
+        {
+          "platform": {
+            "id": 1,
+            "name": "PC",
+            "slug": "pc"
+          }
+        },
+        {
+          "platform": {
+            "id": 9,
+            "name": "Atari",
+            "slug": "atari"
+          }
+        }
+      ],
+      "genres": [
+        {
+          "id": 14,
+          "name": "Simulation",
+          "slug": "simulation"
+        },
+        {
+          "id": 10,
+          "name": "Strategy",
+          "slug": "strategy"
+        },
+        {
+          "id": 2,
+          "name": "Shooter",
+          "slug": "shooter"
+        }
+      ]
+    },
+    {
+      "slug": "dungeon-turbo",
+      "name": "Dungeon Turbo",
+      "playtime": 12,
+      "platforms": [
+        {
+          "platform": {
+            "id": 26,
+            "name": "Commodore 64",
+            "slug": "commodore-64"
+          }
+        },
+        {
+          "platform": {
+            "id": 43,
+            "name": "ZX Spectrum",
+            "slug": "zx-spectrum"
+          }
+        }
+      ],
+      "stores": null,
+      "released": "1982-03-14",
+      "tba": false,
+      "background_image": "https://picsum.photos/seed/game12/600/400",
+      "rating": 4.7,
+      "rating_top": 5,
+      "ratings": [
+        {
+          "id": 5,
+          "title": "exceptional",
+          "count": 1,
+          "percent": 12.5
+        },
+        {
+          "id": 4,
+          "title": "recommended",
+          "count": 4,
+          "percent": 50
+        },
+        {
+          "id": 3,
+          "title": "meh",
+          "count": 0,
+          "percent": 0
+        },
+        {
+          "id": 1,
+          "title": "skip",
+          "count": 3,
+          "percent": 37.5
+        }
+      ],
+      "ratings_count": 14,
+      "reviews_text_count": 2,
+      "added": 18,
+      "added_by_status": {
+        "yet": 5,
+        "owned": 15,
+        "beaten": 11,
+        "toplay": 3,
+        "dropped": 5,
+        "playing": 2
+      },
+      "metacritic": null,
+      "suggestions_count": 111,
+      "updated": "2012-01-01T00:00:00",
+      "id": 100013,
+      "score": null,
+      "clip": null,
+      "tags": [],
+      "esrb_rating": null,
+      "user_game": null,
+      "reviews_count": 17,
+      "saturated_color": "0f0f0f",
+      "dominant_color": "0f0f0f",
+      "short_screenshots": [
+        {
+          "id": -1,
+          "image": "https://picsum.photos/seed/game12/600/400"
+        },
+        {
+          "id": 10001300,
+          "image": "https://picsum.photos/seed/ss12/588/419"
+        },
+        {
+          "id": 10001301,
+          "image": "https://picsum.photos/seed/ss13/588/419"
+        }
+      ],
+      "parent_platforms": [
+        {
+          "platform": {
+            "id": 7,
+            "name": "Nintendo",
+            "slug": "nintendo"
+          }
+        },
+        {
+          "platform": {
+            "id": 1,
+            "name": "PC",
+            "slug": "pc"
+          }
+        }
+      ],
+      "genres": [
+        {
+          "id": 83,
+          "name": "Platformer",
+          "slug": "platformer"
+        },
+        {
+          "id": 10,
+          "name": "Strategy",
+          "slug": "strategy"
+        }
+      ]
+    },
+    {
+      "slug": "cyber-knight-ii",
+      "name": "Cyber Knight II",
+      "playtime": 16,
+      "platforms": [
+        {
+          "platform": {
+            "id": 49,
+            "name": "NES",
+            "slug": "nes"
+          }
+        },
+        {
+          "platform": {
+            "id": 26,
+            "name": "Commodore 64",
+            "slug": "commodore-64"
+          }
+        }
+      ],
+      "stores": null,
+      "released": "1982-06-14",
+      "tba": false,
+      "background_image": "https://picsum.photos/seed/game13/600/400",
+      "rating": 2.28,
+      "rating_top": 5,
+      "ratings": [
+        {
+          "id": 5,
+          "title": "exceptional",
+          "count": 6,
+          "percent": 31.58
+        },
+        {
+          "id": 4,
+          "title": "recommended",
+          "count": 8,
+          "percent": 42.11
+        },
+        {
+          "id": 3,
+          "title": "meh",
+          "count": 3,
+          "percent": 15.79
+        },
+        {
+          "id": 1,
+          "title": "skip",
+          "count": 2,
+          "percent": 10.53
+        }
+      ],
+      "ratings_count": 18,
+      "reviews_text_count": 4,
+      "added": 88,
+      "added_by_status": {
+        "yet": 9,
+        "owned": 16,
+        "beaten": 13,
+        "toplay": 1,
+        "dropped": 2,
+        "playing": 2
+      },
+      "metacritic": null,
+      "suggestions_count": 25,
+      "updated": "2012-01-01T00:00:00",
+      "id": 100014,
+      "score": null,
+      "clip": null,
+      "tags": [],
+      "esrb_rating": null,
+      "user_game": null,
+      "reviews_count": 18,
+      "saturated_color": "0f0f0f",
+      "dominant_color": "0f0f0f",
+      "short_screenshots": [
+        {
+          "id": -1,
+          "image": "https://picsum.photos/seed/game13/600/400"
+        },
+        {
+          "id": 10001400,
+          "image": "https://picsum.photos/seed/ss13/588/419"
+        },
+        {
+          "id": 10001401,
+          "image": "https://picsum.photos/seed/ss14/588/419"
+        },
+        {
+          "id": 10001402,
+          "image": "https://picsum.photos/seed/ss15/588/419"
+        },
+        {
+          "id": 10001403,
+          "image": "https://picsum.photos/seed/ss16/588/419"
+        }
+      ],
+      "parent_platforms": [
+        {
+          "platform": {
+            "id": 7,
+            "name": "Nintendo",
+            "slug": "nintendo"
+          }
+        }
+      ],
+      "genres": [
+        {
+          "id": 15,
+          "name": "Sports",
+          "slug": "sports"
+        }
+      ]
+    },
+    {
+      "slug": "hyper-galaxy",
+      "name": "Hyper Galaxy",
+      "playtime": 10,
+      "platforms": [
+        {
+          "platform": {
+            "id": 79,
+            "name": "SNES",
+            "slug": "snes"
+          }
+        },
+        {
+          "platform": {
+            "id": 167,
+            "name": "Sega Genesis",
+            "slug": "sega-genesis"
+          }
+        }
+      ],
+      "stores": null,
+      "released": "1982-09-09",
+      "tba": false,
+      "background_image": "https://picsum.photos/seed/game14/600/400",
+      "rating": 3.16,
+      "rating_top": 5,
+      "ratings": [
+        {
+          "id": 5,
+          "title": "exceptional",
+          "count": 1,
+          "percent": 6.25
+        },
+        {
+          "id": 4,
+          "title": "recommended",
+          "count": 10,
+          "percent": 62.5
+        },
+        {
+          "id": 3,
+          "title": "meh",
+          "count": 3,
+          "percent": 18.75
+        },
+        {
+          "id": 1,
+          "title": "skip",
+          "count": 2,
+          "percent": 12.5
+        }
+      ],
+      "ratings_count": 43,
+      "reviews_text_count": 3,
+      "added": 20,
+      "added_by_status": {
+        "yet": 2,
+        "owned": 13,
+        "beaten": 2,
+        "toplay": 14,
+        "dropped": 8,
+        "playing": 3
+      },
+      "metacritic": null,
+      "suggestions_count": 70,
+      "updated": "2012-01-01T00:00:00",
+      "id": 100015,
+      "score": null,
+      "clip": null,
+      "tags": [],
+      "esrb_rating": null,
+      "user_game": null,
+      "reviews_count": 46,
+      "saturated_color": "0f0f0f",
+      "dominant_color": "0f0f0f",
+      "short_screenshots": [
+        {
+          "id": -1,
+          "image": "https://picsum.photos/seed/game14/600/400"
+        },
+        {
+          "id": 10001500,
+          "image": "https://picsum.photos/seed/ss14/588/419"
+        },
+        {
+          "id": 10001501,
+          "image": "https://picsum.photos/seed/ss15/588/419"
+        }
+      ],
+      "parent_platforms": [
+        {
+          "platform": {
+            "id": 7,
+            "name": "Nintendo",
+            "slug": "nintendo"
+          }
+        }
+      ],
+      "genres": [
+        {
+          "id": 10,
+          "name": "Strategy",
+          "slug": "strategy"
+        }
+      ]
+    },
+    {
+      "slug": "power-knight-dx",
+      "name": "Power Knight DX",
+      "playtime": 9,
+      "platforms": [
+        {
+          "platform": {
+            "id": 24,
+            "name": "Game Boy Advance",
+            "slug": "game-boy-advance"
+          }
+        },
+        {
+          "platform": {
+            "id": 43,
+            "name": "ZX Spectrum",
+            "slug": "zx-spectrum"
+          }
+        }
+      ],
+      "stores": null,
+      "released": "1982-01-25",
+      "tba": false,
+      "background_image": "https://picsum.photos/seed/game15/600/400",
+      "rating": 2.87,
+      "rating_top": 5,
+      "ratings": [
+        {
+          "id": 5,
+          "title": "exceptional",
+          "count": 4,
+          "percent": 23.53
+        },
+        {
+          "id": 4,
+          "title": "recommended",
+          "count": 9,
+          "percent": 52.94
+        },
+        {
+          "id": 3,
+          "title": "meh",
+          "count": 2,
+          "percent": 11.76
+        },
+        {
+          "id": 1,
+          "title": "skip",
+          "count": 2,
+          "percent": 11.76
+        }
+      ],
+      "ratings_count": 10,
+      "reviews_text_count": 5,
+      "added": 56,
+      "added_by_status": {
+        "yet": 1,
+        "owned": 6,
+        "beaten": 12,
+        "toplay": 15,
+        "dropped": 3,
+        "playing": 1
+      },
+      "metacritic": null,
+      "suggestions_count": 40,
+      "updated": "2012-01-01T00:00:00",
+      "id": 100016,
+      "score": null,
+      "clip": null,
+      "tags": [],
+      "esrb_rating": null,
+      "user_game": null,
+      "reviews_count": 11,
+      "saturated_color": "0f0f0f",
+      "dominant_color": "0f0f0f",
+      "short_screenshots": [
+        {
+          "id": -1,
+          "image": "https://picsum.photos/seed/game15/600/400"
+        },
+        {
+          "id": 10001600,
+          "image": "https://picsum.photos/seed/ss15/588/419"
+        },
+        {
+          "id": 10001601,
+          "image": "https://picsum.photos/seed/ss16/588/419"
+        },
+        {
+          "id": 10001602,
+          "image": "https://picsum.photos/seed/ss17/588/419"
+        },
+        {
+          "id": 10001603,
+          "image": "https://picsum.photos/seed/ss18/588/419"
+        }
+      ],
+      "parent_platforms": [
+        {
+          "platform": {
+            "id": 8,
+            "name": "Sega",
+            "slug": "sega"
+          }
+        }
+      ],
+      "genres": [
+        {
+          "id": 7,
+          "name": "Puzzle",
+          "slug": "puzzle"
+        }
+      ]
+    },
+    {
+      "slug": "hyper-dungeon",
+      "name": "Hyper Dungeon",
+      "playtime": 0,
+      "platforms": [
+        {
+          "platform": {
+            "id": 167,
+            "name": "Sega Genesis",
+            "slug": "sega-genesis"
+          }
+        }
+      ],
+      "stores": null,
+      "released": "1982-07-07",
+      "tba": false,
+      "background_image": "https://picsum.photos/seed/game16/600/400",
+      "rating": 4.61,
+      "rating_top": 5,
+      "ratings": [
+        {
+          "id": 5,
+          "title": "exceptional",
+          "count": 8,
+          "percent": 36.36
+        },
+        {
+          "id": 4,
+          "title": "recommended",
+          "count": 9,
+          "percent": 40.91
+        },
+        {
+          "id": 3,
+          "title": "meh",
+          "count": 3,
+          "percent": 13.64
+        },
+        {
+          "id": 1,
+          "title": "skip",
+          "count": 2,
+          "percent": 9.09
+        }
+      ],
+      "ratings_count": 37,
+      "reviews_text_count": 3,
+      "added": 13,
+      "added_by_status": {
+        "yet": 8,
+        "owned": 29,
+        "beaten": 7,
+        "toplay": 7,
+        "dropped": 3,
+        "playing": 2
+      },
+      "metacritic": 72,
+      "suggestions_count": 89,
+      "updated": "2012-01-01T00:00:00",
+      "id": 100017,
+      "score": null,
+      "clip": null,
+      "tags": [],
+      "esrb_rating": null,
+      "user_game": null,
+      "reviews_count": 37,
+      "saturated_color": "0f0f0f",
+      "dominant_color": "0f0f0f",
+      "short_screenshots": [
+        {
+          "id": -1,
+          "image": "https://picsum.photos/seed/game16/600/400"
+        },
+        {
+          "id": 10001700,
+          "image": "https://picsum.photos/seed/ss16/588/419"
+        },
+        {
+          "id": 10001701,
+          "image": "https://picsum.photos/seed/ss17/588/419"
+        }
+      ],
+      "parent_platforms": [
+        {
+          "platform": {
+            "id": 9,
+            "name": "Atari",
+            "slug": "atari"
+          }
+        },
+        {
+          "platform": {
+            "id": 8,
+            "name": "Sega",
+            "slug": "sega"
+          }
+        }
+      ],
+      "genres": [
+        {
+          "id": 10,
+          "name": "Strategy",
+          "slug": "strategy"
+        },
+        {
+          "id": 4,
+          "name": "Action",
+          "slug": "action"
+        },
+        {
+          "id": 14,
+          "name": "Simulation",
+          "slug": "simulation"
+        }
+      ]
+    },
+    {
+      "slug": "power-raiders-iii",
+      "name": "Power Raiders III",
+      "playtime": 16,
+      "platforms": [
+        {
+          "platform": {
+            "id": 26,
+            "name": "Commodore 64",
+            "slug": "commodore-64"
+          }
+        }
+      ],
+      "stores": null,
+      "released": "1982-10-18",
+      "tba": false,
+      "background_image": "https://picsum.photos/seed/game17/600/400",
+      "rating": 3.37,
+      "rating_top": 5,
+      "ratings": [
+        {
+          "id": 5,
+          "title": "exceptional",
+          "count": 8,
+          "percent": 66.67
+        },
+        {
+          "id": 4,
+          "title": "recommended",
+          "count": 2,
+          "percent": 16.67
+        },
+        {
+          "id": 3,
+          "title": "meh",
+          "count": 2,
+          "percent": 16.67
+        },
+        {
+          "id": 1,
+          "title": "skip",
+          "count": 0,
+          "percent": 0
+        }
+      ],
+      "ratings_count": 34,
+      "reviews_text_count": 5,
+      "added": 42,
+      "added_by_status": {
+        "yet": 1,
+        "owned": 17,
+        "beaten": 13,
+        "toplay": 15,
+        "dropped": 8,
+        "playing": 5
+      },
+      "metacritic": null,
+      "suggestions_count": 198,
+      "updated": "2012-01-01T00:00:00",
+      "id": 100018,
+      "score": null,
+      "clip": null,
+      "tags": [],
+      "esrb_rating": null,
+      "user_game": null,
+      "reviews_count": 36,
+      "saturated_color": "0f0f0f",
+      "dominant_color": "0f0f0f",
+      "short_screenshots": [
+        {
+          "id": -1,
+          "image": "https://picsum.photos/seed/game17/600/400"
+        },
+        {
+          "id": 10001800,
+          "image": "https://picsum.photos/seed/ss17/588/419"
+        },
+        {
+          "id": 10001801,
+          "image": "https://picsum.photos/seed/ss18/588/419"
+        },
+        {
+          "id": 10001802,
+          "image": "https://picsum.photos/seed/ss19/588/419"
+        },
+        {
+          "id": 10001803,
+          "image": "https://picsum.photos/seed/ss20/588/419"
+        }
+      ],
+      "parent_platforms": [
+        {
+          "platform": {
+            "id": 7,
+            "name": "Nintendo",
+            "slug": "nintendo"
+          }
+        }
+      ],
+      "genres": [
+        {
+          "id": 7,
+          "name": "Puzzle",
+          "slug": "puzzle"
+        },
+        {
+          "id": 11,
+          "name": "Arcade",
+          "slug": "arcade"
+        },
+        {
+          "id": 4,
+          "name": "Action",
+          "slug": "action"
+        }
+      ]
+    },
+    {
+      "slug": "star-quest",
+      "name": "Star Quest",
+      "playtime": 0,
+      "platforms": [
+        {
+          "platform": {
+            "id": 43,
+            "name": "ZX Spectrum",
+            "slug": "zx-spectrum"
+          }
+        },
+        {
+          "platform": {
+            "id": 49,
+            "name": "NES",
+            "slug": "nes"
+          }
+        },
+        {
+          "platform": {
+            "id": 79,
+            "name": "SNES",
+            "slug": "snes"
+          }
+        },
+        {
+          "platform": {
+            "id": 4,
+            "name": "PC",
+            "slug": "pc"
+          }
+        }
+      ],
+      "stores": null,
+      "released": "1982-12-02",
+      "tba": false,
+      "background_image": "https://picsum.photos/seed/game18/600/400",
+      "rating": 4.4,
+      "rating_top": 5,
+      "ratings": [
+        {
+          "id": 5,
+          "title": "exceptional",
+          "count": 7,
+          "percent": 58.33
+        },
+        {
+          "id": 4,
+          "title": "recommended",
+          "count": 2,
+          "percent": 16.67
+        },
+        {
+          "id": 3,
+          "title": "meh",
+          "count": 2,
+          "percent": 16.67
+        },
+        {
+          "id": 1,
+          "title": "skip",
+          "count": 1,
+          "percent": 8.33
+        }
+      ],
+      "ratings_count": 24,
+      "reviews_text_count": 3,
+      "added": 10,
+      "added_by_status": {
+        "yet": 2,
+        "owned": 17,
+        "beaten": 2,
+        "toplay": 12,
+        "dropped": 4,
+        "playing": 2
+      },
+      "metacritic": 85,
+      "suggestions_count": 34,
+      "updated": "2012-01-01T00:00:00",
+      "id": 100019,
+      "score": null,
+      "clip": null,
+      "tags": [],
+      "esrb_rating": null,
+      "user_game": null,
+      "reviews_count": 24,
+      "saturated_color": "0f0f0f",
+      "dominant_color": "0f0f0f",
+      "short_screenshots": [
+        {
+          "id": -1,
+          "image": "https://picsum.photos/seed/game18/600/400"
+        },
+        {
+          "id": 10001900,
+          "image": "https://picsum.photos/seed/ss18/588/419"
+        },
+        {
+          "id": 10001901,
+          "image": "https://picsum.photos/seed/ss19/588/419"
+        },
+        {
+          "id": 10001902,
+          "image": "https://picsum.photos/seed/ss20/588/419"
+        }
+      ],
+      "parent_platforms": [
+        {
+          "platform": {
+            "id": 7,
+            "name": "Nintendo",
+            "slug": "nintendo"
+          }
+        },
+        {
+          "platform": {
+            "id": 9,
+            "name": "Atari",
+            "slug": "atari"
+          }
+        }
+      ],
+      "genres": [
+        {
+          "id": 4,
+          "name": "Action",
+          "slug": "action"
+        }
+      ]
+    },
+    {
+      "slug": "cyber-castle-plus",
+      "name": "Cyber Castle Plus",
+      "playtime": 11,
+      "platforms": [
+        {
+          "platform": {
+            "id": 167,
+            "name": "Sega Genesis",
+            "slug": "sega-genesis"
+          }
+        },
+        {
+          "platform": {
+            "id": 43,
+            "name": "ZX Spectrum",
+            "slug": "zx-spectrum"
+          }
+        },
+        {
+          "platform": {
+            "id": 26,
+            "name": "Commodore 64",
+            "slug": "commodore-64"
+          }
+        },
+        {
+          "platform": {
+            "id": 34,
+            "name": "Atari ST",
+            "slug": "atari-st"
+          }
+        }
+      ],
+      "stores": null,
+      "released": "1982-02-25",
+      "tba": false,
+      "background_image": "https://picsum.photos/seed/game19/600/400",
+      "rating": 2.32,
+      "rating_top": 5,
+      "ratings": [
+        {
+          "id": 5,
+          "title": "exceptional",
+          "count": 2,
+          "percent": 22.22
+        },
+        {
+          "id": 4,
+          "title": "recommended",
+          "count": 4,
+          "percent": 44.44
+        },
+        {
+          "id": 3,
+          "title": "meh",
+          "count": 3,
+          "percent": 33.33
+        },
+        {
+          "id": 1,
+          "title": "skip",
+          "count": 0,
+          "percent": 0
+        }
+      ],
+      "ratings_count": 13,
+      "reviews_text_count": 2,
+      "added": 97,
+      "added_by_status": {
+        "yet": 6,
+        "owned": 16,
+        "beaten": 20,
+        "toplay": 1,
+        "dropped": 8,
+        "playing": 1
+      },
+      "metacritic": null,
+      "suggestions_count": 140,
+      "updated": "2012-01-01T00:00:00",
+      "id": 100020,
+      "score": null,
+      "clip": null,
+      "tags": [],
+      "esrb_rating": null,
+      "user_game": null,
+      "reviews_count": 13,
+      "saturated_color": "0f0f0f",
+      "dominant_color": "0f0f0f",
+      "short_screenshots": [
+        {
+          "id": -1,
+          "image": "https://picsum.photos/seed/game19/600/400"
+        },
+        {
+          "id": 10002000,
+          "image": "https://picsum.photos/seed/ss19/588/419"
+        },
+        {
+          "id": 10002001,
+          "image": "https://picsum.photos/seed/ss20/588/419"
+        },
+        {
+          "id": 10002002,
+          "image": "https://picsum.photos/seed/ss21/588/419"
+        },
+        {
+          "id": 10002003,
+          "image": "https://picsum.photos/seed/ss22/588/419"
+        }
+      ],
+      "parent_platforms": [
+        {
+          "platform": {
+            "id": 8,
+            "name": "Sega",
+            "slug": "sega"
+          }
+        },
+        {
+          "platform": {
+            "id": 1,
+            "name": "PC",
+            "slug": "pc"
+          }
+        }
+      ],
+      "genres": [
+        {
+          "id": 7,
+          "name": "Puzzle",
+          "slug": "puzzle"
+        }
+      ]
+    }
+  ]
+}

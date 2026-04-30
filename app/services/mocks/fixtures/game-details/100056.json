@@ -1,0 +1,139 @@
+{
+  "id": 100056,
+  "slug": "ultra-blaster",
+  "name": "Ultra Blaster",
+  "name_original": "Ultra Blaster",
+  "description": "<p>Defend your base against increasingly difficult waves of invaders. Upgrade your defenses and unlock special abilities to survive. A timeless classic that defined the shoot-em-up genre.</p>",
+  "metacritic": null,
+  "metacritic_platforms": [],
+  "released": "1986-05-13",
+  "tba": false,
+  "updated": "2016-01-01T00:00:00",
+  "background_image": "https://picsum.photos/seed/game55/600/400",
+  "background_image_additional": null,
+  "website": "",
+  "rating": 4.35,
+  "rating_top": 5,
+  "ratings": [
+    {
+      "id": 5,
+      "title": "exceptional",
+      "count": 7,
+      "percent": 41.18
+    },
+    {
+      "id": 4,
+      "title": "recommended",
+      "count": 10,
+      "percent": 58.82
+    },
+    {
+      "id": 3,
+      "title": "meh",
+      "count": 0,
+      "percent": 0
+    },
+    {
+      "id": 1,
+      "title": "skip",
+      "count": 0,
+      "percent": 0
+    }
+  ],
+  "reactions": {},
+  "added": 20,
+  "added_by_status": {
+    "yet": 5,
+    "owned": 13,
+    "beaten": 3,
+    "toplay": 5,
+    "dropped": 6,
+    "playing": 5
+  },
+  "playtime": 11,
+  "screenshots_count": 3,
+  "movies_count": 0,
+  "creators_count": 0,
+  "achievements_count": 0,
+  "parent_achievements_count": "0",
+  "reddit_url": "",
+  "reddit_name": "",
+  "reddit_description": "",
+  "reddit_logo": "",
+  "reddit_count": 0,
+  "twitch_count": "0",
+  "youtube_count": "0",
+  "reviews_text_count": 2,
+  "ratings_count": 48,
+  "suggestions_count": 143,
+  "alternative_names": [],
+  "metacritic_url": "",
+  "parents_count": 0,
+  "additions_count": 0,
+  "game_series_count": 0,
+  "user_game": null,
+  "reviews_count": 48,
+  "saturated_color": "0f0f0f",
+  "dominant_color": "0f0f0f",
+  "parent_platforms": [
+    {
+      "platform": {
+        "id": 8,
+        "name": "Sega",
+        "slug": "sega"
+      }
+    },
+    {
+      "platform": {
+        "id": 1,
+        "name": "PC",
+        "slug": "pc"
+      }
+    }
+  ],
+  "platforms": [
+    {
+      "platform": {
+        "id": 79,
+        "name": "SNES",
+        "slug": "snes"
+      }
+    }
+  ],
+  "stores": [],
+  "developers": [
+    {
+      "id": 16263,
+      "name": "Atari",
+      "slug": "atari"
+    }
+  ],
+  "genres": [
+    {
+      "id": 5,
+      "name": "RPG",
+      "slug": "rpg"
+    },
+    {
+      "id": 15,
+      "name": "Sports",
+      "slug": "sports"
+    },
+    {
+      "id": 4,
+      "name": "Action",
+      "slug": "action"
+    }
+  ],
+  "tags": [],
+  "publishers": [
+    {
+      "id": 10684,
+      "name": "Namco",
+      "slug": "namco"
+    }
+  ],
+  "esrb_rating": null,
+  "clip": null,
+  "description_raw": "Defend your base against increasingly difficult waves of invaders. Upgrade your defenses and unlock special abilities to survive. A timeless classic that defined the shoot-em-up genre."
+}

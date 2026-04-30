@@ -1,0 +1,153 @@
+{
+  "id": 100033,
+  "slug": "castle-dx",
+  "name": "Castle DX",
+  "name_original": "Castle DX",
+  "description": "<p>A challenging arcade experience that tests your reflexes and strategic thinking. Master the unique mechanics to achieve the highest score. Features vibrant pixel art and an iconic chiptune soundtrack.</p>",
+  "metacritic": null,
+  "metacritic_platforms": [],
+  "released": "1984-01-14",
+  "tba": false,
+  "updated": "2014-01-01T00:00:00",
+  "background_image": "https://picsum.photos/seed/game32/600/400",
+  "background_image_additional": null,
+  "website": "",
+  "rating": 2.4,
+  "rating_top": 5,
+  "ratings": [
+    {
+      "id": 5,
+      "title": "exceptional",
+      "count": 4,
+      "percent": 28.57
+    },
+    {
+      "id": 4,
+      "title": "recommended",
+      "count": 3,
+      "percent": 21.43
+    },
+    {
+      "id": 3,
+      "title": "meh",
+      "count": 5,
+      "percent": 35.71
+    },
+    {
+      "id": 1,
+      "title": "skip",
+      "count": 2,
+      "percent": 14.29
+    }
+  ],
+  "reactions": {},
+  "added": 31,
+  "added_by_status": {
+    "yet": 7,
+    "owned": 6,
+    "beaten": 20,
+    "toplay": 9,
+    "dropped": 2,
+    "playing": 4
+  },
+  "playtime": 13,
+  "screenshots_count": 7,
+  "movies_count": 0,
+  "creators_count": 0,
+  "achievements_count": 0,
+  "parent_achievements_count": "0",
+  "reddit_url": "",
+  "reddit_name": "",
+  "reddit_description": "",
+  "reddit_logo": "",
+  "reddit_count": 0,
+  "twitch_count": "0",
+  "youtube_count": "0",
+  "reviews_text_count": 4,
+  "ratings_count": 6,
+  "suggestions_count": 27,
+  "alternative_names": [],
+  "metacritic_url": "",
+  "parents_count": 0,
+  "additions_count": 0,
+  "game_series_count": 0,
+  "user_game": null,
+  "reviews_count": 6,
+  "saturated_color": "0f0f0f",
+  "dominant_color": "0f0f0f",
+  "parent_platforms": [
+    {
+      "platform": {
+        "id": 9,
+        "name": "Atari",
+        "slug": "atari"
+      }
+    },
+    {
+      "platform": {
+        "id": 7,
+        "name": "Nintendo",
+        "slug": "nintendo"
+      }
+    }
+  ],
+  "platforms": [
+    {
+      "platform": {
+        "id": 24,
+        "name": "Game Boy Advance",
+        "slug": "game-boy-advance"
+      }
+    },
+    {
+      "platform": {
+        "id": 4,
+        "name": "PC",
+        "slug": "pc"
+      }
+    },
+    {
+      "platform": {
+        "id": 34,
+        "name": "Atari ST",
+        "slug": "atari-st"
+      }
+    }
+  ],
+  "stores": [],
+  "developers": [
+    {
+      "id": 16260,
+      "name": "Sega",
+      "slug": "sega"
+    }
+  ],
+  "genres": [
+    {
+      "id": 7,
+      "name": "Puzzle",
+      "slug": "puzzle"
+    },
+    {
+      "id": 4,
+      "name": "Action",
+      "slug": "action"
+    },
+    {
+      "id": 15,
+      "name": "Sports",
+      "slug": "sports"
+    }
+  ],
+  "tags": [],
+  "publishers": [
+    {
+      "id": 10685,
+      "name": "Atari",
+      "slug": "atari"
+    }
+  ],
+  "esrb_rating": null,
+  "clip": null,
+  "description_raw": "A challenging arcade experience that tests your reflexes and strategic thinking. Master the unique mechanics to achieve the highest score. Features vibrant pixel art and an iconic chiptune soundtrack."
+}

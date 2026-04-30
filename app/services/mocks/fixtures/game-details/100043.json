@@ -1,0 +1,134 @@
+{
+  "id": 100043,
+  "slug": "phantom",
+  "name": "Phantom",
+  "name_original": "Phantom",
+  "description": "<p>Fast-paced action meets puzzle-solving in this innovative title. Each stage introduces new mechanics that keep gameplay fresh from start to finish. Compete for high scores or enjoy the single-player campaign.</p>",
+  "metacritic": 80,
+  "metacritic_platforms": [],
+  "released": "1985-05-13",
+  "tba": false,
+  "updated": "2015-01-01T00:00:00",
+  "background_image": "https://picsum.photos/seed/game42/600/400",
+  "background_image_additional": null,
+  "website": "",
+  "rating": 3.63,
+  "rating_top": 5,
+  "ratings": [
+    {
+      "id": 5,
+      "title": "exceptional",
+      "count": 0,
+      "percent": 0
+    },
+    {
+      "id": 4,
+      "title": "recommended",
+      "count": 7,
+      "percent": 87.5
+    },
+    {
+      "id": 3,
+      "title": "meh",
+      "count": 1,
+      "percent": 12.5
+    },
+    {
+      "id": 1,
+      "title": "skip",
+      "count": 0,
+      "percent": 0
+    }
+  ],
+  "reactions": {},
+  "added": 98,
+  "added_by_status": {
+    "yet": 8,
+    "owned": 15,
+    "beaten": 18,
+    "toplay": 3,
+    "dropped": 1,
+    "playing": 1
+  },
+  "playtime": 1,
+  "screenshots_count": 3,
+  "movies_count": 0,
+  "creators_count": 0,
+  "achievements_count": 0,
+  "parent_achievements_count": "0",
+  "reddit_url": "",
+  "reddit_name": "",
+  "reddit_description": "",
+  "reddit_logo": "",
+  "reddit_count": 0,
+  "twitch_count": "0",
+  "youtube_count": "0",
+  "reviews_text_count": 4,
+  "ratings_count": 44,
+  "suggestions_count": 122,
+  "alternative_names": [],
+  "metacritic_url": "",
+  "parents_count": 0,
+  "additions_count": 0,
+  "game_series_count": 0,
+  "user_game": null,
+  "reviews_count": 46,
+  "saturated_color": "0f0f0f",
+  "dominant_color": "0f0f0f",
+  "parent_platforms": [
+    {
+      "platform": {
+        "id": 8,
+        "name": "Sega",
+        "slug": "sega"
+      }
+    }
+  ],
+  "platforms": [
+    {
+      "platform": {
+        "id": 167,
+        "name": "Sega Genesis",
+        "slug": "sega-genesis"
+      }
+    },
+    {
+      "platform": {
+        "id": 34,
+        "name": "Atari ST",
+        "slug": "atari-st"
+      }
+    }
+  ],
+  "stores": [],
+  "developers": [
+    {
+      "id": 16261,
+      "name": "Namco",
+      "slug": "namco"
+    }
+  ],
+  "genres": [
+    {
+      "id": 11,
+      "name": "Arcade",
+      "slug": "arcade"
+    },
+    {
+      "id": 4,
+      "name": "Action",
+      "slug": "action"
+    }
+  ],
+  "tags": [],
+  "publishers": [
+    {
+      "id": 10685,
+      "name": "Atari",
+      "slug": "atari"
+    }
+  ],
+  "esrb_rating": null,
+  "clip": null,
+  "description_raw": "Fast-paced action meets puzzle-solving in this innovative title. Each stage introduces new mechanics that keep gameplay fresh from start to finish. Compete for high scores or enjoy the single-player campaign."
+}

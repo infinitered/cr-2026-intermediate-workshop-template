@@ -1,0 +1,150 @@
+{
+  "id": 100020,
+  "slug": "cyber-castle-plus",
+  "name": "Cyber Castle Plus",
+  "name_original": "Cyber Castle Plus",
+  "description": "<p>Defend your base against increasingly difficult waves of invaders. Upgrade your defenses and unlock special abilities to survive. A timeless classic that defined the shoot-em-up genre.</p>",
+  "metacritic": null,
+  "metacritic_platforms": [],
+  "released": "1982-02-25",
+  "tba": false,
+  "updated": "2012-01-01T00:00:00",
+  "background_image": "https://picsum.photos/seed/game19/600/400",
+  "background_image_additional": null,
+  "website": "",
+  "rating": 2.32,
+  "rating_top": 5,
+  "ratings": [
+    {
+      "id": 5,
+      "title": "exceptional",
+      "count": 2,
+      "percent": 22.22
+    },
+    {
+      "id": 4,
+      "title": "recommended",
+      "count": 4,
+      "percent": 44.44
+    },
+    {
+      "id": 3,
+      "title": "meh",
+      "count": 3,
+      "percent": 33.33
+    },
+    {
+      "id": 1,
+      "title": "skip",
+      "count": 0,
+      "percent": 0
+    }
+  ],
+  "reactions": {},
+  "added": 97,
+  "added_by_status": {
+    "yet": 6,
+    "owned": 16,
+    "beaten": 20,
+    "toplay": 1,
+    "dropped": 8,
+    "playing": 1
+  },
+  "playtime": 11,
+  "screenshots_count": 6,
+  "movies_count": 0,
+  "creators_count": 0,
+  "achievements_count": 0,
+  "parent_achievements_count": "0",
+  "reddit_url": "",
+  "reddit_name": "",
+  "reddit_description": "",
+  "reddit_logo": "",
+  "reddit_count": 0,
+  "twitch_count": "0",
+  "youtube_count": "0",
+  "reviews_text_count": 2,
+  "ratings_count": 13,
+  "suggestions_count": 140,
+  "alternative_names": [],
+  "metacritic_url": "",
+  "parents_count": 0,
+  "additions_count": 0,
+  "game_series_count": 0,
+  "user_game": null,
+  "reviews_count": 13,
+  "saturated_color": "0f0f0f",
+  "dominant_color": "0f0f0f",
+  "parent_platforms": [
+    {
+      "platform": {
+        "id": 8,
+        "name": "Sega",
+        "slug": "sega"
+      }
+    },
+    {
+      "platform": {
+        "id": 1,
+        "name": "PC",
+        "slug": "pc"
+      }
+    }
+  ],
+  "platforms": [
+    {
+      "platform": {
+        "id": 167,
+        "name": "Sega Genesis",
+        "slug": "sega-genesis"
+      }
+    },
+    {
+      "platform": {
+        "id": 43,
+        "name": "ZX Spectrum",
+        "slug": "zx-spectrum"
+      }
+    },
+    {
+      "platform": {
+        "id": 26,
+        "name": "Commodore 64",
+        "slug": "commodore-64"
+      }
+    },
+    {
+      "platform": {
+        "id": 34,
+        "name": "Atari ST",
+        "slug": "atari-st"
+      }
+    }
+  ],
+  "stores": [],
+  "developers": [
+    {
+      "id": 16264,
+      "name": "Williams",
+      "slug": "williams"
+    }
+  ],
+  "genres": [
+    {
+      "id": 7,
+      "name": "Puzzle",
+      "slug": "puzzle"
+    }
+  ],
+  "tags": [],
+  "publishers": [
+    {
+      "id": 10685,
+      "name": "Atari",
+      "slug": "atari"
+    }
+  ],
+  "esrb_rating": null,
+  "clip": null,
+  "description_raw": "Defend your base against increasingly difficult waves of invaders. Upgrade your defenses and unlock special abilities to survive. A timeless classic that defined the shoot-em-up genre."
+}

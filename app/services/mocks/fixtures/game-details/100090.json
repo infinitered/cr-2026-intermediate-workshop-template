@@ -1,0 +1,141 @@
+{
+  "id": 100090,
+  "slug": "neo-force",
+  "name": "Neo Force",
+  "name_original": "Neo Force",
+  "description": "<p>Race against the clock in this adrenaline-pumping action game. Dodge obstacles, collect bonuses, and reach the finish line before time runs out. Simple controls hide surprising depth.</p>",
+  "metacritic": null,
+  "metacritic_platforms": [],
+  "released": "1989-09-26",
+  "tba": false,
+  "updated": "2019-01-01T00:00:00",
+  "background_image": "https://picsum.photos/seed/game89/600/400",
+  "background_image_additional": null,
+  "website": "",
+  "rating": 3.74,
+  "rating_top": 5,
+  "ratings": [
+    {
+      "id": 5,
+      "title": "exceptional",
+      "count": 6,
+      "percent": 40
+    },
+    {
+      "id": 4,
+      "title": "recommended",
+      "count": 2,
+      "percent": 13.33
+    },
+    {
+      "id": 3,
+      "title": "meh",
+      "count": 5,
+      "percent": 33.33
+    },
+    {
+      "id": 1,
+      "title": "skip",
+      "count": 2,
+      "percent": 13.33
+    }
+  ],
+  "reactions": {},
+  "added": 63,
+  "added_by_status": {
+    "yet": 2,
+    "owned": 18,
+    "beaten": 7,
+    "toplay": 3,
+    "dropped": 7,
+    "playing": 3
+  },
+  "playtime": 19,
+  "screenshots_count": 3,
+  "movies_count": 0,
+  "creators_count": 0,
+  "achievements_count": 0,
+  "parent_achievements_count": "0",
+  "reddit_url": "",
+  "reddit_name": "",
+  "reddit_description": "",
+  "reddit_logo": "",
+  "reddit_count": 0,
+  "twitch_count": "0",
+  "youtube_count": "0",
+  "reviews_text_count": 1,
+  "ratings_count": 16,
+  "suggestions_count": 16,
+  "alternative_names": [],
+  "metacritic_url": "",
+  "parents_count": 0,
+  "additions_count": 0,
+  "game_series_count": 0,
+  "user_game": null,
+  "reviews_count": 17,
+  "saturated_color": "0f0f0f",
+  "dominant_color": "0f0f0f",
+  "parent_platforms": [
+    {
+      "platform": {
+        "id": 8,
+        "name": "Sega",
+        "slug": "sega"
+      }
+    }
+  ],
+  "platforms": [
+    {
+      "platform": {
+        "id": 43,
+        "name": "ZX Spectrum",
+        "slug": "zx-spectrum"
+      }
+    },
+    {
+      "platform": {
+        "id": 4,
+        "name": "PC",
+        "slug": "pc"
+      }
+    },
+    {
+      "platform": {
+        "id": 34,
+        "name": "Atari ST",
+        "slug": "atari-st"
+      }
+    }
+  ],
+  "stores": [],
+  "developers": [
+    {
+      "id": 16260,
+      "name": "Sega",
+      "slug": "sega"
+    }
+  ],
+  "genres": [
+    {
+      "id": 83,
+      "name": "Platformer",
+      "slug": "platformer"
+    },
+    {
+      "id": 3,
+      "name": "Adventure",
+      "slug": "adventure"
+    }
+  ],
+  "tags": [],
+  "publishers": [
+    {
+      "id": 10685,
+      "name": "Atari",
+      "slug": "atari"
+    }
+  ],
+  "esrb_rating": null,
+  "clip": null,
+  "description_raw": "Race against the clock in this adrenaline-pumping action game. Dodge obstacles, collect bonuses, and reach the finish line before time runs out. Simple controls hide surprising depth."
+}

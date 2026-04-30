@@ -1,0 +1,1222 @@
+{
+  "count": 10,
+  "next": null,
+  "previous": null,
+  "results": [
+    {
+      "slug": "mega-warriors",
+      "name": "Mega Warriors",
+      "playtime": 12,
+      "platforms": [
+        {
+          "platform": {
+            "id": 24,
+            "name": "Game Boy Advance",
+            "slug": "game-boy-advance"
+          }
+        },
+        {
+          "platform": {
+            "id": 49,
+            "name": "NES",
+            "slug": "nes"
+          }
+        },
+        {
+          "platform": {
+            "id": 4,
+            "name": "PC",
+            "slug": "pc"
+          }
+        },
+        {
+          "platform": {
+            "id": 43,
+            "name": "ZX Spectrum",
+            "slug": "zx-spectrum"
+          }
+        }
+      ],
+      "stores": null,
+      "released": "1985-04-02",
+      "tba": false,
+      "background_image": "https://picsum.photos/seed/game40/600/400",
+      "rating": 2.89,
+      "rating_top": 5,
+      "ratings": [
+        {
+          "id": 5,
+          "title": "exceptional",
+          "count": 4,
+          "percent": 30.77
+        },
+        {
+          "id": 4,
+          "title": "recommended",
+          "count": 8,
+          "percent": 61.54
+        },
+        {
+          "id": 3,
+          "title": "meh",
+          "count": 1,
+          "percent": 7.69
+        },
+        {
+          "id": 1,
+          "title": "skip",
+          "count": 0,
+          "percent": 0
+        }
+      ],
+      "ratings_count": 32,
+      "reviews_text_count": 5,
+      "added": 58,
+      "added_by_status": {
+        "yet": 8,
+        "owned": 24,
+        "beaten": 18,
+        "toplay": 3,
+        "dropped": 8,
+        "playing": 1
+      },
+      "metacritic": null,
+      "suggestions_count": 30,
+      "updated": "2015-01-01T00:00:00",
+      "id": 100041,
+      "score": null,
+      "clip": null,
+      "tags": [],
+      "esrb_rating": null,
+      "user_game": null,
+      "reviews_count": 32,
+      "saturated_color": "0f0f0f",
+      "dominant_color": "0f0f0f",
+      "short_screenshots": [
+        {
+          "id": -1,
+          "image": "https://picsum.photos/seed/game40/600/400"
+        },
+        {
+          "id": 10004100,
+          "image": "https://picsum.photos/seed/ss40/588/419"
+        },
+        {
+          "id": 10004101,
+          "image": "https://picsum.photos/seed/ss41/588/419"
+        },
+        {
+          "id": 10004102,
+          "image": "https://picsum.photos/seed/ss42/588/419"
+        }
+      ],
+      "parent_platforms": [
+        {
+          "platform": {
+            "id": 1,
+            "name": "PC",
+            "slug": "pc"
+          }
+        }
+      ],
+      "genres": [
+        {
+          "id": 10,
+          "name": "Strategy",
+          "slug": "strategy"
+        },
+        {
+          "id": 3,
+          "name": "Adventure",
+          "slug": "adventure"
+        },
+        {
+          "id": 5,
+          "name": "RPG",
+          "slug": "rpg"
+        }
+      ]
+    },
+    {
+      "slug": "raiders",
+      "name": "Raiders",
+      "playtime": 2,
+      "platforms": [
+        {
+          "platform": {
+            "id": 34,
+            "name": "Atari ST",
+            "slug": "atari-st"
+          }
+        },
+        {
+          "platform": {
+            "id": 4,
+            "name": "PC",
+            "slug": "pc"
+          }
+        },
+        {
+          "platform": {
+            "id": 24,
+            "name": "Game Boy Advance",
+            "slug": "game-boy-advance"
+          }
+        }
+      ],
+      "stores": null,
+      "released": "1985-01-08",
+      "tba": false,
+      "background_image": "https://picsum.photos/seed/game41/600/400",
+      "rating": 3.03,
+      "rating_top": 5,
+      "ratings": [
+        {
+          "id": 5,
+          "title": "exceptional",
+          "count": 7,
+          "percent": 53.85
+        },
+        {
+          "id": 4,
+          "title": "recommended",
+          "count": 2,
+          "percent": 15.38
+        },
+        {
+          "id": 3,
+          "title": "meh",
+          "count": 4,
+          "percent": 30.77
+        },
+        {
+          "id": 1,
+          "title": "skip",
+          "count": 0,
+          "percent": 0
+        }
+      ],
+      "ratings_count": 6,
+      "reviews_text_count": 2,
+      "added": 14,
+      "added_by_status": {
+        "yet": 2,
+        "owned": 24,
+        "beaten": 2,
+        "toplay": 3,
+        "dropped": 2,
+        "playing": 0
+      },
+      "metacritic": 87,
+      "suggestions_count": 84,
+      "updated": "2015-01-01T00:00:00",
+      "id": 100042,
+      "score": null,
+      "clip": null,
+      "tags": [],
+      "esrb_rating": null,
+      "user_game": null,
+      "reviews_count": 6,
+      "saturated_color": "0f0f0f",
+      "dominant_color": "0f0f0f",
+      "short_screenshots": [
+        {
+          "id": -1,
+          "image": "https://picsum.photos/seed/game41/600/400"
+        },
+        {
+          "id": 10004200,
+          "image": "https://picsum.photos/seed/ss41/588/419"
+        },
+        {
+          "id": 10004201,
+          "image": "https://picsum.photos/seed/ss42/588/419"
+        }
+      ],
+      "parent_platforms": [
+        {
+          "platform": {
+            "id": 8,
+            "name": "Sega",
+            "slug": "sega"
+          }
+        },
+        {
+          "platform": {
+            "id": 9,
+            "name": "Atari",
+            "slug": "atari"
+          }
+        }
+      ],
+      "genres": [
+        {
+          "id": 10,
+          "name": "Strategy",
+          "slug": "strategy"
+        }
+      ]
+    },
+    {
+      "slug": "phantom",
+      "name": "Phantom",
+      "playtime": 1,
+      "platforms": [
+        {
+          "platform": {
+            "id": 167,
+            "name": "Sega Genesis",
+            "slug": "sega-genesis"
+          }
+        },
+        {
+          "platform": {
+            "id": 34,
+            "name": "Atari ST",
+            "slug": "atari-st"
+          }
+        }
+      ],
+      "stores": null,
+      "released": "1985-05-13",
+      "tba": false,
+      "background_image": "https://picsum.photos/seed/game42/600/400",
+      "rating": 3.63,
+      "rating_top": 5,
+      "ratings": [
+        {
+          "id": 5,
+          "title": "exceptional",
+          "count": 0,
+          "percent": 0
+        },
+        {
+          "id": 4,
+          "title": "recommended",
+          "count": 7,
+          "percent": 87.5
+        },
+        {
+          "id": 3,
+          "title": "meh",
+          "count": 1,
+          "percent": 12.5
+        },
+        {
+          "id": 1,
+          "title": "skip",
+          "count": 0,
+          "percent": 0
+        }
+      ],
+      "ratings_count": 44,
+      "reviews_text_count": 4,
+      "added": 98,
+      "added_by_status": {
+        "yet": 8,
+        "owned": 15,
+        "beaten": 18,
+        "toplay": 3,
+        "dropped": 1,
+        "playing": 1
+      },
+      "metacritic": 80,
+      "suggestions_count": 122,
+      "updated": "2015-01-01T00:00:00",
+      "id": 100043,
+      "score": null,
+      "clip": null,
+      "tags": [],
+      "esrb_rating": null,
+      "user_game": null,
+      "reviews_count": 46,
+      "saturated_color": "0f0f0f",
+      "dominant_color": "0f0f0f",
+      "short_screenshots": [
+        {
+          "id": -1,
+          "image": "https://picsum.photos/seed/game42/600/400"
+        },
+        {
+          "id": 10004300,
+          "image": "https://picsum.photos/seed/ss42/588/419"
+        },
+        {
+          "id": 10004301,
+          "image": "https://picsum.photos/seed/ss43/588/419"
+        },
+        {
+          "id": 10004302,
+          "image": "https://picsum.photos/seed/ss44/588/419"
+        }
+      ],
+      "parent_platforms": [
+        {
+          "platform": {
+            "id": 8,
+            "name": "Sega",
+            "slug": "sega"
+          }
+        }
+      ],
+      "genres": [
+        {
+          "id": 11,
+          "name": "Arcade",
+          "slug": "arcade"
+        },
+        {
+          "id": 4,
+          "name": "Action",
+          "slug": "action"
+        }
+      ]
+    },
+    {
+      "slug": "hyper-galaxy-turbo",
+      "name": "Hyper Galaxy Turbo",
+      "playtime": 2,
+      "platforms": [
+        {
+          "platform": {
+            "id": 24,
+            "name": "Game Boy Advance",
+            "slug": "game-boy-advance"
+          }
+        }
+      ],
+      "stores": null,
+      "released": "1985-12-11",
+      "tba": false,
+      "background_image": "https://picsum.photos/seed/game43/600/400",
+      "rating": 2.82,
+      "rating_top": 5,
+      "ratings": [
+        {
+          "id": 5,
+          "title": "exceptional",
+          "count": 5,
+          "percent": 62.5
+        },
+        {
+          "id": 4,
+          "title": "recommended",
+          "count": 0,
+          "percent": 0
+        },
+        {
+          "id": 3,
+          "title": "meh",
+          "count": 3,
+          "percent": 37.5
+        },
+        {
+          "id": 1,
+          "title": "skip",
+          "count": 0,
+          "percent": 0
+        }
+      ],
+      "ratings_count": 10,
+      "reviews_text_count": 2,
+      "added": 94,
+      "added_by_status": {
+        "yet": 0,
+        "owned": 21,
+        "beaten": 12,
+        "toplay": 12,
+        "dropped": 8,
+        "playing": 2
+      },
+      "metacritic": null,
+      "suggestions_count": 75,
+      "updated": "2015-01-01T00:00:00",
+      "id": 100044,
+      "score": null,
+      "clip": null,
+      "tags": [],
+      "esrb_rating": null,
+      "user_game": null,
+      "reviews_count": 10,
+      "saturated_color": "0f0f0f",
+      "dominant_color": "0f0f0f",
+      "short_screenshots": [
+        {
+          "id": -1,
+          "image": "https://picsum.photos/seed/game43/600/400"
+        },
+        {
+          "id": 10004400,
+          "image": "https://picsum.photos/seed/ss43/588/419"
+        },
+        {
+          "id": 10004401,
+          "image": "https://picsum.photos/seed/ss44/588/419"
+        }
+      ],
+      "parent_platforms": [
+        {
+          "platform": {
+            "id": 1,
+            "name": "PC",
+            "slug": "pc"
+          }
+        },
+        {
+          "platform": {
+            "id": 8,
+            "name": "Sega",
+            "slug": "sega"
+          }
+        }
+      ],
+      "genres": [
+        {
+          "id": 3,
+          "name": "Adventure",
+          "slug": "adventure"
+        },
+        {
+          "id": 5,
+          "name": "RPG",
+          "slug": "rpg"
+        }
+      ]
+    },
+    {
+      "slug": "storm",
+      "name": "Storm",
+      "playtime": 6,
+      "platforms": [
+        {
+          "platform": {
+            "id": 43,
+            "name": "ZX Spectrum",
+            "slug": "zx-spectrum"
+          }
+        },
+        {
+          "platform": {
+            "id": 4,
+            "name": "PC",
+            "slug": "pc"
+          }
+        },
+        {
+          "platform": {
+            "id": 34,
+            "name": "Atari ST",
+            "slug": "atari-st"
+          }
+        }
+      ],
+      "stores": null,
+      "released": "1985-08-15",
+      "tba": false,
+      "background_image": "https://picsum.photos/seed/game44/600/400",
+      "rating": 2.23,
+      "rating_top": 5,
+      "ratings": [
+        {
+          "id": 5,
+          "title": "exceptional",
+          "count": 2,
+          "percent": 13.33
+        },
+        {
+          "id": 4,
+          "title": "recommended",
+          "count": 8,
+          "percent": 53.33
+        },
+        {
+          "id": 3,
+          "title": "meh",
+          "count": 5,
+          "percent": 33.33
+        },
+        {
+          "id": 1,
+          "title": "skip",
+          "count": 0,
+          "percent": 0
+        }
+      ],
+      "ratings_count": 19,
+      "reviews_text_count": 0,
+      "added": 29,
+      "added_by_status": {
+        "yet": 1,
+        "owned": 15,
+        "beaten": 3,
+        "toplay": 14,
+        "dropped": 7,
+        "playing": 5
+      },
+      "metacritic": null,
+      "suggestions_count": 27,
+      "updated": "2015-01-01T00:00:00",
+      "id": 100045,
+      "score": null,
+      "clip": null,
+      "tags": [],
+      "esrb_rating": null,
+      "user_game": null,
+      "reviews_count": 21,
+      "saturated_color": "0f0f0f",
+      "dominant_color": "0f0f0f",
+      "short_screenshots": [
+        {
+          "id": -1,
+          "image": "https://picsum.photos/seed/game44/600/400"
+        },
+        {
+          "id": 10004500,
+          "image": "https://picsum.photos/seed/ss44/588/419"
+        },
+        {
+          "id": 10004501,
+          "image": "https://picsum.photos/seed/ss45/588/419"
+        }
+      ],
+      "parent_platforms": [
+        {
+          "platform": {
+            "id": 8,
+            "name": "Sega",
+            "slug": "sega"
+          }
+        },
+        {
+          "platform": {
+            "id": 9,
+            "name": "Atari",
+            "slug": "atari"
+          }
+        }
+      ],
+      "genres": [
+        {
+          "id": 10,
+          "name": "Strategy",
+          "slug": "strategy"
+        }
+      ]
+    },
+    {
+      "slug": "super-castle-dx",
+      "name": "Super Castle DX",
+      "playtime": 5,
+      "platforms": [
+        {
+          "platform": {
+            "id": 49,
+            "name": "NES",
+            "slug": "nes"
+          }
+        },
+        {
+          "platform": {
+            "id": 26,
+            "name": "Commodore 64",
+            "slug": "commodore-64"
+          }
+        },
+        {
+          "platform": {
+            "id": 4,
+            "name": "PC",
+            "slug": "pc"
+          }
+        },
+        {
+          "platform": {
+            "id": 34,
+            "name": "Atari ST",
+            "slug": "atari-st"
+          }
+        }
+      ],
+      "stores": null,
+      "released": "1985-05-20",
+      "tba": false,
+      "background_image": "https://picsum.photos/seed/game45/600/400",
+      "rating": 4.91,
+      "rating_top": 5,
+      "ratings": [
+        {
+          "id": 5,
+          "title": "exceptional",
+          "count": 4,
+          "percent": 40
+        },
+        {
+          "id": 4,
+          "title": "recommended",
+          "count": 3,
+          "percent": 30
+        },
+        {
+          "id": 3,
+          "title": "meh",
+          "count": 3,
+          "percent": 30
+        },
+        {
+          "id": 1,
+          "title": "skip",
+          "count": 0,
+          "percent": 0
+        }
+      ],
+      "ratings_count": 27,
+      "reviews_text_count": 3,
+      "added": 18,
+      "added_by_status": {
+        "yet": 10,
+        "owned": 20,
+        "beaten": 16,
+        "toplay": 11,
+        "dropped": 1,
+        "playing": 1
+      },
+      "metacritic": 70,
+      "suggestions_count": 133,
+      "updated": "2015-01-01T00:00:00",
+      "id": 100046,
+      "score": null,
+      "clip": null,
+      "tags": [],
+      "esrb_rating": null,
+      "user_game": null,
+      "reviews_count": 29,
+      "saturated_color": "0f0f0f",
+      "dominant_color": "0f0f0f",
+      "short_screenshots": [
+        {
+          "id": -1,
+          "image": "https://picsum.photos/seed/game45/600/400"
+        },
+        {
+          "id": 10004600,
+          "image": "https://picsum.photos/seed/ss45/588/419"
+        },
+        {
+          "id": 10004601,
+          "image": "https://picsum.photos/seed/ss46/588/419"
+        }
+      ],
+      "parent_platforms": [
+        {
+          "platform": {
+            "id": 7,
+            "name": "Nintendo",
+            "slug": "nintendo"
+          }
+        },
+        {
+          "platform": {
+            "id": 9,
+            "name": "Atari",
+            "slug": "atari"
+          }
+        }
+      ],
+      "genres": [
+        {
+          "id": 5,
+          "name": "RPG",
+          "slug": "rpg"
+        },
+        {
+          "id": 3,
+          "name": "Adventure",
+          "slug": "adventure"
+        },
+        {
+          "id": 10,
+          "name": "Strategy",
+          "slug": "strategy"
+        }
+      ]
+    },
+    {
+      "slug": "quest",
+      "name": "Quest",
+      "playtime": 16,
+      "platforms": [
+        {
+          "platform": {
+            "id": 43,
+            "name": "ZX Spectrum",
+            "slug": "zx-spectrum"
+          }
+        }
+      ],
+      "stores": null,
+      "released": "1985-04-18",
+      "tba": false,
+      "background_image": "https://picsum.photos/seed/game46/600/400",
+      "rating": 2.25,
+      "rating_top": 5,
+      "ratings": [
+        {
+          "id": 5,
+          "title": "exceptional",
+          "count": 1,
+          "percent": 8.33
+        },
+        {
+          "id": 4,
+          "title": "recommended",
+          "count": 6,
+          "percent": 50
+        },
+        {
+          "id": 3,
+          "title": "meh",
+          "count": 4,
+          "percent": 33.33
+        },
+        {
+          "id": 1,
+          "title": "skip",
+          "count": 1,
+          "percent": 8.33
+        }
+      ],
+      "ratings_count": 45,
+      "reviews_text_count": 5,
+      "added": 53,
+      "added_by_status": {
+        "yet": 4,
+        "owned": 29,
+        "beaten": 19,
+        "toplay": 0,
+        "dropped": 3,
+        "playing": 0
+      },
+      "metacritic": 81,
+      "suggestions_count": 185,
+      "updated": "2015-01-01T00:00:00",
+      "id": 100047,
+      "score": null,
+      "clip": null,
+      "tags": [],
+      "esrb_rating": null,
+      "user_game": null,
+      "reviews_count": 47,
+      "saturated_color": "0f0f0f",
+      "dominant_color": "0f0f0f",
+      "short_screenshots": [
+        {
+          "id": -1,
+          "image": "https://picsum.photos/seed/game46/600/400"
+        },
+        {
+          "id": 10004700,
+          "image": "https://picsum.photos/seed/ss46/588/419"
+        },
+        {
+          "id": 10004701,
+          "image": "https://picsum.photos/seed/ss47/588/419"
+        }
+      ],
+      "parent_platforms": [
+        {
+          "platform": {
+            "id": 9,
+            "name": "Atari",
+            "slug": "atari"
+          }
+        },
+        {
+          "platform": {
+            "id": 1,
+            "name": "PC",
+            "slug": "pc"
+          }
+        }
+      ],
+      "genres": [
+        {
+          "id": 3,
+          "name": "Adventure",
+          "slug": "adventure"
+        },
+        {
+          "id": 5,
+          "name": "RPG",
+          "slug": "rpg"
+        },
+        {
+          "id": 2,
+          "name": "Shooter",
+          "slug": "shooter"
+        }
+      ]
+    },
+    {
+      "slug": "warriors-turbo",
+      "name": "Warriors Turbo",
+      "playtime": 4,
+      "platforms": [
+        {
+          "platform": {
+            "id": 24,
+            "name": "Game Boy Advance",
+            "slug": "game-boy-advance"
+          }
+        },
+        {
+          "platform": {
+            "id": 4,
+            "name": "PC",
+            "slug": "pc"
+          }
+        }
+      ],
+      "stores": null,
+      "released": "1985-01-22",
+      "tba": false,
+      "background_image": "https://picsum.photos/seed/game47/600/400",
+      "rating": 2.89,
+      "rating_top": 5,
+      "ratings": [
+        {
+          "id": 5,
+          "title": "exceptional",
+          "count": 3,
+          "percent": 27.27
+        },
+        {
+          "id": 4,
+          "title": "recommended",
+          "count": 6,
+          "percent": 54.55
+        },
+        {
+          "id": 3,
+          "title": "meh",
+          "count": 2,
+          "percent": 18.18
+        },
+        {
+          "id": 1,
+          "title": "skip",
+          "count": 0,
+          "percent": 0
+        }
+      ],
+      "ratings_count": 47,
+      "reviews_text_count": 2,
+      "added": 69,
+      "added_by_status": {
+        "yet": 9,
+        "owned": 6,
+        "beaten": 16,
+        "toplay": 5,
+        "dropped": 6,
+        "playing": 5
+      },
+      "metacritic": 62,
+      "suggestions_count": 38,
+      "updated": "2015-01-01T00:00:00",
+      "id": 100048,
+      "score": null,
+      "clip": null,
+      "tags": [],
+      "esrb_rating": null,
+      "user_game": null,
+      "reviews_count": 50,
+      "saturated_color": "0f0f0f",
+      "dominant_color": "0f0f0f",
+      "short_screenshots": [
+        {
+          "id": -1,
+          "image": "https://picsum.photos/seed/game47/600/400"
+        },
+        {
+          "id": 10004800,
+          "image": "https://picsum.photos/seed/ss47/588/419"
+        },
+        {
+          "id": 10004801,
+          "image": "https://picsum.photos/seed/ss48/588/419"
+        },
+        {
+          "id": 10004802,
+          "image": "https://picsum.photos/seed/ss49/588/419"
+        },
+        {
+          "id": 10004803,
+          "image": "https://picsum.photos/seed/ss50/588/419"
+        }
+      ],
+      "parent_platforms": [
+        {
+          "platform": {
+            "id": 9,
+            "name": "Atari",
+            "slug": "atari"
+          }
+        },
+        {
+          "platform": {
+            "id": 1,
+            "name": "PC",
+            "slug": "pc"
+          }
+        }
+      ],
+      "genres": [
+        {
+          "id": 14,
+          "name": "Simulation",
+          "slug": "simulation"
+        }
+      ]
+    },
+    {
+      "slug": "cyber-warriors",
+      "name": "Cyber Warriors",
+      "playtime": 12,
+      "platforms": [
+        {
+          "platform": {
+            "id": 4,
+            "name": "PC",
+            "slug": "pc"
+          }
+        },
+        {
+          "platform": {
+            "id": 167,
+            "name": "Sega Genesis",
+            "slug": "sega-genesis"
+          }
+        }
+      ],
+      "stores": null,
+      "released": "1985-01-11",
+      "tba": false,
+      "background_image": "https://picsum.photos/seed/game48/600/400",
+      "rating": 2.77,
+      "rating_top": 5,
+      "ratings": [
+        {
+          "id": 5,
+          "title": "exceptional",
+          "count": 5,
+          "percent": 50
+        },
+        {
+          "id": 4,
+          "title": "recommended",
+          "count": 3,
+          "percent": 30
+        },
+        {
+          "id": 3,
+          "title": "meh",
+          "count": 2,
+          "percent": 20
+        },
+        {
+          "id": 1,
+          "title": "skip",
+          "count": 0,
+          "percent": 0
+        }
+      ],
+      "ratings_count": 37,
+      "reviews_text_count": 3,
+      "added": 47,
+      "added_by_status": {
+        "yet": 4,
+        "owned": 25,
+        "beaten": 2,
+        "toplay": 10,
+        "dropped": 0,
+        "playing": 3
+      },
+      "metacritic": null,
+      "suggestions_count": 70,
+      "updated": "2015-01-01T00:00:00",
+      "id": 100049,
+      "score": null,
+      "clip": null,
+      "tags": [],
+      "esrb_rating": null,
+      "user_game": null,
+      "reviews_count": 38,
+      "saturated_color": "0f0f0f",
+      "dominant_color": "0f0f0f",
+      "short_screenshots": [
+        {
+          "id": -1,
+          "image": "https://picsum.photos/seed/game48/600/400"
+        },
+        {
+          "id": 10004900,
+          "image": "https://picsum.photos/seed/ss48/588/419"
+        },
+        {
+          "id": 10004901,
+          "image": "https://picsum.photos/seed/ss49/588/419"
+        }
+      ],
+      "parent_platforms": [
+        {
+          "platform": {
+            "id": 9,
+            "name": "Atari",
+            "slug": "atari"
+          }
+        },
+        {
+          "platform": {
+            "id": 1,
+            "name": "PC",
+            "slug": "pc"
+          }
+        }
+      ],
+      "genres": [
+        {
+          "id": 4,
+          "name": "Action",
+          "slug": "action"
+        }
+      ]
+    },
+    {
+      "slug": "hyper-knight-turbo",
+      "name": "Hyper Knight Turbo",
+      "playtime": 16,
+      "platforms": [
+        {
+          "platform": {
+            "id": 26,
+            "name": "Commodore 64",
+            "slug": "commodore-64"
+          }
+        },
+        {
+          "platform": {
+            "id": 79,
+            "name": "SNES",
+            "slug": "snes"
+          }
+        }
+      ],
+      "stores": null,
+      "released": "1985-02-02",
+      "tba": false,
+      "background_image": "https://picsum.photos/seed/game49/600/400",
+      "rating": 3.25,
+      "rating_top": 5,
+      "ratings": [
+        {
+          "id": 5,
+          "title": "exceptional",
+          "count": 10,
+          "percent": 47.62
+        },
+        {
+          "id": 4,
+          "title": "recommended",
+          "count": 5,
+          "percent": 23.81
+        },
+        {
+          "id": 3,
+          "title": "meh",
+          "count": 3,
+          "percent": 14.29
+        },
+        {
+          "id": 1,
+          "title": "skip",
+          "count": 3,
+          "percent": 14.29
+        }
+      ],
+      "ratings_count": 45,
+      "reviews_text_count": 3,
+      "added": 84,
+      "added_by_status": {
+        "yet": 8,
+        "owned": 11,
+        "beaten": 17,
+        "toplay": 11,
+        "dropped": 8,
+        "playing": 3
+      },
+      "metacritic": 61,
+      "suggestions_count": 78,
+      "updated": "2015-01-01T00:00:00",
+      "id": 100050,
+      "score": null,
+      "clip": null,
+      "tags": [],
+      "esrb_rating": null,
+      "user_game": null,
+      "reviews_count": 45,
+      "saturated_color": "0f0f0f",
+      "dominant_color": "0f0f0f",
+      "short_screenshots": [
+        {
+          "id": -1,
+          "image": "https://picsum.photos/seed/game49/600/400"
+        },
+        {
+          "id": 10005000,
+          "image": "https://picsum.photos/seed/ss49/588/419"
+        },
+        {
+          "id": 10005001,
+          "image": "https://picsum.photos/seed/ss50/588/419"
+        },
+        {
+          "id": 10005002,
+          "image": "https://picsum.photos/seed/ss51/588/419"
+        },
+        {
+          "id": 10005003,
+          "image": "https://picsum.photos/seed/ss52/588/419"
+        },
+        {
+          "id": 10005004,
+          "image": "https://picsum.photos/seed/ss53/588/419"
+        }
+      ],
+      "parent_platforms": [
+        {
+          "platform": {
+            "id": 8,
+            "name": "Sega",
+            "slug": "sega"
+          }
+        }
+      ],
+      "genres": [
+        {
+          "id": 7,
+          "name": "Puzzle",
+          "slug": "puzzle"
+        },
+        {
+          "id": 3,
+          "name": "Adventure",
+          "slug": "adventure"
+        },
+        {
+          "id": 5,
+          "name": "RPG",
+          "slug": "rpg"
+        }
+      ]
+    }
+  ]
+}

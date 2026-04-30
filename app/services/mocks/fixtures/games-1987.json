@@ -1,0 +1,1234 @@
+{
+  "count": 10,
+  "next": null,
+  "previous": null,
+  "results": [
+    {
+      "slug": "mega-runner-iii",
+      "name": "Mega Runner III",
+      "playtime": 1,
+      "platforms": [
+        {
+          "platform": {
+            "id": 49,
+            "name": "NES",
+            "slug": "nes"
+          }
+        },
+        {
+          "platform": {
+            "id": 4,
+            "name": "PC",
+            "slug": "pc"
+          }
+        },
+        {
+          "platform": {
+            "id": 34,
+            "name": "Atari ST",
+            "slug": "atari-st"
+          }
+        }
+      ],
+      "stores": null,
+      "released": "1987-09-16",
+      "tba": false,
+      "background_image": "https://picsum.photos/seed/game60/600/400",
+      "rating": 4.04,
+      "rating_top": 5,
+      "ratings": [
+        {
+          "id": 5,
+          "title": "exceptional",
+          "count": 2,
+          "percent": 25
+        },
+        {
+          "id": 4,
+          "title": "recommended",
+          "count": 3,
+          "percent": 37.5
+        },
+        {
+          "id": 3,
+          "title": "meh",
+          "count": 1,
+          "percent": 12.5
+        },
+        {
+          "id": 1,
+          "title": "skip",
+          "count": 2,
+          "percent": 25
+        }
+      ],
+      "ratings_count": 34,
+      "reviews_text_count": 2,
+      "added": 70,
+      "added_by_status": {
+        "yet": 1,
+        "owned": 16,
+        "beaten": 14,
+        "toplay": 9,
+        "dropped": 1,
+        "playing": 4
+      },
+      "metacritic": null,
+      "suggestions_count": 126,
+      "updated": "2017-01-01T00:00:00",
+      "id": 100061,
+      "score": null,
+      "clip": null,
+      "tags": [],
+      "esrb_rating": null,
+      "user_game": null,
+      "reviews_count": 35,
+      "saturated_color": "0f0f0f",
+      "dominant_color": "0f0f0f",
+      "short_screenshots": [
+        {
+          "id": -1,
+          "image": "https://picsum.photos/seed/game60/600/400"
+        },
+        {
+          "id": 10006100,
+          "image": "https://picsum.photos/seed/ss60/588/419"
+        },
+        {
+          "id": 10006101,
+          "image": "https://picsum.photos/seed/ss61/588/419"
+        }
+      ],
+      "parent_platforms": [
+        {
+          "platform": {
+            "id": 8,
+            "name": "Sega",
+            "slug": "sega"
+          }
+        }
+      ],
+      "genres": [
+        {
+          "id": 5,
+          "name": "RPG",
+          "slug": "rpg"
+        },
+        {
+          "id": 15,
+          "name": "Sports",
+          "slug": "sports"
+        },
+        {
+          "id": 2,
+          "name": "Shooter",
+          "slug": "shooter"
+        }
+      ]
+    },
+    {
+      "slug": "runner",
+      "name": "Runner",
+      "playtime": 6,
+      "platforms": [
+        {
+          "platform": {
+            "id": 49,
+            "name": "NES",
+            "slug": "nes"
+          }
+        }
+      ],
+      "stores": null,
+      "released": "1987-03-28",
+      "tba": false,
+      "background_image": "https://picsum.photos/seed/game61/600/400",
+      "rating": 2.49,
+      "rating_top": 5,
+      "ratings": [
+        {
+          "id": 5,
+          "title": "exceptional",
+          "count": 0,
+          "percent": 0
+        },
+        {
+          "id": 4,
+          "title": "recommended",
+          "count": 10,
+          "percent": 66.67
+        },
+        {
+          "id": 3,
+          "title": "meh",
+          "count": 5,
+          "percent": 33.33
+        },
+        {
+          "id": 1,
+          "title": "skip",
+          "count": 0,
+          "percent": 0
+        }
+      ],
+      "ratings_count": 6,
+      "reviews_text_count": 2,
+      "added": 36,
+      "added_by_status": {
+        "yet": 3,
+        "owned": 16,
+        "beaten": 19,
+        "toplay": 14,
+        "dropped": 8,
+        "playing": 5
+      },
+      "metacritic": null,
+      "suggestions_count": 63,
+      "updated": "2017-01-01T00:00:00",
+      "id": 100062,
+      "score": null,
+      "clip": null,
+      "tags": [],
+      "esrb_rating": null,
+      "user_game": null,
+      "reviews_count": 6,
+      "saturated_color": "0f0f0f",
+      "dominant_color": "0f0f0f",
+      "short_screenshots": [
+        {
+          "id": -1,
+          "image": "https://picsum.photos/seed/game61/600/400"
+        },
+        {
+          "id": 10006200,
+          "image": "https://picsum.photos/seed/ss61/588/419"
+        },
+        {
+          "id": 10006201,
+          "image": "https://picsum.photos/seed/ss62/588/419"
+        },
+        {
+          "id": 10006202,
+          "image": "https://picsum.photos/seed/ss63/588/419"
+        },
+        {
+          "id": 10006203,
+          "image": "https://picsum.photos/seed/ss64/588/419"
+        },
+        {
+          "id": 10006204,
+          "image": "https://picsum.photos/seed/ss65/588/419"
+        }
+      ],
+      "parent_platforms": [
+        {
+          "platform": {
+            "id": 7,
+            "name": "Nintendo",
+            "slug": "nintendo"
+          }
+        }
+      ],
+      "genres": [
+        {
+          "id": 4,
+          "name": "Action",
+          "slug": "action"
+        },
+        {
+          "id": 10,
+          "name": "Strategy",
+          "slug": "strategy"
+        }
+      ]
+    },
+    {
+      "slug": "hyper-warriors",
+      "name": "Hyper Warriors",
+      "playtime": 14,
+      "platforms": [
+        {
+          "platform": {
+            "id": 24,
+            "name": "Game Boy Advance",
+            "slug": "game-boy-advance"
+          }
+        }
+      ],
+      "stores": null,
+      "released": "1987-05-20",
+      "tba": false,
+      "background_image": "https://picsum.photos/seed/game62/600/400",
+      "rating": 5,
+      "rating_top": 5,
+      "ratings": [
+        {
+          "id": 5,
+          "title": "exceptional",
+          "count": 3,
+          "percent": 16.67
+        },
+        {
+          "id": 4,
+          "title": "recommended",
+          "count": 8,
+          "percent": 44.44
+        },
+        {
+          "id": 3,
+          "title": "meh",
+          "count": 5,
+          "percent": 27.78
+        },
+        {
+          "id": 1,
+          "title": "skip",
+          "count": 2,
+          "percent": 11.11
+        }
+      ],
+      "ratings_count": 35,
+      "reviews_text_count": 2,
+      "added": 44,
+      "added_by_status": {
+        "yet": 3,
+        "owned": 19,
+        "beaten": 6,
+        "toplay": 1,
+        "dropped": 10,
+        "playing": 0
+      },
+      "metacritic": null,
+      "suggestions_count": 190,
+      "updated": "2017-01-01T00:00:00",
+      "id": 100063,
+      "score": null,
+      "clip": null,
+      "tags": [],
+      "esrb_rating": null,
+      "user_game": null,
+      "reviews_count": 36,
+      "saturated_color": "0f0f0f",
+      "dominant_color": "0f0f0f",
+      "short_screenshots": [
+        {
+          "id": -1,
+          "image": "https://picsum.photos/seed/game62/600/400"
+        },
+        {
+          "id": 10006300,
+          "image": "https://picsum.photos/seed/ss62/588/419"
+        },
+        {
+          "id": 10006301,
+          "image": "https://picsum.photos/seed/ss63/588/419"
+        },
+        {
+          "id": 10006302,
+          "image": "https://picsum.photos/seed/ss64/588/419"
+        },
+        {
+          "id": 10006303,
+          "image": "https://picsum.photos/seed/ss65/588/419"
+        },
+        {
+          "id": 10006304,
+          "image": "https://picsum.photos/seed/ss66/588/419"
+        }
+      ],
+      "parent_platforms": [
+        {
+          "platform": {
+            "id": 1,
+            "name": "PC",
+            "slug": "pc"
+          }
+        }
+      ],
+      "genres": [
+        {
+          "id": 10,
+          "name": "Strategy",
+          "slug": "strategy"
+        },
+        {
+          "id": 4,
+          "name": "Action",
+          "slug": "action"
+        },
+        {
+          "id": 7,
+          "name": "Puzzle",
+          "slug": "puzzle"
+        }
+      ]
+    },
+    {
+      "slug": "neo-runner",
+      "name": "Neo Runner",
+      "playtime": 18,
+      "platforms": [
+        {
+          "platform": {
+            "id": 26,
+            "name": "Commodore 64",
+            "slug": "commodore-64"
+          }
+        },
+        {
+          "platform": {
+            "id": 4,
+            "name": "PC",
+            "slug": "pc"
+          }
+        },
+        {
+          "platform": {
+            "id": 34,
+            "name": "Atari ST",
+            "slug": "atari-st"
+          }
+        },
+        {
+          "platform": {
+            "id": 167,
+            "name": "Sega Genesis",
+            "slug": "sega-genesis"
+          }
+        }
+      ],
+      "stores": null,
+      "released": "1987-04-22",
+      "tba": false,
+      "background_image": "https://picsum.photos/seed/game63/600/400",
+      "rating": 3.09,
+      "rating_top": 5,
+      "ratings": [
+        {
+          "id": 5,
+          "title": "exceptional",
+          "count": 2,
+          "percent": 20
+        },
+        {
+          "id": 4,
+          "title": "recommended",
+          "count": 5,
+          "percent": 50
+        },
+        {
+          "id": 3,
+          "title": "meh",
+          "count": 0,
+          "percent": 0
+        },
+        {
+          "id": 1,
+          "title": "skip",
+          "count": 3,
+          "percent": 30
+        }
+      ],
+      "ratings_count": 14,
+      "reviews_text_count": 0,
+      "added": 69,
+      "added_by_status": {
+        "yet": 4,
+        "owned": 25,
+        "beaten": 12,
+        "toplay": 5,
+        "dropped": 0,
+        "playing": 4
+      },
+      "metacritic": null,
+      "suggestions_count": 30,
+      "updated": "2017-01-01T00:00:00",
+      "id": 100064,
+      "score": null,
+      "clip": null,
+      "tags": [],
+      "esrb_rating": null,
+      "user_game": null,
+      "reviews_count": 16,
+      "saturated_color": "0f0f0f",
+      "dominant_color": "0f0f0f",
+      "short_screenshots": [
+        {
+          "id": -1,
+          "image": "https://picsum.photos/seed/game63/600/400"
+        },
+        {
+          "id": 10006400,
+          "image": "https://picsum.photos/seed/ss63/588/419"
+        },
+        {
+          "id": 10006401,
+          "image": "https://picsum.photos/seed/ss64/588/419"
+        },
+        {
+          "id": 10006402,
+          "image": "https://picsum.photos/seed/ss65/588/419"
+        },
+        {
+          "id": 10006403,
+          "image": "https://picsum.photos/seed/ss66/588/419"
+        },
+        {
+          "id": 10006404,
+          "image": "https://picsum.photos/seed/ss67/588/419"
+        }
+      ],
+      "parent_platforms": [
+        {
+          "platform": {
+            "id": 9,
+            "name": "Atari",
+            "slug": "atari"
+          }
+        }
+      ],
+      "genres": [
+        {
+          "id": 14,
+          "name": "Simulation",
+          "slug": "simulation"
+        },
+        {
+          "id": 83,
+          "name": "Platformer",
+          "slug": "platformer"
+        }
+      ]
+    },
+    {
+      "slug": "galaxy",
+      "name": "Galaxy",
+      "playtime": 17,
+      "platforms": [
+        {
+          "platform": {
+            "id": 167,
+            "name": "Sega Genesis",
+            "slug": "sega-genesis"
+          }
+        },
+        {
+          "platform": {
+            "id": 43,
+            "name": "ZX Spectrum",
+            "slug": "zx-spectrum"
+          }
+        },
+        {
+          "platform": {
+            "id": 26,
+            "name": "Commodore 64",
+            "slug": "commodore-64"
+          }
+        }
+      ],
+      "stores": null,
+      "released": "1987-12-17",
+      "tba": false,
+      "background_image": "https://picsum.photos/seed/game64/600/400",
+      "rating": 3.75,
+      "rating_top": 5,
+      "ratings": [
+        {
+          "id": 5,
+          "title": "exceptional",
+          "count": 3,
+          "percent": 21.43
+        },
+        {
+          "id": 4,
+          "title": "recommended",
+          "count": 8,
+          "percent": 57.14
+        },
+        {
+          "id": 3,
+          "title": "meh",
+          "count": 2,
+          "percent": 14.29
+        },
+        {
+          "id": 1,
+          "title": "skip",
+          "count": 1,
+          "percent": 7.14
+        }
+      ],
+      "ratings_count": 10,
+      "reviews_text_count": 1,
+      "added": 93,
+      "added_by_status": {
+        "yet": 9,
+        "owned": 16,
+        "beaten": 20,
+        "toplay": 7,
+        "dropped": 9,
+        "playing": 3
+      },
+      "metacritic": null,
+      "suggestions_count": 185,
+      "updated": "2017-01-01T00:00:00",
+      "id": 100065,
+      "score": null,
+      "clip": null,
+      "tags": [],
+      "esrb_rating": null,
+      "user_game": null,
+      "reviews_count": 13,
+      "saturated_color": "0f0f0f",
+      "dominant_color": "0f0f0f",
+      "short_screenshots": [
+        {
+          "id": -1,
+          "image": "https://picsum.photos/seed/game64/600/400"
+        },
+        {
+          "id": 10006500,
+          "image": "https://picsum.photos/seed/ss64/588/419"
+        },
+        {
+          "id": 10006501,
+          "image": "https://picsum.photos/seed/ss65/588/419"
+        },
+        {
+          "id": 10006502,
+          "image": "https://picsum.photos/seed/ss66/588/419"
+        },
+        {
+          "id": 10006503,
+          "image": "https://picsum.photos/seed/ss67/588/419"
+        }
+      ],
+      "parent_platforms": [
+        {
+          "platform": {
+            "id": 8,
+            "name": "Sega",
+            "slug": "sega"
+          }
+        },
+        {
+          "platform": {
+            "id": 7,
+            "name": "Nintendo",
+            "slug": "nintendo"
+          }
+        }
+      ],
+      "genres": [
+        {
+          "id": 14,
+          "name": "Simulation",
+          "slug": "simulation"
+        },
+        {
+          "id": 15,
+          "name": "Sports",
+          "slug": "sports"
+        },
+        {
+          "id": 83,
+          "name": "Platformer",
+          "slug": "platformer"
+        }
+      ]
+    },
+    {
+      "slug": "turbo-dungeon",
+      "name": "Turbo Dungeon",
+      "playtime": 2,
+      "platforms": [
+        {
+          "platform": {
+            "id": 79,
+            "name": "SNES",
+            "slug": "snes"
+          }
+        },
+        {
+          "platform": {
+            "id": 49,
+            "name": "NES",
+            "slug": "nes"
+          }
+        },
+        {
+          "platform": {
+            "id": 43,
+            "name": "ZX Spectrum",
+            "slug": "zx-spectrum"
+          }
+        }
+      ],
+      "stores": null,
+      "released": "1987-11-24",
+      "tba": false,
+      "background_image": "https://picsum.photos/seed/game65/600/400",
+      "rating": 4.36,
+      "rating_top": 5,
+      "ratings": [
+        {
+          "id": 5,
+          "title": "exceptional",
+          "count": 3,
+          "percent": 25
+        },
+        {
+          "id": 4,
+          "title": "recommended",
+          "count": 3,
+          "percent": 25
+        },
+        {
+          "id": 3,
+          "title": "meh",
+          "count": 3,
+          "percent": 25
+        },
+        {
+          "id": 1,
+          "title": "skip",
+          "count": 3,
+          "percent": 25
+        }
+      ],
+      "ratings_count": 29,
+      "reviews_text_count": 5,
+      "added": 85,
+      "added_by_status": {
+        "yet": 10,
+        "owned": 10,
+        "beaten": 9,
+        "toplay": 9,
+        "dropped": 9,
+        "playing": 3
+      },
+      "metacritic": 77,
+      "suggestions_count": 178,
+      "updated": "2017-01-01T00:00:00",
+      "id": 100066,
+      "score": null,
+      "clip": null,
+      "tags": [],
+      "esrb_rating": null,
+      "user_game": null,
+      "reviews_count": 32,
+      "saturated_color": "0f0f0f",
+      "dominant_color": "0f0f0f",
+      "short_screenshots": [
+        {
+          "id": -1,
+          "image": "https://picsum.photos/seed/game65/600/400"
+        },
+        {
+          "id": 10006600,
+          "image": "https://picsum.photos/seed/ss65/588/419"
+        },
+        {
+          "id": 10006601,
+          "image": "https://picsum.photos/seed/ss66/588/419"
+        },
+        {
+          "id": 10006602,
+          "image": "https://picsum.photos/seed/ss67/588/419"
+        },
+        {
+          "id": 10006603,
+          "image": "https://picsum.photos/seed/ss68/588/419"
+        },
+        {
+          "id": 10006604,
+          "image": "https://picsum.photos/seed/ss69/588/419"
+        }
+      ],
+      "parent_platforms": [
+        {
+          "platform": {
+            "id": 1,
+            "name": "PC",
+            "slug": "pc"
+          }
+        }
+      ],
+      "genres": [
+        {
+          "id": 5,
+          "name": "RPG",
+          "slug": "rpg"
+        }
+      ]
+    },
+    {
+      "slug": "hyper-force",
+      "name": "Hyper Force",
+      "playtime": 13,
+      "platforms": [
+        {
+          "platform": {
+            "id": 24,
+            "name": "Game Boy Advance",
+            "slug": "game-boy-advance"
+          }
+        }
+      ],
+      "stores": null,
+      "released": "1987-07-07",
+      "tba": false,
+      "background_image": "https://picsum.photos/seed/game66/600/400",
+      "rating": 2.35,
+      "rating_top": 5,
+      "ratings": [
+        {
+          "id": 5,
+          "title": "exceptional",
+          "count": 9,
+          "percent": 60
+        },
+        {
+          "id": 4,
+          "title": "recommended",
+          "count": 4,
+          "percent": 26.67
+        },
+        {
+          "id": 3,
+          "title": "meh",
+          "count": 2,
+          "percent": 13.33
+        },
+        {
+          "id": 1,
+          "title": "skip",
+          "count": 0,
+          "percent": 0
+        }
+      ],
+      "ratings_count": 48,
+      "reviews_text_count": 3,
+      "added": 14,
+      "added_by_status": {
+        "yet": 4,
+        "owned": 7,
+        "beaten": 13,
+        "toplay": 6,
+        "dropped": 2,
+        "playing": 1
+      },
+      "metacritic": 86,
+      "suggestions_count": 24,
+      "updated": "2017-01-01T00:00:00",
+      "id": 100067,
+      "score": null,
+      "clip": null,
+      "tags": [],
+      "esrb_rating": null,
+      "user_game": null,
+      "reviews_count": 48,
+      "saturated_color": "0f0f0f",
+      "dominant_color": "0f0f0f",
+      "short_screenshots": [
+        {
+          "id": -1,
+          "image": "https://picsum.photos/seed/game66/600/400"
+        },
+        {
+          "id": 10006700,
+          "image": "https://picsum.photos/seed/ss66/588/419"
+        },
+        {
+          "id": 10006701,
+          "image": "https://picsum.photos/seed/ss67/588/419"
+        },
+        {
+          "id": 10006702,
+          "image": "https://picsum.photos/seed/ss68/588/419"
+        }
+      ],
+      "parent_platforms": [
+        {
+          "platform": {
+            "id": 8,
+            "name": "Sega",
+            "slug": "sega"
+          }
+        }
+      ],
+      "genres": [
+        {
+          "id": 7,
+          "name": "Puzzle",
+          "slug": "puzzle"
+        },
+        {
+          "id": 5,
+          "name": "RPG",
+          "slug": "rpg"
+        }
+      ]
+    },
+    {
+      "slug": "super-quest-dx",
+      "name": "Super Quest DX",
+      "playtime": 15,
+      "platforms": [
+        {
+          "platform": {
+            "id": 24,
+            "name": "Game Boy Advance",
+            "slug": "game-boy-advance"
+          }
+        }
+      ],
+      "stores": null,
+      "released": "1987-05-15",
+      "tba": false,
+      "background_image": "https://picsum.photos/seed/game67/600/400",
+      "rating": 4.87,
+      "rating_top": 5,
+      "ratings": [
+        {
+          "id": 5,
+          "title": "exceptional",
+          "count": 4,
+          "percent": 23.53
+        },
+        {
+          "id": 4,
+          "title": "recommended",
+          "count": 9,
+          "percent": 52.94
+        },
+        {
+          "id": 3,
+          "title": "meh",
+          "count": 1,
+          "percent": 5.88
+        },
+        {
+          "id": 1,
+          "title": "skip",
+          "count": 3,
+          "percent": 17.65
+        }
+      ],
+      "ratings_count": 44,
+      "reviews_text_count": 1,
+      "added": 60,
+      "added_by_status": {
+        "yet": 7,
+        "owned": 29,
+        "beaten": 17,
+        "toplay": 3,
+        "dropped": 8,
+        "playing": 2
+      },
+      "metacritic": null,
+      "suggestions_count": 181,
+      "updated": "2017-01-01T00:00:00",
+      "id": 100068,
+      "score": null,
+      "clip": null,
+      "tags": [],
+      "esrb_rating": null,
+      "user_game": null,
+      "reviews_count": 45,
+      "saturated_color": "0f0f0f",
+      "dominant_color": "0f0f0f",
+      "short_screenshots": [
+        {
+          "id": -1,
+          "image": "https://picsum.photos/seed/game67/600/400"
+        },
+        {
+          "id": 10006800,
+          "image": "https://picsum.photos/seed/ss67/588/419"
+        },
+        {
+          "id": 10006801,
+          "image": "https://picsum.photos/seed/ss68/588/419"
+        },
+        {
+          "id": 10006802,
+          "image": "https://picsum.photos/seed/ss69/588/419"
+        }
+      ],
+      "parent_platforms": [
+        {
+          "platform": {
+            "id": 8,
+            "name": "Sega",
+            "slug": "sega"
+          }
+        }
+      ],
+      "genres": [
+        {
+          "id": 5,
+          "name": "RPG",
+          "slug": "rpg"
+        },
+        {
+          "id": 83,
+          "name": "Platformer",
+          "slug": "platformer"
+        }
+      ]
+    },
+    {
+      "slug": "knight-iii",
+      "name": "Knight III",
+      "playtime": 10,
+      "platforms": [
+        {
+          "platform": {
+            "id": 79,
+            "name": "SNES",
+            "slug": "snes"
+          }
+        },
+        {
+          "platform": {
+            "id": 26,
+            "name": "Commodore 64",
+            "slug": "commodore-64"
+          }
+        },
+        {
+          "platform": {
+            "id": 34,
+            "name": "Atari ST",
+            "slug": "atari-st"
+          }
+        }
+      ],
+      "stores": null,
+      "released": "1987-08-21",
+      "tba": false,
+      "background_image": "https://picsum.photos/seed/game68/600/400",
+      "rating": 2.3,
+      "rating_top": 5,
+      "ratings": [
+        {
+          "id": 5,
+          "title": "exceptional",
+          "count": 5,
+          "percent": 29.41
+        },
+        {
+          "id": 4,
+          "title": "recommended",
+          "count": 9,
+          "percent": 52.94
+        },
+        {
+          "id": 3,
+          "title": "meh",
+          "count": 2,
+          "percent": 11.76
+        },
+        {
+          "id": 1,
+          "title": "skip",
+          "count": 1,
+          "percent": 5.88
+        }
+      ],
+      "ratings_count": 16,
+      "reviews_text_count": 0,
+      "added": 42,
+      "added_by_status": {
+        "yet": 9,
+        "owned": 9,
+        "beaten": 9,
+        "toplay": 15,
+        "dropped": 6,
+        "playing": 3
+      },
+      "metacritic": null,
+      "suggestions_count": 154,
+      "updated": "2017-01-01T00:00:00",
+      "id": 100069,
+      "score": null,
+      "clip": null,
+      "tags": [],
+      "esrb_rating": null,
+      "user_game": null,
+      "reviews_count": 17,
+      "saturated_color": "0f0f0f",
+      "dominant_color": "0f0f0f",
+      "short_screenshots": [
+        {
+          "id": -1,
+          "image": "https://picsum.photos/seed/game68/600/400"
+        },
+        {
+          "id": 10006900,
+          "image": "https://picsum.photos/seed/ss68/588/419"
+        },
+        {
+          "id": 10006901,
+          "image": "https://picsum.photos/seed/ss69/588/419"
+        },
+        {
+          "id": 10006902,
+          "image": "https://picsum.photos/seed/ss70/588/419"
+        }
+      ],
+      "parent_platforms": [
+        {
+          "platform": {
+            "id": 1,
+            "name": "PC",
+            "slug": "pc"
+          }
+        },
+        {
+          "platform": {
+            "id": 8,
+            "name": "Sega",
+            "slug": "sega"
+          }
+        }
+      ],
+      "genres": [
+        {
+          "id": 11,
+          "name": "Arcade",
+          "slug": "arcade"
+        },
+        {
+          "id": 10,
+          "name": "Strategy",
+          "slug": "strategy"
+        }
+      ]
+    },
+    {
+      "slug": "mega-runner",
+      "name": "Mega Runner",
+      "playtime": 4,
+      "platforms": [
+        {
+          "platform": {
+            "id": 49,
+            "name": "NES",
+            "slug": "nes"
+          }
+        },
+        {
+          "platform": {
+            "id": 24,
+            "name": "Game Boy Advance",
+            "slug": "game-boy-advance"
+          }
+        }
+      ],
+      "stores": null,
+      "released": "1987-08-02",
+      "tba": false,
+      "background_image": "https://picsum.photos/seed/game69/600/400",
+      "rating": 3.2,
+      "rating_top": 5,
+      "ratings": [
+        {
+          "id": 5,
+          "title": "exceptional",
+          "count": 8,
+          "percent": 42.11
+        },
+        {
+          "id": 4,
+          "title": "recommended",
+          "count": 4,
+          "percent": 21.05
+        },
+        {
+          "id": 3,
+          "title": "meh",
+          "count": 5,
+          "percent": 26.32
+        },
+        {
+          "id": 1,
+          "title": "skip",
+          "count": 2,
+          "percent": 10.53
+        }
+      ],
+      "ratings_count": 16,
+      "reviews_text_count": 2,
+      "added": 77,
+      "added_by_status": {
+        "yet": 1,
+        "owned": 8,
+        "beaten": 9,
+        "toplay": 2,
+        "dropped": 8,
+        "playing": 5
+      },
+      "metacritic": 95,
+      "suggestions_count": 148,
+      "updated": "2017-01-01T00:00:00",
+      "id": 100070,
+      "score": null,
+      "clip": null,
+      "tags": [],
+      "esrb_rating": null,
+      "user_game": null,
+      "reviews_count": 17,
+      "saturated_color": "0f0f0f",
+      "dominant_color": "0f0f0f",
+      "short_screenshots": [
+        {
+          "id": -1,
+          "image": "https://picsum.photos/seed/game69/600/400"
+        },
+        {
+          "id": 10007000,
+          "image": "https://picsum.photos/seed/ss69/588/419"
+        },
+        {
+          "id": 10007001,
+          "image": "https://picsum.photos/seed/ss70/588/419"
+        },
+        {
+          "id": 10007002,
+          "image": "https://picsum.photos/seed/ss71/588/419"
+        }
+      ],
+      "parent_platforms": [
+        {
+          "platform": {
+            "id": 7,
+            "name": "Nintendo",
+            "slug": "nintendo"
+          }
+        },
+        {
+          "platform": {
+            "id": 9,
+            "name": "Atari",
+            "slug": "atari"
+          }
+        }
+      ],
+      "genres": [
+        {
+          "id": 2,
+          "name": "Shooter",
+          "slug": "shooter"
+        },
+        {
+          "id": 5,
+          "name": "RPG",
+          "slug": "rpg"
+        }
+      ]
+    }
+  ]
+}

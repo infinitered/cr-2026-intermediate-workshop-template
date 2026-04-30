@@ -1,0 +1,143 @@
+{
+  "id": 100058,
+  "slug": "turbo-runner-turbo",
+  "name": "Turbo Runner Turbo",
+  "name_original": "Turbo Runner Turbo",
+  "description": "<p>Embark on an epic quest through a sprawling world filled with secrets and danger. Collect items, defeat bosses, and uncover the mysteries hidden within each zone. A beloved title from the golden age of gaming.</p>",
+  "metacritic": null,
+  "metacritic_platforms": [],
+  "released": "1986-09-03",
+  "tba": false,
+  "updated": "2016-01-01T00:00:00",
+  "background_image": "https://picsum.photos/seed/game57/600/400",
+  "background_image_additional": null,
+  "website": "",
+  "rating": 4.68,
+  "rating_top": 5,
+  "ratings": [
+    {
+      "id": 5,
+      "title": "exceptional",
+      "count": 2,
+      "percent": 20
+    },
+    {
+      "id": 4,
+      "title": "recommended",
+      "count": 5,
+      "percent": 50
+    },
+    {
+      "id": 3,
+      "title": "meh",
+      "count": 0,
+      "percent": 0
+    },
+    {
+      "id": 1,
+      "title": "skip",
+      "count": 3,
+      "percent": 30
+    }
+  ],
+  "reactions": {},
+  "added": 29,
+  "added_by_status": {
+    "yet": 10,
+    "owned": 18,
+    "beaten": 6,
+    "toplay": 14,
+    "dropped": 9,
+    "playing": 4
+  },
+  "playtime": 10,
+  "screenshots_count": 3,
+  "movies_count": 0,
+  "creators_count": 0,
+  "achievements_count": 0,
+  "parent_achievements_count": "0",
+  "reddit_url": "",
+  "reddit_name": "",
+  "reddit_description": "",
+  "reddit_logo": "",
+  "reddit_count": 0,
+  "twitch_count": "0",
+  "youtube_count": "0",
+  "reviews_text_count": 4,
+  "ratings_count": 47,
+  "suggestions_count": 155,
+  "alternative_names": [],
+  "metacritic_url": "",
+  "parents_count": 0,
+  "additions_count": 0,
+  "game_series_count": 0,
+  "user_game": null,
+  "reviews_count": 47,
+  "saturated_color": "0f0f0f",
+  "dominant_color": "0f0f0f",
+  "parent_platforms": [
+    {
+      "platform": {
+        "id": 7,
+        "name": "Nintendo",
+        "slug": "nintendo"
+      }
+    },
+    {
+      "platform": {
+        "id": 9,
+        "name": "Atari",
+        "slug": "atari"
+      }
+    }
+  ],
+  "platforms": [
+    {
+      "platform": {
+        "id": 79,
+        "name": "SNES",
+        "slug": "snes"
+      }
+    },
+    {
+      "platform": {
+        "id": 4,
+        "name": "PC",
+        "slug": "pc"
+      }
+    },
+    {
+      "platform": {
+        "id": 24,
+        "name": "Game Boy Advance",
+        "slug": "game-boy-advance"
+      }
+    }
+  ],
+  "stores": [],
+  "developers": [
+    {
+      "id": 16263,
+      "name": "Atari",
+      "slug": "atari"
+    }
+  ],
+  "genres": [
+    {
+      "id": 7,
+      "name": "Puzzle",
+      "slug": "puzzle"
+    }
+  ],
+  "tags": [],
+  "publishers": [
+    {
+      "id": 10684,
+      "name": "Namco",
+      "slug": "namco"
+    }
+  ],
+  "esrb_rating": null,
+  "clip": null,
+  "description_raw": "Embark on an epic quest through a sprawling world filled with secrets and danger. Collect items, defeat bosses, and uncover the mysteries hidden within each zone. A beloved title from the golden age of gaming."
+}

@@ -1,9 +1,9 @@
+import { createStore } from "./store"
+
 jest.mock("@/utils/storage", () => ({
   load: jest.fn(() => null),
   save: jest.fn(),
 }))
-
-import { createStore } from "./store"
 
 describe("createStore", () => {
   it("returns initial state from getSnapshot", () => {

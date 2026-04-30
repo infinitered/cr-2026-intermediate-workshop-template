@@ -1,0 +1,146 @@
+{
+  "id": 100040,
+  "slug": "turbo-dungeon-iii",
+  "name": "Turbo Dungeon III",
+  "name_original": "Turbo Dungeon III",
+  "description": "<p>Race against the clock in this adrenaline-pumping action game. Dodge obstacles, collect bonuses, and reach the finish line before time runs out. Simple controls hide surprising depth.</p>",
+  "metacritic": null,
+  "metacritic_platforms": [],
+  "released": "1984-11-12",
+  "tba": false,
+  "updated": "2014-01-01T00:00:00",
+  "background_image": "https://picsum.photos/seed/game39/600/400",
+  "background_image_additional": null,
+  "website": "",
+  "rating": 3.64,
+  "rating_top": 5,
+  "ratings": [
+    {
+      "id": 5,
+      "title": "exceptional",
+      "count": 10,
+      "percent": 100
+    },
+    {
+      "id": 4,
+      "title": "recommended",
+      "count": 0,
+      "percent": 0
+    },
+    {
+      "id": 3,
+      "title": "meh",
+      "count": 0,
+      "percent": 0
+    },
+    {
+      "id": 1,
+      "title": "skip",
+      "count": 0,
+      "percent": 0
+    }
+  ],
+  "reactions": {},
+  "added": 43,
+  "added_by_status": {
+    "yet": 9,
+    "owned": 19,
+    "beaten": 19,
+    "toplay": 3,
+    "dropped": 10,
+    "playing": 2
+  },
+  "playtime": 3,
+  "screenshots_count": 5,
+  "movies_count": 0,
+  "creators_count": 0,
+  "achievements_count": 0,
+  "parent_achievements_count": "0",
+  "reddit_url": "",
+  "reddit_name": "",
+  "reddit_description": "",
+  "reddit_logo": "",
+  "reddit_count": 0,
+  "twitch_count": "0",
+  "youtube_count": "0",
+  "reviews_text_count": 4,
+  "ratings_count": 20,
+  "suggestions_count": 137,
+  "alternative_names": [],
+  "metacritic_url": "",
+  "parents_count": 0,
+  "additions_count": 0,
+  "game_series_count": 0,
+  "user_game": null,
+  "reviews_count": 21,
+  "saturated_color": "0f0f0f",
+  "dominant_color": "0f0f0f",
+  "parent_platforms": [
+    {
+      "platform": {
+        "id": 7,
+        "name": "Nintendo",
+        "slug": "nintendo"
+      }
+    },
+    {
+      "platform": {
+        "id": 8,
+        "name": "Sega",
+        "slug": "sega"
+      }
+    }
+  ],
+  "platforms": [
+    {
+      "platform": {
+        "id": 34,
+        "name": "Atari ST",
+        "slug": "atari-st"
+      }
+    },
+    {
+      "platform": {
+        "id": 167,
+        "name": "Sega Genesis",
+        "slug": "sega-genesis"
+      }
+    }
+  ],
+  "stores": [],
+  "developers": [
+    {
+      "id": 16259,
+      "name": "Capcom",
+      "slug": "capcom"
+    }
+  ],
+  "genres": [
+    {
+      "id": 11,
+      "name": "Arcade",
+      "slug": "arcade"
+    },
+    {
+      "id": 14,
+      "name": "Simulation",
+      "slug": "simulation"
+    },
+    {
+      "id": 2,
+      "name": "Shooter",
+      "slug": "shooter"
+    }
+  ],
+  "tags": [],
+  "publishers": [
+    {
+      "id": 10685,
+      "name": "Atari",
+      "slug": "atari"
+    }
+  ],
+  "esrb_rating": null,
+  "clip": null,
+  "description_raw": "Race against the clock in this adrenaline-pumping action game. Dodge obstacles, collect bonuses, and reach the finish line before time runs out. Simple controls hide surprising depth."
+}

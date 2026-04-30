@@ -1,0 +1,143 @@
+{
+  "id": 100082,
+  "slug": "cyber-quest-turbo",
+  "name": "Cyber Quest Turbo",
+  "name_original": "Cyber Quest Turbo",
+  "description": "<p>Test your skills in this precision-based platformer. Tight controls and clever level design create a satisfying challenge for players of all skill levels. Hidden collectibles reward thorough exploration.</p>",
+  "metacritic": null,
+  "metacritic_platforms": [],
+  "released": "1989-09-20",
+  "tba": false,
+  "updated": "2019-01-01T00:00:00",
+  "background_image": "https://picsum.photos/seed/game81/600/400",
+  "background_image_additional": null,
+  "website": "",
+  "rating": 2.31,
+  "rating_top": 5,
+  "ratings": [
+    {
+      "id": 5,
+      "title": "exceptional",
+      "count": 0,
+      "percent": 0
+    },
+    {
+      "id": 4,
+      "title": "recommended",
+      "count": 0,
+      "percent": 0
+    },
+    {
+      "id": 3,
+      "title": "meh",
+      "count": 5,
+      "percent": 71.43
+    },
+    {
+      "id": 1,
+      "title": "skip",
+      "count": 2,
+      "percent": 28.57
+    }
+  ],
+  "reactions": {},
+  "added": 23,
+  "added_by_status": {
+    "yet": 8,
+    "owned": 13,
+    "beaten": 6,
+    "toplay": 9,
+    "dropped": 8,
+    "playing": 1
+  },
+  "playtime": 15,
+  "screenshots_count": 8,
+  "movies_count": 0,
+  "creators_count": 0,
+  "achievements_count": 0,
+  "parent_achievements_count": "0",
+  "reddit_url": "",
+  "reddit_name": "",
+  "reddit_description": "",
+  "reddit_logo": "",
+  "reddit_count": 0,
+  "twitch_count": "0",
+  "youtube_count": "0",
+  "reviews_text_count": 5,
+  "ratings_count": 25,
+  "suggestions_count": 107,
+  "alternative_names": [],
+  "metacritic_url": "",
+  "parents_count": 0,
+  "additions_count": 0,
+  "game_series_count": 0,
+  "user_game": null,
+  "reviews_count": 27,
+  "saturated_color": "0f0f0f",
+  "dominant_color": "0f0f0f",
+  "parent_platforms": [
+    {
+      "platform": {
+        "id": 7,
+        "name": "Nintendo",
+        "slug": "nintendo"
+      }
+    }
+  ],
+  "platforms": [
+    {
+      "platform": {
+        "id": 4,
+        "name": "PC",
+        "slug": "pc"
+      }
+    },
+    {
+      "platform": {
+        "id": 24,
+        "name": "Game Boy Advance",
+        "slug": "game-boy-advance"
+      }
+    },
+    {
+      "platform": {
+        "id": 79,
+        "name": "SNES",
+        "slug": "snes"
+      }
+    },
+    {
+      "platform": {
+        "id": 34,
+        "name": "Atari ST",
+        "slug": "atari-st"
+      }
+    }
+  ],
+  "stores": [],
+  "developers": [
+    {
+      "id": 16264,
+      "name": "Williams",
+      "slug": "williams"
+    }
+  ],
+  "genres": [
+    {
+      "id": 4,
+      "name": "Action",
+      "slug": "action"
+    }
+  ],
+  "tags": [],
+  "publishers": [
+    {
+      "id": 10683,
+      "name": "Sega",
+      "slug": "sega"
+    }
+  ],
+  "esrb_rating": null,
+  "clip": null,
+  "description_raw": "Test your skills in this precision-based platformer. Tight controls and clever level design create a satisfying challenge for players of all skill levels. Hidden collectibles reward thorough exploration."
+}

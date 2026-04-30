@@ -1,0 +1,134 @@
+{
+  "id": 100044,
+  "slug": "hyper-galaxy-turbo",
+  "name": "Hyper Galaxy Turbo",
+  "name_original": "Hyper Galaxy Turbo",
+  "description": "<p>Race against the clock in this adrenaline-pumping action game. Dodge obstacles, collect bonuses, and reach the finish line before time runs out. Simple controls hide surprising depth.</p>",
+  "metacritic": null,
+  "metacritic_platforms": [],
+  "released": "1985-12-11",
+  "tba": false,
+  "updated": "2015-01-01T00:00:00",
+  "background_image": "https://picsum.photos/seed/game43/600/400",
+  "background_image_additional": null,
+  "website": "",
+  "rating": 2.82,
+  "rating_top": 5,
+  "ratings": [
+    {
+      "id": 5,
+      "title": "exceptional",
+      "count": 5,
+      "percent": 62.5
+    },
+    {
+      "id": 4,
+      "title": "recommended",
+      "count": 0,
+      "percent": 0
+    },
+    {
+      "id": 3,
+      "title": "meh",
+      "count": 3,
+      "percent": 37.5
+    },
+    {
+      "id": 1,
+      "title": "skip",
+      "count": 0,
+      "percent": 0
+    }
+  ],
+  "reactions": {},
+  "added": 94,
+  "added_by_status": {
+    "yet": 0,
+    "owned": 21,
+    "beaten": 12,
+    "toplay": 12,
+    "dropped": 8,
+    "playing": 2
+  },
+  "playtime": 2,
+  "screenshots_count": 5,
+  "movies_count": 0,
+  "creators_count": 0,
+  "achievements_count": 0,
+  "parent_achievements_count": "0",
+  "reddit_url": "",
+  "reddit_name": "",
+  "reddit_description": "",
+  "reddit_logo": "",
+  "reddit_count": 0,
+  "twitch_count": "0",
+  "youtube_count": "0",
+  "reviews_text_count": 2,
+  "ratings_count": 10,
+  "suggestions_count": 75,
+  "alternative_names": [],
+  "metacritic_url": "",
+  "parents_count": 0,
+  "additions_count": 0,
+  "game_series_count": 0,
+  "user_game": null,
+  "reviews_count": 10,
+  "saturated_color": "0f0f0f",
+  "dominant_color": "0f0f0f",
+  "parent_platforms": [
+    {
+      "platform": {
+        "id": 1,
+        "name": "PC",
+        "slug": "pc"
+      }
+    },
+    {
+      "platform": {
+        "id": 8,
+        "name": "Sega",
+        "slug": "sega"
+      }
+    }
+  ],
+  "platforms": [
+    {
+      "platform": {
+        "id": 24,
+        "name": "Game Boy Advance",
+        "slug": "game-boy-advance"
+      }
+    }
+  ],
+  "stores": [],
+  "developers": [
+    {
+      "id": 16265,
+      "name": "Technos",
+      "slug": "technos"
+    }
+  ],
+  "genres": [
+    {
+      "id": 3,
+      "name": "Adventure",
+      "slug": "adventure"
+    },
+    {
+      "id": 5,
+      "name": "RPG",
+      "slug": "rpg"
+    }
+  ],
+  "tags": [],
+  "publishers": [
+    {
+      "id": 10682,
+      "name": "Capcom",
+      "slug": "capcom"
+    }
+  ],
+  "esrb_rating": null,
+  "clip": null,
+  "description_raw": "Race against the clock in this adrenaline-pumping action game. Dodge obstacles, collect bonuses, and reach the finish line before time runs out. Simple controls hide surprising depth."
+}

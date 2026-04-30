@@ -1,0 +1,122 @@
+{
+  "id": 100088,
+  "slug": "cyber-raiders",
+  "name": "Cyber Raiders",
+  "name_original": "Cyber Raiders",
+  "description": "<p>Command your forces in intense battles across multiple theaters of war. Resource management and tactical decisions determine victory or defeat. A pioneering title in the strategy genre.</p>",
+  "metacritic": null,
+  "metacritic_platforms": [],
+  "released": "1989-12-20",
+  "tba": false,
+  "updated": "2019-01-01T00:00:00",
+  "background_image": "https://picsum.photos/seed/game87/600/400",
+  "background_image_additional": null,
+  "website": "",
+  "rating": 2.7,
+  "rating_top": 5,
+  "ratings": [
+    {
+      "id": 5,
+      "title": "exceptional",
+      "count": 10,
+      "percent": 47.62
+    },
+    {
+      "id": 4,
+      "title": "recommended",
+      "count": 6,
+      "percent": 28.57
+    },
+    {
+      "id": 3,
+      "title": "meh",
+      "count": 4,
+      "percent": 19.05
+    },
+    {
+      "id": 1,
+      "title": "skip",
+      "count": 1,
+      "percent": 4.76
+    }
+  ],
+  "reactions": {},
+  "added": 19,
+  "added_by_status": {
+    "yet": 4,
+    "owned": 18,
+    "beaten": 7,
+    "toplay": 11,
+    "dropped": 0,
+    "playing": 4
+  },
+  "playtime": 1,
+  "screenshots_count": 8,
+  "movies_count": 0,
+  "creators_count": 0,
+  "achievements_count": 0,
+  "parent_achievements_count": "0",
+  "reddit_url": "",
+  "reddit_name": "",
+  "reddit_description": "",
+  "reddit_logo": "",
+  "reddit_count": 0,
+  "twitch_count": "0",
+  "youtube_count": "0",
+  "reviews_text_count": 4,
+  "ratings_count": 41,
+  "suggestions_count": 140,
+  "alternative_names": [],
+  "metacritic_url": "",
+  "parents_count": 0,
+  "additions_count": 0,
+  "game_series_count": 0,
+  "user_game": null,
+  "reviews_count": 43,
+  "saturated_color": "0f0f0f",
+  "dominant_color": "0f0f0f",
+  "parent_platforms": [
+    {
+      "platform": {
+        "id": 7,
+        "name": "Nintendo",
+        "slug": "nintendo"
+      }
+    }
+  ],
+  "platforms": [
+    {
+      "platform": {
+        "id": 4,
+        "name": "PC",
+        "slug": "pc"
+      }
+    }
+  ],
+  "stores": [],
+  "developers": [
+    {
+      "id": 16264,
+      "name": "Williams",
+      "slug": "williams"
+    }
+  ],
+  "genres": [
+    {
+      "id": 4,
+      "name": "Action",
+      "slug": "action"
+    }
+  ],
+  "tags": [],
+  "publishers": [
+    {
+      "id": 10685,
+      "name": "Atari",
+      "slug": "atari"
+    }
+  ],
+  "esrb_rating": null,
+  "clip": null,
+  "description_raw": "Command your forces in intense battles across multiple theaters of war. Resource management and tactical decisions determine victory or defeat. A pioneering title in the strategy genre."
+}

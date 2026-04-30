@@ -1,0 +1,1276 @@
+{
+  "count": 10,
+  "next": null,
+  "previous": null,
+  "results": [
+    {
+      "slug": "ultra-fighters-plus",
+      "name": "Ultra Fighters Plus",
+      "playtime": 11,
+      "platforms": [
+        {
+          "platform": {
+            "id": 167,
+            "name": "Sega Genesis",
+            "slug": "sega-genesis"
+          }
+        },
+        {
+          "platform": {
+            "id": 79,
+            "name": "SNES",
+            "slug": "snes"
+          }
+        },
+        {
+          "platform": {
+            "id": 4,
+            "name": "PC",
+            "slug": "pc"
+          }
+        },
+        {
+          "platform": {
+            "id": 49,
+            "name": "NES",
+            "slug": "nes"
+          }
+        }
+      ],
+      "stores": null,
+      "released": "1983-03-26",
+      "tba": false,
+      "background_image": "https://picsum.photos/seed/game20/600/400",
+      "rating": 2.8,
+      "rating_top": 5,
+      "ratings": [
+        {
+          "id": 5,
+          "title": "exceptional",
+          "count": 3,
+          "percent": 20
+        },
+        {
+          "id": 4,
+          "title": "recommended",
+          "count": 6,
+          "percent": 40
+        },
+        {
+          "id": 3,
+          "title": "meh",
+          "count": 5,
+          "percent": 33.33
+        },
+        {
+          "id": 1,
+          "title": "skip",
+          "count": 1,
+          "percent": 6.67
+        }
+      ],
+      "ratings_count": 40,
+      "reviews_text_count": 2,
+      "added": 89,
+      "added_by_status": {
+        "yet": 4,
+        "owned": 23,
+        "beaten": 15,
+        "toplay": 11,
+        "dropped": 9,
+        "playing": 5
+      },
+      "metacritic": 73,
+      "suggestions_count": 31,
+      "updated": "2013-01-01T00:00:00",
+      "id": 100021,
+      "score": null,
+      "clip": null,
+      "tags": [],
+      "esrb_rating": null,
+      "user_game": null,
+      "reviews_count": 40,
+      "saturated_color": "0f0f0f",
+      "dominant_color": "0f0f0f",
+      "short_screenshots": [
+        {
+          "id": -1,
+          "image": "https://picsum.photos/seed/game20/600/400"
+        },
+        {
+          "id": 10002100,
+          "image": "https://picsum.photos/seed/ss20/588/419"
+        },
+        {
+          "id": 10002101,
+          "image": "https://picsum.photos/seed/ss21/588/419"
+        }
+      ],
+      "parent_platforms": [
+        {
+          "platform": {
+            "id": 8,
+            "name": "Sega",
+            "slug": "sega"
+          }
+        }
+      ],
+      "genres": [
+        {
+          "id": 11,
+          "name": "Arcade",
+          "slug": "arcade"
+        },
+        {
+          "id": 7,
+          "name": "Puzzle",
+          "slug": "puzzle"
+        }
+      ]
+    },
+    {
+      "slug": "thunder-warriors",
+      "name": "Thunder Warriors",
+      "playtime": 15,
+      "platforms": [
+        {
+          "platform": {
+            "id": 43,
+            "name": "ZX Spectrum",
+            "slug": "zx-spectrum"
+          }
+        },
+        {
+          "platform": {
+            "id": 24,
+            "name": "Game Boy Advance",
+            "slug": "game-boy-advance"
+          }
+        },
+        {
+          "platform": {
+            "id": 79,
+            "name": "SNES",
+            "slug": "snes"
+          }
+        }
+      ],
+      "stores": null,
+      "released": "1983-11-20",
+      "tba": false,
+      "background_image": "https://picsum.photos/seed/game21/600/400",
+      "rating": 2.68,
+      "rating_top": 5,
+      "ratings": [
+        {
+          "id": 5,
+          "title": "exceptional",
+          "count": 4,
+          "percent": 25
+        },
+        {
+          "id": 4,
+          "title": "recommended",
+          "count": 10,
+          "percent": 62.5
+        },
+        {
+          "id": 3,
+          "title": "meh",
+          "count": 0,
+          "percent": 0
+        },
+        {
+          "id": 1,
+          "title": "skip",
+          "count": 2,
+          "percent": 12.5
+        }
+      ],
+      "ratings_count": 34,
+      "reviews_text_count": 3,
+      "added": 71,
+      "added_by_status": {
+        "yet": 7,
+        "owned": 6,
+        "beaten": 18,
+        "toplay": 9,
+        "dropped": 3,
+        "playing": 5
+      },
+      "metacritic": null,
+      "suggestions_count": 69,
+      "updated": "2013-01-01T00:00:00",
+      "id": 100022,
+      "score": null,
+      "clip": null,
+      "tags": [],
+      "esrb_rating": null,
+      "user_game": null,
+      "reviews_count": 37,
+      "saturated_color": "0f0f0f",
+      "dominant_color": "0f0f0f",
+      "short_screenshots": [
+        {
+          "id": -1,
+          "image": "https://picsum.photos/seed/game21/600/400"
+        },
+        {
+          "id": 10002200,
+          "image": "https://picsum.photos/seed/ss21/588/419"
+        },
+        {
+          "id": 10002201,
+          "image": "https://picsum.photos/seed/ss22/588/419"
+        },
+        {
+          "id": 10002202,
+          "image": "https://picsum.photos/seed/ss23/588/419"
+        },
+        {
+          "id": 10002203,
+          "image": "https://picsum.photos/seed/ss24/588/419"
+        },
+        {
+          "id": 10002204,
+          "image": "https://picsum.photos/seed/ss25/588/419"
+        }
+      ],
+      "parent_platforms": [
+        {
+          "platform": {
+            "id": 7,
+            "name": "Nintendo",
+            "slug": "nintendo"
+          }
+        }
+      ],
+      "genres": [
+        {
+          "id": 15,
+          "name": "Sports",
+          "slug": "sports"
+        },
+        {
+          "id": 5,
+          "name": "RPG",
+          "slug": "rpg"
+        },
+        {
+          "id": 14,
+          "name": "Simulation",
+          "slug": "simulation"
+        }
+      ]
+    },
+    {
+      "slug": "knight",
+      "name": "Knight",
+      "playtime": 9,
+      "platforms": [
+        {
+          "platform": {
+            "id": 167,
+            "name": "Sega Genesis",
+            "slug": "sega-genesis"
+          }
+        },
+        {
+          "platform": {
+            "id": 26,
+            "name": "Commodore 64",
+            "slug": "commodore-64"
+          }
+        },
+        {
+          "platform": {
+            "id": 34,
+            "name": "Atari ST",
+            "slug": "atari-st"
+          }
+        },
+        {
+          "platform": {
+            "id": 24,
+            "name": "Game Boy Advance",
+            "slug": "game-boy-advance"
+          }
+        }
+      ],
+      "stores": null,
+      "released": "1983-01-21",
+      "tba": false,
+      "background_image": "https://picsum.photos/seed/game22/600/400",
+      "rating": 2.92,
+      "rating_top": 5,
+      "ratings": [
+        {
+          "id": 5,
+          "title": "exceptional",
+          "count": 7,
+          "percent": 63.64
+        },
+        {
+          "id": 4,
+          "title": "recommended",
+          "count": 3,
+          "percent": 27.27
+        },
+        {
+          "id": 3,
+          "title": "meh",
+          "count": 0,
+          "percent": 0
+        },
+        {
+          "id": 1,
+          "title": "skip",
+          "count": 1,
+          "percent": 9.09
+        }
+      ],
+      "ratings_count": 26,
+      "reviews_text_count": 5,
+      "added": 56,
+      "added_by_status": {
+        "yet": 0,
+        "owned": 9,
+        "beaten": 16,
+        "toplay": 10,
+        "dropped": 1,
+        "playing": 3
+      },
+      "metacritic": null,
+      "suggestions_count": 167,
+      "updated": "2013-01-01T00:00:00",
+      "id": 100023,
+      "score": null,
+      "clip": null,
+      "tags": [],
+      "esrb_rating": null,
+      "user_game": null,
+      "reviews_count": 27,
+      "saturated_color": "0f0f0f",
+      "dominant_color": "0f0f0f",
+      "short_screenshots": [
+        {
+          "id": -1,
+          "image": "https://picsum.photos/seed/game22/600/400"
+        },
+        {
+          "id": 10002300,
+          "image": "https://picsum.photos/seed/ss22/588/419"
+        },
+        {
+          "id": 10002301,
+          "image": "https://picsum.photos/seed/ss23/588/419"
+        },
+        {
+          "id": 10002302,
+          "image": "https://picsum.photos/seed/ss24/588/419"
+        },
+        {
+          "id": 10002303,
+          "image": "https://picsum.photos/seed/ss25/588/419"
+        },
+        {
+          "id": 10002304,
+          "image": "https://picsum.photos/seed/ss26/588/419"
+        }
+      ],
+      "parent_platforms": [
+        {
+          "platform": {
+            "id": 7,
+            "name": "Nintendo",
+            "slug": "nintendo"
+          }
+        },
+        {
+          "platform": {
+            "id": 8,
+            "name": "Sega",
+            "slug": "sega"
+          }
+        }
+      ],
+      "genres": [
+        {
+          "id": 4,
+          "name": "Action",
+          "slug": "action"
+        },
+        {
+          "id": 14,
+          "name": "Simulation",
+          "slug": "simulation"
+        }
+      ]
+    },
+    {
+      "slug": "knight-dx",
+      "name": "Knight DX",
+      "playtime": 7,
+      "platforms": [
+        {
+          "platform": {
+            "id": 4,
+            "name": "PC",
+            "slug": "pc"
+          }
+        },
+        {
+          "platform": {
+            "id": 24,
+            "name": "Game Boy Advance",
+            "slug": "game-boy-advance"
+          }
+        },
+        {
+          "platform": {
+            "id": 34,
+            "name": "Atari ST",
+            "slug": "atari-st"
+          }
+        }
+      ],
+      "stores": null,
+      "released": "1983-06-05",
+      "tba": false,
+      "background_image": "https://picsum.photos/seed/game23/600/400",
+      "rating": 4.03,
+      "rating_top": 5,
+      "ratings": [
+        {
+          "id": 5,
+          "title": "exceptional",
+          "count": 2,
+          "percent": 20
+        },
+        {
+          "id": 4,
+          "title": "recommended",
+          "count": 6,
+          "percent": 60
+        },
+        {
+          "id": 3,
+          "title": "meh",
+          "count": 0,
+          "percent": 0
+        },
+        {
+          "id": 1,
+          "title": "skip",
+          "count": 2,
+          "percent": 20
+        }
+      ],
+      "ratings_count": 19,
+      "reviews_text_count": 3,
+      "added": 33,
+      "added_by_status": {
+        "yet": 8,
+        "owned": 28,
+        "beaten": 15,
+        "toplay": 4,
+        "dropped": 8,
+        "playing": 4
+      },
+      "metacritic": null,
+      "suggestions_count": 95,
+      "updated": "2013-01-01T00:00:00",
+      "id": 100024,
+      "score": null,
+      "clip": null,
+      "tags": [],
+      "esrb_rating": null,
+      "user_game": null,
+      "reviews_count": 21,
+      "saturated_color": "0f0f0f",
+      "dominant_color": "0f0f0f",
+      "short_screenshots": [
+        {
+          "id": -1,
+          "image": "https://picsum.photos/seed/game23/600/400"
+        },
+        {
+          "id": 10002400,
+          "image": "https://picsum.photos/seed/ss23/588/419"
+        },
+        {
+          "id": 10002401,
+          "image": "https://picsum.photos/seed/ss24/588/419"
+        },
+        {
+          "id": 10002402,
+          "image": "https://picsum.photos/seed/ss25/588/419"
+        }
+      ],
+      "parent_platforms": [
+        {
+          "platform": {
+            "id": 7,
+            "name": "Nintendo",
+            "slug": "nintendo"
+          }
+        }
+      ],
+      "genres": [
+        {
+          "id": 5,
+          "name": "RPG",
+          "slug": "rpg"
+        },
+        {
+          "id": 11,
+          "name": "Arcade",
+          "slug": "arcade"
+        }
+      ]
+    },
+    {
+      "slug": "mega-force-dx",
+      "name": "Mega Force DX",
+      "playtime": 10,
+      "platforms": [
+        {
+          "platform": {
+            "id": 79,
+            "name": "SNES",
+            "slug": "snes"
+          }
+        },
+        {
+          "platform": {
+            "id": 24,
+            "name": "Game Boy Advance",
+            "slug": "game-boy-advance"
+          }
+        }
+      ],
+      "stores": null,
+      "released": "1983-11-11",
+      "tba": false,
+      "background_image": "https://picsum.photos/seed/game24/600/400",
+      "rating": 3.86,
+      "rating_top": 5,
+      "ratings": [
+        {
+          "id": 5,
+          "title": "exceptional",
+          "count": 8,
+          "percent": 33.33
+        },
+        {
+          "id": 4,
+          "title": "recommended",
+          "count": 9,
+          "percent": 37.5
+        },
+        {
+          "id": 3,
+          "title": "meh",
+          "count": 4,
+          "percent": 16.67
+        },
+        {
+          "id": 1,
+          "title": "skip",
+          "count": 3,
+          "percent": 12.5
+        }
+      ],
+      "ratings_count": 14,
+      "reviews_text_count": 5,
+      "added": 56,
+      "added_by_status": {
+        "yet": 0,
+        "owned": 13,
+        "beaten": 2,
+        "toplay": 13,
+        "dropped": 6,
+        "playing": 4
+      },
+      "metacritic": null,
+      "suggestions_count": 176,
+      "updated": "2013-01-01T00:00:00",
+      "id": 100025,
+      "score": null,
+      "clip": null,
+      "tags": [],
+      "esrb_rating": null,
+      "user_game": null,
+      "reviews_count": 14,
+      "saturated_color": "0f0f0f",
+      "dominant_color": "0f0f0f",
+      "short_screenshots": [
+        {
+          "id": -1,
+          "image": "https://picsum.photos/seed/game24/600/400"
+        },
+        {
+          "id": 10002500,
+          "image": "https://picsum.photos/seed/ss24/588/419"
+        },
+        {
+          "id": 10002501,
+          "image": "https://picsum.photos/seed/ss25/588/419"
+        },
+        {
+          "id": 10002502,
+          "image": "https://picsum.photos/seed/ss26/588/419"
+        },
+        {
+          "id": 10002503,
+          "image": "https://picsum.photos/seed/ss27/588/419"
+        }
+      ],
+      "parent_platforms": [
+        {
+          "platform": {
+            "id": 1,
+            "name": "PC",
+            "slug": "pc"
+          }
+        }
+      ],
+      "genres": [
+        {
+          "id": 83,
+          "name": "Platformer",
+          "slug": "platformer"
+        }
+      ]
+    },
+    {
+      "slug": "neo-galaxy-dx",
+      "name": "Neo Galaxy DX",
+      "playtime": 13,
+      "platforms": [
+        {
+          "platform": {
+            "id": 4,
+            "name": "PC",
+            "slug": "pc"
+          }
+        },
+        {
+          "platform": {
+            "id": 24,
+            "name": "Game Boy Advance",
+            "slug": "game-boy-advance"
+          }
+        }
+      ],
+      "stores": null,
+      "released": "1983-07-01",
+      "tba": false,
+      "background_image": "https://picsum.photos/seed/game25/600/400",
+      "rating": 2.59,
+      "rating_top": 5,
+      "ratings": [
+        {
+          "id": 5,
+          "title": "exceptional",
+          "count": 3,
+          "percent": 15
+        },
+        {
+          "id": 4,
+          "title": "recommended",
+          "count": 9,
+          "percent": 45
+        },
+        {
+          "id": 3,
+          "title": "meh",
+          "count": 5,
+          "percent": 25
+        },
+        {
+          "id": 1,
+          "title": "skip",
+          "count": 3,
+          "percent": 15
+        }
+      ],
+      "ratings_count": 31,
+      "reviews_text_count": 4,
+      "added": 100,
+      "added_by_status": {
+        "yet": 6,
+        "owned": 19,
+        "beaten": 13,
+        "toplay": 7,
+        "dropped": 1,
+        "playing": 2
+      },
+      "metacritic": null,
+      "suggestions_count": 64,
+      "updated": "2013-01-01T00:00:00",
+      "id": 100026,
+      "score": null,
+      "clip": null,
+      "tags": [],
+      "esrb_rating": null,
+      "user_game": null,
+      "reviews_count": 33,
+      "saturated_color": "0f0f0f",
+      "dominant_color": "0f0f0f",
+      "short_screenshots": [
+        {
+          "id": -1,
+          "image": "https://picsum.photos/seed/game25/600/400"
+        },
+        {
+          "id": 10002600,
+          "image": "https://picsum.photos/seed/ss25/588/419"
+        },
+        {
+          "id": 10002601,
+          "image": "https://picsum.photos/seed/ss26/588/419"
+        },
+        {
+          "id": 10002602,
+          "image": "https://picsum.photos/seed/ss27/588/419"
+        }
+      ],
+      "parent_platforms": [
+        {
+          "platform": {
+            "id": 1,
+            "name": "PC",
+            "slug": "pc"
+          }
+        },
+        {
+          "platform": {
+            "id": 8,
+            "name": "Sega",
+            "slug": "sega"
+          }
+        }
+      ],
+      "genres": [
+        {
+          "id": 4,
+          "name": "Action",
+          "slug": "action"
+        },
+        {
+          "id": 3,
+          "name": "Adventure",
+          "slug": "adventure"
+        },
+        {
+          "id": 14,
+          "name": "Simulation",
+          "slug": "simulation"
+        }
+      ]
+    },
+    {
+      "slug": "galaxy",
+      "name": "Galaxy",
+      "playtime": 11,
+      "platforms": [
+        {
+          "platform": {
+            "id": 24,
+            "name": "Game Boy Advance",
+            "slug": "game-boy-advance"
+          }
+        },
+        {
+          "platform": {
+            "id": 34,
+            "name": "Atari ST",
+            "slug": "atari-st"
+          }
+        }
+      ],
+      "stores": null,
+      "released": "1983-05-18",
+      "tba": false,
+      "background_image": "https://picsum.photos/seed/game26/600/400",
+      "rating": 3.92,
+      "rating_top": 5,
+      "ratings": [
+        {
+          "id": 5,
+          "title": "exceptional",
+          "count": 5,
+          "percent": 50
+        },
+        {
+          "id": 4,
+          "title": "recommended",
+          "count": 4,
+          "percent": 40
+        },
+        {
+          "id": 3,
+          "title": "meh",
+          "count": 0,
+          "percent": 0
+        },
+        {
+          "id": 1,
+          "title": "skip",
+          "count": 1,
+          "percent": 10
+        }
+      ],
+      "ratings_count": 31,
+      "reviews_text_count": 1,
+      "added": 96,
+      "added_by_status": {
+        "yet": 0,
+        "owned": 15,
+        "beaten": 12,
+        "toplay": 12,
+        "dropped": 4,
+        "playing": 2
+      },
+      "metacritic": null,
+      "suggestions_count": 18,
+      "updated": "2013-01-01T00:00:00",
+      "id": 100027,
+      "score": null,
+      "clip": null,
+      "tags": [],
+      "esrb_rating": null,
+      "user_game": null,
+      "reviews_count": 32,
+      "saturated_color": "0f0f0f",
+      "dominant_color": "0f0f0f",
+      "short_screenshots": [
+        {
+          "id": -1,
+          "image": "https://picsum.photos/seed/game26/600/400"
+        },
+        {
+          "id": 10002700,
+          "image": "https://picsum.photos/seed/ss26/588/419"
+        },
+        {
+          "id": 10002701,
+          "image": "https://picsum.photos/seed/ss27/588/419"
+        },
+        {
+          "id": 10002702,
+          "image": "https://picsum.photos/seed/ss28/588/419"
+        }
+      ],
+      "parent_platforms": [
+        {
+          "platform": {
+            "id": 8,
+            "name": "Sega",
+            "slug": "sega"
+          }
+        }
+      ],
+      "genres": [
+        {
+          "id": 14,
+          "name": "Simulation",
+          "slug": "simulation"
+        },
+        {
+          "id": 4,
+          "name": "Action",
+          "slug": "action"
+        },
+        {
+          "id": 5,
+          "name": "RPG",
+          "slug": "rpg"
+        }
+      ]
+    },
+    {
+      "slug": "turbo-galaxy-ii",
+      "name": "Turbo Galaxy II",
+      "playtime": 0,
+      "platforms": [
+        {
+          "platform": {
+            "id": 26,
+            "name": "Commodore 64",
+            "slug": "commodore-64"
+          }
+        },
+        {
+          "platform": {
+            "id": 24,
+            "name": "Game Boy Advance",
+            "slug": "game-boy-advance"
+          }
+        },
+        {
+          "platform": {
+            "id": 79,
+            "name": "SNES",
+            "slug": "snes"
+          }
+        }
+      ],
+      "stores": null,
+      "released": "1983-11-28",
+      "tba": false,
+      "background_image": "https://picsum.photos/seed/game27/600/400",
+      "rating": 4.21,
+      "rating_top": 5,
+      "ratings": [
+        {
+          "id": 5,
+          "title": "exceptional",
+          "count": 10,
+          "percent": 58.82
+        },
+        {
+          "id": 4,
+          "title": "recommended",
+          "count": 2,
+          "percent": 11.76
+        },
+        {
+          "id": 3,
+          "title": "meh",
+          "count": 5,
+          "percent": 29.41
+        },
+        {
+          "id": 1,
+          "title": "skip",
+          "count": 0,
+          "percent": 0
+        }
+      ],
+      "ratings_count": 13,
+      "reviews_text_count": 0,
+      "added": 38,
+      "added_by_status": {
+        "yet": 9,
+        "owned": 11,
+        "beaten": 10,
+        "toplay": 3,
+        "dropped": 3,
+        "playing": 2
+      },
+      "metacritic": null,
+      "suggestions_count": 128,
+      "updated": "2013-01-01T00:00:00",
+      "id": 100028,
+      "score": null,
+      "clip": null,
+      "tags": [],
+      "esrb_rating": null,
+      "user_game": null,
+      "reviews_count": 16,
+      "saturated_color": "0f0f0f",
+      "dominant_color": "0f0f0f",
+      "short_screenshots": [
+        {
+          "id": -1,
+          "image": "https://picsum.photos/seed/game27/600/400"
+        },
+        {
+          "id": 10002800,
+          "image": "https://picsum.photos/seed/ss27/588/419"
+        },
+        {
+          "id": 10002801,
+          "image": "https://picsum.photos/seed/ss28/588/419"
+        },
+        {
+          "id": 10002802,
+          "image": "https://picsum.photos/seed/ss29/588/419"
+        }
+      ],
+      "parent_platforms": [
+        {
+          "platform": {
+            "id": 1,
+            "name": "PC",
+            "slug": "pc"
+          }
+        },
+        {
+          "platform": {
+            "id": 9,
+            "name": "Atari",
+            "slug": "atari"
+          }
+        }
+      ],
+      "genres": [
+        {
+          "id": 2,
+          "name": "Shooter",
+          "slug": "shooter"
+        },
+        {
+          "id": 14,
+          "name": "Simulation",
+          "slug": "simulation"
+        },
+        {
+          "id": 11,
+          "name": "Arcade",
+          "slug": "arcade"
+        }
+      ]
+    },
+    {
+      "slug": "blaster-turbo",
+      "name": "Blaster Turbo",
+      "playtime": 11,
+      "platforms": [
+        {
+          "platform": {
+            "id": 26,
+            "name": "Commodore 64",
+            "slug": "commodore-64"
+          }
+        }
+      ],
+      "stores": null,
+      "released": "1983-03-23",
+      "tba": false,
+      "background_image": "https://picsum.photos/seed/game28/600/400",
+      "rating": 4.92,
+      "rating_top": 5,
+      "ratings": [
+        {
+          "id": 5,
+          "title": "exceptional",
+          "count": 10,
+          "percent": 52.63
+        },
+        {
+          "id": 4,
+          "title": "recommended",
+          "count": 6,
+          "percent": 31.58
+        },
+        {
+          "id": 3,
+          "title": "meh",
+          "count": 1,
+          "percent": 5.26
+        },
+        {
+          "id": 1,
+          "title": "skip",
+          "count": 2,
+          "percent": 10.53
+        }
+      ],
+      "ratings_count": 31,
+      "reviews_text_count": 1,
+      "added": 95,
+      "added_by_status": {
+        "yet": 6,
+        "owned": 20,
+        "beaten": 9,
+        "toplay": 1,
+        "dropped": 3,
+        "playing": 0
+      },
+      "metacritic": null,
+      "suggestions_count": 68,
+      "updated": "2013-01-01T00:00:00",
+      "id": 100029,
+      "score": null,
+      "clip": null,
+      "tags": [],
+      "esrb_rating": null,
+      "user_game": null,
+      "reviews_count": 33,
+      "saturated_color": "0f0f0f",
+      "dominant_color": "0f0f0f",
+      "short_screenshots": [
+        {
+          "id": -1,
+          "image": "https://picsum.photos/seed/game28/600/400"
+        },
+        {
+          "id": 10002900,
+          "image": "https://picsum.photos/seed/ss28/588/419"
+        },
+        {
+          "id": 10002901,
+          "image": "https://picsum.photos/seed/ss29/588/419"
+        }
+      ],
+      "parent_platforms": [
+        {
+          "platform": {
+            "id": 9,
+            "name": "Atari",
+            "slug": "atari"
+          }
+        }
+      ],
+      "genres": [
+        {
+          "id": 83,
+          "name": "Platformer",
+          "slug": "platformer"
+        }
+      ]
+    },
+    {
+      "slug": "turbo-patrol-turbo",
+      "name": "Turbo Patrol Turbo",
+      "playtime": 8,
+      "platforms": [
+        {
+          "platform": {
+            "id": 167,
+            "name": "Sega Genesis",
+            "slug": "sega-genesis"
+          }
+        },
+        {
+          "platform": {
+            "id": 24,
+            "name": "Game Boy Advance",
+            "slug": "game-boy-advance"
+          }
+        },
+        {
+          "platform": {
+            "id": 26,
+            "name": "Commodore 64",
+            "slug": "commodore-64"
+          }
+        },
+        {
+          "platform": {
+            "id": 4,
+            "name": "PC",
+            "slug": "pc"
+          }
+        }
+      ],
+      "stores": null,
+      "released": "1983-10-13",
+      "tba": false,
+      "background_image": "https://picsum.photos/seed/game29/600/400",
+      "rating": 4.65,
+      "rating_top": 5,
+      "ratings": [
+        {
+          "id": 5,
+          "title": "exceptional",
+          "count": 2,
+          "percent": 14.29
+        },
+        {
+          "id": 4,
+          "title": "recommended",
+          "count": 7,
+          "percent": 50
+        },
+        {
+          "id": 3,
+          "title": "meh",
+          "count": 5,
+          "percent": 35.71
+        },
+        {
+          "id": 1,
+          "title": "skip",
+          "count": 0,
+          "percent": 0
+        }
+      ],
+      "ratings_count": 33,
+      "reviews_text_count": 2,
+      "added": 31,
+      "added_by_status": {
+        "yet": 6,
+        "owned": 10,
+        "beaten": 13,
+        "toplay": 4,
+        "dropped": 10,
+        "playing": 3
+      },
+      "metacritic": 66,
+      "suggestions_count": 72,
+      "updated": "2013-01-01T00:00:00",
+      "id": 100030,
+      "score": null,
+      "clip": null,
+      "tags": [],
+      "esrb_rating": null,
+      "user_game": null,
+      "reviews_count": 36,
+      "saturated_color": "0f0f0f",
+      "dominant_color": "0f0f0f",
+      "short_screenshots": [
+        {
+          "id": -1,
+          "image": "https://picsum.photos/seed/game29/600/400"
+        },
+        {
+          "id": 10003000,
+          "image": "https://picsum.photos/seed/ss29/588/419"
+        },
+        {
+          "id": 10003001,
+          "image": "https://picsum.photos/seed/ss30/588/419"
+        },
+        {
+          "id": 10003002,
+          "image": "https://picsum.photos/seed/ss31/588/419"
+        },
+        {
+          "id": 10003003,
+          "image": "https://picsum.photos/seed/ss32/588/419"
+        },
+        {
+          "id": 10003004,
+          "image": "https://picsum.photos/seed/ss33/588/419"
+        }
+      ],
+      "parent_platforms": [
+        {
+          "platform": {
+            "id": 7,
+            "name": "Nintendo",
+            "slug": "nintendo"
+          }
+        },
+        {
+          "platform": {
+            "id": 9,
+            "name": "Atari",
+            "slug": "atari"
+          }
+        }
+      ],
+      "genres": [
+        {
+          "id": 11,
+          "name": "Arcade",
+          "slug": "arcade"
+        },
+        {
+          "id": 7,
+          "name": "Puzzle",
+          "slug": "puzzle"
+        },
+        {
+          "id": 14,
+          "name": "Simulation",
+          "slug": "simulation"
+        }
+      ]
+    }
+  ]
+}

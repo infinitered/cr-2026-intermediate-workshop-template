@@ -1,0 +1,127 @@
+{
+  "id": 100062,
+  "slug": "runner",
+  "name": "Runner",
+  "name_original": "Runner",
+  "description": "<p>Race against the clock in this adrenaline-pumping action game. Dodge obstacles, collect bonuses, and reach the finish line before time runs out. Simple controls hide surprising depth.</p>",
+  "metacritic": null,
+  "metacritic_platforms": [],
+  "released": "1987-03-28",
+  "tba": false,
+  "updated": "2017-01-01T00:00:00",
+  "background_image": "https://picsum.photos/seed/game61/600/400",
+  "background_image_additional": null,
+  "website": "",
+  "rating": 2.49,
+  "rating_top": 5,
+  "ratings": [
+    {
+      "id": 5,
+      "title": "exceptional",
+      "count": 0,
+      "percent": 0
+    },
+    {
+      "id": 4,
+      "title": "recommended",
+      "count": 10,
+      "percent": 66.67
+    },
+    {
+      "id": 3,
+      "title": "meh",
+      "count": 5,
+      "percent": 33.33
+    },
+    {
+      "id": 1,
+      "title": "skip",
+      "count": 0,
+      "percent": 0
+    }
+  ],
+  "reactions": {},
+  "added": 36,
+  "added_by_status": {
+    "yet": 3,
+    "owned": 16,
+    "beaten": 19,
+    "toplay": 14,
+    "dropped": 8,
+    "playing": 5
+  },
+  "playtime": 6,
+  "screenshots_count": 7,
+  "movies_count": 0,
+  "creators_count": 0,
+  "achievements_count": 0,
+  "parent_achievements_count": "0",
+  "reddit_url": "",
+  "reddit_name": "",
+  "reddit_description": "",
+  "reddit_logo": "",
+  "reddit_count": 0,
+  "twitch_count": "0",
+  "youtube_count": "0",
+  "reviews_text_count": 2,
+  "ratings_count": 6,
+  "suggestions_count": 63,
+  "alternative_names": [],
+  "metacritic_url": "",
+  "parents_count": 0,
+  "additions_count": 0,
+  "game_series_count": 0,
+  "user_game": null,
+  "reviews_count": 6,
+  "saturated_color": "0f0f0f",
+  "dominant_color": "0f0f0f",
+  "parent_platforms": [
+    {
+      "platform": {
+        "id": 7,
+        "name": "Nintendo",
+        "slug": "nintendo"
+      }
+    }
+  ],
+  "platforms": [
+    {
+      "platform": {
+        "id": 49,
+        "name": "NES",
+        "slug": "nes"
+      }
+    }
+  ],
+  "stores": [],
+  "developers": [
+    {
+      "id": 16264,
+      "name": "Williams",
+      "slug": "williams"
+    }
+  ],
+  "genres": [
+    {
+      "id": 4,
+      "name": "Action",
+      "slug": "action"
+    },
+    {
+      "id": 10,
+      "name": "Strategy",
+      "slug": "strategy"
+    }
+  ],
+  "tags": [],
+  "publishers": [
+    {
+      "id": 10683,
+      "name": "Sega",
+      "slug": "sega"
+    }
+  ],
+  "esrb_rating": null,
+  "clip": null,
+  "description_raw": "Race against the clock in this adrenaline-pumping action game. Dodge obstacles, collect bonuses, and reach the finish line before time runs out. Simple controls hide surprising depth."
+}

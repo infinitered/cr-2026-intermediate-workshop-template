@@ -23,9 +23,9 @@ if (__DEV__) {
   //
   // To use actual API responses, make sure to set the
   // EXPO_PUBLIC_RAWG_API_KEY var and comment out these lines
-  // require("@/services/mocks/msw.polyfills")
-  // const { server } = require("@/services/mocks/server")
-  // server.listen()
+  require("@/services/mocks/msw.polyfills")
+  const { server } = require("@/services/mocks/server")
+  server.listen()
 }
 
 export default function Root() {

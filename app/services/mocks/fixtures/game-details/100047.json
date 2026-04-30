@@ -1,0 +1,139 @@
+{
+  "id": 100047,
+  "slug": "quest",
+  "name": "Quest",
+  "name_original": "Quest",
+  "description": "<p>Fast-paced action meets puzzle-solving in this innovative title. Each stage introduces new mechanics that keep gameplay fresh from start to finish. Compete for high scores or enjoy the single-player campaign.</p>",
+  "metacritic": 81,
+  "metacritic_platforms": [],
+  "released": "1985-04-18",
+  "tba": false,
+  "updated": "2015-01-01T00:00:00",
+  "background_image": "https://picsum.photos/seed/game46/600/400",
+  "background_image_additional": null,
+  "website": "",
+  "rating": 2.25,
+  "rating_top": 5,
+  "ratings": [
+    {
+      "id": 5,
+      "title": "exceptional",
+      "count": 1,
+      "percent": 8.33
+    },
+    {
+      "id": 4,
+      "title": "recommended",
+      "count": 6,
+      "percent": 50
+    },
+    {
+      "id": 3,
+      "title": "meh",
+      "count": 4,
+      "percent": 33.33
+    },
+    {
+      "id": 1,
+      "title": "skip",
+      "count": 1,
+      "percent": 8.33
+    }
+  ],
+  "reactions": {},
+  "added": 53,
+  "added_by_status": {
+    "yet": 4,
+    "owned": 29,
+    "beaten": 19,
+    "toplay": 0,
+    "dropped": 3,
+    "playing": 0
+  },
+  "playtime": 16,
+  "screenshots_count": 6,
+  "movies_count": 0,
+  "creators_count": 0,
+  "achievements_count": 0,
+  "parent_achievements_count": "0",
+  "reddit_url": "",
+  "reddit_name": "",
+  "reddit_description": "",
+  "reddit_logo": "",
+  "reddit_count": 0,
+  "twitch_count": "0",
+  "youtube_count": "0",
+  "reviews_text_count": 5,
+  "ratings_count": 45,
+  "suggestions_count": 185,
+  "alternative_names": [],
+  "metacritic_url": "",
+  "parents_count": 0,
+  "additions_count": 0,
+  "game_series_count": 0,
+  "user_game": null,
+  "reviews_count": 47,
+  "saturated_color": "0f0f0f",
+  "dominant_color": "0f0f0f",
+  "parent_platforms": [
+    {
+      "platform": {
+        "id": 9,
+        "name": "Atari",
+        "slug": "atari"
+      }
+    },
+    {
+      "platform": {
+        "id": 1,
+        "name": "PC",
+        "slug": "pc"
+      }
+    }
+  ],
+  "platforms": [
+    {
+      "platform": {
+        "id": 43,
+        "name": "ZX Spectrum",
+        "slug": "zx-spectrum"
+      }
+    }
+  ],
+  "stores": [],
+  "developers": [
+    {
+      "id": 16265,
+      "name": "Technos",
+      "slug": "technos"
+    }
+  ],
+  "genres": [
+    {
+      "id": 3,
+      "name": "Adventure",
+      "slug": "adventure"
+    },
+    {
+      "id": 5,
+      "name": "RPG",
+      "slug": "rpg"
+    },
+    {
+      "id": 2,
+      "name": "Shooter",
+      "slug": "shooter"
+    }
+  ],
+  "tags": [],
+  "publishers": [
+    {
+      "id": 10684,
+      "name": "Namco",
+      "slug": "namco"
+    }
+  ],
+  "esrb_rating": null,
+  "clip": null,
+  "description_raw": "Fast-paced action meets puzzle-solving in this innovative title. Each stage introduces new mechanics that keep gameplay fresh from start to finish. Compete for high scores or enjoy the single-player campaign."
+}

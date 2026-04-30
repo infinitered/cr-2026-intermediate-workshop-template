@@ -1,0 +1,141 @@
+{
+  "id": 100024,
+  "slug": "knight-dx",
+  "name": "Knight DX",
+  "name_original": "Knight DX",
+  "description": "<p>Join a band of heroes on their quest to save the realm from an ancient evil. Turn-based combat and a rich storyline make this an unforgettable adventure. Features multiple endings based on player choices.</p>",
+  "metacritic": null,
+  "metacritic_platforms": [],
+  "released": "1983-06-05",
+  "tba": false,
+  "updated": "2013-01-01T00:00:00",
+  "background_image": "https://picsum.photos/seed/game23/600/400",
+  "background_image_additional": null,
+  "website": "",
+  "rating": 4.03,
+  "rating_top": 5,
+  "ratings": [
+    {
+      "id": 5,
+      "title": "exceptional",
+      "count": 2,
+      "percent": 20
+    },
+    {
+      "id": 4,
+      "title": "recommended",
+      "count": 6,
+      "percent": 60
+    },
+    {
+      "id": 3,
+      "title": "meh",
+      "count": 0,
+      "percent": 0
+    },
+    {
+      "id": 1,
+      "title": "skip",
+      "count": 2,
+      "percent": 20
+    }
+  ],
+  "reactions": {},
+  "added": 33,
+  "added_by_status": {
+    "yet": 8,
+    "owned": 28,
+    "beaten": 15,
+    "toplay": 4,
+    "dropped": 8,
+    "playing": 4
+  },
+  "playtime": 7,
+  "screenshots_count": 8,
+  "movies_count": 0,
+  "creators_count": 0,
+  "achievements_count": 0,
+  "parent_achievements_count": "0",
+  "reddit_url": "",
+  "reddit_name": "",
+  "reddit_description": "",
+  "reddit_logo": "",
+  "reddit_count": 0,
+  "twitch_count": "0",
+  "youtube_count": "0",
+  "reviews_text_count": 3,
+  "ratings_count": 19,
+  "suggestions_count": 95,
+  "alternative_names": [],
+  "metacritic_url": "",
+  "parents_count": 0,
+  "additions_count": 0,
+  "game_series_count": 0,
+  "user_game": null,
+  "reviews_count": 21,
+  "saturated_color": "0f0f0f",
+  "dominant_color": "0f0f0f",
+  "parent_platforms": [
+    {
+      "platform": {
+        "id": 7,
+        "name": "Nintendo",
+        "slug": "nintendo"
+      }
+    }
+  ],
+  "platforms": [
+    {
+      "platform": {
+        "id": 4,
+        "name": "PC",
+        "slug": "pc"
+      }
+    },
+    {
+      "platform": {
+        "id": 24,
+        "name": "Game Boy Advance",
+        "slug": "game-boy-advance"
+      }
+    },
+    {
+      "platform": {
+        "id": 34,
+        "name": "Atari ST",
+        "slug": "atari-st"
+      }
+    }
+  ],
+  "stores": [],
+  "developers": [
+    {
+      "id": 16263,
+      "name": "Atari",
+      "slug": "atari"
+    }
+  ],
+  "genres": [
+    {
+      "id": 5,
+      "name": "RPG",
+      "slug": "rpg"
+    },
+    {
+      "id": 11,
+      "name": "Arcade",
+      "slug": "arcade"
+    }
+  ],
+  "tags": [],
+  "publishers": [
+    {
+      "id": 10683,
+      "name": "Sega",
+      "slug": "sega"
+    }
+  ],
+  "esrb_rating": null,
+  "clip": null,
+  "description_raw": "Join a band of heroes on their quest to save the realm from an ancient evil. Turn-based combat and a rich storyline make this an unforgettable adventure. Features multiple endings based on player choices."
+}

@@ -1,0 +1,146 @@
+{
+  "id": 100051,
+  "slug": "warriors",
+  "name": "Warriors",
+  "name_original": "Warriors",
+  "description": "<p>Join a band of heroes on their quest to save the realm from an ancient evil. Turn-based combat and a rich storyline make this an unforgettable adventure. Features multiple endings based on player choices.</p>",
+  "metacritic": 85,
+  "metacritic_platforms": [],
+  "released": "1986-01-02",
+  "tba": false,
+  "updated": "2016-01-01T00:00:00",
+  "background_image": "https://picsum.photos/seed/game50/600/400",
+  "background_image_additional": null,
+  "website": "",
+  "rating": 2.37,
+  "rating_top": 5,
+  "ratings": [
+    {
+      "id": 5,
+      "title": "exceptional",
+      "count": 9,
+      "percent": 69.23
+    },
+    {
+      "id": 4,
+      "title": "recommended",
+      "count": 2,
+      "percent": 15.38
+    },
+    {
+      "id": 3,
+      "title": "meh",
+      "count": 2,
+      "percent": 15.38
+    },
+    {
+      "id": 1,
+      "title": "skip",
+      "count": 0,
+      "percent": 0
+    }
+  ],
+  "reactions": {},
+  "added": 29,
+  "added_by_status": {
+    "yet": 9,
+    "owned": 7,
+    "beaten": 11,
+    "toplay": 15,
+    "dropped": 7,
+    "playing": 5
+  },
+  "playtime": 4,
+  "screenshots_count": 6,
+  "movies_count": 0,
+  "creators_count": 0,
+  "achievements_count": 0,
+  "parent_achievements_count": "0",
+  "reddit_url": "",
+  "reddit_name": "",
+  "reddit_description": "",
+  "reddit_logo": "",
+  "reddit_count": 0,
+  "twitch_count": "0",
+  "youtube_count": "0",
+  "reviews_text_count": 5,
+  "ratings_count": 29,
+  "suggestions_count": 43,
+  "alternative_names": [],
+  "metacritic_url": "",
+  "parents_count": 0,
+  "additions_count": 0,
+  "game_series_count": 0,
+  "user_game": null,
+  "reviews_count": 32,
+  "saturated_color": "0f0f0f",
+  "dominant_color": "0f0f0f",
+  "parent_platforms": [
+    {
+      "platform": {
+        "id": 7,
+        "name": "Nintendo",
+        "slug": "nintendo"
+      }
+    },
+    {
+      "platform": {
+        "id": 9,
+        "name": "Atari",
+        "slug": "atari"
+      }
+    }
+  ],
+  "platforms": [
+    {
+      "platform": {
+        "id": 24,
+        "name": "Game Boy Advance",
+        "slug": "game-boy-advance"
+      }
+    },
+    {
+      "platform": {
+        "id": 79,
+        "name": "SNES",
+        "slug": "snes"
+      }
+    }
+  ],
+  "stores": [],
+  "developers": [
+    {
+      "id": 16264,
+      "name": "Williams",
+      "slug": "williams"
+    }
+  ],
+  "genres": [
+    {
+      "id": 5,
+      "name": "RPG",
+      "slug": "rpg"
+    },
+    {
+      "id": 4,
+      "name": "Action",
+      "slug": "action"
+    },
+    {
+      "id": 10,
+      "name": "Strategy",
+      "slug": "strategy"
+    }
+  ],
+  "tags": [],
+  "publishers": [
+    {
+      "id": 10685,
+      "name": "Atari",
+      "slug": "atari"
+    }
+  ],
+  "esrb_rating": null,
+  "clip": null,
+  "description_raw": "Join a band of heroes on their quest to save the realm from an ancient evil. Turn-based combat and a rich storyline make this an unforgettable adventure. Features multiple endings based on player choices."
+}

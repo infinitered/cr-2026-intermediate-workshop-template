@@ -1,0 +1,134 @@
+{
+  "id": 100038,
+  "slug": "cyber-runner",
+  "name": "Cyber Runner",
+  "name_original": "Cyber Runner",
+  "description": "<p>Navigate treacherous pixelated landscapes in this classic side-scrolling adventure. Battle through waves of enemies using power-ups scattered across each level. Originally released for home consoles and arcade cabinets.</p>",
+  "metacritic": null,
+  "metacritic_platforms": [],
+  "released": "1984-11-07",
+  "tba": false,
+  "updated": "2014-01-01T00:00:00",
+  "background_image": "https://picsum.photos/seed/game37/600/400",
+  "background_image_additional": null,
+  "website": "",
+  "rating": 2.18,
+  "rating_top": 5,
+  "ratings": [
+    {
+      "id": 5,
+      "title": "exceptional",
+      "count": 3,
+      "percent": 37.5
+    },
+    {
+      "id": 4,
+      "title": "recommended",
+      "count": 1,
+      "percent": 12.5
+    },
+    {
+      "id": 3,
+      "title": "meh",
+      "count": 2,
+      "percent": 25
+    },
+    {
+      "id": 1,
+      "title": "skip",
+      "count": 2,
+      "percent": 25
+    }
+  ],
+  "reactions": {},
+  "added": 60,
+  "added_by_status": {
+    "yet": 10,
+    "owned": 17,
+    "beaten": 2,
+    "toplay": 10,
+    "dropped": 7,
+    "playing": 5
+  },
+  "playtime": 2,
+  "screenshots_count": 6,
+  "movies_count": 0,
+  "creators_count": 0,
+  "achievements_count": 0,
+  "parent_achievements_count": "0",
+  "reddit_url": "",
+  "reddit_name": "",
+  "reddit_description": "",
+  "reddit_logo": "",
+  "reddit_count": 0,
+  "twitch_count": "0",
+  "youtube_count": "0",
+  "reviews_text_count": 3,
+  "ratings_count": 22,
+  "suggestions_count": 163,
+  "alternative_names": [],
+  "metacritic_url": "",
+  "parents_count": 0,
+  "additions_count": 0,
+  "game_series_count": 0,
+  "user_game": null,
+  "reviews_count": 24,
+  "saturated_color": "0f0f0f",
+  "dominant_color": "0f0f0f",
+  "parent_platforms": [
+    {
+      "platform": {
+        "id": 1,
+        "name": "PC",
+        "slug": "pc"
+      }
+    }
+  ],
+  "platforms": [
+    {
+      "platform": {
+        "id": 43,
+        "name": "ZX Spectrum",
+        "slug": "zx-spectrum"
+      }
+    },
+    {
+      "platform": {
+        "id": 26,
+        "name": "Commodore 64",
+        "slug": "commodore-64"
+      }
+    }
+  ],
+  "stores": [],
+  "developers": [
+    {
+      "id": 16258,
+      "name": "Konami",
+      "slug": "konami"
+    }
+  ],
+  "genres": [
+    {
+      "id": 14,
+      "name": "Simulation",
+      "slug": "simulation"
+    },
+    {
+      "id": 10,
+      "name": "Strategy",
+      "slug": "strategy"
+    }
+  ],
+  "tags": [],
+  "publishers": [
+    {
+      "id": 10684,
+      "name": "Namco",
+      "slug": "namco"
+    }
+  ],
+  "esrb_rating": null,
+  "clip": null,
+  "description_raw": "Navigate treacherous pixelated landscapes in this classic side-scrolling adventure. Battle through waves of enemies using power-ups scattered across each level. Originally released for home consoles and arcade cabinets."
+}

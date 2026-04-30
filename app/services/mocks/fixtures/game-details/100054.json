@@ -1,0 +1,146 @@
+{
+  "id": 100054,
+  "slug": "star-phantom",
+  "name": "Star Phantom",
+  "name_original": "Star Phantom",
+  "description": "<p>Embark on an epic quest through a sprawling world filled with secrets and danger. Collect items, defeat bosses, and uncover the mysteries hidden within each zone. A beloved title from the golden age of gaming.</p>",
+  "metacritic": null,
+  "metacritic_platforms": [],
+  "released": "1986-02-14",
+  "tba": false,
+  "updated": "2016-01-01T00:00:00",
+  "background_image": "https://picsum.photos/seed/game53/600/400",
+  "background_image_additional": null,
+  "website": "",
+  "rating": 2.78,
+  "rating_top": 5,
+  "ratings": [
+    {
+      "id": 5,
+      "title": "exceptional",
+      "count": 7,
+      "percent": 31.82
+    },
+    {
+      "id": 4,
+      "title": "recommended",
+      "count": 9,
+      "percent": 40.91
+    },
+    {
+      "id": 3,
+      "title": "meh",
+      "count": 3,
+      "percent": 13.64
+    },
+    {
+      "id": 1,
+      "title": "skip",
+      "count": 3,
+      "percent": 13.64
+    }
+  ],
+  "reactions": {},
+  "added": 10,
+  "added_by_status": {
+    "yet": 3,
+    "owned": 14,
+    "beaten": 13,
+    "toplay": 3,
+    "dropped": 0,
+    "playing": 5
+  },
+  "playtime": 3,
+  "screenshots_count": 3,
+  "movies_count": 0,
+  "creators_count": 0,
+  "achievements_count": 0,
+  "parent_achievements_count": "0",
+  "reddit_url": "",
+  "reddit_name": "",
+  "reddit_description": "",
+  "reddit_logo": "",
+  "reddit_count": 0,
+  "twitch_count": "0",
+  "youtube_count": "0",
+  "reviews_text_count": 1,
+  "ratings_count": 13,
+  "suggestions_count": 183,
+  "alternative_names": [],
+  "metacritic_url": "",
+  "parents_count": 0,
+  "additions_count": 0,
+  "game_series_count": 0,
+  "user_game": null,
+  "reviews_count": 16,
+  "saturated_color": "0f0f0f",
+  "dominant_color": "0f0f0f",
+  "parent_platforms": [
+    {
+      "platform": {
+        "id": 8,
+        "name": "Sega",
+        "slug": "sega"
+      }
+    }
+  ],
+  "platforms": [
+    {
+      "platform": {
+        "id": 24,
+        "name": "Game Boy Advance",
+        "slug": "game-boy-advance"
+      }
+    },
+    {
+      "platform": {
+        "id": 43,
+        "name": "ZX Spectrum",
+        "slug": "zx-spectrum"
+      }
+    },
+    {
+      "platform": {
+        "id": 4,
+        "name": "PC",
+        "slug": "pc"
+      }
+    }
+  ],
+  "stores": [],
+  "developers": [
+    {
+      "id": 16263,
+      "name": "Atari",
+      "slug": "atari"
+    }
+  ],
+  "genres": [
+    {
+      "id": 4,
+      "name": "Action",
+      "slug": "action"
+    },
+    {
+      "id": 10,
+      "name": "Strategy",
+      "slug": "strategy"
+    },
+    {
+      "id": 11,
+      "name": "Arcade",
+      "slug": "arcade"
+    }
+  ],
+  "tags": [],
+  "publishers": [
+    {
+      "id": 10683,
+      "name": "Sega",
+      "slug": "sega"
+    }
+  ],
+  "esrb_rating": null,
+  "clip": null,
+  "description_raw": "Embark on an epic quest through a sprawling world filled with secrets and danger. Collect items, defeat bosses, and uncover the mysteries hidden within each zone. A beloved title from the golden age of gaming."
+}
