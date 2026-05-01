@@ -1,77 +1,101 @@
-# Welcome to your new ignited app!
+# Chain React 2026 — Intermediate Workshop Template
 
-> The latest and greatest boilerplate for Infinite Red opinions
+A retro 80s games catalog app built with Expo SDK 55, React Native 0.83, and React 19. Workshop attendees start with this standard React Native app and progressively convert components to native platform UI using Expo's native component APIs.
 
-This is the boilerplate that [Infinite Red](https://infinite.red) uses as a way to test bleeding-edge changes to our React Native stack.
+## Prerequisites
 
-- [Quick start documentation](https://github.com/infinitered/ignite/blob/master/docs/boilerplate/Boilerplate.md)
-- [Full documentation](https://github.com/infinitered/ignite/blob/master/docs/README.md)
+- Node.js 18+
+- pnpm
+- Expo CLI (`npx expo`)
+- iOS Simulator (Xcode) and/or Android Emulator
 
-## Getting Started
+## Setup
 
 ```bash
 pnpm install
-pnpm run start
 ```
 
-To make things work on your local simulator, or on your phone, you need first to [run `eas build`](https://github.com/infinitered/ignite/blob/master/docs/expo/EAS.md). We have many shortcuts on `package.json` to make it easier:
+### RAWG API Key
+
+The app uses the [RAWG Video Games Database API](https://rawg.io/apidocs). Get a free API key at rawg.io and add it to your environment:
 
 ```bash
-pnpm run build:ios:sim # build for ios simulator
-pnpm run build:ios:device # build for ios device
-pnpm run build:ios:prod # build for ios device
+cp .env.local.example .env.local
+# Add your RAWG_API_KEY to .env.local
 ```
 
-### `./assets`
+### Offline Mode (MSW)
 
-This directory is designed to organize and store various assets, making it easy for you to manage and use them in your application. The assets are further categorized into subdirectories, including `icons` and `images`:
+The app ships with fabricated mock data and MSW handlers for fully offline operation — no API key needed. MSW is enabled by default via three lines in `src/app/_layout.tsx`. To switch to the live API, comment those lines out.
 
-```tree
-assets
-├── icons
-└── images
+Mock fixtures live in `app/services/mocks/fixtures/` (9 years of games, 90 detail pages, 90 screenshot sets).
+
+## Running
+
+```bash
+# iOS
+npx expo run:ios
+
+# Android
+npx expo run:android
 ```
 
-**icons**
-This is where your icon assets will live. These icons can be used for buttons, navigation elements, or any other UI components. The recommended format for icons is PNG, but other formats can be used as well.
+This is a dev client app (uses native modules like MMKV), so `npx expo start` alone won't work — you need a development build.
 
-Ignite comes with a built-in `Icon` component. You can find detailed usage instructions in the [docs](https://github.com/infinitered/ignite/blob/master/docs/boilerplate/app/components/Icon.md).
+## Architecture
 
-**images**
-This is where your images will live, such as background images, logos, or any other graphics. You can use various formats such as PNG, JPEG, or GIF for your images.
+### Navigation
 
-Another valuable built-in component within Ignite is the `AutoImage` component. You can find detailed usage instructions in the [docs](https://github.com/infinitered/ignite/blob/master/docs/Components-AutoImage.md).
+Expo Router file-based routing in `src/app/`:
 
-How to use your `icon` or `image` assets:
+- `(tabs)/index.tsx` — Games feed (year-grouped carousels)
+- `(tabs)/genres.tsx` — Genre list with "In Feed" badges
+- `(tabs)/settings.tsx` — Settings (display name, theme, content prefs)
+- `game/[id].tsx` — Game detail (screenshots, favorites, reviews)
+- `genre/[slug].tsx` — Genre detail with game list
+- `review.tsx` — Write/edit review modal
+- `shared.tsx` — Incoming share handler (via expo-sharing)
+- `disclosures.tsx` — About/legal
 
-```typescript
-import { Image } from 'react-native';
+### State Management
 
-const MyComponent = () => {
-  return (
-    <Image source={require('assets/images/my_image.png')} />
-  );
-};
+Custom store built on `useSyncExternalStore` (`app/utils/store.ts`) with MMKV persistence:
+
+- `app/stores/favorites.ts` — Favorited game IDs
+- `app/stores/genreFilter.ts` — Selected genre filters
+- `app/stores/reviews.ts` — User reviews
+- `app/stores/settings.ts` — Display name, sort order, content prefs
+
+### Data Layer
+
+- **react-query** for API data fetching and caching
+- **MSW 2.x** (`msw/native`) for offline mocking with `require.context` dynamic fixture loading
+- API service in `app/services/api/` (RAWG endpoints, TypeScript types)
+
+### Theming
+
+Ignite-derived theme system with dark/light mode, design tokens, and branded color palette. Theme context in `app/theme/`.
+
+## Workshop Goals
+
+Attendees convert standard React Native components to native platform equivalents:
+
+- **Tabs** → Native tabs (`expo-router/unstable-native-tabs`)
+- **Toggle/Switch/TextField/Slider** → Expo UI native components
+- **Tab bar icons** → SF Symbols / Material Symbols
+- **Header buttons** → Native toolbar buttons
+- **Modal** → Form sheet presentation
+- **Alert** → Context menus
+- **List** → SwiftUI List / LazyColumn
+
+## Tests
+
+```bash
+pnpm test
 ```
 
-## Running Maestro end-to-end tests
+40 tests across 8 suites covering store mechanics, favorites, reviews, genre filters, and settings.
 
-Follow our [Maestro Setup](https://ignitecookbook.com/docs/recipes/MaestroSetup) recipe.
+## License
 
-## Next Steps
-
-### Ignite Cookbook
-
-[Ignite Cookbook](https://ignitecookbook.com/) is an easy way for developers to browse and share code snippets (or “recipes”) that actually work.
-
-### Upgrade Ignite boilerplate
-
-Read our [Upgrade Guide](https://ignitecookbook.com/docs/recipes/UpdatingIgnite) to learn how to upgrade your Ignite project.
-
-## Community
-
-⭐️ Help us out by [starring on GitHub](https://github.com/infinitered/ignite), filing bug reports in [issues](https://github.com/infinitered/ignite/issues) or [ask questions](https://github.com/infinitered/ignite/discussions).
-
-💬 Join us on [Slack](https://join.slack.com/t/infiniteredcommunity/shared_invite/zt-1f137np4h-zPTq_CbaRFUOR_glUFs2UA) to discuss.
-
-📰 Make our Editor-in-chief happy by [reading the React Native Newsletter](https://reactnativenewsletter.com/).
+MIT
