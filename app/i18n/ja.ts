@@ -6,12 +6,6 @@ const ja: Translations = {
     cancel: "キャンセル",
     back: "戻る",
   },
-  welcomeScreen: {
-    postscript:
-      "注目！ — このアプリはお好みの見た目では無いかもしれません(デザイナーがこのスクリーンを送ってこない限りは。もしそうなら公開しちゃいましょう！)",
-    readyForLaunch: "このアプリはもう少しで公開できます！",
-    exciting: "(楽しみですね！)",
-  },
   errorScreen: {
     title: "問題が発生しました",
     friendlySubtitle:

@@ -6,12 +6,6 @@ const fr: Translations = {
     cancel: "Annuler",
     back: "Retour",
   },
-  welcomeScreen: {
-    postscript:
-      "psst  — Ce n'est probablement pas à quoi ressemble votre application. (À moins que votre designer ne vous ait donné ces écrans, dans ce cas, mettez la en prod !)",
-    readyForLaunch: "Votre application, presque prête pour le lancement !",
-    exciting: "(ohh, c'est excitant !)",
-  },
   errorScreen: {
     title: "Quelque chose s'est mal passé !",
     friendlySubtitle:

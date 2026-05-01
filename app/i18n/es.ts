@@ -6,12 +6,6 @@ const es: Translations = {
     cancel: "Cancelar",
     back: "Volver",
   },
-  welcomeScreen: {
-    postscript:
-      "psst — Esto probablemente no es cómo se va a ver tu app. (A menos que tu diseñador te haya enviado estas pantallas, y en ese caso, ¡lánzalas en producción!)",
-    readyForLaunch: "Tu app, casi lista para su lanzamiento",
-    exciting: "(¡ohh, esto es emocionante!)",
-  },
   errorScreen: {
     title: "¡Algo salió mal!",
     friendlySubtitle:

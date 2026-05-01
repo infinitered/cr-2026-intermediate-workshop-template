@@ -6,12 +6,6 @@ const hi: Translations = {
     cancel: "रद्द करें",
     back: "वापस",
   },
-  welcomeScreen: {
-    postscript:
-      "psst - शायद आपका ऐप ऐसा नहीं दिखता है। (जब तक कि आपके डिजाइनर ने आपको ये स्क्रीन नहीं दी हों, और उस स्थिति में, इसे लॉन्च करें!)",
-    readyForLaunch: "आपका ऐप, लगभग लॉन्च के लिए तैयार है!",
-    exciting: "(ओह, यह रोमांचक है!)",
-  },
   errorScreen: {
     title: "कुछ गलत हो गया!",
     friendlySubtitle:
