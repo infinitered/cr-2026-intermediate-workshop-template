@@ -9,15 +9,18 @@ interface SettingsState {
   sortOrder: SortOrder
 }
 
-const store = createStore<SettingsState>(
-  {
-    displayName: "",
-    hideMature: false,
-    minRating: 3,
-    sortOrder: "Rating",
-  },
-  "settings",
-)
+const defaults: SettingsState = {
+  displayName: "",
+  hideMature: false,
+  minRating: 3,
+  sortOrder: "Rating",
+}
+
+const store = createStore<SettingsState>(defaults, "settings")
+
+export function resetSettings() {
+  store.setState(defaults)
+}
 
 export function useSettings() {
   const state = useStore(store)

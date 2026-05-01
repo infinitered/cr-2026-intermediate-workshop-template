@@ -1,5 +1,7 @@
-import { Alert, TouchableOpacity, View, ViewStyle, TextStyle } from "react-native"
-import { useRouter } from "expo-router"
+import { useLayoutEffect } from "react"
+import { Alert, Pressable, TouchableOpacity, View, ViewStyle, TextStyle } from "react-native"
+import { useNavigation, useRouter } from "expo-router"
+import { Ionicons } from "@expo/vector-icons"
 import Slider from "@react-native-community/slider"
 
 import { Button } from "@/components/Button"
@@ -8,7 +10,7 @@ import { Text } from "@/components/Text"
 import { TextField } from "@/components/TextField"
 import { Switch } from "@/components/Toggle/Switch"
 import { clearFavorites } from "@/stores/favorites"
-import { useSettings } from "@/stores/settings"
+import { resetSettings, useSettings } from "@/stores/settings"
 import { useAppTheme } from "@/theme/context"
 import type { ThemedStyle } from "@/theme/types"
 
@@ -17,6 +19,7 @@ const SORT_OPTIONS = ["Rating", "Name", "Release Date"] as const
 export function SettingsScreen() {
   const { themed, theme, themeContext, setThemeContextOverride } = useAppTheme()
   const router = useRouter()
+  const navigation = useNavigation()
   const {
     displayName,
     setDisplayName,
@@ -28,6 +31,33 @@ export function SettingsScreen() {
     setSortOrder,
   } = useSettings()
   const isDarkMode = themeContext === "dark"
+
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      headerRight: () => (
+        <Pressable
+          onPress={() => {
+            Alert.alert("Restore Defaults", "Reset all settings and clear favorites?", [
+              { text: "Cancel", style: "cancel" },
+              {
+                text: "Restore",
+                style: "destructive",
+                onPress: () => {
+                  resetSettings()
+                  clearFavorites()
+                  setThemeContextOverride(undefined)
+                },
+              },
+            ])
+          }}
+          hitSlop={8}
+          style={$restoreButton}
+        >
+          <Ionicons name="refresh" size={22} color={theme.colors.brandSurfaceText} />
+        </Pressable>
+      ),
+    })
+  }, [navigation, theme.colors.brandSurfaceText, setThemeContextOverride])
 
   return (
     <Screen preset="scroll" contentContainerStyle={themed($container)}>
@@ -188,3 +218,7 @@ const $separator: ThemedStyle<ViewStyle> = ({ colors, spacing }) => ({
 const $button: ThemedStyle<ViewStyle> = ({ spacing }) => ({
   marginBottom: spacing.sm,
 })
+
+const $restoreButton: ViewStyle = {
+  marginRight: 16,
+}

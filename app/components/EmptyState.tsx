@@ -163,7 +163,7 @@ export function EmptyState(props: EmptyStateProps) {
   const isContentPresent = !!(content || contentTx)
   const isButtonPresent = !!(button || buttonTx)
 
-  const $containerStyles = [$containerStyleOverride]
+  const $containerStyles = [$container, $containerStyleOverride]
   const $imageStyles = [
     $image,
     (isHeadingPresent || isContentPresent || isButtonPresent) && { marginBottom: spacing.xxxs },
@@ -237,6 +237,7 @@ export function EmptyState(props: EmptyStateProps) {
   )
 }
 
+const $container: ViewStyle = { paddingHorizontal: 16, paddingTop: 24 }
 const $image: ImageStyle = { alignSelf: "center" }
 const $heading: ThemedStyle<TextStyle> = ({ spacing }) => ({
   textAlign: "center",
