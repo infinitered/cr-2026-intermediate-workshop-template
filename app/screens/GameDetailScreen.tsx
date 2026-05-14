@@ -20,7 +20,7 @@ import { Text } from "@/components/Text"
 // import { Switch } from "@/components/Toggle/Switch"
 import { useGameDetail, useGameScreenshots } from "@/services/api/games"
 import { useFavorites } from "@/stores/favorites"
-import { useQueue } from "@/stores/queue"
+import { useQueueService } from "@/stores/queueService"
 import { deleteReview, type Review, useReviews } from "@/stores/reviews"
 import { useAppTheme } from "@/theme/context"
 import { $styles } from "@/theme/styles"
@@ -35,8 +35,7 @@ export function GameDetailScreen({ id }: GameDetailScreenProps) {
   const { themed, theme } = useAppTheme()
   const { data: game, isLoading, isError } = useGameDetail(id)
   const { data: screenshots } = useGameScreenshots(id)
-  const { isFavorite, toggleFavorite } = useFavorites()
-  const { isInQueue, addToQueue, removeFromQueue } = useQueue()
+  const { isInQueue, toggleQueued } = useQueueService()
   const localReviews = useReviews(id)
 
   if (isLoading) {
@@ -70,7 +69,7 @@ export function GameDetailScreen({ id }: GameDetailScreenProps) {
         )}
         <TouchableOpacity
           style={themed($queueOverlay)}
-          onPress={() => (isInQueue(id) ? removeFromQueue(id) : addToQueue(id))}
+          onPress={() => toggleQueued(id)}
           activeOpacity={0.7}
         >
           <Ionicons
