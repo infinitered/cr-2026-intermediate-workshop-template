@@ -1,7 +1,5 @@
-import { useLayoutEffect } from "react"
-import { Alert, Pressable, TouchableOpacity, View, ViewStyle, TextStyle } from "react-native"
-import { useNavigation, useRouter } from "expo-router"
-import { Ionicons } from "@expo/vector-icons"
+import { TouchableOpacity, View, ViewStyle, TextStyle } from "react-native"
+import { router } from "expo-router"
 import Slider from "@react-native-community/slider"
 
 import { Button } from "@/components/Button"
@@ -9,8 +7,7 @@ import { Screen } from "@/components/Screen"
 import { Text } from "@/components/Text"
 import { TextField } from "@/components/TextField"
 import { Switch } from "@/components/Toggle/Switch"
-import { clearFavorites } from "@/stores/favorites"
-import { resetSettings, useSettings } from "@/stores/settings"
+import { useSettings } from "@/stores/settings"
 import { useAppTheme } from "@/theme/context"
 import type { ThemedStyle } from "@/theme/types"
 
@@ -18,8 +15,6 @@ const SORT_OPTIONS = ["Rating", "Name", "Release Date"] as const
 
 export function SettingsScreen() {
   const { themed, theme, themeContext, setThemeContextOverride } = useAppTheme()
-  const router = useRouter()
-  const navigation = useNavigation()
   const {
     displayName,
     setDisplayName,
@@ -29,35 +24,10 @@ export function SettingsScreen() {
     setMinRating,
     sortOrder,
     setSortOrder,
+    shippingAddress,
+    setShippingAddress,
   } = useSettings()
   const isDarkMode = themeContext === "dark"
-
-  useLayoutEffect(() => {
-    navigation.setOptions({
-      headerRight: () => (
-        <Pressable
-          onPress={() => {
-            Alert.alert("Restore Defaults", "Reset all settings and clear favorites?", [
-              { text: "Cancel", style: "cancel" },
-              {
-                text: "Restore",
-                style: "destructive",
-                onPress: () => {
-                  resetSettings()
-                  clearFavorites()
-                  setThemeContextOverride(undefined)
-                },
-              },
-            ])
-          }}
-          hitSlop={8}
-          style={$restoreButton}
-        >
-          <Ionicons name="refresh" size={22} color={theme.colors.brandSurfaceText} />
-        </Pressable>
-      ),
-    })
-  }, [navigation, theme.colors.brandSurfaceText, setThemeContextOverride])
 
   return (
     <Screen preset="scroll" contentContainerStyle={themed($container)}>
@@ -69,6 +39,58 @@ export function SettingsScreen() {
         value={displayName}
         onChangeText={setDisplayName}
       />
+
+      <View style={themed($separator)} />
+
+      {/* Shipping Address */}
+      <Text preset="subheading" text="Shipping Address" style={themed($sectionHeader)} />
+      <View style={themed($addressFields)}>
+        <TextField
+          label="Street Address"
+          placeholder="123 Main St"
+          value={shippingAddress.street1}
+          onChangeText={(v) => setShippingAddress({ street1: v })}
+          autoCapitalize="words"
+        />
+        <TextField
+          label="Apt / Suite / Unit"
+          placeholder="Apt 4B"
+          value={shippingAddress.street2}
+          onChangeText={(v) => setShippingAddress({ street2: v })}
+          autoCapitalize="words"
+        />
+        <TextField
+          label="City"
+          placeholder="Springfield"
+          value={shippingAddress.city}
+          onChangeText={(v) => setShippingAddress({ city: v })}
+          autoCapitalize="words"
+        />
+        <View style={$cityStateRow}>
+          <View style={$stateField}>
+            <TextField
+              label="State"
+              placeholder="CA"
+              value={shippingAddress.state}
+              onChangeText={(v) => setShippingAddress({ state: v.toUpperCase().slice(0, 2) })}
+              autoCapitalize="characters"
+              maxLength={2}
+            />
+          </View>
+          <View style={$zipField}>
+            <TextField
+              label="ZIP Code"
+              placeholder="90210"
+              value={shippingAddress.zip}
+              onChangeText={(v) =>
+                setShippingAddress({ zip: v.replace(/[^0-9]/g, "").slice(0, 5) })
+              }
+              keyboardType="number-pad"
+              maxLength={5}
+            />
+          </View>
+        </View>
+      </View>
 
       <View style={themed($separator)} />
 
@@ -90,21 +112,6 @@ export function SettingsScreen() {
       <View style={themed($toggleRow)}>
         <Text preset="bold" text="Hide Mature Content" />
         <Switch value={hideMature} onValueChange={setHideMature} />
-      </View>
-
-      <View style={themed($sliderRow)}>
-        <Text preset="bold" text={`Minimum Rating: ${minRating} / 5`} />
-        <Slider
-          style={$slider}
-          minimumValue={1}
-          maximumValue={5}
-          step={1}
-          value={minRating}
-          onValueChange={setMinRating}
-          minimumTrackTintColor={theme.colors.brandSurface}
-          maximumTrackTintColor={theme.colors.trackInactive}
-          thumbTintColor={theme.colors.brandSurface}
-        />
       </View>
 
       <View style={themed($sliderRow)}>
@@ -133,23 +140,34 @@ export function SettingsScreen() {
       </View>
 
       <View style={themed($separator)} />
+      {/* Queue Preferences */}
+      <Text preset="subheading" text="Queue Preferences" style={themed($sectionHeader)} />
 
-      {/* Actions */}
-      <Text preset="subheading" text="Actions" style={themed($sectionHeader)} />
+      <View style={themed($sliderRow)}>
+        <Text preset="bold" text={`Minimum Rating: ${minRating} / 5`} />
+        <Slider
+          style={$slider}
+          minimumValue={1}
+          maximumValue={5}
+          step={1}
+          value={minRating}
+          onValueChange={setMinRating}
+          minimumTrackTintColor={theme.colors.brandSurface}
+          maximumTrackTintColor={theme.colors.trackInactive}
+          thumbTintColor={theme.colors.brandSurface}
+        />
+      </View>
       <Button
-        text="Clear Favorites"
+        text="Favorite Genres"
         preset="default"
-        onPress={() => {
-          clearFavorites()
-          Alert.alert("Favorites Cleared", "All favorites have been removed.")
-        }}
-        style={themed($button)}
+        style={themed($queuePrefButton)}
+        onPress={() => router.push("/favorite-genres")}
       />
       <Button
-        text="About"
+        text="Muted Keywords"
         preset="default"
-        onPress={() => router.push("/disclosures")}
-        style={themed($button)}
+        style={themed($queuePrefButton)}
+        onPress={() => router.push("/muted-keywords")}
       />
     </Screen>
   )
@@ -209,16 +227,31 @@ const $sortPillTextUnselected: ThemedStyle<TextStyle> = ({ colors }) => ({
   color: colors.brandSurfaceText,
 })
 
+const $queuePrefButton: ThemedStyle<ViewStyle> = ({ colors, spacing }) => ({
+  backgroundColor: colors.brandSurface,
+  borderRadius: spacing.xs,
+  marginTop: spacing.xs,
+})
+
+const $addressFields: ThemedStyle<ViewStyle> = ({ spacing }) => ({
+  gap: spacing.xs,
+})
+
+const $cityStateRow: ViewStyle = {
+  flexDirection: "row",
+  gap: 12,
+}
+
+const $stateField: ViewStyle = {
+  flex: 1,
+}
+
+const $zipField: ViewStyle = {
+  flex: 2,
+}
+
 const $separator: ThemedStyle<ViewStyle> = ({ colors, spacing }) => ({
   height: 1,
   backgroundColor: colors.separator,
   marginVertical: spacing.md,
 })
-
-const $button: ThemedStyle<ViewStyle> = ({ spacing }) => ({
-  marginBottom: spacing.sm,
-})
-
-const $restoreButton: ViewStyle = {
-  marginRight: 16,
-}
