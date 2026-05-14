@@ -17,18 +17,15 @@ import { Screen } from "@/components/Screen"
 import { Text } from "@/components/Text"
 import { useGamesByYear } from "@/services/api/games"
 import type { Game } from "@/services/api/types"
-import { useFavoriteGenres } from "@/stores/favoriteGenres"
-import { useMutedKeywords } from "@/stores/mutedKeywords"
-import { useQueue, addToQueue, removeFromQueue, moveInQueue } from "@/stores/queue"
+import { removeFromQueue, moveInQueue } from "@/stores/queue"
+import { useQueueService } from "@/stores/queueService"
 import { useAppTheme } from "@/theme/context"
 import { $styles } from "@/theme/styles"
 import type { ThemedStyle } from "@/theme/types"
 
 export function QueueScreen() {
   const { themed, theme } = useAppTheme()
-  const { ids } = useQueue()
-  const { ids: favoriteGenreIds } = useFavoriteGenres()
-  const { keywords: mutedKeywords } = useMutedKeywords()
+  const { queueIds: ids, chooseNextGame } = useQueueService()
   const { data: yearGroups = [], isLoading } = useGamesByYear()
 
   // Build a lookup of all games by ID
@@ -49,28 +46,6 @@ export function QueueScreen() {
         availableGames.push(game)
       }
     }
-  }
-
-  function chooseNextGame() {
-    if (availableGames.length === 0) return
-    // Filter out games matching muted keywords
-    const unmuted =
-      mutedKeywords.length > 0
-        ? availableGames.filter(
-            (g) => !mutedKeywords.some((kw) => g.name.toLowerCase().includes(kw)),
-          )
-        : availableGames
-    const candidates = unmuted.length > 0 ? unmuted : availableGames
-    // Prefer games matching favorite genres when available
-    const preferred =
-      favoriteGenreIds.length > 0
-        ? candidates.filter((g) =>
-            g.genres.some((genre) => favoriteGenreIds.includes(genre.id)),
-          )
-        : []
-    const pool = preferred.length > 0 ? preferred : candidates
-    const pick = pool[Math.floor(Math.random() * pool.length)]
-    addToQueue(pick.id)
   }
 
   if (isLoading) {
@@ -119,25 +94,19 @@ export function QueueScreen() {
               text={availableGames.length > 0 ? "Choose My Next Game" : "All Games Queued!"}
               preset="reversed"
               style={themed($chooseButton)}
-              onPress={chooseNextGame}
+              onPress={() => chooseNextGame(availableGames)}
               disabled={availableGames.length === 0}
             />
             <Text size="xxs" weight="bold" style={themed($footerHeader)}>
-              Customize what games we'll choose next
+              Customize what games we&apos;ll choose next
             </Text>
-            <TouchableOpacity
-              style={$footerLink}
-              onPress={() => router.push("/favorite-genres")}
-            >
+            <TouchableOpacity style={$footerLink} onPress={() => router.push("/favorite-genres")}>
               <Ionicons name="heart-outline" size={16} color={theme.colors.brandAccent} />
               <Text size="xs" style={{ color: theme.colors.brandAccent }}>
                 Set Favorite Genres
               </Text>
             </TouchableOpacity>
-            <TouchableOpacity
-              style={$footerLink}
-              onPress={() => router.push("/muted-keywords")}
-            >
+            <TouchableOpacity style={$footerLink} onPress={() => router.push("/muted-keywords")}>
               <Ionicons name="volume-mute-outline" size={16} color={theme.colors.brandAccent} />
               <Text size="xs" style={{ color: theme.colors.brandAccent }}>
                 Muted Keywords
@@ -229,7 +198,7 @@ const $header: ThemedStyle<ViewStyle> = ({ spacing }) => ({
   paddingVertical: spacing.sm,
 })
 
-const $headerText: ThemedStyle<ViewStyle> = ({ colors }) => ({
+const $headerText: ThemedStyle<TextStyle> = ({ colors }) => ({
   color: colors.textDim,
 })
 
