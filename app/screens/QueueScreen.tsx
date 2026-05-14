@@ -97,21 +97,6 @@ export function QueueScreen() {
               onPress={() => chooseNextGame(availableGames)}
               disabled={availableGames.length === 0}
             />
-            <Text size="xxs" weight="bold" style={themed($footerHeader)}>
-              Customize what games we&apos;ll choose next
-            </Text>
-            <TouchableOpacity style={$footerLink} onPress={() => router.push("/favorite-genres")}>
-              <Ionicons name="heart-outline" size={16} color={theme.colors.brandAccent} />
-              <Text size="xs" style={{ color: theme.colors.brandAccent }}>
-                Set Favorite Genres
-              </Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={$footerLink} onPress={() => router.push("/muted-keywords")}>
-              <Ionicons name="volume-mute-outline" size={16} color={theme.colors.brandAccent} />
-              <Text size="xs" style={{ color: theme.colors.brandAccent }}>
-                Muted Keywords
-              </Text>
-            </TouchableOpacity>
           </View>
         }
       />
@@ -261,18 +246,3 @@ const $chooseButton: ThemedStyle<ViewStyle> = ({ colors, spacing }) => ({
   borderRadius: spacing.xs,
 })
 
-const $footerHeader: ThemedStyle<TextStyle> = ({ colors, spacing }) => ({
-  color: colors.textDim,
-  textAlign: "center",
-  marginTop: spacing.lg,
-  textTransform: "uppercase",
-  letterSpacing: 1,
-})
-
-const $footerLink: ViewStyle = {
-  flexDirection: "row",
-  alignItems: "center",
-  justifyContent: "center",
-  gap: 6,
-  marginTop: 12,
-}
