@@ -54,12 +54,12 @@ export default function TabsLayout() {
       <Tabs.Screen
         name="genres"
         options={{
-          title: "Genres",
+          title: "Queue",
           headerShown: true,
           headerStyle,
           headerTintColor: barTint,
           headerTitleStyle: { fontFamily: typeScale.headline1.fontFamily },
-          tabBarIcon: ({ color, size }) => <Ionicons name="grid" size={size} color={color} />,
+          tabBarIcon: ({ color, size }) => <Ionicons name="list" size={size} color={color} />,
         }}
       />
       <Tabs.Screen
