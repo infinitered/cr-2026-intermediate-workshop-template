@@ -1,5 +1,5 @@
-import { GenreListScreen } from "@/screens/GenreListScreen"
+import { QueueScreen } from "@/screens/QueueScreen"
 
-export default function GenresRoute() {
-  return <GenreListScreen />
+export default function QueueRoute() {
+  return <QueueScreen />
 }
