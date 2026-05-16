@@ -1,5 +1,6 @@
-import { TouchableOpacity, View, ViewStyle, TextStyle } from "react-native"
+import { Platform, TouchableOpacity, View, ViewStyle, TextStyle } from "react-native"
 import { router } from "expo-router"
+import DateTimePicker from "@react-native-community/datetimepicker"
 import Slider from "@react-native-community/slider"
 
 import { Button } from "@/components/Button"
@@ -18,6 +19,8 @@ export function SettingsScreen() {
   const {
     displayName,
     setDisplayName,
+    birthDate,
+    setBirthDate,
     hideMature,
     setHideMature,
     minRating,
@@ -39,6 +42,17 @@ export function SettingsScreen() {
         value={displayName}
         onChangeText={setDisplayName}
       />
+
+      <View style={themed($dateRow)}>
+        <Text preset="bold" text="Birth Date" />
+        <DateTimePicker
+          value={birthDate ? new Date(birthDate) : new Date()}
+          mode="date"
+          display={Platform.OS === "ios" ? "compact" : "default"}
+          maximumDate={new Date()}
+          onChange={(_event, date) => date && setBirthDate(date)}
+        />
+      </View>
 
       <View style={themed($separator)} />
 
@@ -90,18 +104,6 @@ export function SettingsScreen() {
             />
           </View>
         </View>
-      </View>
-
-      <View style={themed($separator)} />
-
-      {/* Appearance */}
-      <Text preset="subheading" text="Appearance" style={themed($sectionHeader)} />
-      <View style={themed($toggleRow)}>
-        <Text preset="bold" text="Dark Mode" />
-        <Switch
-          value={isDarkMode}
-          onValueChange={(value) => setThemeContextOverride(value ? "dark" : "light")}
-        />
       </View>
 
       <View style={themed($separator)} />
@@ -169,6 +171,18 @@ export function SettingsScreen() {
         style={themed($queuePrefButton)}
         onPress={() => router.push("/muted-keywords")}
       />
+
+      <View style={themed($separator)} />
+
+      {/* Appearance */}
+      <Text preset="subheading" text="Appearance" style={themed($sectionHeader)} />
+      <View style={themed($toggleRow)}>
+        <Text preset="bold" text="Dark Mode" />
+        <Switch
+          value={isDarkMode}
+          onValueChange={(value) => setThemeContextOverride(value ? "dark" : "light")}
+        />
+      </View>
     </Screen>
   )
 }
@@ -179,6 +193,13 @@ const $container: ThemedStyle<ViewStyle> = ({ spacing }) => ({
 
 const $sectionHeader: ThemedStyle<TextStyle> = ({ spacing }) => ({
   marginBottom: spacing.sm,
+})
+
+const $dateRow: ThemedStyle<ViewStyle> = ({ spacing }) => ({
+  flexDirection: "row",
+  alignItems: "center",
+  justifyContent: "space-between",
+  paddingVertical: spacing.sm,
 })
 
 const $toggleRow: ThemedStyle<ViewStyle> = ({ spacing }) => ({
