@@ -245,4 +245,3 @@ const $chooseButton: ThemedStyle<ViewStyle> = ({ colors, spacing }) => ({
   backgroundColor: colors.brandAccent,
   borderRadius: spacing.xs,
 })
-

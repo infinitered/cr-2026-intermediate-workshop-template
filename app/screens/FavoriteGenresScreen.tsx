@@ -14,11 +14,7 @@ import { EmptyState } from "@/components/EmptyState"
 import { Screen } from "@/components/Screen"
 import { Text } from "@/components/Text"
 import { type FeedGenre, useFeedGenres } from "@/services/api/games"
-import {
-  useFavoriteGenres,
-  addFavoriteGenre,
-  removeFavoriteGenre,
-} from "@/stores/favoriteGenres"
+import { useFavoriteGenres, addFavoriteGenre, removeFavoriteGenre } from "@/stores/favoriteGenres"
 import { useAppTheme } from "@/theme/context"
 import { $styles } from "@/theme/styles"
 import type { ThemedStyle } from "@/theme/types"
@@ -65,10 +61,7 @@ export function FavoriteGenresScreen() {
           </View>
         )}
         renderItem={({ item, section }) => (
-          <GenreRow
-            genre={item}
-            isFavorite={section.isFavoriteSection as boolean}
-          />
+          <GenreRow genre={item} isFavorite={section.isFavoriteSection as boolean} />
         )}
         ItemSeparatorComponent={() => <View style={themed($separator)} />}
         contentContainerStyle={themed($listContent)}
@@ -103,9 +96,7 @@ function GenreRow({ genre, isFavorite }: GenreRowProps) {
           </Text>
         </View>
         <TouchableOpacity
-          onPress={() =>
-            isFavorite ? removeFavoriteGenre(genre.id) : addFavoriteGenre(genre.id)
-          }
+          onPress={() => (isFavorite ? removeFavoriteGenre(genre.id) : addFavoriteGenre(genre.id))}
           hitSlop={8}
         >
           <Ionicons

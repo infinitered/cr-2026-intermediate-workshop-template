@@ -338,4 +338,3 @@ const $starText: ThemedStyle<TextStyle> = ({ colors }) => ({
 const $reviewDate: ThemedStyle<TextStyle> = ({ colors }) => ({
   color: colors.textDim,
 })
-

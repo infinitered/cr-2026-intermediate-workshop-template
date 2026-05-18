@@ -1,12 +1,5 @@
 import { useState } from "react"
-import {
-  FlatList,
-  TextInput,
-  TextStyle,
-  TouchableOpacity,
-  View,
-  ViewStyle,
-} from "react-native"
+import { FlatList, TextInput, TextStyle, TouchableOpacity, View, ViewStyle } from "react-native"
 import { Ionicons } from "@expo/vector-icons"
 
 import { Screen } from "@/components/Screen"
