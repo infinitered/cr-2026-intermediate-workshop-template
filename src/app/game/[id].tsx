@@ -27,11 +27,7 @@ export default function GameDetailRoute() {
           hitSlop={8}
           style={$shareButton}
         >
-          <Ionicons
-            name="share-social-outline"
-            size={24}
-            color={theme.colors.brandSurfaceText}
-          />
+          <Ionicons name="share-social-outline" size={24} color={theme.colors.brandSurfaceText} />
         </Pressable>
       ),
     })

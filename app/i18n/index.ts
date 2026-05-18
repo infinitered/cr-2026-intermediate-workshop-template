@@ -44,8 +44,10 @@ if (locale?.languageTag && locale?.textDirection === "rtl") {
 }
 
 export const initI18n = async () => {
+  // eslint-disable-next-line import/no-named-as-default-member
   i18n.use(initReactI18next)
 
+  // eslint-disable-next-line import/no-named-as-default-member
   await i18n.init({
     resources,
     lng: locale?.languageTag ?? fallbackLocale,

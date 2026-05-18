@@ -44,8 +44,7 @@ module.exports = ({ config }: ConfigContext): Partial<ExpoConfig> => {
         {
           ios: {
             enabled: true,
-            extensionBundleIdentifier:
-              "com.infinitered.cr2026intermediateworkshop.share-extension",
+            extensionBundleIdentifier: "com.infinitered.cr2026intermediateworkshop.share-extension",
             appGroupId: "group.com.infinitered.cr2026intermediateworkshop",
             activationRule: {
               supportsText: true,

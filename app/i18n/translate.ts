@@ -27,6 +27,7 @@ import { TxKeyPath } from "."
  */
 export function translate(key: TxKeyPath, options?: TOptions): string {
   if (i18n.isInitialized) {
+    // eslint-disable-next-line import/no-named-as-default-member
     return i18n.t(key, options)
   }
   return key

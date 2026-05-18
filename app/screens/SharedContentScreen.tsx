@@ -1,4 +1,4 @@
-import { View, ViewStyle } from "react-native"
+import { ViewStyle } from "react-native"
 
 import { Screen } from "@/components/Screen"
 import { Text } from "@/components/Text"
@@ -11,9 +11,7 @@ export function SharedContentScreen() {
   return (
     <Screen preset="fixed" contentContainerStyle={themed($center)}>
       <Text preset="subheading">Shared Content</Text>
-      <Text style={themed($detail)}>
-        Content shared from other apps will appear here.
-      </Text>
+      <Text style={themed($detail)}>Content shared from other apps will appear here.</Text>
     </Screen>
   )
 }
