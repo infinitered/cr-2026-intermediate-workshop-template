@@ -31,6 +31,15 @@ export function moveInQueue(id: number, direction: "up" | "down") {
   })
 }
 
+export function reorderQueue(fromIndex: number, toIndex: number) {
+  store.setState((prev) => {
+    const next = [...prev.ids]
+    const [moved] = next.splice(fromIndex, 1)
+    next.splice(toIndex, 0, moved)
+    return { ids: next }
+  })
+}
+
 export function clearQueue() {
   store.setState({ ids: [] })
 }

@@ -40,6 +40,7 @@ module.exports = ({ config }: ConfigContext): Partial<ExpoConfig> => {
       ...existingPlugins,
       "./plugins/withShareExtensionDevClient",
       "@react-native-community/datetimepicker",
+      "expo-image",
       [
         "expo-sharing",
         {
