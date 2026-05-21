@@ -6,18 +6,19 @@ import {
   ImageStyle,
   Pressable,
   TextStyle,
+  TouchableOpacity,
   View,
   ViewStyle,
 } from "react-native"
 import { router } from "expo-router"
+import { Ionicons } from "@expo/vector-icons"
 
 import { Button } from "@/components/Button"
 import { EmptyState } from "@/components/EmptyState"
 import { Screen } from "@/components/Screen"
 import { Text } from "@/components/Text"
-import { Switch } from "@/components/Toggle/Switch"
 import { useGameDetail, useGameScreenshots } from "@/services/api/games"
-import { useFavorites } from "@/stores/favorites"
+import { useQueueService } from "@/services/queueService"
 import { deleteReview, type Review, useReviews } from "@/stores/reviews"
 import { useAppTheme } from "@/theme/context"
 import { $styles } from "@/theme/styles"
@@ -32,7 +33,7 @@ export function GameDetailScreen({ id }: GameDetailScreenProps) {
   const { themed, theme } = useAppTheme()
   const { data: game, isLoading, isError } = useGameDetail(id)
   const { data: screenshots } = useGameScreenshots(id)
-  const { isFavorite, toggleFavorite } = useFavorites()
+  const { isInQueue, toggleQueued } = useQueueService()
   const localReviews = useReviews(id)
 
   if (isLoading) {
@@ -59,15 +60,25 @@ export function GameDetailScreen({ id }: GameDetailScreenProps) {
 
   return (
     <Screen preset="scroll">
-      {/* Hero image with favorites overlay at top-right */}
+      {/* Hero image with queue overlay at top-right */}
       <View>
         {game.background_image && (
           <Image source={{ uri: game.background_image }} style={$heroImage} blurRadius={3} />
         )}
-        <View style={themed($favoriteOverlay)}>
-          <Text weight="bold" size="xs" text="Add to Favorites" style={$favoriteText} />
-          <Switch value={isFavorite(id)} onValueChange={() => toggleFavorite(id)} />
-        </View>
+        <TouchableOpacity
+          style={themed($queueOverlay)}
+          onPress={() => toggleQueued(id)}
+          activeOpacity={0.7}
+        >
+          <Ionicons
+            name={isInQueue(id) ? "checkmark-circle" : "add-circle-outline"}
+            size={18}
+            color="#fff"
+          />
+          <Text weight="bold" size="xxs" style={$overlayText}>
+            {isInQueue(id) ? "In Queue" : "Add to Queue"}
+          </Text>
+        </TouchableOpacity>
       </View>
 
       {/* Cover thumbnail (overlaps hero) + Title */}
@@ -225,18 +236,20 @@ const $heroImage: ImageStyle = {
   height: 180,
 }
 
-const $favoriteOverlay: ThemedStyle<ViewStyle> = ({ spacing }) => ({
+const $queueOverlay: ThemedStyle<ViewStyle> = ({ spacing }) => ({
   position: "absolute",
   top: spacing.xs,
   right: spacing.xs,
   flexDirection: "row",
   alignItems: "center",
-  gap: spacing.xs,
-  paddingHorizontal: spacing.sm,
-  paddingVertical: spacing.xxs,
+  gap: 4,
+  backgroundColor: "rgba(0,0,0,0.6)",
+  paddingHorizontal: spacing.xs,
+  paddingVertical: 4,
+  borderRadius: spacing.xs,
 })
 
-const $favoriteText: ViewStyle & { color: string } = {
+const $overlayText: TextStyle = {
   color: "#fff",
 }
 

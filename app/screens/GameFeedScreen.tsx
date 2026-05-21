@@ -7,10 +7,8 @@ import { EmptyState } from "@/components/EmptyState"
 import { Screen } from "@/components/Screen"
 import { Text } from "@/components/Text"
 import { Checkbox } from "@/components/Toggle/Checkbox"
-import { Switch } from "@/components/Toggle/Switch"
 import { YearSection } from "@/components/YearSection"
 import { useFeedGenres, useGamesByYear } from "@/services/api/games"
-import { useFavorites } from "@/stores/favorites"
 import { useGenreFilter } from "@/stores/genreFilter"
 import { useAppTheme } from "@/theme/context"
 import { $styles } from "@/theme/styles"
@@ -20,9 +18,7 @@ export function GameFeedScreen() {
   const { themed, theme } = useAppTheme()
   const { data: yearGroups, isLoading, isError } = useGamesByYear()
   const { data: genres = [] } = useFeedGenres()
-  const [showFavorites, setShowFavorites] = useState(false)
   const [showFilters, setShowFilters] = useState(false)
-  const { ids: favoriteIds } = useFavorites()
   const { selectedIds: genreIds, isSelected, toggleGenre } = useGenreFilter()
   const navigation = useNavigation()
 
@@ -43,21 +39,19 @@ export function GameFeedScreen() {
   const filteredYearGroups = useMemo(() => {
     if (!yearGroups) return yearGroups
     const hasGenreFilter = genreIds.length > 0
-    const hasFavFilter = showFavorites
 
-    if (!hasGenreFilter && !hasFavFilter) return yearGroups
+    if (!hasGenreFilter) return yearGroups
 
     return yearGroups
       .map((group) => ({
         ...group,
         games: group.games.filter((game) => {
-          if (hasFavFilter && !favoriteIds.includes(game.id)) return false
           if (hasGenreFilter && !game.genres.some((g) => genreIds.includes(g.id))) return false
           return true
         }),
       }))
       .filter((group) => group.games.length > 0)
-  }, [yearGroups, showFavorites, favoriteIds, genreIds])
+  }, [yearGroups, genreIds])
 
   if (isLoading) {
     return (
@@ -77,11 +71,6 @@ export function GameFeedScreen() {
 
   return (
     <Screen preset="fixed" contentContainerStyle={$styles.flex1}>
-      <View style={themed($toggleRow)}>
-        <Text text="Show Favorites" />
-        <Switch value={showFavorites} onValueChange={setShowFavorites} />
-      </View>
-
       {showFilters && (
         <View style={themed($filterPanel)}>
           <Text weight="bold" size="xs" style={themed($filterLabel)}>
@@ -107,7 +96,7 @@ export function GameFeedScreen() {
             <YearSection key={group.year} year={group.year} games={group.games} />
           ))
         ) : (
-          <EmptyState heading={showFavorites ? "No Favorites Yet" : "No Games Match Filters"} />
+          <EmptyState heading="No Games Match Filters" />
         )}
       </ScrollView>
     </Screen>
@@ -123,17 +112,6 @@ const $centered: ViewStyle = {
   justifyContent: "center",
   alignItems: "center",
 }
-
-const $toggleRow: ThemedStyle<ViewStyle> = ({ spacing, colors }) => ({
-  flexDirection: "row",
-  alignItems: "center",
-  justifyContent: "space-between",
-  paddingHorizontal: spacing.lg,
-  paddingVertical: spacing.sm,
-  borderBottomWidth: 2,
-  borderBottomColor: colors.border,
-  backgroundColor: colors.background,
-})
 
 const $filterPanel: ThemedStyle<ViewStyle> = ({ spacing, colors }) => ({
   paddingHorizontal: spacing.lg,
