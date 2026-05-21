@@ -28,9 +28,11 @@ describe("settings store", () => {
   it("starts with defaults", () => {
     expect(getSettings()).toEqual({
       displayName: "",
+      birthDate: null,
       hideMature: false,
       minRating: 3,
       sortOrder: "Rating",
+      shippingAddress: { street1: "", street2: "", city: "", state: "", zip: "" },
     })
   })
 

@@ -17,10 +17,8 @@ import { Button } from "@/components/Button"
 import { EmptyState } from "@/components/EmptyState"
 import { Screen } from "@/components/Screen"
 import { Text } from "@/components/Text"
-// import { Switch } from "@/components/Toggle/Switch"
 import { useGameDetail, useGameScreenshots } from "@/services/api/games"
-import { useFavorites } from "@/stores/favorites"
-import { useQueueService } from "@/stores/queueService"
+import { useQueueService } from "@/services/queueService"
 import { deleteReview, type Review, useReviews } from "@/stores/reviews"
 import { useAppTheme } from "@/theme/context"
 import { $styles } from "@/theme/styles"
@@ -338,4 +336,3 @@ const $starText: ThemedStyle<TextStyle> = ({ colors }) => ({
 const $reviewDate: ThemedStyle<TextStyle> = ({ colors }) => ({
   color: colors.textDim,
 })
-

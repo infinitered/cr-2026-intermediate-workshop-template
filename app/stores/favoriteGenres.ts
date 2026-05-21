@@ -6,13 +6,13 @@ interface FavoriteGenresState {
 
 const store = createStore<FavoriteGenresState>({ ids: [] }, "favoriteGenres")
 
-export function addFavoriteGenre(id: number) {
+function addFavoriteGenre(id: number) {
   store.setState((prev) => ({
     ids: prev.ids.includes(id) ? prev.ids : [...prev.ids, id],
   }))
 }
 
-export function removeFavoriteGenre(id: number) {
+function removeFavoriteGenre(id: number) {
   store.setState((prev) => ({
     ids: prev.ids.filter((i) => i !== id),
   }))

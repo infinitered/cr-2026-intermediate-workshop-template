@@ -52,7 +52,7 @@ export default function TabsLayout() {
         }}
       />
       <Tabs.Screen
-        name="genres"
+        name="queue"
         options={{
           title: "Queue",
           headerShown: true,

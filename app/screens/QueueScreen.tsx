@@ -17,8 +17,8 @@ import { Screen } from "@/components/Screen"
 import { Text } from "@/components/Text"
 import { useGamesByYear } from "@/services/api/games"
 import type { Game } from "@/services/api/types"
+import { useQueueService } from "@/services/queueService"
 import { removeFromQueue, moveInQueue } from "@/stores/queue"
-import { useQueueService } from "@/stores/queueService"
 import { useAppTheme } from "@/theme/context"
 import { $styles } from "@/theme/styles"
 import type { ThemedStyle } from "@/theme/types"
@@ -245,4 +245,3 @@ const $chooseButton: ThemedStyle<ViewStyle> = ({ colors, spacing }) => ({
   backgroundColor: colors.brandAccent,
   borderRadius: spacing.xs,
 })
-

@@ -1,16 +1,10 @@
 import { useState } from "react"
-import {
-  FlatList,
-  TextInput,
-  TextStyle,
-  TouchableOpacity,
-  View,
-  ViewStyle,
-} from "react-native"
+import { FlatList, TextStyle, TouchableOpacity, View, ViewStyle } from "react-native"
 import { Ionicons } from "@expo/vector-icons"
 
 import { Screen } from "@/components/Screen"
 import { Text } from "@/components/Text"
+import { TextField } from "@/components/TextField"
 import { useMutedKeywords, addMutedKeyword, removeMutedKeyword } from "@/stores/mutedKeywords"
 import { useAppTheme } from "@/theme/context"
 import type { ThemedStyle } from "@/theme/types"
@@ -29,7 +23,7 @@ export function MutedKeywordsScreen() {
   return (
     <Screen preset="fixed">
       <View style={themed($inputRow)}>
-        <TextInput
+        <TextField
           style={themed($input)}
           value={text}
           onChangeText={setText}
@@ -48,7 +42,7 @@ export function MutedKeywordsScreen() {
       {keywords.length === 0 ? (
         <View style={themed($emptySection)}>
           <Text size="xs" style={themed($emptyText)}>
-            Games matching muted keywords will be excluded from "Choose My Next Game".
+            {`Games matching muted keywords will be excluded from "Choose My Next Game".`}
           </Text>
         </View>
       ) : (
@@ -57,7 +51,7 @@ export function MutedKeywordsScreen() {
           keyExtractor={(item) => item}
           renderItem={({ item }) => (
             <View style={themed($row)}>
-              <Text size="sm" style={{ flex: 1 }}>
+              <Text size="sm" style={$flex1}>
                 {item}
               </Text>
               <TouchableOpacity onPress={() => removeMutedKeyword(item)} hitSlop={8}>
@@ -122,6 +116,8 @@ const $separator: ThemedStyle<ViewStyle> = ({ colors }) => ({
   height: 1,
   backgroundColor: colors.separator,
 })
+
+const $flex1: TextStyle = { flex: 1 }
 
 const $row: ThemedStyle<ViewStyle> = ({ spacing }) => ({
   flexDirection: "row",

@@ -1,4 +1,5 @@
-import { Platform, TouchableOpacity, View, ViewStyle, TextStyle } from "react-native"
+import { useState } from "react"
+import { Platform, Pressable, TouchableOpacity, View, ViewStyle, TextStyle } from "react-native"
 import { router } from "expo-router"
 import DateTimePicker from "@react-native-community/datetimepicker"
 import Slider from "@react-native-community/slider"
@@ -31,6 +32,10 @@ export function SettingsScreen() {
     setShippingAddress,
   } = useSettings()
   const isDarkMode = themeContext === "dark"
+  const [showDatePicker, setShowDatePicker] = useState(false)
+
+  const dateValue = birthDate ? new Date(birthDate) : new Date()
+  const formattedDate = birthDate ? dateValue.toLocaleDateString() : "Not set"
 
   return (
     <Screen preset="scroll" contentContainerStyle={themed($container)}>
@@ -45,13 +50,32 @@ export function SettingsScreen() {
 
       <View style={themed($dateRow)}>
         <Text preset="bold" text="Birth Date" />
-        <DateTimePicker
-          value={birthDate ? new Date(birthDate) : new Date()}
-          mode="date"
-          display={Platform.OS === "ios" ? "compact" : "default"}
-          maximumDate={new Date()}
-          onChange={(_event, date) => date && setBirthDate(date)}
-        />
+        {Platform.OS === "ios" ? (
+          <DateTimePicker
+            value={dateValue}
+            mode="date"
+            display="compact"
+            maximumDate={new Date()}
+            onChange={(_event, date) => date && setBirthDate(date.toISOString())}
+          />
+        ) : (
+          <>
+            <Pressable onPress={() => setShowDatePicker(true)}>
+              <Text style={themed($dateText)} text={formattedDate} />
+            </Pressable>
+            {showDatePicker && (
+              <DateTimePicker
+                value={dateValue}
+                mode="date"
+                maximumDate={new Date()}
+                onChange={(_event, date) => {
+                  setShowDatePicker(false)
+                  if (date) setBirthDate(date.toISOString())
+                }}
+              />
+            )}
+          </>
+        )}
       </View>
 
       <View style={themed($separator)} />
@@ -200,6 +224,10 @@ const $dateRow: ThemedStyle<ViewStyle> = ({ spacing }) => ({
   alignItems: "center",
   justifyContent: "space-between",
   paddingVertical: spacing.sm,
+})
+
+const $dateText: ThemedStyle<TextStyle> = ({ colors }) => ({
+  color: colors.tint,
 })
 
 const $toggleRow: ThemedStyle<ViewStyle> = ({ spacing }) => ({

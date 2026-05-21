@@ -12,7 +12,7 @@ export interface ShippingAddress {
 
 interface SettingsState {
   displayName: string
-  birthDate: Date | null
+  birthDate: string | null
   hideMature: boolean
   minRating: number
   sortOrder: SortOrder
@@ -39,7 +39,7 @@ export function useSettings() {
   return {
     ...state,
     setDisplayName: (displayName: string) => store.setState({ displayName }),
-    setBirthDate: (birthDate: Date | null) => store.setState({ birthDate }),
+    setBirthDate: (birthDate: string | null) => store.setState({ birthDate }),
     setHideMature: (hideMature: boolean) => store.setState({ hideMature }),
     setMinRating: (minRating: number) => store.setState({ minRating }),
     setSortOrder: (sortOrder: SortOrder) => store.setState({ sortOrder }),

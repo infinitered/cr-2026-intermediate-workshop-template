@@ -21,9 +21,7 @@ export function useQueueService() {
     // Prefer games matching favorite genres when available
     const preferred =
       favoriteGenreIds.length > 0
-        ? candidates.filter((g) =>
-            g.genres.some((genre) => favoriteGenreIds.includes(genre.id)),
-          )
+        ? candidates.filter((g) => g.genres.some((genre) => favoriteGenreIds.includes(genre.id)))
         : []
     const pool = preferred.length > 0 ? preferred : candidates
     const pick = pool[Math.floor(Math.random() * pool.length)]
