@@ -12,14 +12,7 @@ import {
   Text as SwiftText,
   RNHostView,
 } from "@expo/ui/swift-ui"
-import {
-  environment,
-  tag,
-  badge,
-  onTapGesture,
-  contentShape,
-  shapes,
-} from "@expo/ui/swift-ui/modifiers"
+import { environment, tag, onTapGesture, contentShape, shapes } from "@expo/ui/swift-ui/modifiers"
 
 import { EmptyState } from "@/components/EmptyState"
 import { Screen } from "@/components/Screen"
@@ -71,6 +64,7 @@ export function QueueScreen() {
   }
 
   const handleBulkDelete = () => {
+    // note: Nishan is making a PR so we can remove selection from the edit state
     for (const id of selectedIds) {
       removeFromQueue(id)
     }
@@ -120,6 +114,7 @@ export function QueueScreen() {
         <List
           selection={editMode ? selectedIds : undefined}
           onSelectionChange={(sel) => setSelectedIds(sel.map(Number))}
+          
           modifiers={[environment("editMode", editMode ? "active" : "inactive")]}
         >
           <Section
