@@ -1,7 +1,6 @@
 import { ActivityIndicator, ViewStyle } from "react-native"
-import { Image as ExpoImage } from "expo-image"
-import { Host, List, Section, Label, Image, RNHostView } from "@expo/ui/swift-ui"
-import { tag, onTapGesture, contentShape, shapes } from "@expo/ui/swift-ui/modifiers"
+import { Host, List, Section, Label, Image, LabeledContent } from "@expo/ui/swift-ui"
+import { environment, tag, contentShape, shapes, onTapGesture } from "@expo/ui/swift-ui/modifiers"
 
 import { Screen } from "@/components/Screen"
 import { type FeedGenre, useFeedGenres } from "@/services/api/games"
@@ -27,53 +26,52 @@ export function FavoriteGenresScreen() {
 
   const otherGenres = allGenres.filter((g) => !favoriteIds.includes(g.id))
 
-  const genreIcon = (genre: FeedGenre) =>
-    genre.image_background ? (
-      <RNHostView matchContents>
-        <ExpoImage source={genre.image_background} style={$thumbnail} />
-      </RNHostView>
-    ) : (
-      <Image systemName="gamecontroller.fill" size={20} color={theme.colors.tint} />
-    )
+  const handleDelete = (indices: number[]) => {
+    for (const index of indices) {
+      const genre = favoriteGenres[index]
+      if (genre) removeFavoriteGenre(genre.id)
+    }
+  }
+
+  const handleMove = (sourceIndices: number[], destination: number) => {
+    // TODO: implement reorder in store if needed
+  }
 
   return (
     <Host style={$host}>
-      <List>
-        <Section title="Favorite Genres">
+      <List modifiers={[environment("editMode", "active")]}>
+        <Section title="Your Favorites">
           {favoriteGenres.length === 0 ? (
             <Label
               title="Add genres below to personalize recommendations"
               systemImage="info.circle"
             />
           ) : (
-            favoriteGenres.map((genre) => (
-              <Label
-                key={genre.id}
-                title={genre.name}
-                subtitle={`${genre.gameCount} ${genre.gameCount === 1 ? "game" : "games"}`}
-                icon={genreIcon(genre)}
-                modifiers={[
-                  tag(genre.id),
-                  contentShape(shapes.rectangle()),
-                  onTapGesture(() => removeFavoriteGenre(genre.id)),
-                ]}
-              />
-            ))
+            <List.ForEach onDelete={handleDelete} onMove={handleMove}>
+              {favoriteGenres.map((genre) => (
+                <Label
+                  key={genre.id}
+                  title={genre.name}
+                  icon={<Image systemName="star.fill" size={20} color="#4A90D9" />}
+                  modifiers={[tag(genre.id), contentShape(shapes.rectangle())]}
+                />
+              ))}
+            </List.ForEach>
           )}
         </Section>
-        <Section title="All Genres">
+        <Section title="Available Genres">
           {otherGenres.map((genre) => (
-            <Label
+            <LabeledContent
               key={genre.id}
-              title={genre.name}
-              subtitle={`${genre.gameCount} ${genre.gameCount === 1 ? "game" : "games"}`}
-              icon={genreIcon(genre)}
+              label={genre.name}
               modifiers={[
                 tag(genre.id),
                 contentShape(shapes.rectangle()),
                 onTapGesture(() => addFavoriteGenre(genre.id)),
               ]}
-            />
+            >
+              <Image systemName="plus.circle" size={22} color={theme.colors.textDim} />
+            </LabeledContent>
           ))}
         </Section>
       </List>
@@ -89,10 +87,4 @@ const $centered: ViewStyle = {
   flex: 1,
   justifyContent: "center",
   alignItems: "center",
-}
-
-const $thumbnail = {
-  width: 40,
-  height: 40,
-  borderRadius: 6,
 }

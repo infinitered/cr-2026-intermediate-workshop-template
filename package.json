@@ -42,6 +42,7 @@
     "expo-constants": "~56.0.16",
     "expo-dev-client": "~56.0.16",
     "expo-font": "~56.0.5",
+    "expo-image": "~56.0.9",
     "expo-linking": "~56.0.12",
     "expo-localization": "~56.0.6",
     "expo-router": "~56.2.7",
