@@ -1,40 +1,44 @@
-import { useLayoutEffect, useMemo, useState } from "react"
-import { ActivityIndicator, Pressable, ScrollView, View, ViewStyle } from "react-native"
-import { useNavigation } from "expo-router"
-import { Ionicons } from "@expo/vector-icons"
+import { useMemo, useState } from "react"
+import { ActivityIndicator, ScrollView, ViewStyle } from "react-native"
+import { Stack } from "expo-router"
 
 import { EmptyState } from "@/components/EmptyState"
 import { Screen } from "@/components/Screen"
-import { Text } from "@/components/Text"
-import { Checkbox } from "@/components/Toggle/Checkbox"
 import { YearSection } from "@/components/YearSection"
 import { useFeedGenres, useGamesByYear } from "@/services/api/games"
 import { useGenreFilter } from "@/stores/genreFilter"
 import { useAppTheme } from "@/theme/context"
 import { $styles } from "@/theme/styles"
-import type { ThemedStyle } from "@/theme/types"
+
+type SortField = "name" | "rating" | "releaseDate"
+type ViewMode = "gallery" | "list"
+
+const SORT_OPTIONS: { field: SortField; label: string }[] = [
+  { field: "name", label: "Name" },
+  { field: "rating", label: "Rating" },
+  { field: "releaseDate", label: "Release Date" },
+]
 
 export function GameFeedScreen() {
-  const { themed, theme } = useAppTheme()
+  const { theme } = useAppTheme()
   const { data: yearGroups, isLoading, isError } = useGamesByYear()
   const { data: genres = [] } = useFeedGenres()
-  const [showFilters, setShowFilters] = useState(false)
-  const { selectedIds: genreIds, isSelected, toggleGenre } = useGenreFilter()
-  const navigation = useNavigation()
+  const { selectedIds: genreIds, isSelected, toggleGenre, clearGenres } = useGenreFilter()
 
-  useLayoutEffect(() => {
-    navigation.setOptions({
-      headerRight: () => (
-        <Pressable onPress={() => setShowFilters((v) => !v)} hitSlop={8} style={$filterButton}>
-          <Ionicons
-            name={showFilters ? "funnel" : "funnel-outline"}
-            size={22}
-            color={theme.colors.brandSurfaceText}
-          />
-        </Pressable>
-      ),
-    })
-  }, [navigation, showFilters, theme.colors.brandSurfaceText])
+  const [sortField, setSortField] = useState<SortField>("name")
+  const [sortAscending, setSortAscending] = useState(true)
+  const [viewMode, setViewMode] = useState<ViewMode>("gallery")
+
+  const hasFilters = genreIds.length > 0
+
+  const handleSort = (field: SortField) => {
+    if (field === sortField) {
+      setSortAscending((prev) => !prev)
+    } else {
+      setSortField(field)
+      setSortAscending(true)
+    }
+  }
 
   const filteredYearGroups = useMemo(() => {
     if (!yearGroups) return yearGroups
@@ -71,24 +75,83 @@ export function GameFeedScreen() {
 
   return (
     <Screen preset="fixed" contentContainerStyle={$styles.flex1}>
-      {showFilters && (
-        <View style={themed($filterPanel)}>
-          <Text weight="bold" size="xs" style={themed($filterLabel)}>
-            Filter by Genre
-          </Text>
-          <View style={$genreGrid}>
-            {genres.map((genre) => (
-              <Checkbox
-                key={genre.id}
-                value={isSelected(genre.id)}
-                onValueChange={() => toggleGenre(genre.id)}
-                label={genre.name}
-                containerStyle={$genreCheckbox}
-              />
+      <Stack.Toolbar placement="right">
+        <Stack.Toolbar.Menu
+          variant={hasFilters ? "prominent" : "plain"}
+          tintColor={hasFilters ? theme.colors.tint : undefined}
+        >
+          <Stack.Toolbar.Icon sf="line.3.horizontal.decrease" />
+
+          <Stack.Toolbar.Menu inline>
+            {SORT_OPTIONS.map(({ field, label }) => (
+              <Stack.Toolbar.MenuAction
+                key={field}
+                isOn={sortField === field}
+                subtitle={
+                  sortField === field ? (sortAscending ? "Ascending" : "Descending") : undefined
+                }
+                onPress={() => handleSort(field)}
+              >
+                {label}
+              </Stack.Toolbar.MenuAction>
             ))}
-          </View>
-        </View>
-      )}
+          </Stack.Toolbar.Menu>
+
+          <Stack.Toolbar.Menu inline>
+            <Stack.Toolbar.MenuAction
+              icon="square.grid.2x2"
+              isOn={viewMode === "gallery"}
+              onPress={() => setViewMode("gallery")}
+            >
+              Gallery
+            </Stack.Toolbar.MenuAction>
+            <Stack.Toolbar.MenuAction
+              icon="list.bullet"
+              isOn={viewMode === "list"}
+              onPress={() => setViewMode("list")}
+            >
+              List
+            </Stack.Toolbar.MenuAction>
+          </Stack.Toolbar.Menu>
+
+          <Stack.Toolbar.Menu inline>
+            <Stack.Toolbar.Menu>
+              <Stack.Toolbar.Label>Filter</Stack.Toolbar.Label>
+              <Stack.Toolbar.Menu inline>
+                <Stack.Toolbar.MenuAction
+                  icon="rectangle.grid.3x3"
+                  isOn={genreIds.length === 0}
+                  onPress={clearGenres}
+                >
+                  All Items
+                </Stack.Toolbar.MenuAction>
+              </Stack.Toolbar.Menu>
+              <Stack.Toolbar.Menu inline>
+                {genres.map((genre) => (
+                  <Stack.Toolbar.MenuAction
+                    key={genre.id}
+                    isOn={isSelected(genre.id)}
+                    onPress={() => toggleGenre(genre.id)}
+                  >
+                    {genre.name}
+                  </Stack.Toolbar.MenuAction>
+                ))}
+              </Stack.Toolbar.Menu>
+            </Stack.Toolbar.Menu>
+            {hasFilters && (
+              <Stack.Toolbar.MenuAction icon="minus.circle" onPress={clearGenres}>
+                {genreIds.length === 1 ? "Remove Filter" : "Remove Filters"}
+              </Stack.Toolbar.MenuAction>
+            )}
+          </Stack.Toolbar.Menu>
+
+          <Stack.Toolbar.Menu inline>
+            <Stack.Toolbar.MenuAction onPress={() => console.log("View Options pressed")}>
+              View Options
+            </Stack.Toolbar.MenuAction>
+          </Stack.Toolbar.Menu>
+        </Stack.Toolbar.Menu>
+      </Stack.Toolbar>
 
       <ScrollView>
         {filteredYearGroups && filteredYearGroups.length > 0 ? (
@@ -103,34 +166,8 @@ export function GameFeedScreen() {
   )
 }
 
-const $filterButton: ViewStyle = {
-  marginRight: 16,
-}
-
 const $centered: ViewStyle = {
   flex: 1,
   justifyContent: "center",
   alignItems: "center",
-}
-
-const $filterPanel: ThemedStyle<ViewStyle> = ({ spacing, colors }) => ({
-  paddingHorizontal: spacing.lg,
-  paddingVertical: spacing.sm,
-  borderBottomWidth: 2,
-  borderBottomColor: colors.border,
-  backgroundColor: colors.background,
-})
-
-const $filterLabel: ThemedStyle<ViewStyle> = ({ spacing }) => ({
-  marginBottom: spacing.xs,
-})
-
-const $genreGrid: ViewStyle = {
-  flexDirection: "row",
-  flexWrap: "wrap",
-  gap: 4,
-}
-
-const $genreCheckbox: ViewStyle = {
-  width: "48%",
 }

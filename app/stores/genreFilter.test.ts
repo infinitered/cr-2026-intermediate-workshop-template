@@ -17,17 +17,16 @@ beforeEach(() => {
   const { save } = require("@/utils/storage")
   isSelected = (id: number) => {
     const lastCall = save.mock.calls[save.mock.calls.length - 1]
-    if (!lastCall) return [4, 83, 5].includes(id) // defaults
+    if (!lastCall) return false // no genres selected by default ("All Items")
     return (lastCall[1] as { selectedIds: number[] }).selectedIds.includes(id)
   }
 })
 
 describe("genreFilter store", () => {
-  it("starts with default genres selected", () => {
-    expect(isSelected(4)).toBe(true) // Action
-    expect(isSelected(83)).toBe(true) // Platformer
-    expect(isSelected(5)).toBe(true) // RPG
-    expect(isSelected(999)).toBe(false)
+  it("starts with no genres selected (All Items)", () => {
+    expect(isSelected(4)).toBe(false)
+    expect(isSelected(83)).toBe(false)
+    expect(isSelected(5)).toBe(false)
   })
 
   it("toggles a genre on", () => {
@@ -36,7 +35,9 @@ describe("genreFilter store", () => {
   })
 
   it("toggles a genre off", () => {
-    toggleGenre(4) // remove default
+    toggleGenre(4) // turn on
+    expect(isSelected(4)).toBe(true)
+    toggleGenre(4) // turn off
     expect(isSelected(4)).toBe(false)
   })
 
