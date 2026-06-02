@@ -1,6 +1,6 @@
 import { createStore, useStore } from "@/utils/store"
 
-type SortOrder = "Rating" | "Name" | "Release Date"
+export type SortOrder = "Rating" | "Name" | "Release Date"
 
 export interface ShippingAddress {
   street1: string

@@ -26,18 +26,29 @@ import { Screen } from "@/components/Screen"
 import { TextField } from "@/components/TextField"
 import { YearSection } from "@/components/YearSection"
 import { useFeedGenres, useGamesByYear } from "@/services/api/games"
+import type { Game } from "@/services/api/types"
 import { useGenreFilter } from "@/stores/genreFilter"
+import { useSettings, type SortOrder } from "@/stores/settings"
 import { useAppTheme } from "@/theme/context"
 import { $styles } from "@/theme/styles"
 
-type SortField = "name" | "rating" | "releaseDate"
 type ViewMode = "gallery" | "list"
 
-const SORT_OPTIONS: { field: SortField; label: string }[] = [
-  { field: "name", label: "Name" },
-  { field: "rating", label: "Rating" },
-  { field: "releaseDate", label: "Release Date" },
-]
+const SORT_OPTIONS: SortOrder[] = ["Name", "Rating", "Release Date"]
+
+const isMature = (game: Game) =>
+  game.esrb_rating?.slug === "mature" || game.esrb_rating?.slug === "adults-only"
+
+const compareGames = (a: Game, b: Game, order: SortOrder) => {
+  switch (order) {
+    case "Name":
+      return a.name.localeCompare(b.name)
+    case "Rating":
+      return a.rating - b.rating
+    case "Release Date":
+      return (a.released ?? "").localeCompare(b.released ?? "")
+  }
+}
 
 export function GameFeedScreen() {
   const { theme } = useAppTheme()
@@ -45,14 +56,13 @@ export function GameFeedScreen() {
   const { data: yearGroups, isLoading, isError } = useGamesByYear()
   const { data: genres = [] } = useFeedGenres()
   const { selectedIds: genreIds, isSelected, toggleGenre, clearGenres } = useGenreFilter()
+  const { sortOrder, setSortOrder, hideMature, setHideMature } = useSettings()
 
-  const [sortField, setSortField] = useState<SortField>("name")
-  const [sortAscending, setSortAscending] = useState(true)
+  const [sortAscending, setSortAscending] = useState(false)
   const [viewMode, setViewMode] = useState<ViewMode>("gallery")
   const [searchActive, setSearchActive] = useState(false)
   const [searchQuery, setSearchQuery] = useState("")
   const [viewOptionsOpen, setViewOptionsOpen] = useState(false)
-  const [hideMatureContent, setHideMatureContent] = useState(false)
   const searchInputRef = useRef<ComponentRef<typeof TextField>>(null)
 
   const hasFilters = genreIds.length > 0
@@ -67,11 +77,11 @@ export function GameFeedScreen() {
     searchInputRef.current?.focus()
   }
 
-  const handleSort = (field: SortField) => {
-    if (field === sortField) {
+  const handleSort = (order: SortOrder) => {
+    if (order === sortOrder) {
       setSortAscending((prev) => !prev)
     } else {
-      setSortField(field)
+      setSortOrder(order)
       setSortAscending(true)
     }
   }
@@ -80,18 +90,23 @@ export function GameFeedScreen() {
     if (!yearGroups) return yearGroups
     const hasGenreFilter = genreIds.length > 0
 
-    if (!hasGenreFilter) return yearGroups
-
     return yearGroups
-      .map((group) => ({
-        ...group,
-        games: group.games.filter((game) => {
-          if (hasGenreFilter && !game.genres.some((g) => genreIds.includes(g.id))) return false
-          return true
-        }),
-      }))
+      .map((group) => {
+        let games = group.games
+        if (hasGenreFilter) {
+          games = games.filter((game) => game.genres.some((g) => genreIds.includes(g.id)))
+        }
+        if (hideMature) {
+          games = games.filter((game) => !isMature(game))
+        }
+        games = [...games].sort((a, b) => {
+          const result = compareGames(a, b, sortOrder)
+          return sortAscending ? result : -result
+        })
+        return { ...group, games }
+      })
       .filter((group) => group.games.length > 0)
-  }, [yearGroups, genreIds])
+  }, [yearGroups, genreIds, hideMature, sortOrder, sortAscending])
 
   if (isLoading) {
     return (
@@ -119,16 +134,16 @@ export function GameFeedScreen() {
           <Stack.Toolbar.Icon sf="line.3.horizontal.decrease" />
 
           <Stack.Toolbar.Menu inline>
-            {SORT_OPTIONS.map(({ field, label }) => (
+            {SORT_OPTIONS.map((order) => (
               <Stack.Toolbar.MenuAction
-                key={field}
-                isOn={sortField === field}
+                key={order}
+                isOn={sortOrder === order}
                 subtitle={
-                  sortField === field ? (sortAscending ? "Ascending" : "Descending") : undefined
+                  sortOrder === order ? (sortAscending ? "Ascending" : "Descending") : undefined
                 }
-                onPress={() => handleSort(field)}
+                onPress={() => handleSort(order)}
               >
-                {label}
+                {order}
               </Stack.Toolbar.MenuAction>
             ))}
           </Stack.Toolbar.Menu>
@@ -241,7 +256,12 @@ export function GameFeedScreen() {
       <ScrollView>
         {filteredYearGroups && filteredYearGroups.length > 0 ? (
           filteredYearGroups.map((group) => (
-            <YearSection key={group.year} year={group.year} games={group.games} />
+            <YearSection
+              key={group.year}
+              year={group.year}
+              games={group.games}
+              viewMode={viewMode}
+            />
           ))
         ) : (
           <EmptyState heading="No Games Match Filters" />
@@ -256,19 +276,21 @@ export function GameFeedScreen() {
                 <Picker
                   label="Sort By"
                   modifiers={[pickerStyle("menu")]}
-                  selection={sortField}
-                  onSelectionChange={(value) => setSortField(value as SortField)}
+                  selection={sortOrder}
+                  onSelectionChange={(value) => setSortOrder(value as SortOrder)}
                 >
-                  <UIText modifiers={[tag("name")]}>Name</UIText>
-                  <UIText modifiers={[tag("rating")]}>Rating</UIText>
-                  <UIText modifiers={[tag("releaseDate")]}>Release Date</UIText>
+                  {SORT_OPTIONS.map((order) => (
+                    <UIText key={order} modifiers={[tag(order)]}>
+                      {order}
+                    </UIText>
+                  ))}
                 </Picker>
               </Section>
               <Section title="Advanced">
                 <Toggle
                   label="Hide Mature Content"
-                  isOn={hideMatureContent}
-                  onIsOnChange={setHideMatureContent}
+                  isOn={hideMature}
+                  onIsOnChange={setHideMature}
                 />
               </Section>
             </Form>

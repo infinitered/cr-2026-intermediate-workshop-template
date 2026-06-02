@@ -5,14 +5,16 @@ import { useAppTheme } from "@/theme/context"
 import type { ThemedStyle } from "@/theme/types"
 
 import { GameCard } from "./GameCard"
+import { GameListItem } from "./GameListItem"
 import type { Game } from "../services/api/types"
 
 interface YearSectionProps {
   year: string
   games: Game[]
+  viewMode: "gallery" | "list"
 }
 
-export function YearSection({ year, games }: YearSectionProps) {
+export function YearSection({ year, games, viewMode }: YearSectionProps) {
   const { themed } = useAppTheme()
 
   return (
@@ -22,14 +24,18 @@ export function YearSection({ year, games }: YearSectionProps) {
           {year}
         </Text>
       </View>
-      <FlatList
-        horizontal
-        data={games}
-        keyExtractor={(item) => String(item.id)}
-        renderItem={({ item }) => <GameCard game={item} />}
-        showsHorizontalScrollIndicator={false}
-        contentContainerStyle={themed($listContent)}
-      />
+      {viewMode === "list" ? (
+        games.map((game) => <GameListItem key={game.id} game={game} />)
+      ) : (
+        <FlatList
+          horizontal
+          data={games}
+          keyExtractor={(item) => String(item.id)}
+          renderItem={({ item }) => <GameCard game={item} />}
+          showsHorizontalScrollIndicator={false}
+          contentContainerStyle={themed($listContent)}
+        />
+      )}
     </View>
   )
 }
