@@ -9,6 +9,17 @@ import {
 } from "react-native"
 import { Stack } from "expo-router"
 import { SymbolView } from "expo-symbols"
+import {
+  BottomSheet,
+  Form,
+  Group,
+  Host,
+  Picker,
+  Section,
+  Text as UIText,
+  Toggle,
+} from "@expo/ui/swift-ui"
+import { pickerStyle, presentationDetents, tag } from "@expo/ui/swift-ui/modifiers"
 
 import { EmptyState } from "@/components/EmptyState"
 import { Screen } from "@/components/Screen"
@@ -40,6 +51,8 @@ export function GameFeedScreen() {
   const [viewMode, setViewMode] = useState<ViewMode>("gallery")
   const [searchActive, setSearchActive] = useState(false)
   const [searchQuery, setSearchQuery] = useState("")
+  const [viewOptionsOpen, setViewOptionsOpen] = useState(false)
+  const [hideMatureContent, setHideMatureContent] = useState(false)
   const searchInputRef = useRef<ComponentRef<typeof TextField>>(null)
 
   const hasFilters = genreIds.length > 0
@@ -169,7 +182,7 @@ export function GameFeedScreen() {
           </Stack.Toolbar.Menu>
 
           <Stack.Toolbar.Menu inline>
-            <Stack.Toolbar.MenuAction onPress={() => console.log("View Options pressed")}>
+            <Stack.Toolbar.MenuAction onPress={() => setViewOptionsOpen(true)}>
               View Options
             </Stack.Toolbar.MenuAction>
           </Stack.Toolbar.Menu>
@@ -234,6 +247,34 @@ export function GameFeedScreen() {
           <EmptyState heading="No Games Match Filters" />
         )}
       </ScrollView>
+
+      <Host style={$sheetHost}>
+        <BottomSheet isPresented={viewOptionsOpen} onIsPresentedChange={setViewOptionsOpen}>
+          <Group modifiers={[presentationDetents(["medium", "large"])]}>
+            <Form>
+              <Section header={<UIText>View Options</UIText>}>
+                <Picker
+                  label="Sort By"
+                  modifiers={[pickerStyle("menu")]}
+                  selection={sortField}
+                  onSelectionChange={(value) => setSortField(value as SortField)}
+                >
+                  <UIText modifiers={[tag("name")]}>Name</UIText>
+                  <UIText modifiers={[tag("rating")]}>Rating</UIText>
+                  <UIText modifiers={[tag("releaseDate")]}>Release Date</UIText>
+                </Picker>
+              </Section>
+              <Section title="Advanced">
+                <Toggle
+                  label="Hide Mature Content"
+                  isOn={hideMatureContent}
+                  onIsOnChange={setHideMatureContent}
+                />
+              </Section>
+            </Form>
+          </Group>
+        </BottomSheet>
+      </Host>
     </Screen>
   )
 }
@@ -242,4 +283,8 @@ const $centered: ViewStyle = {
   flex: 1,
   justifyContent: "center",
   alignItems: "center",
+}
+
+const $sheetHost: ViewStyle = {
+  position: "absolute",
 }
