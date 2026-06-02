@@ -89,10 +89,14 @@ export function GameFeedScreen() {
   const filteredYearGroups = useMemo(() => {
     if (!yearGroups) return yearGroups
     const hasGenreFilter = genreIds.length > 0
+    const query = searchQuery.trim().toLowerCase()
 
     return yearGroups
       .map((group) => {
         let games = group.games
+        if (query) {
+          games = games.filter((game) => game.name.toLowerCase().includes(query))
+        }
         if (hasGenreFilter) {
           games = games.filter((game) => game.genres.some((g) => genreIds.includes(g.id)))
         }
@@ -106,7 +110,7 @@ export function GameFeedScreen() {
         return { ...group, games }
       })
       .filter((group) => group.games.length > 0)
-  }, [yearGroups, genreIds, hideMature, sortOrder, sortAscending])
+  }, [yearGroups, genreIds, hideMature, sortOrder, sortAscending, searchQuery])
 
   if (isLoading) {
     return (
@@ -253,7 +257,7 @@ export function GameFeedScreen() {
         )}
       </Stack.Toolbar>
 
-      <ScrollView>
+      <ScrollView style={$styles.flex1}>
         {filteredYearGroups && filteredYearGroups.length > 0 ? (
           filteredYearGroups.map((group) => (
             <YearSection
