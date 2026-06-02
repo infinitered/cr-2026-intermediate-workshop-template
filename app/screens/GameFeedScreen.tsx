@@ -1,9 +1,18 @@
-import { useMemo, useState } from "react"
-import { ActivityIndicator, ScrollView, ViewStyle } from "react-native"
+import { type ComponentRef, useMemo, useRef, useState } from "react"
+import {
+  ActivityIndicator,
+  Pressable,
+  ScrollView,
+  useWindowDimensions,
+  View,
+  ViewStyle,
+} from "react-native"
 import { Stack } from "expo-router"
+import { SymbolView } from "expo-symbols"
 
 import { EmptyState } from "@/components/EmptyState"
 import { Screen } from "@/components/Screen"
+import { TextField } from "@/components/TextField"
 import { YearSection } from "@/components/YearSection"
 import { useFeedGenres, useGamesByYear } from "@/services/api/games"
 import { useGenreFilter } from "@/stores/genreFilter"
@@ -21,6 +30,7 @@ const SORT_OPTIONS: { field: SortField; label: string }[] = [
 
 export function GameFeedScreen() {
   const { theme } = useAppTheme()
+  const { width: windowWidth } = useWindowDimensions()
   const { data: yearGroups, isLoading, isError } = useGamesByYear()
   const { data: genres = [] } = useFeedGenres()
   const { selectedIds: genreIds, isSelected, toggleGenre, clearGenres } = useGenreFilter()
@@ -28,8 +38,21 @@ export function GameFeedScreen() {
   const [sortField, setSortField] = useState<SortField>("name")
   const [sortAscending, setSortAscending] = useState(true)
   const [viewMode, setViewMode] = useState<ViewMode>("gallery")
+  const [searchActive, setSearchActive] = useState(false)
+  const [searchQuery, setSearchQuery] = useState("")
+  const searchInputRef = useRef<ComponentRef<typeof TextField>>(null)
 
   const hasFilters = genreIds.length > 0
+
+  const closeSearch = () => {
+    setSearchActive(false)
+    setSearchQuery("")
+  }
+
+  const clearSearch = () => {
+    setSearchQuery("")
+    searchInputRef.current?.focus()
+  }
 
   const handleSort = (field: SortField) => {
     if (field === sortField) {
@@ -151,6 +174,55 @@ export function GameFeedScreen() {
             </Stack.Toolbar.MenuAction>
           </Stack.Toolbar.Menu>
         </Stack.Toolbar.Menu>
+      </Stack.Toolbar>
+
+      <Stack.Toolbar placement="bottom">
+        {searchActive ? (
+          <>
+            <Stack.Toolbar.View>
+              <TextField
+                ref={searchInputRef}
+                autoFocus
+                value={searchQuery}
+                onChangeText={setSearchQuery}
+                placeholder="Search games"
+                returnKeyType="search"
+                containerStyle={{ width: windowWidth - 96 }}
+                inputWrapperStyle={{ borderRadius: 999 }}
+                LeftAccessory={(props) => (
+                  <View style={props.style}>
+                    <SymbolView name="magnifyingglass" tintColor={theme.colors.textDim} size={18} />
+                  </View>
+                )}
+                RightAccessory={
+                  searchQuery.length > 0
+                    ? (props) => (
+                        <Pressable
+                          onPress={clearSearch}
+                          style={props.style}
+                          hitSlop={8}
+                          accessibilityLabel="Clear search"
+                        >
+                          <SymbolView
+                            name="xmark.circle.fill"
+                            tintColor={theme.colors.textDim}
+                            size={18}
+                          />
+                        </Pressable>
+                      )
+                    : undefined
+                }
+              />
+            </Stack.Toolbar.View>
+            <Stack.Toolbar.Spacer width={8} />
+            <Stack.Toolbar.Button icon="xmark" onPress={closeSearch} />
+          </>
+        ) : (
+          <>
+            <Stack.Toolbar.Spacer />
+            <Stack.Toolbar.Button icon="magnifyingglass" onPress={() => setSearchActive(true)} />
+          </>
+        )}
       </Stack.Toolbar>
 
       <ScrollView>
