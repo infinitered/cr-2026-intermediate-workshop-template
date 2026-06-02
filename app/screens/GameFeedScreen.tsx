@@ -1,6 +1,7 @@
 import { type ComponentRef, useMemo, useRef, useState } from "react"
 import {
   ActivityIndicator,
+  Platform,
   Pressable,
   ScrollView,
   useWindowDimensions,
@@ -9,18 +10,9 @@ import {
 } from "react-native"
 import { Stack } from "expo-router"
 import { SymbolView } from "expo-symbols"
-import {
-  BottomSheet,
-  Form,
-  Group,
-  Host,
-  Picker,
-  Section,
-  Text as UIText,
-  Toggle,
-} from "@expo/ui/swift-ui"
-import { pickerStyle, presentationDetents, tag } from "@expo/ui/swift-ui/modifiers"
+import { BottomSheet, FieldGroup, Picker, Switch } from "@expo/ui"
 
+import { Button } from "@/components/Button"
 import { EmptyState } from "@/components/EmptyState"
 import { Screen } from "@/components/Screen"
 import { TextField } from "@/components/TextField"
@@ -258,6 +250,14 @@ export function GameFeedScreen() {
       </Stack.Toolbar>
 
       <ScrollView style={$styles.flex1}>
+        {/* TEMP: trigger to test the universal BottomSheet on Android (filter menu icon not yet wired for Android) */}
+        {Platform.OS === "android" && (
+          <Button
+            text="View Options (temp)"
+            onPress={() => setViewOptionsOpen(true)}
+            style={$tempButton}
+          />
+        )}
         {filteredYearGroups && filteredYearGroups.length > 0 ? (
           filteredYearGroups.map((group) => (
             <YearSection
@@ -272,35 +272,28 @@ export function GameFeedScreen() {
         )}
       </ScrollView>
 
-      <Host style={$sheetHost}>
-        <BottomSheet isPresented={viewOptionsOpen} onIsPresentedChange={setViewOptionsOpen}>
-          <Group modifiers={[presentationDetents(["medium", "large"])]}>
-            <Form>
-              <Section header={<UIText>View Options</UIText>}>
-                <Picker
-                  label="Sort By"
-                  modifiers={[pickerStyle("menu")]}
-                  selection={sortOrder}
-                  onSelectionChange={(value) => setSortOrder(value as SortOrder)}
-                >
-                  {SORT_OPTIONS.map((order) => (
-                    <UIText key={order} modifiers={[tag(order)]}>
-                      {order}
-                    </UIText>
-                  ))}
-                </Picker>
-              </Section>
-              <Section title="Advanced">
-                <Toggle
-                  label="Hide Mature Content"
-                  isOn={hideMature}
-                  onIsOnChange={setHideMature}
-                />
-              </Section>
-            </Form>
-          </Group>
-        </BottomSheet>
-      </Host>
+      <BottomSheet
+        isPresented={viewOptionsOpen}
+        onDismiss={() => setViewOptionsOpen(false)}
+        snapPoints={["half", "full"]}
+      >
+        <FieldGroup>
+          <FieldGroup.Section title="Sort By">
+            <Picker
+              selectedValue={sortOrder}
+              onValueChange={(value) => setSortOrder(value as SortOrder)}
+              appearance="menu"
+            >
+              {SORT_OPTIONS.map((order) => (
+                <Picker.Item key={order} label={order} value={order} />
+              ))}
+            </Picker>
+          </FieldGroup.Section>
+          <FieldGroup.Section title="Advanced">
+            <Switch value={hideMature} onValueChange={setHideMature} label="Hide Mature Content" />
+          </FieldGroup.Section>
+        </FieldGroup>
+      </BottomSheet>
     </Screen>
   )
 }
@@ -311,6 +304,6 @@ const $centered: ViewStyle = {
   alignItems: "center",
 }
 
-const $sheetHost: ViewStyle = {
-  position: "absolute",
+const $tempButton: ViewStyle = {
+  margin: 16,
 }
