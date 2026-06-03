@@ -7,7 +7,8 @@ import {
   List,
   Section,
   Button,
-  Label,
+  HStack,
+  VStack,
   Image,
   Text as SwiftText,
   RNHostView,
@@ -19,6 +20,8 @@ import {
   contentShape,
   shapes,
   badge,
+  foregroundStyle,
+  font,
 } from "@expo/ui/swift-ui/modifiers"
 
 import { EmptyState } from "@/components/EmptyState"
@@ -116,28 +119,48 @@ export function QueueScreen() {
           >
             <List.ForEach onDelete={handleDelete} onMove={handleMove}>
               {queuedGames.map((game, index) => (
-                <Label
+                <HStack
                   key={game.id}
-                  title={`${index + 1}. ${game.name}`}
-                  icon={
-                    game.background_image ? (
-                      <RNHostView matchContents>
-                        <ExpoImage source={game.background_image} style={$thumbnail} />
-                      </RNHostView>
-                    ) : (
-                      <Image systemName="gamecontroller.fill" size={20} color={theme.colors.tint} />
-                    )
-                  }
+                  spacing={12}
+                  alignment="center"
                   modifiers={[
                     tag(game.id),
-                    // note: these modifiers break the image - maybe it's better to use an HStack
                     ...(index < SHIPMENT_SIZE ? [badge("Next")] : []),
                     contentShape(shapes.rectangle()),
                     onTapGesture(() => {
                       if (!editMode) router.push(`/game/${game.id}`)
                     }),
                   ]}
-                />
+                >
+                  <SwiftText
+                    modifiers={[
+                      foregroundStyle({ type: "hierarchical", style: "secondary" }),
+                      font({ weight: "bold", size: 12 }),
+                    ]}
+                  >
+                    {String(index + 1)}
+                  </SwiftText>
+                  {game.background_image ? (
+                    <RNHostView matchContents>
+                      <ExpoImage source={game.background_image} style={$thumbnail} />
+                    </RNHostView>
+                  ) : (
+                    <Image systemName="gamecontroller.fill" size={20} color={theme.colors.tint} />
+                  )}
+                  <VStack alignment="leading" spacing={2}>
+                    <SwiftText modifiers={[font({ weight: "semibold" })]}>{game.name}</SwiftText>
+                    {game.genres && game.genres.length > 0 ? (
+                      <SwiftText
+                        modifiers={[
+                          font({ size: 12 }),
+                          foregroundStyle({ type: "hierarchical", style: "secondary" }),
+                        ]}
+                      >
+                        {game.genres.map((g) => g.name).join(", ")}
+                      </SwiftText>
+                    ) : null}
+                  </VStack>
+                </HStack>
               ))}
             </List.ForEach>
           </Section>
