@@ -10,7 +10,6 @@ import {
   Slider,
   Button,
   HorizontalDivider,
-  Spacer,
   ListItem,
   DatePickerDialog,
   ExposedDropdownMenuBox,
@@ -23,8 +22,8 @@ import {
   paddingAll,
   fillMaxWidth,
   clickable,
-  menuAnchor,
   verticalScroll,
+  menuAnchor,
 } from "@expo/ui/jetpack-compose/modifiers"
 
 import { useSettings } from "@/stores/settings"
@@ -114,10 +113,12 @@ export function SettingsScreen() {
       colorScheme={isDarkMode ? "dark" : "light"}
       seedColor={theme.colors.palette.purple700}
     >
-      <Column modifiers={[paddingAll(16), verticalScroll()]}>
+      <Column verticalArrangement={{ spacedBy: 12 }} modifiers={[paddingAll(16), verticalScroll()]}>
         {/* Profile */}
-        <ComposeText color={theme.colors.text} style={{ typography: "titleMedium" }}>Profile</ComposeText>
-        <Spacer />
+        <ComposeText color={theme.colors.text} style={{ typography: "titleMedium" }}>
+          Profile
+        </ComposeText>
+
         <OutlinedTextField onValueChange={setDisplayName} modifiers={[fillMaxWidth()]}>
           <OutlinedTextField.Label>
             <ComposeText>Display Name</ComposeText>
@@ -126,7 +127,7 @@ export function SettingsScreen() {
             <ComposeText>{displayName || "Enter your name"}</ComposeText>
           </OutlinedTextField.Placeholder>
         </OutlinedTextField>
-        <Spacer />
+
         <ListItem
           colors={{ containerColor: "transparent" }}
           modifiers={[clickable(() => setShowDatePicker(true))]}
@@ -155,8 +156,10 @@ export function SettingsScreen() {
         <HorizontalDivider />
 
         {/* Shipping Address */}
-        <ComposeText color={theme.colors.text} style={{ typography: "titleMedium" }}>Shipping Address</ComposeText>
-        <Spacer />
+        <ComposeText color={theme.colors.text} style={{ typography: "titleMedium" }}>
+          Shipping Address
+        </ComposeText>
+
         <OutlinedTextField
           onValueChange={(v) => setShippingAddress({ street1: v })}
           modifiers={[fillMaxWidth()]}
@@ -168,7 +171,7 @@ export function SettingsScreen() {
             <ComposeText>{shippingAddress.street1 || "123 Main St"}</ComposeText>
           </OutlinedTextField.Placeholder>
         </OutlinedTextField>
-        <Spacer />
+
         <OutlinedTextField
           onValueChange={(v) => setShippingAddress({ street2: v })}
           modifiers={[fillMaxWidth()]}
@@ -180,7 +183,7 @@ export function SettingsScreen() {
             <ComposeText>{shippingAddress.street2 || "Apt 4B"}</ComposeText>
           </OutlinedTextField.Placeholder>
         </OutlinedTextField>
-        <Spacer />
+
         <OutlinedTextField
           onValueChange={(v) => setShippingAddress({ city: v })}
           modifiers={[fillMaxWidth()]}
@@ -192,20 +195,18 @@ export function SettingsScreen() {
             <ComposeText>{shippingAddress.city || "Springfield"}</ComposeText>
           </OutlinedTextField.Placeholder>
         </OutlinedTextField>
-        <Spacer />
+
         <ExposedDropdownMenuBox expanded={stateExpanded} onExpandedChange={setStateExpanded}>
-          <OutlinedTextField readOnly modifiers={[menuAnchor(), fillMaxWidth()]}>
+          <OutlinedTextField
+            defaultValue={selectedStateName || "Select state"}
+            readOnly
+            modifiers={[menuAnchor(), fillMaxWidth()]}
+          >
             <OutlinedTextField.Label>
               <ComposeText>State</ComposeText>
             </OutlinedTextField.Label>
-            <OutlinedTextField.Placeholder>
-              <ComposeText>{selectedStateName || "Select state"}</ComposeText>
-            </OutlinedTextField.Placeholder>
           </OutlinedTextField>
-          <ExposedDropdownMenu
-            expanded={stateExpanded}
-            onDismissRequest={() => setStateExpanded(false)}
-          >
+          <ExposedDropdownMenu expanded={stateExpanded} onDismissRequest={() => setStateExpanded(false)}>
             {US_STATES.map((s) => (
               <DropdownMenuItem
                 key={s.abbr}
@@ -221,7 +222,7 @@ export function SettingsScreen() {
             ))}
           </ExposedDropdownMenu>
         </ExposedDropdownMenuBox>
-        <Spacer />
+
         <OutlinedTextField
           onValueChange={(v) => setShippingAddress({ zip: v.replace(/[^0-9]/g, "").slice(0, 5) })}
           maxLength={5}
@@ -239,8 +240,10 @@ export function SettingsScreen() {
         <HorizontalDivider />
 
         {/* Content Preferences */}
-        <ComposeText color={theme.colors.text} style={{ typography: "titleMedium" }}>Content Preferences</ComposeText>
-        <Spacer />
+        <ComposeText color={theme.colors.text} style={{ typography: "titleMedium" }}>
+          Content Preferences
+        </ComposeText>
+
         <ListItem colors={{ containerColor: "transparent" }}>
           <ListItem.HeadlineContent>
             <ComposeText>Hide Mature Content</ComposeText>
@@ -249,9 +252,11 @@ export function SettingsScreen() {
             <Switch value={hideMature} onCheckedChange={setHideMature} />
           </ListItem.TrailingContent>
         </ListItem>
-        <Spacer />
-        <ComposeText color={theme.colors.text} style={{ typography: "bodyMedium" }}>Sort Order</ComposeText>
-        <Spacer />
+
+        <ComposeText color={theme.colors.text} style={{ typography: "bodyMedium" }}>
+          Sort Order
+        </ComposeText>
+
         <SingleChoiceSegmentedButtonRow modifiers={[fillMaxWidth()]}>
           {SORT_OPTIONS.map((option) => (
             <SegmentedButton
@@ -269,8 +274,10 @@ export function SettingsScreen() {
         <HorizontalDivider />
 
         {/* Queue Preferences */}
-        <ComposeText color={theme.colors.text} style={{ typography: "titleMedium" }}>Queue Preferences</ComposeText>
-        <Spacer />
+        <ComposeText color={theme.colors.text} style={{ typography: "titleMedium" }}>
+          Queue Preferences
+        </ComposeText>
+
         <ComposeText color={theme.colors.text} style={{ typography: "bodyMedium" }}>
           Minimum Rating: {minRating} / 5
         </ComposeText>
@@ -278,11 +285,11 @@ export function SettingsScreen() {
         <ComposeText color={theme.colors.textDim} style={{ typography: "bodySmall" }}>
           Only games rated {minRating}+ out of 5 will be suggested.
         </ComposeText>
-        <Spacer />
+
         <Button onClick={() => router.push("/favorite-genres")}>
           <ComposeText>Favorite Genres</ComposeText>
         </Button>
-        <Spacer />
+
         <Button onClick={() => router.push("/muted-keywords")}>
           <ComposeText>Muted Keywords</ComposeText>
         </Button>
@@ -290,8 +297,10 @@ export function SettingsScreen() {
         <HorizontalDivider />
 
         {/* Appearance */}
-        <ComposeText color={theme.colors.text} style={{ typography: "titleMedium" }}>Appearance</ComposeText>
-        <Spacer />
+        <ComposeText color={theme.colors.text} style={{ typography: "titleMedium" }}>
+          Appearance
+        </ComposeText>
+
         <ListItem colors={{ containerColor: "transparent" }}>
           <ListItem.HeadlineContent>
             <ComposeText>Dark Mode</ComposeText>

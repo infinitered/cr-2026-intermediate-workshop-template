@@ -12,7 +12,14 @@ import {
   Text as SwiftText,
   RNHostView,
 } from "@expo/ui/swift-ui"
-import { environment, tag, onTapGesture, contentShape, shapes } from "@expo/ui/swift-ui/modifiers"
+import {
+  environment,
+  tag,
+  onTapGesture,
+  contentShape,
+  shapes,
+  badge,
+} from "@expo/ui/swift-ui/modifiers"
 
 import { EmptyState } from "@/components/EmptyState"
 import { Screen } from "@/components/Screen"
@@ -28,7 +35,6 @@ export function QueueScreen() {
   const { queueIds: ids, chooseNextGame } = useQueueService()
   const { data: yearGroups = [], isLoading } = useGamesByYear()
   const [editMode, setEditMode] = useState(false)
-  const [selectedIds, setSelectedIds] = useState<number[]>([])
 
   const gamesById = new Map<number, Game>()
   for (const group of yearGroups) {
@@ -63,17 +69,8 @@ export function QueueScreen() {
     reorderQueue(fromIndex, adjustedDest)
   }
 
-  const handleBulkDelete = () => {
-    // note: Nishan is making a PR so we can remove selection from the edit state
-    for (const id of selectedIds) {
-      removeFromQueue(id)
-    }
-    setSelectedIds([])
-  }
-
   const handleToggleEdit = () => {
     setEditMode((prev) => {
-      if (prev) setSelectedIds([])
       return !prev
     })
   }
@@ -111,12 +108,7 @@ export function QueueScreen() {
         }}
       />
       <Host style={$host}>
-        <List
-          selection={editMode ? selectedIds : undefined}
-          onSelectionChange={(sel) => setSelectedIds(sel.map(Number))}
-          
-          modifiers={[environment("editMode", editMode ? "active" : "inactive")]}
-        >
+        <List modifiers={[environment("editMode", editMode ? "active" : "inactive")]}>
           <Section
             header={
               <SwiftText>The first {SHIPMENT_SIZE} games will be in your next delivery!</SwiftText>
@@ -139,7 +131,7 @@ export function QueueScreen() {
                   modifiers={[
                     tag(game.id),
                     // note: these modifiers break the image - maybe it's better to use an HStack
-                    //...(index < SHIPMENT_SIZE ? [badge("Next")] : []),
+                    ...(index < SHIPMENT_SIZE ? [badge("Next")] : []),
                     contentShape(shapes.rectangle()),
                     onTapGesture(() => {
                       if (!editMode) router.push(`/game/${game.id}`)
@@ -149,13 +141,6 @@ export function QueueScreen() {
               ))}
             </List.ForEach>
           </Section>
-          {editMode && selectedIds.length > 0 ? (
-            <Button
-              label={`Delete ${selectedIds.length} Game${selectedIds.length > 1 ? "s" : ""}`}
-              role="destructive"
-              onPress={handleBulkDelete}
-            />
-          ) : null}
           {!editMode ? (
             <Section>
               <Button
