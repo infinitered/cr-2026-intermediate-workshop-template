@@ -12,8 +12,8 @@ import { Stack } from "expo-router"
 import { SymbolView } from "expo-symbols"
 import { BottomSheet, FieldGroup, Picker, Switch } from "@expo/ui"
 
-import { Button } from "@/components/Button"
 import { EmptyState } from "@/components/EmptyState"
+import { FeedSearch } from "@/components/FeedSearch"
 import { Screen } from "@/components/Screen"
 import { TextField } from "@/components/TextField"
 import { YearSection } from "@/components/YearSection"
@@ -23,6 +23,7 @@ import { useGenreFilter } from "@/stores/genreFilter"
 import { useSettings, type SortOrder } from "@/stores/settings"
 import { useAppTheme } from "@/theme/context"
 import { $styles } from "@/theme/styles"
+import { useToolbarIcons, type ToolbarIconKey } from "@/utils/useToolbarIcons"
 
 type ViewMode = "gallery" | "list"
 
@@ -49,6 +50,10 @@ export function GameFeedScreen() {
   const { data: genres = [] } = useFeedGenres()
   const { selectedIds: genreIds, isSelected, toggleGenre, clearGenres } = useGenreFilter()
   const { sortOrder, setSortOrder, hideMature, setHideMature } = useSettings()
+  const toolbarIcon = useToolbarIcons(theme.colors.brandSurfaceText)
+  // Menu-row icons are iOS-only: Android overflow menus are conventionally text-only, and the
+  // selected state still shows via the `isOn` checkmark. The toolbar trigger + search keep their icons.
+  const menuIcon = (key: ToolbarIconKey) => (Platform.OS === "ios" ? toolbarIcon(key) : undefined)
 
   const [sortAscending, setSortAscending] = useState(false)
   const [viewMode, setViewMode] = useState<ViewMode>("gallery")
@@ -124,11 +129,10 @@ export function GameFeedScreen() {
     <Screen preset="fixed" contentContainerStyle={$styles.flex1}>
       <Stack.Toolbar placement="right">
         <Stack.Toolbar.Menu
+          icon={toolbarIcon("filter")}
           variant={hasFilters ? "prominent" : "plain"}
           tintColor={hasFilters ? theme.colors.tint : undefined}
         >
-          <Stack.Toolbar.Icon sf="line.3.horizontal.decrease" />
-
           <Stack.Toolbar.Menu inline>
             {SORT_OPTIONS.map((order) => (
               <Stack.Toolbar.MenuAction
@@ -146,14 +150,14 @@ export function GameFeedScreen() {
 
           <Stack.Toolbar.Menu inline>
             <Stack.Toolbar.MenuAction
-              icon="square.grid.2x2"
+              icon={menuIcon("gallery")}
               isOn={viewMode === "gallery"}
               onPress={() => setViewMode("gallery")}
             >
               Gallery
             </Stack.Toolbar.MenuAction>
             <Stack.Toolbar.MenuAction
-              icon="list.bullet"
+              icon={menuIcon("list")}
               isOn={viewMode === "list"}
               onPress={() => setViewMode("list")}
             >
@@ -166,7 +170,7 @@ export function GameFeedScreen() {
               <Stack.Toolbar.Label>Filter</Stack.Toolbar.Label>
               <Stack.Toolbar.Menu inline>
                 <Stack.Toolbar.MenuAction
-                  icon="rectangle.grid.3x3"
+                  icon={menuIcon("allItems")}
                   isOn={genreIds.length === 0}
                   onPress={clearGenres}
                 >
@@ -186,7 +190,7 @@ export function GameFeedScreen() {
               </Stack.Toolbar.Menu>
             </Stack.Toolbar.Menu>
             {hasFilters && (
-              <Stack.Toolbar.MenuAction icon="minus.circle" onPress={clearGenres}>
+              <Stack.Toolbar.MenuAction icon={menuIcon("removeFilter")} onPress={clearGenres}>
                 {genreIds.length === 1 ? "Remove Filter" : "Remove Filters"}
               </Stack.Toolbar.MenuAction>
             )}
@@ -200,64 +204,67 @@ export function GameFeedScreen() {
         </Stack.Toolbar.Menu>
       </Stack.Toolbar>
 
-      <Stack.Toolbar placement="bottom">
-        {searchActive ? (
-          <>
-            <Stack.Toolbar.View>
-              <TextField
-                ref={searchInputRef}
-                autoFocus
-                value={searchQuery}
-                onChangeText={setSearchQuery}
-                placeholder="Search games"
-                returnKeyType="search"
-                containerStyle={{ width: windowWidth - 96 }}
-                inputWrapperStyle={{ borderRadius: 999 }}
-                LeftAccessory={(props) => (
-                  <View style={props.style}>
-                    <SymbolView name="magnifyingglass" tintColor={theme.colors.textDim} size={18} />
-                  </View>
-                )}
-                RightAccessory={
-                  searchQuery.length > 0
-                    ? (props) => (
-                        <Pressable
-                          onPress={clearSearch}
-                          style={props.style}
-                          hitSlop={8}
-                          accessibilityLabel="Clear search"
-                        >
-                          <SymbolView
-                            name="xmark.circle.fill"
-                            tintColor={theme.colors.textDim}
-                            size={18}
-                          />
-                        </Pressable>
-                      )
-                    : undefined
-                }
+      {Platform.OS !== "android" && (
+        <Stack.Toolbar placement="bottom">
+          {searchActive ? (
+            <>
+              <Stack.Toolbar.View>
+                <TextField
+                  ref={searchInputRef}
+                  autoFocus
+                  value={searchQuery}
+                  onChangeText={setSearchQuery}
+                  placeholder="Search games"
+                  returnKeyType="search"
+                  containerStyle={{ width: windowWidth - 96 }}
+                  inputWrapperStyle={{ borderRadius: 999 }}
+                  LeftAccessory={(props) => (
+                    <View style={props.style}>
+                      <SymbolView
+                        name="magnifyingglass"
+                        tintColor={theme.colors.textDim}
+                        size={18}
+                      />
+                    </View>
+                  )}
+                  RightAccessory={
+                    searchQuery.length > 0
+                      ? (props) => (
+                          <Pressable
+                            onPress={clearSearch}
+                            style={props.style}
+                            hitSlop={8}
+                            accessibilityLabel="Clear search"
+                          >
+                            <SymbolView
+                              name="xmark.circle.fill"
+                              tintColor={theme.colors.textDim}
+                              size={18}
+                            />
+                          </Pressable>
+                        )
+                      : undefined
+                  }
+                />
+              </Stack.Toolbar.View>
+              <Stack.Toolbar.Spacer width={8} />
+              <Stack.Toolbar.Button icon={toolbarIcon("close")} onPress={closeSearch} />
+            </>
+          ) : (
+            <>
+              <Stack.Toolbar.Spacer />
+              <Stack.Toolbar.Button
+                icon={toolbarIcon("search")}
+                onPress={() => setSearchActive(true)}
               />
-            </Stack.Toolbar.View>
-            <Stack.Toolbar.Spacer width={8} />
-            <Stack.Toolbar.Button icon="xmark" onPress={closeSearch} />
-          </>
-        ) : (
-          <>
-            <Stack.Toolbar.Spacer />
-            <Stack.Toolbar.Button icon="magnifyingglass" onPress={() => setSearchActive(true)} />
-          </>
-        )}
-      </Stack.Toolbar>
+            </>
+          )}
+        </Stack.Toolbar>
+      )}
+
+      <FeedSearch onChangeText={setSearchQuery} />
 
       <ScrollView style={$styles.flex1}>
-        {/* TEMP: trigger to test the universal BottomSheet on Android (filter menu icon not yet wired for Android) */}
-        {Platform.OS === "android" && (
-          <Button
-            text="View Options (temp)"
-            onPress={() => setViewOptionsOpen(true)}
-            style={$tempButton}
-          />
-        )}
         {filteredYearGroups && filteredYearGroups.length > 0 ? (
           filteredYearGroups.map((group) => (
             <YearSection
@@ -302,8 +309,4 @@ const $centered: ViewStyle = {
   flex: 1,
   justifyContent: "center",
   alignItems: "center",
-}
-
-const $tempButton: ViewStyle = {
-  margin: 16,
 }
