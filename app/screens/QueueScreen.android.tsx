@@ -107,8 +107,6 @@ function QueueCard({ game, index, total }: { game: Game; index: number; total: n
 
   return (
     <ElevatedCard modifiers={[padding(0, 4, 0, 4)]}>
-      <DropdownMenu expanded={menuOpen} onDismissRequest={() => setMenuOpen(false)}>
-        <DropdownMenu.Trigger>
           <RNHostView matchContents>
             <Pressable style={$row} onPress={() => router.push(`/game/${game.id}`)}>
               <Text weight="bold" size="md" style={{ width: 24, textAlign: "center" }}>
@@ -134,6 +132,9 @@ function QueueCard({ game, index, total }: { game: Game; index: number; total: n
               </Pressable>
             </Pressable>
           </RNHostView>
+          <DropdownMenu expanded={menuOpen} onDismissRequest={() => setMenuOpen(false)}>
+        <DropdownMenu.Trigger>
+          <Text onPress={() => { setMenuOpen(true)}}>open menu</Text>
         </DropdownMenu.Trigger>
         <DropdownMenu.Items>
           <DropdownMenuItem onClick={() => router.push(`/game/${game.id}`)}>
