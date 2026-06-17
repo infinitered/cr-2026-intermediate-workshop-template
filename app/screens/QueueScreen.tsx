@@ -14,7 +14,6 @@ import { Ionicons } from "@expo/vector-icons"
 import { Button } from "@/components/Button"
 import { Screen } from "@/components/Screen"
 import { Text } from "@/components/Text"
-import { useGamesByYear } from "@/services/api/games"
 import type { Game } from "@/services/api/types"
 import { useQueueService } from "@/services/queueService"
 import { removeFromQueue, moveInQueue } from "@/stores/queue"
@@ -24,28 +23,7 @@ import type { ThemedStyle } from "@/theme/types"
 
 export function QueueScreen() {
   const { themed, theme } = useAppTheme()
-  const { queueIds: ids, chooseNextGame } = useQueueService()
-  const { data: yearGroups = [], isLoading } = useGamesByYear()
-
-  // Build a lookup of all games by ID
-  const gamesById = new Map<number, Game>()
-  for (const group of yearGroups) {
-    for (const game of group.games) {
-      gamesById.set(game.id, game)
-    }
-  }
-
-  const queuedGames = ids.map((id) => gamesById.get(id)).filter(Boolean) as Game[]
-
-  // All games not already in the queue
-  const availableGames: Game[] = []
-  for (const group of yearGroups) {
-    for (const game of group.games) {
-      if (!ids.includes(game.id)) {
-        availableGames.push(game)
-      }
-    }
-  }
+  const { queuedGames, availableGames, isLoading, chooseNextGame } = useQueueService()
 
   if (isLoading) {
     return (
@@ -71,7 +49,7 @@ export function QueueScreen() {
         {isEmpty ? (
           <View style={$emptyContainer}>
             <Text style={themed($emptyText)}>
-              There's no games in your queue yet, why don't you add one?
+              {"There's no games in your queue yet, why don't you add one?"}
             </Text>
           </View>
         ) : (
@@ -97,7 +75,7 @@ export function QueueScreen() {
           text={availableGames.length > 0 ? "Choose My Next Game" : "All Games Queued!"}
           preset="reversed"
           style={themed($chooseButton)}
-          onPress={() => chooseNextGame(availableGames)}
+          onPress={chooseNextGame}
           disabled={availableGames.length === 0}
         />
       </View>
