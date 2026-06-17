@@ -1,3 +1,4 @@
+import { useGamesByYear } from "@/services/api/games"
 import type { Game } from "@/services/api/types"
 import { useFavoriteGenres } from "@/stores/favoriteGenres"
 import { useMutedKeywords } from "@/stores/mutedKeywords"
@@ -7,8 +8,29 @@ export function useQueueService() {
   const { ids, isInQueue } = useQueue()
   const { ids: favoriteGenreIds } = useFavoriteGenres()
   const { keywords: mutedKeywords } = useMutedKeywords()
+  const { data: yearGroups = [], isLoading } = useGamesByYear()
 
-  function chooseNextGame(availableGames: Game[]) {
+  // Build a lookup of all games by ID
+  const gamesById = new Map<number, Game>()
+  for (const group of yearGroups) {
+    for (const game of group.games) {
+      gamesById.set(game.id, game)
+    }
+  }
+
+  const queuedGames = ids.map((id) => gamesById.get(id)).filter(Boolean) as Game[]
+
+  // All games not already in the queue
+  const availableGames: Game[] = []
+  for (const group of yearGroups) {
+    for (const game of group.games) {
+      if (!ids.includes(game.id)) {
+        availableGames.push(game)
+      }
+    }
+  }
+
+  function chooseNextGame() {
     if (availableGames.length === 0) return
     // Filter out games matching muted keywords
     const unmuted =
@@ -38,6 +60,9 @@ export function useQueueService() {
 
   return {
     queueIds: ids,
+    queuedGames,
+    availableGames,
+    isLoading,
     chooseNextGame,
     addToQueue,
     removeFromQueue,
