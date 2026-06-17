@@ -12,16 +12,16 @@ import { Ionicons } from "@expo/vector-icons"
 
 import { Screen } from "@/components/Screen"
 import { Text } from "@/components/Text"
-import { type FeedGenre, useFeedGenres } from "@/services/api/games"
-import { useFavoriteGenres } from "@/stores/favoriteGenres"
+import type { FeedGenre } from "@/services/api/games"
+import { useFavoriteGenresService } from "@/services/favoriteGenresService"
 import { useAppTheme } from "@/theme/context"
 import { $styles } from "@/theme/styles"
 import type { ThemedStyle } from "@/theme/types"
 
 export function FavoriteGenresScreen() {
   const { themed, theme } = useAppTheme()
-  const { data: allGenres = [], isLoading } = useFeedGenres()
-  const { ids: favoriteIds } = useFavoriteGenres()
+  const { favoriteGenres, otherGenres, isLoading, isFavorite, toggleFavorite } =
+    useFavoriteGenresService()
 
   if (isLoading) {
     return (
@@ -30,12 +30,6 @@ export function FavoriteGenresScreen() {
       </Screen>
     )
   }
-
-  const favoriteGenres = favoriteIds
-    .map((id) => allGenres.find((g) => g.id === id))
-    .filter(Boolean) as FeedGenre[]
-
-  const otherGenres = allGenres.filter((g) => !favoriteIds.includes(g.id))
 
   const sections = [
     { title: "Favorite Genres", data: favoriteGenres, isFavoriteSection: true },
@@ -59,8 +53,8 @@ export function FavoriteGenresScreen() {
             )}
           </View>
         )}
-        renderItem={({ item, section }) => (
-          <GenreRow genre={item} isFavorite={section.isFavoriteSection as boolean} />
+        renderItem={({ item }) => (
+          <GenreRow genre={item} isFavorite={isFavorite(item.id)} onToggle={toggleFavorite} />
         )}
         ItemSeparatorComponent={() => <View style={themed($separator)} />}
         contentContainerStyle={themed($listContent)}
@@ -73,11 +67,11 @@ export function FavoriteGenresScreen() {
 interface GenreRowProps {
   genre: FeedGenre
   isFavorite: boolean
+  onToggle: (id: number) => void
 }
 
-function GenreRow({ genre, isFavorite }: GenreRowProps) {
+function GenreRow({ genre, isFavorite, onToggle }: GenreRowProps) {
   const { themed, theme } = useAppTheme()
-  const { addFavoriteGenre, removeFavoriteGenre } = useFavoriteGenres()
 
   return (
     <View style={themed($row)}>
@@ -95,10 +89,7 @@ function GenreRow({ genre, isFavorite }: GenreRowProps) {
             {genre.gameCount} {genre.gameCount === 1 ? "game" : "games"}
           </Text>
         </View>
-        <TouchableOpacity
-          onPress={() => (isFavorite ? removeFavoriteGenre(genre.id) : addFavoriteGenre(genre.id))}
-          hitSlop={8}
-        >
+        <TouchableOpacity onPress={() => onToggle(genre.id)} hitSlop={8}>
           <Ionicons
             name={isFavorite ? "remove-circle" : "add-circle"}
             size={28}
