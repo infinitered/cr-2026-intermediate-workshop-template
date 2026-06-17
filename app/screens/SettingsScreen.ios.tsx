@@ -122,7 +122,7 @@ export function SettingsScreen() {
           <TextField
             placeholder="City"
             defaultValue={shippingAddress.city}
-            onValueChange={(v) => setShippingAddress({ city: v })}
+            onValueChange={(v) => {setShippingAddress({ city: v }); console.log(v)}}
           />
           <Picker
             label="State"

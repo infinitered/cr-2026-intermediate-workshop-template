@@ -206,7 +206,10 @@ export function SettingsScreen() {
               <ComposeText>State</ComposeText>
             </OutlinedTextField.Label>
           </OutlinedTextField>
-          <ExposedDropdownMenu expanded={stateExpanded} onDismissRequest={() => setStateExpanded(false)}>
+          <ExposedDropdownMenu
+            expanded={stateExpanded}
+            onDismissRequest={() => setStateExpanded(false)}
+          >
             {US_STATES.map((s) => (
               <DropdownMenuItem
                 key={s.abbr}
