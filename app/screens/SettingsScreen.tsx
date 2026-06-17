@@ -127,9 +127,8 @@ export function SettingsScreen() {
 
       <View style={themed($separator)} />
 
-      <View style={themed($separator)} />
-      {/* Queue Preferences */}
-      <Text preset="subheading" text="Queue Preferences" style={themed($sectionHeader)} />
+      {/* Queue preferences */}
+      <Text preset="subheading" text="Queue preferences" style={themed($sectionHeader)} />
       <View style={themed($toggleRow)}>
         <Text preset="bold" text="Hide Mature Content" />
         <Switch value={hideMature} onValueChange={setHideMature} />
