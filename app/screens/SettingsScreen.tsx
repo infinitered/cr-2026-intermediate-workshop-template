@@ -189,24 +189,6 @@ export function SettingsScreen() {
         style={themed($queuePrefButton)}
         onPress={() => router.push("/favorite-genres")}
       />
-      <Button
-        text="Muted Keywords"
-        preset="default"
-        style={themed($queuePrefButton)}
-        onPress={() => router.push("/muted-keywords")}
-      />
-
-      <View style={themed($separator)} />
-
-      {/* Appearance */}
-      <Text preset="subheading" text="Appearance" style={themed($sectionHeader)} />
-      <View style={themed($toggleRow)}>
-        <Text preset="bold" text="Dark Mode" />
-        <Switch
-          value={isDarkMode}
-          onValueChange={(value) => setThemeContextOverride(value ? "dark" : "light")}
-        />
-      </View>
     </Screen>
   )
 }
