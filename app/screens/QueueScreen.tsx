@@ -49,7 +49,7 @@ export function QueueScreen() {
         {isEmpty ? (
           <View style={$emptyContainer}>
             <Text style={themed($emptyText)}>
-              {"There's no games in your queue yet, why don't you add one?"}
+              {"There are no games in your queue yet, why don't you add one?"}
             </Text>
           </View>
         ) : (
