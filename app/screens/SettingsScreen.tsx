@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Platform, Pressable, TouchableOpacity, View, ViewStyle, TextStyle } from "react-native"
+import { Platform, Pressable, View, ViewStyle, TextStyle } from "react-native"
 import { router } from "expo-router"
 import DateTimePicker from "@react-native-community/datetimepicker"
 import Slider from "@react-native-community/slider"
@@ -13,10 +13,8 @@ import { useSettings } from "@/stores/settings"
 import { useAppTheme } from "@/theme/context"
 import type { ThemedStyle } from "@/theme/types"
 
-const SORT_OPTIONS = ["Rating", "Name", "Release Date"] as const
-
 export function SettingsScreen() {
-  const { themed, theme, themeContext } = useAppTheme()
+  const { themed, theme } = useAppTheme()
   const {
     displayName,
     setDisplayName,
@@ -26,12 +24,9 @@ export function SettingsScreen() {
     setHideMature,
     minRating,
     setMinRating,
-    sortOrder,
-    setSortOrder,
     shippingAddress,
     setShippingAddress,
   } = useSettings()
-  const isDarkMode = themeContext === "dark"
   const [showDatePicker, setShowDatePicker] = useState(false)
 
   const dateValue = birthDate ? new Date(birthDate) : new Date()
@@ -198,35 +193,6 @@ const $slider: ViewStyle = {
   width: "100%",
   height: 40,
 }
-
-const $sortRow: ViewStyle = {
-  flexDirection: "row",
-  gap: 8,
-}
-
-const $sortPill: ThemedStyle<ViewStyle> = ({ spacing, colors }) => ({
-  paddingVertical: spacing.xxs,
-  paddingHorizontal: spacing.sm,
-  borderRadius: spacing.md,
-  borderWidth: 2,
-  borderColor: colors.brandBorder,
-})
-
-const $sortPillSelected: ThemedStyle<ViewStyle> = ({ colors }) => ({
-  backgroundColor: colors.brandAccent,
-})
-
-const $sortPillUnselected: ThemedStyle<ViewStyle> = ({ colors }) => ({
-  backgroundColor: colors.brandSurface,
-})
-
-const $sortPillTextSelected: ThemedStyle<TextStyle> = ({ colors }) => ({
-  color: colors.brandAccentText,
-})
-
-const $sortPillTextUnselected: ThemedStyle<TextStyle> = ({ colors }) => ({
-  color: colors.brandSurfaceText,
-})
 
 const $queuePrefButton: ThemedStyle<ViewStyle> = ({ colors, spacing }) => ({
   backgroundColor: colors.brandSurface,
