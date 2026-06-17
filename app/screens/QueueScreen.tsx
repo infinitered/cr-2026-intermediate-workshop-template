@@ -12,7 +12,6 @@ import { router } from "expo-router"
 import { Ionicons } from "@expo/vector-icons"
 
 import { Button } from "@/components/Button"
-import { EmptyState } from "@/components/EmptyState"
 import { Screen } from "@/components/Screen"
 import { Text } from "@/components/Text"
 import { useGamesByYear } from "@/services/api/games"
@@ -56,50 +55,52 @@ export function QueueScreen() {
     )
   }
 
-  if (queuedGames.length === 0) {
-    return (
-      <Screen preset="fixed" contentContainerStyle={$centered}>
-        <EmptyState
-          heading="Your Queue is Empty"
-          content="Browse games and add them to your queue to get started."
-        />
-      </Screen>
-    )
-  }
+  const isEmpty = queuedGames.length === 0
 
   return (
-    <Screen preset="fixed">
-      <View style={themed($header)}>
-        <Text size="xs" style={themed($headerText)}>
-          {queuedGames.length} {queuedGames.length === 1 ? "game" : "games"} in your queue
-        </Text>
-      </View>
+    <Screen preset="fixed" contentContainerStyle={$styles.flex1}>
+      <View style={$styles.flex1}>
+        {!isEmpty && (
+          <View style={themed($header)}>
+            <Text size="xs" style={themed($headerText)}>
+              {queuedGames.length} {queuedGames.length === 1 ? "game" : "games"} in your queue
+            </Text>
+          </View>
+        )}
 
-      <FlatList<Game>
-        data={queuedGames}
-        keyExtractor={(item) => String(item.id)}
-        renderItem={({ item, index }) => (
-          <QueueRow
-            game={item}
-            position={index + 1}
-            isFirst={index === 0}
-            isLast={index === queuedGames.length - 1}
+        {isEmpty ? (
+          <View style={$emptyContainer}>
+            <Text style={themed($emptyText)}>
+              There's no games in your queue yet, why don't you add one?
+            </Text>
+          </View>
+        ) : (
+          <FlatList<Game>
+            data={queuedGames}
+            keyExtractor={(item) => String(item.id)}
+            renderItem={({ item, index }) => (
+              <QueueRow
+                game={item}
+                position={index + 1}
+                isFirst={index === 0}
+                isLast={index === queuedGames.length - 1}
+              />
+            )}
+            contentContainerStyle={themed($listContent)}
+            ItemSeparatorComponent={() => <View style={themed($separator)} />}
           />
         )}
-        contentContainerStyle={themed($listContent)}
-        ItemSeparatorComponent={() => <View style={themed($separator)} />}
-        ListFooterComponent={
-          <View style={themed($footerSection)}>
-            <Button
-              text={availableGames.length > 0 ? "Choose My Next Game" : "All Games Queued!"}
-              preset="reversed"
-              style={themed($chooseButton)}
-              onPress={() => chooseNextGame(availableGames)}
-              disabled={availableGames.length === 0}
-            />
-          </View>
-        }
-      />
+      </View>
+
+      <View style={themed($bottomButton)}>
+        <Button
+          text={availableGames.length > 0 ? "Choose My Next Game" : "All Games Queued!"}
+          preset="reversed"
+          style={themed($chooseButton)}
+          onPress={() => chooseNextGame(availableGames)}
+          disabled={availableGames.length === 0}
+        />
+      </View>
     </Screen>
   )
 }
@@ -236,9 +237,21 @@ const $controls: ViewStyle = {
   gap: 8,
 }
 
-const $footerSection: ThemedStyle<ViewStyle> = ({ spacing }) => ({
-  paddingTop: spacing.lg,
-  paddingBottom: spacing.xl,
+const $emptyContainer: ViewStyle = {
+  flex: 1,
+  justifyContent: "center",
+  alignItems: "center",
+  paddingHorizontal: 32,
+}
+
+const $emptyText: ThemedStyle<TextStyle> = ({ colors }) => ({
+  color: colors.textDim,
+  textAlign: "center",
+})
+
+const $bottomButton: ThemedStyle<ViewStyle> = ({ spacing }) => ({
+  paddingHorizontal: spacing.lg,
+  paddingVertical: spacing.md,
 })
 
 const $chooseButton: ThemedStyle<ViewStyle> = ({ colors, spacing }) => ({

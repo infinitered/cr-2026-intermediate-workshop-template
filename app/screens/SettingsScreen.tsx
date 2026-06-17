@@ -16,7 +16,7 @@ import type { ThemedStyle } from "@/theme/types"
 const SORT_OPTIONS = ["Rating", "Name", "Release Date"] as const
 
 export function SettingsScreen() {
-  const { themed, theme, themeContext, setThemeContextOverride } = useAppTheme()
+  const { themed, theme, themeContext } = useAppTheme()
   const {
     displayName,
     setDisplayName,
@@ -132,43 +132,13 @@ export function SettingsScreen() {
 
       <View style={themed($separator)} />
 
-      {/* Content Preferences */}
-      <Text preset="subheading" text="Content Preferences" style={themed($sectionHeader)} />
-
+      <View style={themed($separator)} />
+      {/* Queue Preferences */}
+      <Text preset="subheading" text="Queue Preferences" style={themed($sectionHeader)} />
       <View style={themed($toggleRow)}>
         <Text preset="bold" text="Hide Mature Content" />
         <Switch value={hideMature} onValueChange={setHideMature} />
       </View>
-
-      <View style={themed($sliderRow)}>
-        <Text preset="bold" text="Sort Order" />
-        <View style={$sortRow}>
-          {SORT_OPTIONS.map((option) => {
-            const isSelected = sortOrder === option
-            return (
-              <TouchableOpacity
-                key={option}
-                style={[
-                  themed($sortPill),
-                  themed(isSelected ? $sortPillSelected : $sortPillUnselected),
-                ]}
-                onPress={() => setSortOrder(option)}
-              >
-                <Text
-                  text={option}
-                  size="xs"
-                  style={themed(isSelected ? $sortPillTextSelected : $sortPillTextUnselected)}
-                />
-              </TouchableOpacity>
-            )
-          })}
-        </View>
-      </View>
-
-      <View style={themed($separator)} />
-      {/* Queue Preferences */}
-      <Text preset="subheading" text="Queue Preferences" style={themed($sectionHeader)} />
-
       <View style={themed($sliderRow)}>
         <Text preset="bold" text={`Minimum Rating: ${minRating} / 5`} />
         <Slider
