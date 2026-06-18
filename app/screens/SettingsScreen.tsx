@@ -1,11 +1,12 @@
 import type { ViewStyle } from "react-native"
 import { router } from "expo-router"
 // prettier-ignore
-import { Host, FieldGroup, TextInput, Switch, Slider, Button, Row, Column, Text, RNHostView, Spacer } from "@expo/ui"
+import { Host, FieldGroup, TextInput, Switch, Slider, Button, Picker, Row, Column, Text, RNHostView, Spacer } from "@expo/ui"
 import DateTimePicker from "@react-native-community/datetimepicker"
 
 import { Screen } from "@/components/Screen"
 import { useSettings } from "@/stores/settings"
+import { US_STATES } from "@/utils/usStates"
 
 export function SettingsScreen() {
   const {
@@ -67,24 +68,28 @@ export function SettingsScreen() {
               onChangeText={(v) => setShippingAddress({ city: v })}
               autoCapitalize="words"
             />
-            <Row spacing={8}>
-              <TextInput
-                placeholder="State"
-                defaultValue={shippingAddress.state}
-                onChangeText={(v) => setShippingAddress({ state: v.toUpperCase().slice(0, 2) })}
-                autoCapitalize="characters"
-                maxLength={2}
-              />
-              <TextInput
-                placeholder="ZIP Code"
-                defaultValue={shippingAddress.zip}
-                onChangeText={(v) =>
-                  setShippingAddress({ zip: v.replace(/[^0-9]/g, "").slice(0, 5) })
-                }
-                keyboardType="number-pad"
-                maxLength={5}
-              />
+            <Row alignment="center">
+              <Text>State</Text>
+              <Spacer />
+              <Picker
+                selectedValue={shippingAddress.state}
+                onValueChange={(v) => setShippingAddress({ state: v })}
+              >
+                <Picker.Item label="Select..." value="" />
+                {US_STATES.map((s) => (
+                  <Picker.Item key={s.value} label={s.label} value={s.value} />
+                ))}
+              </Picker>
             </Row>
+            <TextInput
+              placeholder="ZIP Code"
+              defaultValue={shippingAddress.zip}
+              onChangeText={(v) =>
+                setShippingAddress({ zip: v.replace(/[^0-9]/g, "").slice(0, 5) })
+              }
+              keyboardType="number-pad"
+              maxLength={5}
+            />
           </FieldGroup.Section>
 
           <FieldGroup.Section title="Queue Preferences">
