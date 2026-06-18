@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "expo-local": {
+      "command": "npx",
+      "args": [
+        "expo-mcp@latest",
+        "--dev-server-url",
+        "http://localhost:8081"
+      ]
+    }
+  }
+}
