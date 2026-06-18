@@ -1,10 +1,10 @@
-import { FlatList, TextStyle, View, ViewStyle } from "react-native"
+import { TextStyle, View, ViewStyle } from "react-native"
 
 import { Text } from "@/components/Text"
 import { useAppTheme } from "@/theme/context"
 import type { ThemedStyle } from "@/theme/types"
 
-import { GameCard } from "./GameCard"
+import { GameGallery } from "./GameGallery"
 import { GameListItem } from "./GameListItem"
 import type { Game } from "../services/api/types"
 
@@ -27,14 +27,7 @@ export function YearSection({ year, games, viewMode }: YearSectionProps) {
       {viewMode === "list" ? (
         games.map((game) => <GameListItem key={game.id} game={game} />)
       ) : (
-        <FlatList
-          horizontal
-          data={games}
-          keyExtractor={(item) => String(item.id)}
-          renderItem={({ item }) => <GameCard game={item} />}
-          showsHorizontalScrollIndicator={false}
-          contentContainerStyle={themed($listContent)}
-        />
+        <GameGallery games={games} />
       )}
     </View>
   )
@@ -59,10 +52,4 @@ const $badge: ThemedStyle<ViewStyle> = ({ colors, spacing }) => ({
 
 const $badgeText: ThemedStyle<TextStyle> = ({ colors }) => ({
   color: colors.brandAccentText,
-})
-
-const $listContent: ThemedStyle<ViewStyle> = ({ spacing }) => ({
-  paddingHorizontal: spacing.lg,
-  paddingBottom: spacing.xs,
-  gap: spacing.sm,
 })
