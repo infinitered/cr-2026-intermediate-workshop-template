@@ -30,6 +30,7 @@
   "dependencies": {
     "@expo-google-fonts/oxanium": "0.4.2",
     "@expo/dom-webview": "56.0.5",
+    "@expo/material-symbols": "^0.1.1",
     "@expo/metro-runtime": "~56.0.15",
     "@expo/ui": "56.0.18",
     "@expo/vector-icons": "^15.1.1",
