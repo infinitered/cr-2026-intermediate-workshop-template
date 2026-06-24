@@ -40,23 +40,15 @@ export function Dropdown({ title, items, selectedValue, onValueChange }: Dropdow
   }, [selectedValue, selectedValueNativeState, items])
 
   return (
-    <Row
-      verticalAlignment="center"
-      horizontalArrangement="spaceEvenly"
-      modifiers={[fillMaxWidth()]}
-    >
+    <Row verticalAlignment="center" horizontalArrangement="spaceBetween" modifiers={[]}>
       <Text modifiers={[]}>State</Text>
       <Spacer modifiers={[padding(0, 0, 16, 0)]} />
-      <ExposedDropdownMenuBox
-        expanded={expanded}
-        onExpandedChange={setExpanded}
-        modifiers={[fillMaxWidth()]}
-      >
+      <ExposedDropdownMenuBox expanded={expanded} onExpandedChange={setExpanded} modifiers={[]}>
         <TextField
           value={selectedValueNativeState}
           key={selectedValue}
           readOnly
-          modifiers={[menuAnchor(), fillMaxWidth(), background("#FFFFFF")]}
+          modifiers={[menuAnchor()]}
         >
           <TextField.Placeholder>
             <Text>{displayLabel}</Text>
