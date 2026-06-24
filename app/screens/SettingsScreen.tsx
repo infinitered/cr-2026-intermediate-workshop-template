@@ -1,11 +1,12 @@
 import type { ViewStyle } from "react-native"
 import { router } from "expo-router"
 // prettier-ignore
-import { Host, FieldGroup, TextInput, Switch, Slider, Button, Picker, Row, Column, Text, RNHostView, Spacer } from "@expo/ui"
-import DateTimePicker from "@react-native-community/datetimepicker"
+import { Host, FieldGroup, TextInput, Switch, Slider, Button, Column, Text } from "@expo/ui"
 
 import { Screen } from "@/components/Screen"
 import { useSettings } from "@/stores/settings"
+import { DatePicker } from "@/components/settings/DatePicker"
+import { Dropdown } from "@/components/settings/Dropdown"
 import { US_STATES } from "@/utils/usStates"
 
 export function SettingsScreen() {
@@ -34,19 +35,12 @@ export function SettingsScreen() {
               defaultValue={displayName}
               onChangeText={setDisplayName}
             />
-            <Row alignment="center">
-              <Text>Birth Date</Text>
-              <Spacer />
-              <RNHostView matchContents>
-                <DateTimePicker
-                  value={dateValue}
-                  mode="date"
-                  display="compact"
-                  maximumDate={new Date()}
-                  onChange={(_event, date) => date && setBirthDate(date.toISOString())}
-                />
-              </RNHostView>
-            </Row>
+            <DatePicker
+              title="Birth Date"
+              value={dateValue}
+              onDateChange={(date: Date) => setBirthDate(date.toISOString())}
+              maximumDate={new Date()}
+            />
           </FieldGroup.Section>
 
           <FieldGroup.Section title="Shipping Address">
@@ -68,19 +62,12 @@ export function SettingsScreen() {
               onChangeText={(v) => setShippingAddress({ city: v })}
               autoCapitalize="words"
             />
-            <Row alignment="center">
-              <Text>State</Text>
-              <Spacer />
-              <Picker
-                selectedValue={shippingAddress.state}
-                onValueChange={(v) => setShippingAddress({ state: v })}
-              >
-                <Picker.Item label="Select..." value="" />
-                {US_STATES.map((s) => (
-                  <Picker.Item key={s.value} label={s.label} value={s.value} />
-                ))}
-              </Picker>
-            </Row>
+            <Dropdown
+              title="State"
+              items={US_STATES}
+              selectedValue={shippingAddress.state}
+              onValueChange={(v: string) => setShippingAddress({ state: v })}
+            />
             <TextInput
               placeholder="ZIP Code"
               defaultValue={shippingAddress.zip}
