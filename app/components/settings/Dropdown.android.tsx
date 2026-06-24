@@ -3,7 +3,8 @@ import {
   ExposedDropdownMenuBox,
   ExposedDropdownMenu,
   DropdownMenuItem,
-  TextField,
+  BasicTextField,
+  Box,
   Text,
   useNativeState,
   Row,
@@ -44,19 +45,28 @@ export function Dropdown({ title, items, selectedValue, onValueChange }: Dropdow
       <Text modifiers={[]}>State</Text>
       <Spacer modifiers={[padding(0, 0, 16, 0)]} />
       <ExposedDropdownMenuBox expanded={expanded} onExpandedChange={setExpanded} modifiers={[]}>
-        <TextField
+        <BasicTextField
           value={selectedValueNativeState}
           key={selectedValue}
           readOnly
-          modifiers={[menuAnchor()]}
+          modifiers={[menuAnchor(), fillMaxWidth()]}
         >
-          <TextField.Placeholder>
-            <Text>{displayLabel}</Text>
-          </TextField.Placeholder>
-          <TextField.TrailingIcon>
-            {expanded ? <Icon source={ArrowUpward} /> : <Icon source={ArrowDownward} />}
-          </TextField.TrailingIcon>
-        </TextField>
+          <BasicTextField.DecorationBox>
+            <Row
+              verticalAlignment="center"
+              horizontalArrangement="spaceBetween"
+              modifiers={[fillMaxWidth()]}
+            >
+              <Box>
+                <BasicTextField.Placeholder>
+                  <Text>{displayLabel}</Text>
+                </BasicTextField.Placeholder>
+                <BasicTextField.InnerTextField />
+              </Box>
+              {expanded ? <Icon source={ArrowUpward} /> : <Icon source={ArrowDownward} />}
+            </Row>
+          </BasicTextField.DecorationBox>
+        </BasicTextField>
         <ExposedDropdownMenu expanded={expanded} onDismissRequest={() => setExpanded(false)}>
           {items.map((item) => (
             <DropdownMenuItem
