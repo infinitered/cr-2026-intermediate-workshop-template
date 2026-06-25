@@ -1,6 +1,6 @@
 import { ActivityIndicator, ViewStyle } from "react-native"
 import { Host, List, Section, Label, Image, LabeledContent } from "@expo/ui/swift-ui"
-import { environment, tag, contentShape, shapes, onTapGesture } from "@expo/ui/swift-ui/modifiers"
+import { environment, tag, onTapGesture, moveDisabled } from "@expo/ui/swift-ui/modifiers"
 
 import { Screen } from "@/components/Screen"
 import { type FeedGenre, useFeedGenres } from "@/services/api/games"
@@ -47,9 +47,13 @@ export function FavoriteGenresScreen() {
               systemImage="info.circle"
             />
           ) : (
-            <List.ForEach onDelete={handleDelete} onMove={handleMove}>
+            <List.ForEach onDelete={handleDelete}>
               {favoriteGenres.map((genre) => (
-                <Label key={genre.id} title={genre.name} modifiers={[tag(genre.id)]} />
+                <Label
+                  key={genre.id}
+                  title={genre.name}
+                  modifiers={[tag(genre.id), moveDisabled(true)]}
+                />
               ))}
             </List.ForEach>
           )}
