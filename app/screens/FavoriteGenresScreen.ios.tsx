@@ -65,7 +65,7 @@ export function FavoriteGenresScreen() {
               label={genre.name}
               modifiers={[tag(genre.id), onTapGesture(() => addFavoriteGenre(genre.id))]}
             >
-              <Image systemName="plus.circle" size={22} color={theme.colors.textDim} />
+              <Image systemName="plus.circle" size={22} />
             </LabeledContent>
           ))}
         </Section>
