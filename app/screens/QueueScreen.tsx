@@ -8,14 +8,14 @@ import { Screen } from "@/components/Screen"
 import { Text } from "@/components/Text"
 import type { Game } from "@/services/api/types"
 import { useQueueService } from "@/services/queueService"
-import { removeFromQueue, moveInQueue } from "@/stores/queue"
 import { useAppTheme } from "@/theme/context"
 import { $styles } from "@/theme/styles"
 import type { ThemedStyle } from "@/theme/types"
 
 export function QueueScreen() {
   const { themed, theme } = useAppTheme()
-  const { queuedGames, availableGames, isLoading, chooseNextGame } = useQueueService()
+  const { queuedGames, availableGames, isLoading, chooseNextGame, removeFromQueue, moveInQueue } =
+    useQueueService()
 
   if (isLoading) {
     return <LoadingScreen />

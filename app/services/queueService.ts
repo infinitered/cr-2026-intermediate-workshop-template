@@ -2,7 +2,7 @@ import { useGamesByYear } from "@/services/api/games"
 import type { Game } from "@/services/api/types"
 import { useFavoriteGenres } from "@/stores/favoriteGenres"
 import { useMutedKeywords } from "@/stores/mutedKeywords"
-import { useQueue, addToQueue, removeFromQueue } from "@/stores/queue"
+import { useQueue, addToQueue, removeFromQueue, moveInQueue } from "@/stores/queue"
 
 export function useQueueService() {
   const { ids, isInQueue } = useQueue()
@@ -66,6 +66,7 @@ export function useQueueService() {
     chooseNextGame,
     addToQueue,
     removeFromQueue,
+    moveInQueue,
     toggleQueued,
     isInQueue,
   }
