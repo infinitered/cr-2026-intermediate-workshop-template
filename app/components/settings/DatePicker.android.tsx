@@ -23,7 +23,7 @@ export function DatePicker({ title, value, onDateChange, maximumDate }: DatePick
       <Row alignment="center" onPress={() => setShowDialog(true)}>
         <Text>{title}</Text>
         <Spacer flexible />
-        <Text style={{ color: "#007AFF" }}>{formatted}</Text>
+        <Text>{formatted}</Text>
       </Row>
       {showDialog && (
         <DatePickerDialog

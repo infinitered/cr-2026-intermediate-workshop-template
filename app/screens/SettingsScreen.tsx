@@ -1,7 +1,7 @@
 import type { ViewStyle } from "react-native"
 import { router } from "expo-router"
 // prettier-ignore
-import { Host, FieldGroup, TextInput, Switch, Slider, Button, Column, Text } from "@expo/ui"
+import { Host, FieldGroup, TextInput, Switch, Slider, Button, Column, Text, Row } from "@expo/ui"
 
 import { Screen } from "@/components/Screen"
 import { useSettings } from "@/stores/settings"
@@ -85,7 +85,11 @@ export function SettingsScreen() {
               <Text>{`Minimum Rating: ${minRating} / 5`}</Text>
               <Slider value={minRating} onValueChange={setMinRating} min={1} max={5} step={1} />
             </Column>
-            <Button label="Favorite Genres" onPress={() => router.push("/favorite-genres")} />
+            <Button
+              variant="text"
+              label="Set Favorite Genres"
+              onPress={() => router.push("/favorite-genres")}
+            />
           </FieldGroup.Section>
         </FieldGroup>
       </Host>
