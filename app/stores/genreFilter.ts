@@ -4,9 +4,7 @@ interface GenreFilterState {
   selectedIds: number[]
 }
 
-const DEFAULT_GENRE_IDS = [4, 83, 5] // Action, Platformer, RPG
-
-const store = createStore<GenreFilterState>({ selectedIds: DEFAULT_GENRE_IDS }, "genreFilter")
+const store = createStore<GenreFilterState>({ selectedIds: [] }, "genreFilter")
 
 export function toggleGenre(id: number) {
   store.setState((prev) => ({
