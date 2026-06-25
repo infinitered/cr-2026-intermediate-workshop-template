@@ -1,9 +1,10 @@
 import { useLayoutEffect, useMemo, useState } from "react"
-import { ActivityIndicator, Pressable, ScrollView, View, ViewStyle } from "react-native"
+import { Pressable, ScrollView, View, ViewStyle } from "react-native"
 import { useNavigation } from "expo-router"
 import { Ionicons } from "@expo/vector-icons"
 
 import { EmptyState } from "@/components/EmptyState"
+import { LoadingScreen } from "@/components/LoadingScreen"
 import { Screen } from "@/components/Screen"
 import { Text } from "@/components/Text"
 import { Checkbox } from "@/components/Toggle/Checkbox"
@@ -54,11 +55,7 @@ export function GameFeedScreen() {
   }, [yearGroups, genreIds])
 
   if (isLoading) {
-    return (
-      <Screen preset="fixed" contentContainerStyle={$centered}>
-        <ActivityIndicator size="large" color={theme.colors.tint} />
-      </Screen>
-    )
+    return <LoadingScreen />
   }
 
   if (isError || !yearGroups || yearGroups.length === 0) {
