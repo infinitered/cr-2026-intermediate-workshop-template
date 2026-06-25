@@ -16,13 +16,15 @@ export type FeedSearchProps = {
  * search pill. iOS uses the bottom `Stack.Toolbar` search instead.
  */
 export function FeedSearch({ onChangeText }: FeedSearchProps) {
-  const { theme } = useAppTheme()
+  const { theme, themeContext } = useAppTheme()
   const toolbarIcon = useToolbarIcons(theme.colors.text)
   const searchIcon = toolbarIcon("search")
 
   return (
     <View style={$wrapper}>
-      <Host useViewportSizeMeasurement style={$host}>
+      {/* Pin the Compose color scheme to the app theme — otherwise the search bar follows the
+          device appearance and renders dark while the app is in light mode. */}
+      <Host useViewportSizeMeasurement style={$host} colorScheme={themeContext}>
         <DockedSearchBar onQueryChange={onChangeText}>
           <DockedSearchBar.LeadingIcon>
             {searchIcon ? <Icon source={searchIcon} size={24} /> : null}
