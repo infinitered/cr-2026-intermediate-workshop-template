@@ -49,12 +49,7 @@ export function FavoriteGenresScreen() {
           ) : (
             <List.ForEach onDelete={handleDelete} onMove={handleMove}>
               {favoriteGenres.map((genre) => (
-                <Label
-                  key={genre.id}
-                  title={genre.name}
-                  icon={<Image systemName="star.fill" size={20} color="#4A90D9" />}
-                  modifiers={[tag(genre.id), contentShape(shapes.rectangle())]}
-                />
+                <Label key={genre.id} title={genre.name} modifiers={[tag(genre.id)]} />
               ))}
             </List.ForEach>
           )}
@@ -64,11 +59,7 @@ export function FavoriteGenresScreen() {
             <LabeledContent
               key={genre.id}
               label={genre.name}
-              modifiers={[
-                tag(genre.id),
-                contentShape(shapes.rectangle()),
-                onTapGesture(() => addFavoriteGenre(genre.id)),
-              ]}
+              modifiers={[tag(genre.id), onTapGesture(() => addFavoriteGenre(genre.id))]}
             >
               <Image systemName="plus.circle" size={22} color={theme.colors.textDim} />
             </LabeledContent>
