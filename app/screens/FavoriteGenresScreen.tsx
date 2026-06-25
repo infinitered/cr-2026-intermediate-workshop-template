@@ -1,15 +1,7 @@
-import {
-  ActivityIndicator,
-  Image,
-  ImageStyle,
-  SectionList,
-  TextStyle,
-  TouchableOpacity,
-  View,
-  ViewStyle,
-} from "react-native"
+import { Image, ImageStyle, SectionList, TextStyle, TouchableOpacity, View, ViewStyle } from "react-native"
 import { Ionicons } from "@expo/vector-icons"
 
+import { LoadingScreen } from "@/components/LoadingScreen"
 import { Screen } from "@/components/Screen"
 import { Text } from "@/components/Text"
 import type { FeedGenre } from "@/services/api/games"
@@ -19,16 +11,12 @@ import { $styles } from "@/theme/styles"
 import type { ThemedStyle } from "@/theme/types"
 
 export function FavoriteGenresScreen() {
-  const { themed, theme } = useAppTheme()
+  const { themed } = useAppTheme()
   const { favoriteGenres, otherGenres, isLoading, isFavorite, toggleFavorite } =
     useFavoriteGenresService()
 
   if (isLoading) {
-    return (
-      <Screen preset="fixed" contentContainerStyle={$centered}>
-        <ActivityIndicator size="large" color={theme.colors.tint} />
-      </Screen>
-    )
+    return <LoadingScreen />
   }
 
   const sections = [
@@ -99,12 +87,6 @@ function GenreRow({ genre, isFavorite, onToggle }: GenreRowProps) {
       </View>
     </View>
   )
-}
-
-const $centered: ViewStyle = {
-  flex: 1,
-  justifyContent: "center",
-  alignItems: "center",
 }
 
 const $listContent: ThemedStyle<ViewStyle> = ({ spacing }) => ({

@@ -1,17 +1,9 @@
-import {
-  ActivityIndicator,
-  FlatList,
-  Image,
-  ImageStyle,
-  TextStyle,
-  TouchableOpacity,
-  View,
-  ViewStyle,
-} from "react-native"
+import { FlatList, Image, ImageStyle, TextStyle, TouchableOpacity, View, ViewStyle } from "react-native"
 import { router } from "expo-router"
 import { Ionicons } from "@expo/vector-icons"
 
 import { Button } from "@/components/Button"
+import { LoadingScreen } from "@/components/LoadingScreen"
 import { Screen } from "@/components/Screen"
 import { Text } from "@/components/Text"
 import type { Game } from "@/services/api/types"
@@ -26,11 +18,7 @@ export function QueueScreen() {
   const { queuedGames, availableGames, isLoading, chooseNextGame } = useQueueService()
 
   if (isLoading) {
-    return (
-      <Screen preset="fixed" contentContainerStyle={$centered}>
-        <ActivityIndicator size="large" color={theme.colors.tint} />
-      </Screen>
-    )
+    return <LoadingScreen />
   }
 
   const isEmpty = queuedGames.length === 0
@@ -149,12 +137,6 @@ function QueueRow({ game, position, isFirst, isLast }: QueueRowProps) {
       </View>
     </TouchableOpacity>
   )
-}
-
-const $centered: ViewStyle = {
-  flex: 1,
-  justifyContent: "center",
-  alignItems: "center",
 }
 
 const $header: ThemedStyle<ViewStyle> = ({ spacing }) => ({

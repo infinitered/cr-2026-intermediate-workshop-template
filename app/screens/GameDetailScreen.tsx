@@ -1,5 +1,4 @@
 import {
-  ActivityIndicator,
   Alert,
   FlatList,
   Image,
@@ -15,6 +14,7 @@ import { Ionicons } from "@expo/vector-icons"
 
 import { Button } from "@/components/Button"
 import { EmptyState } from "@/components/EmptyState"
+import { LoadingScreen } from "@/components/LoadingScreen"
 import { Screen } from "@/components/Screen"
 import { Text } from "@/components/Text"
 import { useGameDetail, useGameScreenshots } from "@/services/api/games"
@@ -37,11 +37,7 @@ export function GameDetailScreen({ id }: GameDetailScreenProps) {
   const localReviews = useReviews(id)
 
   if (isLoading) {
-    return (
-      <Screen preset="fixed" contentContainerStyle={$centered}>
-        <ActivityIndicator size="large" color={theme.colors.tint} />
-      </Screen>
-    )
+    return <LoadingScreen />
   }
 
   if (isError || !game) {
