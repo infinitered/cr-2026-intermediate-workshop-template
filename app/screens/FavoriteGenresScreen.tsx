@@ -1,4 +1,12 @@
-import { Image, ImageStyle, SectionList, TextStyle, TouchableOpacity, View, ViewStyle } from "react-native"
+import {
+  Image,
+  ImageStyle,
+  SectionList,
+  TextStyle,
+  TouchableOpacity,
+  View,
+  ViewStyle,
+} from "react-native"
 import { Ionicons } from "@expo/vector-icons"
 
 import { LoadingScreen } from "@/components/LoadingScreen"
