@@ -126,8 +126,6 @@ export function SettingsScreen() {
       </View>
 
       <View style={themed($separator)} />
-
-      <View style={themed($separator)} />
       {/* Queue Preferences */}
       <Text preset="subheading" text="Queue Preferences" style={themed($sectionHeader)} />
       <View style={themed($toggleRow)}>
