@@ -75,10 +75,6 @@ export default function Root() {
                 name="favorite-genres"
                 options={{ headerShown: true, title: "Favorite Genres" }}
               />
-              <Stack.Screen
-                name="muted-keywords"
-                options={{ headerShown: true, title: "Muted Keywords" }}
-              />
               <Stack.Screen name="disclosures" />
             </Stack>
           </QueryClientProvider>
