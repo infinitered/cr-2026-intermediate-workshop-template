@@ -1,105 +1,72 @@
-import {
-  ActivityIndicator,
-  FlatList,
-  Image,
-  ImageStyle,
-  TextStyle,
-  TouchableOpacity,
-  View,
-  ViewStyle,
-} from "react-native"
+import { FlatList, Image, ImageStyle, TextStyle, TouchableOpacity, View, ViewStyle } from "react-native"
 import { router } from "expo-router"
 import { Ionicons } from "@expo/vector-icons"
 
 import { Button } from "@/components/Button"
-import { EmptyState } from "@/components/EmptyState"
+import { LoadingScreen } from "@/components/LoadingScreen"
 import { Screen } from "@/components/Screen"
 import { Text } from "@/components/Text"
-import { useGamesByYear } from "@/services/api/games"
 import type { Game } from "@/services/api/types"
 import { useQueueService } from "@/services/queueService"
-import { removeFromQueue, moveInQueue } from "@/stores/queue"
 import { useAppTheme } from "@/theme/context"
 import { $styles } from "@/theme/styles"
 import type { ThemedStyle } from "@/theme/types"
 
 export function QueueScreen() {
   const { themed, theme } = useAppTheme()
-  const { queueIds: ids, chooseNextGame } = useQueueService()
-  const { data: yearGroups = [], isLoading } = useGamesByYear()
-
-  // Build a lookup of all games by ID
-  const gamesById = new Map<number, Game>()
-  for (const group of yearGroups) {
-    for (const game of group.games) {
-      gamesById.set(game.id, game)
-    }
-  }
-
-  const queuedGames = ids.map((id) => gamesById.get(id)).filter(Boolean) as Game[]
-
-  // All games not already in the queue
-  const availableGames: Game[] = []
-  for (const group of yearGroups) {
-    for (const game of group.games) {
-      if (!ids.includes(game.id)) {
-        availableGames.push(game)
-      }
-    }
-  }
+  const { queuedGames, availableGames, isLoading, chooseNextGame, removeFromQueue, moveInQueue } =
+    useQueueService()
 
   if (isLoading) {
-    return (
-      <Screen preset="fixed" contentContainerStyle={$centered}>
-        <ActivityIndicator size="large" color={theme.colors.tint} />
-      </Screen>
-    )
+    return <LoadingScreen />
   }
 
-  if (queuedGames.length === 0) {
-    return (
-      <Screen preset="fixed" contentContainerStyle={$centered}>
-        <EmptyState
-          heading="Your Queue is Empty"
-          content="Browse games and add them to your queue to get started."
-        />
-      </Screen>
-    )
-  }
+  const isEmpty = queuedGames.length === 0
 
   return (
-    <Screen preset="fixed">
-      <View style={themed($header)}>
-        <Text size="xs" style={themed($headerText)}>
-          {queuedGames.length} {queuedGames.length === 1 ? "game" : "games"} in your queue
-        </Text>
-      </View>
+    <Screen preset="fixed" contentContainerStyle={$styles.flex1}>
+      <View style={$styles.flex1}>
+        {!isEmpty && (
+          <View style={themed($header)}>
+            <Text size="xs" style={themed($headerText)}>
+              {queuedGames.length} {queuedGames.length === 1 ? "game" : "games"} in your queue
+            </Text>
+          </View>
+        )}
 
-      <FlatList<Game>
-        data={queuedGames}
-        keyExtractor={(item) => String(item.id)}
-        renderItem={({ item, index }) => (
-          <QueueRow
-            game={item}
-            position={index + 1}
-            isFirst={index === 0}
-            isLast={index === queuedGames.length - 1}
+        {isEmpty ? (
+          <View style={$emptyContainer}>
+            <Text style={themed($emptyText)}>
+              {"There are no games in your queue yet, why don't you add one?"}
+            </Text>
+          </View>
+        ) : (
+          <FlatList<Game>
+            data={queuedGames}
+            keyExtractor={(item) => String(item.id)}
+            renderItem={({ item, index }) => (
+              <QueueRow
+                game={item}
+                position={index + 1}
+                isFirst={index === 0}
+                isLast={index === queuedGames.length - 1}
+              />
+            )}
+            contentContainerStyle={themed($listContent)}
+            ItemSeparatorComponent={() => <View style={themed($separator)} />}
           />
         )}
-        contentContainerStyle={themed($listContent)}
-        ItemSeparatorComponent={() => <View style={themed($separator)} />}
-        ListFooterComponent={
-          <View style={themed($footerSection)}>
-            <Button
-              text={availableGames.length > 0 ? "Choose My Next Game" : "All Games Queued!"}
-              preset="reversed"
-              style={themed($chooseButton)}
-              onPress={() => chooseNextGame(availableGames)}
-              disabled={availableGames.length === 0}
-            />
-          </View>
-        }
-      />
+      </View>
+
+      <View style={themed($bottomButton)}>
+        <Button
+          text={availableGames.length > 0 ? "Choose My Next Game" : "All Games Queued!"}
+          preset="reversed"
+          style={themed($chooseButton)}
+          onPress={chooseNextGame}
+          disabled={availableGames.length === 0}
+        />
+      </View>
     </Screen>
   )
 }
@@ -172,12 +139,6 @@ function QueueRow({ game, position, isFirst, isLast }: QueueRowProps) {
   )
 }
 
-const $centered: ViewStyle = {
-  flex: 1,
-  justifyContent: "center",
-  alignItems: "center",
-}
-
 const $header: ThemedStyle<ViewStyle> = ({ spacing }) => ({
   paddingHorizontal: spacing.lg,
   paddingVertical: spacing.sm,
@@ -236,9 +197,21 @@ const $controls: ViewStyle = {
   gap: 8,
 }
 
-const $footerSection: ThemedStyle<ViewStyle> = ({ spacing }) => ({
-  paddingTop: spacing.lg,
-  paddingBottom: spacing.xl,
+const $emptyContainer: ViewStyle = {
+  flex: 1,
+  justifyContent: "center",
+  alignItems: "center",
+  paddingHorizontal: 32,
+}
+
+const $emptyText: ThemedStyle<TextStyle> = ({ colors }) => ({
+  color: colors.textDim,
+  textAlign: "center",
+})
+
+const $bottomButton: ThemedStyle<ViewStyle> = ({ spacing }) => ({
+  paddingHorizontal: spacing.lg,
+  paddingVertical: spacing.md,
 })
 
 const $chooseButton: ThemedStyle<ViewStyle> = ({ colors, spacing }) => ({
