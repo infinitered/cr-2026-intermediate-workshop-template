@@ -6,6 +6,7 @@ import { useSettings } from "@/stores/settings"
 import { useAppTheme } from "@/theme/context"
 import type { ThemedStyle } from "@/theme/types"
 import { Host, FieldGroup, TextInput, Switch, Slider, Button, Column, Text } from "@expo/ui"
+import { DatePicker } from "@/components/DatePicker"
 
 export function SettingsScreen() {
   const { themed } = useAppTheme()
@@ -18,6 +19,8 @@ export function SettingsScreen() {
     setMinRating,
     shippingAddress,
     setShippingAddress,
+    birthDate,
+    setBirthDate,
   } = useSettings()
 
   return (
@@ -29,6 +32,12 @@ export function SettingsScreen() {
               placeholder="Enter your name"
               defaultValue={displayName}
               onChangeText={setDisplayName}
+            />
+            <DatePicker
+              title="Birth Date"
+              value={birthDate ? new Date(birthDate) : new Date()}
+              onDateChange={(date) => setBirthDate(date.toISOString())}
+              maximumDate={new Date()}
             />
           </FieldGroup.Section>
 
