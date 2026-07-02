@@ -1,15 +1,13 @@
-import { ViewStyle } from "react-native"
 import { router } from "expo-router"
 
 import { Screen } from "@/components/Screen"
 import { useSettings } from "@/stores/settings"
-import { useAppTheme } from "@/theme/context"
-import type { ThemedStyle } from "@/theme/types"
 import { Host, FieldGroup, TextInput, Switch, Slider, Button, Column, Text } from "@expo/ui"
 import { DatePicker } from "@/components/DatePicker"
+import { Dropdown } from "@/components/Dropdown"
+import { US_STATES } from "@/utils/usStates"
 
 export function SettingsScreen() {
-  const { themed } = useAppTheme()
   const {
     displayName,
     setDisplayName,
@@ -24,8 +22,8 @@ export function SettingsScreen() {
   } = useSettings()
 
   return (
-    <Screen preset="fixed" contentContainerStyle={themed($container)}>
-      <Host style={$hostFill}>
+    <Screen preset="fixed" contentContainerStyle={{ flex: 1 }}>
+      <Host style={{ flex: 1 }}>
         <FieldGroup>
           <FieldGroup.Section title="Profile">
             <TextInput
@@ -60,11 +58,11 @@ export function SettingsScreen() {
               onChangeText={(v) => setShippingAddress({ city: v })}
               autoCapitalize="words"
             />
-            <TextInput
-              placeholder="State"
-              defaultValue={shippingAddress.state}
-              onChangeText={(v) => setShippingAddress({ state: v })}
-              autoCapitalize="words"
+            <Dropdown
+              title="State"
+              selectedValue={shippingAddress.state}
+              onValueChange={(v) => setShippingAddress({ state: v })}
+              items={US_STATES}
             />
             <TextInput
               placeholder="ZIP Code"
@@ -93,12 +91,4 @@ export function SettingsScreen() {
       </Host>
     </Screen>
   )
-}
-
-const $container: ThemedStyle<ViewStyle> = () => ({
-  flex: 1,
-})
-
-const $hostFill: ViewStyle = {
-  flex: 1,
 }
