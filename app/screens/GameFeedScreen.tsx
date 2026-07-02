@@ -2,6 +2,7 @@ import { useLayoutEffect, useMemo, useState } from "react"
 import { Pressable, ScrollView, View, ViewStyle } from "react-native"
 import { useNavigation } from "expo-router"
 import { Ionicons } from "@expo/vector-icons"
+import { useSafeAreaInsets } from "react-native-safe-area-context"
 
 import { EmptyState } from "@/components/EmptyState"
 import { LoadingScreen } from "@/components/LoadingScreen"
@@ -17,6 +18,7 @@ import type { ThemedStyle } from "@/theme/types"
 
 export function GameFeedScreen() {
   const { themed, theme } = useAppTheme()
+  const { bottom } = useSafeAreaInsets()
   const { data: yearGroups, isLoading, isError } = useGamesByYear()
   const { data: genres = [] } = useFeedGenres()
   const [showFilters, setShowFilters] = useState(false)
@@ -87,7 +89,7 @@ export function GameFeedScreen() {
         </View>
       )}
 
-      <ScrollView>
+      <ScrollView contentContainerStyle={{ paddingBottom: bottom }}>
         {filteredYearGroups && filteredYearGroups.length > 0 ? (
           filteredYearGroups.map((group) => (
             <YearSection key={group.year} year={group.year} games={group.games} />
