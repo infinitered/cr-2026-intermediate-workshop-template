@@ -1,24 +1,26 @@
-import { useState } from "react"
-import { ActivityIndicator, Pressable, View, ViewStyle } from "react-native"
+import { ViewStyle } from "react-native"
 import { Image as ExpoImage } from "expo-image"
 import { router } from "expo-router"
+import ArrowDownward from "@expo/material-symbols/arrow_downward.xml"
+import ArrowUpward from "@expo/material-symbols/arrow_upward.xml"
+import Cancel from "@expo/material-symbols/cancel.xml"
 import {
   Host,
   LazyColumn,
   ElevatedCard,
   Button,
-  DropdownMenu,
-  DropdownMenuItem,
+  Row,
   HorizontalDivider,
+  Icon,
+  IconButton,
   Text as ComposeText,
   RNHostView,
 } from "@expo/ui/jetpack-compose"
-import { fillMaxWidth, padding } from "@expo/ui/jetpack-compose/modifiers"
-import { Ionicons } from "@expo/vector-icons"
+import { clickable, fillMaxWidth, padding, size, weight } from "@expo/ui/jetpack-compose/modifiers"
 
 import { EmptyState } from "@/components/EmptyState"
+import { LoadingScreen } from "@/components/LoadingScreen"
 import { Screen } from "@/components/Screen"
-import { Text } from "@/components/Text"
 import { useGamesByYear } from "@/services/api/games"
 import type { Game } from "@/services/api/types"
 import { useQueueService } from "@/services/queueService"
@@ -52,11 +54,7 @@ export function QueueScreen() {
   }
 
   if (isLoading) {
-    return (
-      <Screen preset="fixed" contentContainerStyle={$centered}>
-        <ActivityIndicator size="large" color={theme.colors.tint} />
-      </Screen>
-    )
+    return <LoadingScreen />
   }
 
   if (queuedGames.length === 0) {
@@ -72,9 +70,9 @@ export function QueueScreen() {
 
   return (
     <Host
-      style={[$host, { backgroundColor: theme.colors.background }]}
+      style={{ flex: 1 }}
       colorScheme={isDarkMode ? "dark" : "light"}
-      seedColor={theme.colors.palette.purple700}
+      seedColor={theme.colors.brandSurface}
     >
       <LazyColumn contentPadding={{ start: 16, end: 16, bottom: 24 }}>
         <ComposeText
@@ -91,7 +89,7 @@ export function QueueScreen() {
 
         <HorizontalDivider modifiers={[padding(0, 16, 0, 8)]} />
 
-        <Button onClick={() => chooseNextGame(availableGames)} modifiers={[fillMaxWidth()]}>
+        <Button onClick={chooseNextGame} modifiers={[fillMaxWidth()]}>
           <ComposeText>
             {availableGames.length > 0 ? "Choose My Next Game" : "All Games Queued!"}
           </ComposeText>
@@ -102,66 +100,45 @@ export function QueueScreen() {
 }
 
 function QueueCard({ game, index, total }: { game: Game; index: number; total: number }) {
-  const { theme } = useAppTheme()
-  const [menuOpen, setMenuOpen] = useState(false)
+  const isFirst = index === 0
+  const isLast = index === total - 1
 
   return (
-    <ElevatedCard modifiers={[padding(0, 4, 0, 4)]}>
+    <ElevatedCard
+      modifiers={[padding(0, 4, 0, 4), clickable(() => router.push(`/game/${game.id}`))]}
+    >
+      <Row
+        verticalAlignment="center"
+        horizontalArrangement={{ spacedBy: 12 }}
+        modifiers={[fillMaxWidth(), padding(16, 12, 16, 12)]}
+      >
+        <ComposeText style={{ typography: "titleSmall" }}>{String(index + 1)}</ComposeText>
+        {game.background_image ? (
           <RNHostView matchContents>
-            <Pressable style={$row} onPress={() => router.push(`/game/${game.id}`)}>
-              <Text weight="bold" size="md" style={{ width: 24, textAlign: "center" }}>
-                {String(index + 1)}
-              </Text>
-              {game.background_image ? (
-                <ExpoImage source={game.background_image} style={$thumbnail} />
-              ) : (
-                <View style={$thumbnailPlaceholder} />
-              )}
-              <View style={$textColumn}>
-                <Text weight="semiBold" size="sm" numberOfLines={1}>
-                  {game.name}
-                </Text>
-                {game.genres && game.genres.length > 0 ? (
-                  <Text size="xxs" style={{ color: theme.colors.textDim }} numberOfLines={1}>
-                    {game.genres.map((g) => g.name).join(", ")}
-                  </Text>
-                ) : null}
-              </View>
-              <Pressable onPress={() => setMenuOpen(true)} hitSlop={12}>
-                <Ionicons name="ellipsis-vertical" size={20} color={theme.colors.textDim} />
-              </Pressable>
-            </Pressable>
+            <ExpoImage source={game.background_image} style={$thumbnail} />
           </RNHostView>
-          <DropdownMenu expanded={menuOpen} onDismissRequest={() => setMenuOpen(false)}>
-        <DropdownMenu.Trigger>
-          <Text onPress={() => { setMenuOpen(true)}}>open menu</Text>
-        </DropdownMenu.Trigger>
-        <DropdownMenu.Items>
-          <DropdownMenuItem onClick={() => router.push(`/game/${game.id}`)}>
-            <DropdownMenuItem.Text>
-              <ComposeText>View Details</ComposeText>
-            </DropdownMenuItem.Text>
-          </DropdownMenuItem>
-          <DropdownMenuItem onClick={() => moveInQueue(game.id, "up")} enabled={index > 0}>
-            <DropdownMenuItem.Text>
-              <ComposeText>Move Up</ComposeText>
-            </DropdownMenuItem.Text>
-          </DropdownMenuItem>
-          <DropdownMenuItem
-            onClick={() => moveInQueue(game.id, "down")}
-            enabled={index < total - 1}
-          >
-            <DropdownMenuItem.Text>
-              <ComposeText>Move Down</ComposeText>
-            </DropdownMenuItem.Text>
-          </DropdownMenuItem>
-          <DropdownMenuItem onClick={() => removeFromQueue(game.id)}>
-            <DropdownMenuItem.Text>
-              <ComposeText>Remove</ComposeText>
-            </DropdownMenuItem.Text>
-          </DropdownMenuItem>
-        </DropdownMenu.Items>
-      </DropdownMenu>
+        ) : null}
+        <ComposeText style={{ typography: "bodyMedium" }} modifiers={[weight(1)]}>
+          {game.name}
+        </ComposeText>
+        <IconButton
+          onClick={() => moveInQueue(game.id, "up")}
+          enabled={!isFirst}
+          modifiers={[size(28, 28)]}
+        >
+          <Icon source={ArrowUpward} size={20} />
+        </IconButton>
+        <IconButton
+          onClick={() => moveInQueue(game.id, "down")}
+          enabled={!isLast}
+          modifiers={[size(28, 28)]}
+        >
+          <Icon source={ArrowDownward} size={20} />
+        </IconButton>
+        <IconButton onClick={() => removeFromQueue(game.id)} modifiers={[size(28, 28)]}>
+          <Icon source={Cancel} size={20} tint="#D32F2F" />
+        </IconButton>
+      </Row>
     </ElevatedCard>
   )
 }
@@ -176,26 +153,8 @@ const $centered: ViewStyle = {
   alignItems: "center",
 }
 
-const $row: ViewStyle = {
-  flexDirection: "row",
-  alignItems: "center",
-  gap: 12,
-  padding: 16,
-}
-
-const $textColumn: ViewStyle = {
-  flex: 1,
-}
-
 const $thumbnail = {
-  width: 48,
-  height: 48,
-  borderRadius: 8,
-}
-
-const $thumbnailPlaceholder: ViewStyle = {
-  width: 48,
-  height: 48,
-  borderRadius: 8,
-  backgroundColor: "#ccc",
+  width: 40,
+  height: 40,
+  borderRadius: 6,
 }

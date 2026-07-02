@@ -18,8 +18,6 @@ import {
   environment,
   tag,
   onTapGesture,
-  contentShape,
-  shapes,
   badge,
   foregroundStyle,
   font,
