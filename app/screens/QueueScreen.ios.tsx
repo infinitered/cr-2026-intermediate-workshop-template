@@ -1,7 +1,7 @@
 import { useState } from "react"
-import { ActivityIndicator, Pressable, ViewStyle } from "react-native"
+import { ViewStyle } from "react-native"
 import { Image as ExpoImage } from "expo-image"
-import { router, Stack } from "expo-router"
+import { router } from "expo-router"
 import {
   Host,
   List,
@@ -9,6 +9,7 @@ import {
   Button,
   HStack,
   VStack,
+  Spacer,
   Image,
   Text as SwiftText,
   RNHostView,
@@ -25,8 +26,8 @@ import {
 } from "@expo/ui/swift-ui/modifiers"
 
 import { EmptyState } from "@/components/EmptyState"
+import { LoadingScreen } from "@/components/LoadingScreen"
 import { Screen } from "@/components/Screen"
-import { Text } from "@/components/Text"
 import { useGamesByYear } from "@/services/api/games"
 import type { Game } from "@/services/api/types"
 import { useQueueService } from "@/services/queueService"
@@ -72,18 +73,8 @@ export function QueueScreen() {
     reorderQueue(fromIndex, adjustedDest)
   }
 
-  const handleToggleEdit = () => {
-    setEditMode((prev) => {
-      return !prev
-    })
-  }
-
   if (isLoading) {
-    return (
-      <Screen preset="fixed" contentContainerStyle={$centered}>
-        <ActivityIndicator size="large" color={theme.colors.tint} />
-      </Screen>
-    )
+    return <LoadingScreen />
   }
 
   if (queuedGames.length === 0) {
@@ -98,94 +89,89 @@ export function QueueScreen() {
   }
 
   return (
-    <>
-      <Stack.Screen
-        options={{
-          headerRight: () => (
-            <Pressable onPress={handleToggleEdit} hitSlop={8} style={{ marginRight: 4 }}>
-              <Text style={{ color: theme.colors.brandAccent }} size="sm">
-                {editMode ? "Done" : "Edit"}
-              </Text>
-            </Pressable>
-          ),
-        }}
-      />
-      <Host style={$host}>
-        <List modifiers={[environment("editMode", editMode ? "active" : "inactive")]}>
-          <Section
-            header={
-              <SwiftText>The first {SHIPMENT_SIZE} games will be in your next delivery!</SwiftText>
-            }
-          >
-            <List.ForEach onDelete={handleDelete} onMove={handleMove}>
-              {queuedGames.map((game, index) => (
-                <HStack
-                  key={game.id}
-                  spacing={12}
-                  alignment="center"
+    <Host style={$host}>
+      <List modifiers={[environment("editMode", editMode ? "active" : "inactive")]}>
+        <Section
+          header={
+            <HStack>
+              <Spacer />
+              <Button
+                label={editMode ? "Done" : "Edit"}
+                onPress={() => setEditMode((prev) => !prev)}
+              />
+            </HStack>
+          }
+          footer={
+            <SwiftText>The first {SHIPMENT_SIZE} games will be in your next delivery!</SwiftText>
+          }
+        >
+          <List.ForEach onDelete={handleDelete} onMove={handleMove}>
+            {queuedGames.map((game, index) => (
+              <HStack
+                key={game.id}
+                spacing={12}
+                alignment="center"
+                modifiers={[
+                  tag(game.id),
+                  ...(index < SHIPMENT_SIZE ? [badge("Next")] : []),
+                  onTapGesture(() => {
+                    if (!editMode) router.push(`/game/${game.id}`)
+                  }),
+                ]}
+              >
+                <SwiftText
                   modifiers={[
-                    tag(game.id),
-                    ...(index < SHIPMENT_SIZE ? [badge("Next")] : []),
-                    contentShape(shapes.rectangle()),
-                    onTapGesture(() => {
-                      if (!editMode) router.push(`/game/${game.id}`)
-                    }),
+                    foregroundStyle({ type: "hierarchical", style: "secondary" }),
+                    font({ weight: "bold", size: 12 }),
                   ]}
                 >
-                  <SwiftText
-                    modifiers={[
-                      foregroundStyle({ type: "hierarchical", style: "secondary" }),
-                      font({ weight: "bold", size: 12 }),
-                    ]}
-                  >
-                    {String(index + 1)}
-                  </SwiftText>
-                  {game.background_image ? (
-                    <RNHostView matchContents>
-                      <ExpoImage source={game.background_image} style={$thumbnail} />
-                    </RNHostView>
-                  ) : (
-                    <Image systemName="gamecontroller.fill" size={20} color={theme.colors.tint} />
-                  )}
-                  <VStack alignment="leading" spacing={2}>
-                    <SwiftText modifiers={[font({ weight: "semibold" })]}>{game.name}</SwiftText>
-                    {game.genres && game.genres.length > 0 ? (
-                      <SwiftText
-                        modifiers={[
-                          font({ size: 12 }),
-                          foregroundStyle({ type: "hierarchical", style: "secondary" }),
-                        ]}
-                      >
-                        {game.genres.map((g) => g.name).join(", ")}
-                      </SwiftText>
-                    ) : null}
-                  </VStack>
-                </HStack>
-              ))}
-            </List.ForEach>
+                  {String(index + 1)}
+                </SwiftText>
+                {game.background_image ? (
+                  <RNHostView matchContents>
+                    <ExpoImage source={game.background_image} style={$thumbnail} />
+                  </RNHostView>
+                ) : (
+                  <Image systemName="gamecontroller.fill" size={20} color={theme.colors.tint} />
+                )}
+                <VStack alignment="leading" spacing={2}>
+                  <SwiftText modifiers={[font({ weight: "semibold" })]}>{game.name}</SwiftText>
+                  {game.genres && game.genres.length > 0 ? (
+                    <SwiftText
+                      modifiers={[
+                        font({ size: 12 }),
+                        foregroundStyle({ type: "hierarchical", style: "secondary" }),
+                      ]}
+                    >
+                      {game.genres.map((g) => g.name).join(", ")}
+                    </SwiftText>
+                  ) : null}
+                </VStack>
+              </HStack>
+            ))}
+          </List.ForEach>
+        </Section>
+        {!editMode ? (
+          <Section>
+            <Button
+              label={availableGames.length > 0 ? "Choose My Next Game" : "All Games Queued!"}
+              onPress={chooseNextGame}
+            />
           </Section>
-          {!editMode ? (
-            <Section>
-              <Button
-                label={availableGames.length > 0 ? "Choose My Next Game" : "All Games Queued!"}
-                onPress={() => chooseNextGame(availableGames)}
-              />
-            </Section>
-          ) : null}
-        </List>
-      </Host>
-    </>
+        ) : null}
+      </List>
+    </Host>
   )
-}
-
-const $host: ViewStyle = {
-  flex: 1,
 }
 
 const $centered: ViewStyle = {
   flex: 1,
   justifyContent: "center",
   alignItems: "center",
+}
+
+const $host: ViewStyle = {
+  flex: 1,
 }
 
 const $thumbnail = {
