@@ -10,7 +10,6 @@ export function DatePicker({ title, value, onDateChange, maximumDate }: DatePick
     month: "short",
     day: "numeric",
     year: "numeric",
-    // TODO -write about this in the lesson native is in UTC and javascript is in local time, so we need to force the timezone to UTC to avoid off by one errors
     timeZone: "UTC",
   })
 
