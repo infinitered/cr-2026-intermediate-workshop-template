@@ -36,11 +36,7 @@ export function FavoriteGenresScreen() {
   const otherGenres = allGenres.filter((g) => !favoriteIds.includes(g.id))
 
   return (
-    <Host
-      style={[$host, { backgroundColor: theme.colors.background }]}
-      colorScheme={isDarkMode ? "dark" : "light"}
-      seedColor={theme.colors.palette.purple700}
-    >
+    <Host style={{ flex: 1 }}>
       <LazyColumn contentPadding={{ start: 16, end: 16, bottom: 24 }}>
         <ComposeText style={{ typography: "titleMedium" }} modifiers={[padding(0, 16, 0, 8)]}>
           Your Favorites
