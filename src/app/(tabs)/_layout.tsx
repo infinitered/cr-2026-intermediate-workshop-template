@@ -11,6 +11,10 @@ export default function TabsLayout() {
         <NativeTabs.Trigger.Label>Games</NativeTabs.Trigger.Label>
       </NativeTabs.Trigger>
 
+      <NativeTabs.Trigger name="search" role="search">
+        <NativeTabs.Trigger.Label>Search</NativeTabs.Trigger.Label>
+      </NativeTabs.Trigger>
+
       <NativeTabs.Trigger name="queue">
         <NativeTabs.Trigger.Icon
           sf={{ default: "list.bullet", selected: "list.bullet" }}
