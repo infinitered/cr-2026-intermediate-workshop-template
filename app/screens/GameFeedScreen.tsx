@@ -21,24 +21,27 @@ export function GameFeedScreen() {
   const { data: yearGroups, isLoading, isError } = useGamesByYear()
   const { data: genres = [] } = useFeedGenres()
   const [showFilters, setShowFilters] = useState(false)
+  const [searchText, setSearchText] = useState("")
   const { selectedIds: genreIds, isSelected, toggleGenre } = useGenreFilter()
 
   const filteredYearGroups = useMemo(() => {
     if (!yearGroups) return yearGroups
     const hasGenreFilter = genreIds.length > 0
+    const query = searchText.toLowerCase().trim()
 
-    if (!hasGenreFilter) return yearGroups
+    if (!hasGenreFilter && !query) return yearGroups
 
     return yearGroups
       .map((group) => ({
         ...group,
         games: group.games.filter((game) => {
           if (hasGenreFilter && !game.genres.some((g) => genreIds.includes(g.id))) return false
+          if (query && !game.name.toLowerCase().includes(query)) return false
           return true
         }),
       }))
       .filter((group) => group.games.length > 0)
-  }, [yearGroups, genreIds])
+  }, [yearGroups, genreIds, searchText])
 
   if (isLoading) {
     return <LoadingScreen />
@@ -54,6 +57,10 @@ export function GameFeedScreen() {
 
   return (
     <>
+      <Stack.SearchBar
+        placeholder="Search games..."
+        onChangeText={(e) => setSearchText(e.nativeEvent.text)}
+      />
       <Stack.Toolbar placement="right">
         <Stack.Toolbar.Button
           icon={
