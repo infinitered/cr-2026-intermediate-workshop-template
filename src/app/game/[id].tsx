@@ -11,13 +11,19 @@ export default function GameDetailRoute() {
 
   return (
     <>
-      <Stack.Screen options={{ headerTransparent: true, title: "" }} />
-      <Stack.Toolbar placement="left">
-        <Stack.Toolbar.Button
-          icon={Platform.OS === "ios" ? "chevron.backward" : undefined}
-          onPress={() => router.back()}
-        />
-      </Stack.Toolbar>
+      <Stack.Screen
+        options={{
+          title: game?.name ?? "",
+          ...(Platform.OS === "ios"
+            ? { headerTransparent: true, title: "" }
+            : { headerShown: true }),
+        }}
+      />
+      {Platform.OS === "ios" && (
+        <Stack.Toolbar placement="left">
+          <Stack.Toolbar.Button icon="chevron.backward" onPress={() => router.back()} />
+        </Stack.Toolbar>
+      )}
       <Stack.Toolbar placement="right">
         <Stack.Toolbar.Button
           icon={Platform.OS === "ios" ? "square.and.arrow.up" : ShareAndroid}
