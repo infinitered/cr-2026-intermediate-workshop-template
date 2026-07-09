@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react"
 import { Platform, ScrollView, View, ViewStyle } from "react-native"
-import { Stack } from "expo-router"
+import { Color, Stack } from "expo-router"
 import FilterList from "@expo/material-symbols/filter_list.xml"
 import { useSafeAreaInsets } from "react-native-safe-area-context"
 
@@ -113,12 +113,14 @@ const $centered: ViewStyle = {
   alignItems: "center",
 }
 
+const isAndroid = Platform.OS === "android"
+
 const $filterPanel: ThemedStyle<ViewStyle> = ({ spacing, colors }) => ({
   paddingHorizontal: spacing.lg,
   paddingVertical: spacing.sm,
-  borderBottomWidth: 2,
-  borderBottomColor: colors.border,
-  backgroundColor: colors.background,
+  borderBottomWidth: isAndroid ? 1 : 2,
+  borderBottomColor: isAndroid ? Color.android.dynamic.outline : colors.border,
+  backgroundColor: isAndroid ? Color.android.dynamic.surfaceContainerLow : colors.background,
 })
 
 const $filterLabel: ThemedStyle<ViewStyle> = ({ spacing }) => ({

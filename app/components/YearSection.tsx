@@ -1,8 +1,11 @@
-import { FlatList, TextStyle, View, ViewStyle } from "react-native"
+import { FlatList, Platform, TextStyle, View, ViewStyle } from "react-native"
+import { Color } from "expo-router"
 
 import { Text } from "@/components/Text"
 import { useAppTheme } from "@/theme/context"
 import type { ThemedStyle } from "@/theme/types"
+
+const isAndroid = Platform.OS === "android"
 
 import { GameCard } from "./GameCard"
 import type { Game } from "../services/api/types"
@@ -41,9 +44,9 @@ const $container: ThemedStyle<ViewStyle> = ({ spacing }) => ({
 
 const $badge: ThemedStyle<ViewStyle> = ({ colors, spacing }) => ({
   alignSelf: "flex-start",
-  backgroundColor: colors.brandAccent,
+  backgroundColor: isAndroid ? Color.android.dynamic.primary : colors.brandAccent,
   borderRadius: spacing.md,
-  borderWidth: 2,
+  borderWidth: isAndroid ? 0 : 2,
   borderColor: "#000",
   paddingHorizontal: spacing.sm,
   paddingVertical: spacing.xxs,
@@ -52,7 +55,7 @@ const $badge: ThemedStyle<ViewStyle> = ({ colors, spacing }) => ({
 })
 
 const $badgeText: ThemedStyle<TextStyle> = ({ colors }) => ({
-  color: colors.brandAccentText,
+  color: isAndroid ? Color.android.dynamic.onPrimary : colors.brandAccentText,
 })
 
 const $listContent: ThemedStyle<ViewStyle> = ({ spacing }) => ({

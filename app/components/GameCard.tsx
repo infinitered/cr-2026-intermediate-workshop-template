@@ -1,5 +1,5 @@
-import { Image, ImageStyle, Pressable, TextStyle, View, ViewStyle } from "react-native"
-import { Link } from "expo-router"
+import { Image, ImageStyle, Platform, Pressable, TextStyle, View, ViewStyle } from "react-native"
+import { Color, Link } from "expo-router"
 
 import { Text } from "@/components/Text"
 import { useAppTheme } from "@/theme/context"
@@ -7,6 +7,8 @@ import type { ThemedStyle } from "@/theme/types"
 import { formatDate } from "@/utils/formatDate"
 
 import type { Game } from "../services/api/types"
+
+const isAndroid = Platform.OS === "android"
 
 interface GameCardProps {
   game: Game
@@ -45,17 +47,21 @@ const CARD_WIDTH = 150
 const $cardOuter: ThemedStyle<ViewStyle> = ({ spacing }) => ({
   width: CARD_WIDTH,
   borderRadius: spacing.sm,
-  shadowColor: "#000",
-  shadowOffset: { width: 4, height: 4 },
-  shadowOpacity: 1,
-  shadowRadius: 0,
-  elevation: 4,
+  ...(isAndroid
+    ? { elevation: 2 }
+    : {
+        shadowColor: "#000",
+        shadowOffset: { width: 4, height: 4 },
+        shadowOpacity: 1,
+        shadowRadius: 0,
+        elevation: 4,
+      }),
 })
 
 const $cardInner: ThemedStyle<ViewStyle> = ({ colors, spacing }) => ({
-  backgroundColor: colors.brandSurface,
-  borderColor: "#000",
-  borderWidth: 2,
+  backgroundColor: isAndroid ? Color.android.dynamic.surfaceContainer : colors.brandSurface,
+  borderColor: isAndroid ? Color.android.dynamic.outline : "#000",
+  borderWidth: isAndroid ? 1 : 2,
   borderRadius: spacing.sm,
   overflow: "hidden",
 })
@@ -66,7 +72,7 @@ const $image: ThemedStyle<ImageStyle> = () => ({
 })
 
 const $imagePlaceholder: ThemedStyle<ViewStyle> = ({ colors }) => ({
-  backgroundColor: colors.palette.purpleMuted200,
+  backgroundColor: isAndroid ? Color.android.dynamic.surfaceContainerHigh : colors.palette.purpleMuted200,
 })
 
 const $textContainer: ThemedStyle<ViewStyle> = ({ spacing }) => ({
@@ -74,5 +80,5 @@ const $textContainer: ThemedStyle<ViewStyle> = ({ spacing }) => ({
 })
 
 const $cardText: ThemedStyle<TextStyle> = ({ colors }) => ({
-  color: colors.brandSurfaceText,
+  color: isAndroid ? Color.android.dynamic.onSurface : colors.brandSurfaceText,
 })
