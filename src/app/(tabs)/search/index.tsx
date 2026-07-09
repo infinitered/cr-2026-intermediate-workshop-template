@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react"
-import { Image, ImageStyle, ScrollView, TextStyle, TouchableOpacity, View, ViewStyle } from "react-native"
-import { Stack, router } from "expo-router"
+import { Image, ImageStyle, Pressable, ScrollView, TextStyle, View, ViewStyle } from "react-native"
+import { Link, Stack } from "expo-router"
 import { useSafeAreaInsets } from "react-native-safe-area-context"
 
 import { Text } from "@/components/Text"
@@ -54,25 +54,25 @@ export default function SearchScreen() {
 
 function SearchRow({ game, themed }: { game: Game; themed: ReturnType<typeof useAppTheme>["themed"] }) {
   return (
-    <TouchableOpacity
-      activeOpacity={0.7}
-      style={themed($row)}
-      onPress={() => router.push(`/game/${game.id}`)}
-    >
-      {game.background_image ? (
-        <Image source={{ uri: game.background_image }} style={themed($thumbnail)} />
-      ) : (
-        <View style={[themed($thumbnail), themed($thumbnailPlaceholder)]} />
-      )}
-      <View style={$textColumn}>
-        <Text weight="bold" size="sm" numberOfLines={1}>
-          {game.name}
-        </Text>
-        <Text size="xxs" style={themed($dimText)} numberOfLines={1}>
-          {game.genres?.map((g) => g.name).join(", ")}
-        </Text>
-      </View>
-    </TouchableOpacity>
+    <Link href={`/game/${game.id}`} asChild>
+      <Pressable style={themed($row)}>
+        <Link.AppleZoom>
+          {game.background_image ? (
+            <Image source={{ uri: game.background_image }} style={themed($thumbnail)} />
+          ) : (
+            <View style={[themed($thumbnail), themed($thumbnailPlaceholder)]} />
+          )}
+        </Link.AppleZoom>
+        <View style={$textColumn}>
+          <Text weight="bold" size="sm" numberOfLines={1}>
+            {game.name}
+          </Text>
+          <Text size="xxs" style={themed($dimText)} numberOfLines={1}>
+            {game.genres?.map((g) => g.name).join(", ")}
+          </Text>
+        </View>
+      </Pressable>
+    </Link>
   )
 }
 

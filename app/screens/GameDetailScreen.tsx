@@ -11,7 +11,6 @@ import {
 } from "react-native"
 import { Link, router } from "expo-router"
 import { Ionicons } from "@expo/vector-icons"
-import { useSafeAreaInsets } from "react-native-safe-area-context"
 
 import { Button } from "@/components/Button"
 import { EmptyState } from "@/components/EmptyState"
@@ -32,7 +31,6 @@ interface GameDetailScreenProps {
 
 export function GameDetailScreen({ id }: GameDetailScreenProps) {
   const { themed, theme } = useAppTheme()
-  const { top } = useSafeAreaInsets()
   const { data: game, isLoading, isError } = useGameDetail(id)
   const { data: screenshots } = useGameScreenshots(id)
   const { isInQueue, toggleQueued } = useQueueService()
@@ -66,14 +64,7 @@ export function GameDetailScreen({ id }: GameDetailScreenProps) {
           </Link.AppleZoomTarget>
         )}
         <TouchableOpacity
-          style={[themed($backButton), { top: top + 8 }]}
-          onPress={() => router.back()}
-          activeOpacity={0.7}
-        >
-          <Ionicons name="chevron-back" size={22} color="#fff" />
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={[themed($queueOverlay), { top: top + 8 }]}
+          style={themed($queueOverlay)}
           onPress={() => toggleQueued(id)}
           activeOpacity={0.7}
         >
@@ -240,19 +231,9 @@ const $heroImage: ImageStyle = {
   aspectRatio: 3 / 4,
 }
 
-const $backButton: ThemedStyle<ViewStyle> = ({ spacing }) => ({
-  position: "absolute",
-  left: spacing.xs,
-  backgroundColor: "rgba(0,0,0,0.6)",
-  width: 36,
-  height: 36,
-  borderRadius: 18,
-  alignItems: "center",
-  justifyContent: "center",
-})
-
 const $queueOverlay: ThemedStyle<ViewStyle> = ({ spacing }) => ({
   position: "absolute",
+  top: spacing.xs,
   right: spacing.xs,
   flexDirection: "row",
   alignItems: "center",
