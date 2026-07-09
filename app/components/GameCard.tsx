@@ -1,5 +1,5 @@
-import { Image, ImageStyle, TextStyle, TouchableOpacity, View, ViewStyle } from "react-native"
-import { router } from "expo-router"
+import { Image, ImageStyle, Pressable, TextStyle, View, ViewStyle } from "react-native"
+import { Link } from "expo-router"
 
 import { Text } from "@/components/Text"
 import { useAppTheme } from "@/theme/context"
@@ -16,27 +16,27 @@ export function GameCard({ game }: GameCardProps) {
   const { themed } = useAppTheme()
 
   return (
-    <TouchableOpacity
-      activeOpacity={0.8}
-      style={themed($cardOuter)}
-      onPress={() => router.push(`/game/${game.id}`)}
-    >
-      <View style={themed($cardInner)}>
-        {game.background_image ? (
-          <Image source={{ uri: game.background_image }} style={themed($image)} />
-        ) : (
-          <View style={themed([$image, $imagePlaceholder])} />
-        )}
-        <View style={themed($textContainer)}>
-          <Text weight="bold" size="xxs" numberOfLines={1} style={themed($cardText)}>
-            {game.name}
-          </Text>
-          <Text size="xxs" style={themed($cardText)}>
-            {game.released ? formatDate(game.released) : "TBA"}
-          </Text>
+    <Link href={`/game/${game.id}`} asChild>
+      <Pressable style={themed($cardOuter)}>
+        <View style={themed($cardInner)}>
+          <Link.AppleZoom>
+            {game.background_image ? (
+              <Image source={{ uri: game.background_image }} style={themed($image)} />
+            ) : (
+              <View style={themed([$image, $imagePlaceholder])} />
+            )}
+          </Link.AppleZoom>
+          <View style={themed($textContainer)}>
+            <Text weight="bold" size="xxs" numberOfLines={1} style={themed($cardText)}>
+              {game.name}
+            </Text>
+            <Text size="xxs" style={themed($cardText)}>
+              {game.released ? formatDate(game.released) : "TBA"}
+            </Text>
+          </View>
         </View>
-      </View>
-    </TouchableOpacity>
+      </Pressable>
+    </Link>
   )
 }
 

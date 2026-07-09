@@ -63,7 +63,7 @@ export default function Root() {
               <Stack.Screen name="(tabs)" />
               <Stack.Screen
                 name="game/[id]"
-                options={{ headerShown: true, title: "Game Detail" }}
+                options={{ headerShown: false, title: "Game Detail" }}
               />
               <Stack.Screen name="genre/[id]" options={{ headerShown: true, title: "Genre" }} />
               <Stack.Screen

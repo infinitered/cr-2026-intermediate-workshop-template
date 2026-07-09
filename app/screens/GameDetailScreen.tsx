@@ -9,8 +9,9 @@ import {
   View,
   ViewStyle,
 } from "react-native"
-import { router } from "expo-router"
+import { Link, router } from "expo-router"
 import { Ionicons } from "@expo/vector-icons"
+import { useSafeAreaInsets } from "react-native-safe-area-context"
 
 import { Button } from "@/components/Button"
 import { EmptyState } from "@/components/EmptyState"
@@ -31,6 +32,7 @@ interface GameDetailScreenProps {
 
 export function GameDetailScreen({ id }: GameDetailScreenProps) {
   const { themed, theme } = useAppTheme()
+  const { top } = useSafeAreaInsets()
   const { data: game, isLoading, isError } = useGameDetail(id)
   const { data: screenshots } = useGameScreenshots(id)
   const { isInQueue, toggleQueued } = useQueueService()
@@ -49,20 +51,29 @@ export function GameDetailScreen({ id }: GameDetailScreenProps) {
   }
 
   const screenshotImages = screenshots?.results ?? []
-  const coverImage = screenshotImages[0]?.image ?? game.background_image
+  const coverImage = game.background_image
   const thumbScreenshots = screenshotImages.slice(0, 6)
   const genres = game.genres?.map((g) => g.name).join(", ")
   const studio = game.developers?.map((d) => d.name).join(", ")
 
   return (
     <Screen preset="scroll">
-      {/* Hero image with queue overlay at top-right */}
+      {/* Cover image hero */}
       <View>
-        {game.background_image && (
-          <Image source={{ uri: game.background_image }} style={$heroImage} blurRadius={3} />
+        {coverImage && (
+          <Link.AppleZoomTarget>
+            <Image source={{ uri: coverImage }} style={$heroImage} />
+          </Link.AppleZoomTarget>
         )}
         <TouchableOpacity
-          style={themed($queueOverlay)}
+          style={[themed($backButton), { top: top + 8 }]}
+          onPress={() => router.back()}
+          activeOpacity={0.7}
+        >
+          <Ionicons name="chevron-back" size={22} color="#fff" />
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={[themed($queueOverlay), { top: top + 8 }]}
           onPress={() => toggleQueued(id)}
           activeOpacity={0.7}
         >
@@ -77,14 +88,11 @@ export function GameDetailScreen({ id }: GameDetailScreenProps) {
         </TouchableOpacity>
       </View>
 
-      {/* Cover thumbnail (overlaps hero) + Title */}
+      {/* Title */}
       <View style={themed($titleRow)}>
-        {coverImage && <Image source={{ uri: coverImage }} style={themed($coverThumbnail)} />}
-        <View style={[$styles.flex1, $titleTextWrap]}>
-          <Text preset="heading" size="xl">
-            {game.name}
-          </Text>
-        </View>
+        <Text preset="heading" size="xl">
+          {game.name}
+        </Text>
       </View>
 
       {/* Screenshot thumbnails */}
@@ -229,12 +237,22 @@ const $centered: ViewStyle = {
 
 const $heroImage: ImageStyle = {
   width: "100%",
-  height: 180,
+  aspectRatio: 3 / 4,
 }
+
+const $backButton: ThemedStyle<ViewStyle> = ({ spacing }) => ({
+  position: "absolute",
+  left: spacing.xs,
+  backgroundColor: "rgba(0,0,0,0.6)",
+  width: 36,
+  height: 36,
+  borderRadius: 18,
+  alignItems: "center",
+  justifyContent: "center",
+})
 
 const $queueOverlay: ThemedStyle<ViewStyle> = ({ spacing }) => ({
   position: "absolute",
-  top: spacing.xs,
   right: spacing.xs,
   flexDirection: "row",
   alignItems: "center",
@@ -250,24 +268,8 @@ const $overlayText: TextStyle = {
 }
 
 const $titleRow: ThemedStyle<ViewStyle> = ({ spacing }) => ({
-  flexDirection: "row",
-  alignItems: "flex-end",
-  gap: spacing.md,
   paddingHorizontal: spacing.lg,
-  marginTop: -50,
-  marginBottom: spacing.sm,
-})
-
-const $titleTextWrap: ViewStyle = {
-  paddingTop: 54,
-}
-
-const $coverThumbnail: ThemedStyle<ImageStyle> = ({ spacing, colors }) => ({
-  width: 90,
-  height: 120,
-  borderRadius: spacing.xs,
-  borderWidth: 2,
-  borderColor: colors.palette.purpleMuted800,
+  paddingVertical: spacing.sm,
 })
 
 const $screenshotList: ThemedStyle<ViewStyle> = ({ spacing }) => ({
