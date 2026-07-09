@@ -1,6 +1,6 @@
 import { useLayoutEffect, useMemo, useState } from "react"
 import { Pressable, ScrollView, View, ViewStyle } from "react-native"
-import { useNavigation } from "expo-router"
+import { Stack, useNavigation } from "expo-router"
 import { Ionicons } from "@expo/vector-icons"
 import { useSafeAreaInsets } from "react-native-safe-area-context"
 
@@ -69,36 +69,18 @@ export function GameFeedScreen() {
   }
 
   return (
-    <Screen preset="fixed" contentContainerStyle={$styles.flex1}>
-      {showFilters && (
-        <View style={themed($filterPanel)}>
-          <Text weight="bold" size="xs" style={themed($filterLabel)}>
-            Filter by Genre
-          </Text>
-          <View style={$genreGrid}>
-            {genres.map((genre) => (
-              <Checkbox
-                key={genre.id}
-                value={isSelected(genre.id)}
-                onValueChange={() => toggleGenre(genre.id)}
-                label={genre.name}
-                containerStyle={$genreCheckbox}
-              />
-            ))}
-          </View>
-        </View>
+    <ScrollView
+      contentContainerStyle={{ paddingBottom: bottom }}
+      contentInsetAdjustmentBehavior="automatic"
+    >
+      {filteredYearGroups && filteredYearGroups.length > 0 ? (
+        filteredYearGroups.map((group) => (
+          <YearSection key={group.year} year={group.year} games={group.games} />
+        ))
+      ) : (
+        <EmptyState heading="No Games Match Filters" />
       )}
-
-      <ScrollView contentContainerStyle={{ paddingBottom: bottom }}>
-        {filteredYearGroups && filteredYearGroups.length > 0 ? (
-          filteredYearGroups.map((group) => (
-            <YearSection key={group.year} year={group.year} games={group.games} />
-          ))
-        ) : (
-          <EmptyState heading="No Games Match Filters" />
-        )}
-      </ScrollView>
-    </Screen>
+    </ScrollView>
   )
 }
 
