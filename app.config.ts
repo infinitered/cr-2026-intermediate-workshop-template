@@ -39,6 +39,7 @@ module.exports = ({ config }: ConfigContext): Partial<ExpoConfig> => {
     plugins: [
       ...existingPlugins,
       "./plugins/withShareExtensionDevClient",
+      "./plugins/withAndroidDrawable",
       "@react-native-community/datetimepicker",
       [
         "expo-sharing",

@@ -7,7 +7,7 @@ export default function TabsLayout() {
       <NativeTabs.Trigger name="index">
         <NativeTabs.Trigger.Icon
           sf={{ default: "gamecontroller", selected: "gamecontroller.fill" }}
-          md="sports_esports"
+          drawable="nes_controller"
         />
         <NativeTabs.Trigger.Label>Games</NativeTabs.Trigger.Label>
       </NativeTabs.Trigger>
