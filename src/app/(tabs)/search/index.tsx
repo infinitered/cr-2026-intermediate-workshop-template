@@ -1,17 +1,23 @@
 import { useMemo, useState } from "react"
-import { Image, ImageStyle, Pressable, ScrollView, TextStyle, View, ViewStyle } from "react-native"
-import { Link, Stack } from "expo-router"
-import { useSafeAreaInsets } from "react-native-safe-area-context"
+import { Image, View } from "react-native"
+import { Stack, useRouter } from "expo-router"
+import {
+  Button,
+  ContentUnavailableView,
+  Host,
+  HStack,
+  List,
+  RNHostView,
+  Text,
+  VStack,
+} from "@expo/ui/swift-ui"
+import { buttonStyle, font, foregroundStyle, listStyle } from "@expo/ui/swift-ui/modifiers"
 
-import { Text } from "@/components/Text"
 import { useGamesByYear } from "@/services/api/games"
 import type { Game } from "@/services/api/types"
-import { useAppTheme } from "@/theme/context"
-import type { ThemedStyle } from "@/theme/types"
 
 export default function SearchScreen() {
-  const { themed } = useAppTheme()
-  const { bottom } = useSafeAreaInsets()
+  const router = useRouter()
   const [searchText, setSearchText] = useState("")
   const { data: yearGroups } = useGamesByYear()
 
@@ -32,83 +38,57 @@ export default function SearchScreen() {
         placeholder="Search games..."
         onChangeText={(e) => setSearchText(e.nativeEvent.text)}
       />
-      <ScrollView
-        contentContainerStyle={{ paddingBottom: bottom }}
-        contentInsetAdjustmentBehavior="automatic"
-      >
+      <Host style={{ flex: 1 }}>
         {filteredGames.length > 0 ? (
-          filteredGames.map((game) => (
-            <SearchRow key={game.id} game={game} themed={themed} />
-          ))
+          <List modifiers={[listStyle("plain")]}>
+            {filteredGames.map((game) => (
+              <Button
+                key={game.id}
+                onPress={() => router.push(`/game/${game.id}`)}
+                modifiers={[buttonStyle("plain")]}
+              >
+                <SearchRow game={game} />
+              </Button>
+            ))}
+          </List>
         ) : (
-          <View style={$emptyContainer}>
-            <Text style={themed($emptyText)}>
-              {searchText ? "No games found" : "Search for a game"}
-            </Text>
-          </View>
+          <ContentUnavailableView
+            title={searchText ? "No Results" : "Search for a game"}
+            systemImage={searchText ? "magnifyingglass" : "gamecontroller"}
+            description={
+              searchText ? `No games match "${searchText}"` : "Type to search for games"
+            }
+          />
         )}
-      </ScrollView>
+      </Host>
     </>
   )
 }
 
-function SearchRow({ game, themed }: { game: Game; themed: ReturnType<typeof useAppTheme>["themed"] }) {
+function SearchRow({ game }: { game: Game }) {
   return (
-    <Link href={`/game/${game.id}`} asChild>
-      <Pressable style={themed($row)}>
-        <Link.AppleZoom>
-          {game.background_image ? (
-            <Image source={{ uri: game.background_image }} style={themed($thumbnail)} />
-          ) : (
-            <View style={[themed($thumbnail), themed($thumbnailPlaceholder)]} />
-          )}
-        </Link.AppleZoom>
-        <View style={$textColumn}>
-          <Text weight="bold" size="sm" numberOfLines={1}>
-            {game.name}
-          </Text>
-          <Text size="xxs" style={themed($dimText)} numberOfLines={1}>
-            {game.genres?.map((g) => g.name).join(", ")}
-          </Text>
-        </View>
-      </Pressable>
-    </Link>
+    <HStack spacing={12} alignment="center">
+      <RNHostView matchContents>
+        {game.background_image ? (
+          <Image
+            source={{ uri: game.background_image }}
+            style={{ width: 48, height: 48, borderRadius: 6 }}
+          />
+        ) : (
+          <View style={{ width: 48, height: 48, borderRadius: 6, backgroundColor: "#ccc" }} />
+        )}
+      </RNHostView>
+      <VStack alignment="leading" spacing={2}>
+        <Text modifiers={[font({ size: 15, weight: "semibold" })]}>{game.name}</Text>
+        <Text
+          modifiers={[
+            font({ size: 12 }),
+            foregroundStyle({ type: "hierarchical", style: "secondary" }),
+          ]}
+        >
+          {game.genres?.map((g) => g.name).join(", ") ?? ""}
+        </Text>
+      </VStack>
+    </HStack>
   )
 }
-
-const $row: ThemedStyle<ViewStyle> = ({ spacing }) => ({
-  flexDirection: "row",
-  alignItems: "center",
-  paddingVertical: spacing.sm,
-  paddingHorizontal: spacing.lg,
-  gap: 12,
-})
-
-const $thumbnail: ThemedStyle<ImageStyle> = ({ spacing }) => ({
-  width: 48,
-  height: 48,
-  borderRadius: spacing.xs,
-})
-
-const $thumbnailPlaceholder: ThemedStyle<ViewStyle> = ({ colors }) => ({
-  backgroundColor: colors.border,
-})
-
-const $textColumn: ViewStyle = {
-  flex: 1,
-}
-
-const $dimText: ThemedStyle<TextStyle> = ({ colors }) => ({
-  color: colors.textDim,
-})
-
-const $emptyContainer: ViewStyle = {
-  flex: 1,
-  justifyContent: "center",
-  alignItems: "center",
-  paddingTop: 64,
-}
-
-const $emptyText: ThemedStyle<TextStyle> = ({ colors }) => ({
-  color: colors.textDim,
-})
