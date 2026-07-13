@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react"
 import { Image, View } from "react-native"
-import { Stack, useRouter } from "expo-router"
+import { Link, Stack } from "expo-router"
 import {
   Button,
   ContentUnavailableView,
@@ -11,13 +11,12 @@ import {
   Text,
   VStack,
 } from "@expo/ui/swift-ui"
-import { buttonStyle, font, foregroundStyle, listStyle } from "@expo/ui/swift-ui/modifiers"
+import { buttonStyle, clipShape, font, frame, foregroundStyle, listStyle } from "@expo/ui/swift-ui/modifiers"
 
 import { useGamesByYear } from "@/services/api/games"
 import type { Game } from "@/services/api/types"
 
 export default function SearchScreen() {
-  const router = useRouter()
   const [searchText, setSearchText] = useState("")
   const { data: yearGroups } = useGamesByYear()
 
@@ -42,13 +41,11 @@ export default function SearchScreen() {
         {filteredGames.length > 0 ? (
           <List modifiers={[listStyle("plain")]}>
             {filteredGames.map((game) => (
-              <Button
-                key={game.id}
-                onPress={() => router.push(`/game/${game.id}`)}
-                modifiers={[buttonStyle("plain")]}
-              >
-                <SearchRow game={game} />
-              </Button>
+              <Link key={game.id} href={`/game/${game.id}`} asChild>
+                <Button modifiers={[buttonStyle("plain")]}>
+                  <SearchRow game={game} />
+                </Button>
+              </Link>
             ))}
           </List>
         ) : (
@@ -68,16 +65,17 @@ export default function SearchScreen() {
 function SearchRow({ game }: { game: Game }) {
   return (
     <HStack spacing={12} alignment="center">
-      <RNHostView matchContents>
-        {game.background_image ? (
-          <Image
-            source={{ uri: game.background_image }}
-            style={{ width: 48, height: 48, borderRadius: 6 }}
-          />
-        ) : (
-          <View style={{ width: 48, height: 48, borderRadius: 6, backgroundColor: "#ccc" }} />
-        )}
-      </RNHostView>
+      <VStack modifiers={[frame({ width: 48, height: 48 }), clipShape("roundedRectangle", 6)]}>
+        <RNHostView>
+          <Link.AppleZoom>
+            {game.background_image ? (
+              <Image source={{ uri: game.background_image }} style={{ width: 48, height: 48 }} />
+            ) : (
+              <View style={{ width: 48, height: 48, backgroundColor: "#ccc" }} />
+            )}
+          </Link.AppleZoom>
+        </RNHostView>
+      </VStack>
       <VStack alignment="leading" spacing={2}>
         <Text modifiers={[font({ size: 15, weight: "semibold" })]}>{game.name}</Text>
         <Text
