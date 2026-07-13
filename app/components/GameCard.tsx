@@ -1,5 +1,6 @@
 import { Image, ImageStyle, Platform, Pressable, TextStyle, View, ViewStyle } from "react-native"
-import { Color, Link } from "expo-router"
+import { Link } from "expo-router"
+import { useMaterialColors } from "@expo/ui/jetpack-compose"
 
 import { Text } from "@/components/Text"
 import { useAppTheme } from "@/theme/context"
@@ -16,23 +17,45 @@ interface GameCardProps {
 
 export function GameCard({ game }: GameCardProps) {
   const { themed } = useAppTheme()
+  const materialColors = useMaterialColors()
 
   return (
     <Link href={`/game/${game.id}`} asChild>
       <Pressable style={themed($cardOuter)}>
-        <View style={themed($cardInner)}>
+        <View
+          style={[
+            themed($cardInner),
+            isAndroid && {
+              backgroundColor: materialColors.surfaceContainer,
+              borderColor: materialColors.outline,
+            },
+          ]}
+        >
           <Link.AppleZoom>
             {game.background_image ? (
               <Image source={{ uri: game.background_image }} style={themed($image)} />
             ) : (
-              <View style={themed([$image, $imagePlaceholder])} />
+              <View
+                style={[
+                  themed([$image, $imagePlaceholder]),
+                  isAndroid && { backgroundColor: materialColors.surfaceContainerHigh },
+                ]}
+              />
             )}
           </Link.AppleZoom>
           <View style={themed($textContainer)}>
-            <Text weight="bold" size="xxs" numberOfLines={1} style={themed($cardText)}>
+            <Text
+              weight="bold"
+              size="xxs"
+              numberOfLines={1}
+              style={[themed($cardText), isAndroid && { color: materialColors.onSurface }]}
+            >
               {game.name}
             </Text>
-            <Text size="xxs" style={themed($cardText)}>
+            <Text
+              size="xxs"
+              style={[themed($cardText), isAndroid && { color: materialColors.onSurface }]}
+            >
               {game.released ? formatDate(game.released) : "TBA"}
             </Text>
           </View>
@@ -59,8 +82,8 @@ const $cardOuter: ThemedStyle<ViewStyle> = ({ spacing }) => ({
 })
 
 const $cardInner: ThemedStyle<ViewStyle> = ({ colors, spacing }) => ({
-  backgroundColor: isAndroid ? Color.android.dynamic.surfaceContainer : colors.brandSurface,
-  borderColor: isAndroid ? Color.android.dynamic.outline : "#000",
+  backgroundColor: colors.brandSurface,
+  borderColor: "#000",
   borderWidth: isAndroid ? 1 : 2,
   borderRadius: spacing.sm,
   overflow: "hidden",
@@ -72,7 +95,7 @@ const $image: ThemedStyle<ImageStyle> = () => ({
 })
 
 const $imagePlaceholder: ThemedStyle<ViewStyle> = ({ colors }) => ({
-  backgroundColor: isAndroid ? Color.android.dynamic.surfaceContainerHigh : colors.palette.purpleMuted200,
+  backgroundColor: colors.palette.purpleMuted200,
 })
 
 const $textContainer: ThemedStyle<ViewStyle> = ({ spacing }) => ({
@@ -80,5 +103,5 @@ const $textContainer: ThemedStyle<ViewStyle> = ({ spacing }) => ({
 })
 
 const $cardText: ThemedStyle<TextStyle> = ({ colors }) => ({
-  color: isAndroid ? Color.android.dynamic.onSurface : colors.brandSurfaceText,
+  color: colors.brandSurfaceText,
 })

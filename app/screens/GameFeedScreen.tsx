@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react"
 import { Platform, ScrollView, View, ViewStyle } from "react-native"
-import { Color, Stack } from "expo-router"
+import { Stack } from "expo-router"
+import { useMaterialColors } from "@expo/ui/jetpack-compose"
 import FilterList from "@expo/material-symbols/filter_list.xml"
 import { useSafeAreaInsets } from "react-native-safe-area-context"
 
@@ -17,6 +18,7 @@ import type { ThemedStyle } from "@/theme/types"
 
 export function GameFeedScreen() {
   const { themed } = useAppTheme()
+  const materialColors = useMaterialColors()
   const { bottom } = useSafeAreaInsets()
   const { data: yearGroups, isLoading, isError } = useGamesByYear()
   const { data: genres = [] } = useFeedGenres()
@@ -74,7 +76,15 @@ export function GameFeedScreen() {
         />
       </Stack.Toolbar>
       {showFilters && (
-        <View style={themed($filterPanel)}>
+        <View
+          style={[
+            themed($filterPanel),
+            isAndroid && {
+              borderBottomColor: materialColors.outline,
+              backgroundColor: materialColors.surfaceContainerLow,
+            },
+          ]}
+        >
           <Text weight="bold" size="xs" style={themed($filterLabel)}>
             Filter by Genre
           </Text>
@@ -119,8 +129,8 @@ const $filterPanel: ThemedStyle<ViewStyle> = ({ spacing, colors }) => ({
   paddingHorizontal: spacing.lg,
   paddingVertical: spacing.sm,
   borderBottomWidth: isAndroid ? 1 : 2,
-  borderBottomColor: isAndroid ? Color.android.dynamic.outline : colors.border,
-  backgroundColor: isAndroid ? Color.android.dynamic.surfaceContainerLow : colors.background,
+  borderBottomColor: colors.border,
+  backgroundColor: colors.background,
 })
 
 const $filterLabel: ThemedStyle<ViewStyle> = ({ spacing }) => ({

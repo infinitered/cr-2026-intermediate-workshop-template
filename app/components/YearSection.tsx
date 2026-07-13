@@ -1,5 +1,5 @@
 import { FlatList, Platform, TextStyle, View, ViewStyle } from "react-native"
-import { Color } from "expo-router"
+import { useMaterialColors } from "@expo/ui/jetpack-compose"
 
 import { Text } from "@/components/Text"
 import { useAppTheme } from "@/theme/context"
@@ -17,11 +17,21 @@ interface YearSectionProps {
 
 export function YearSection({ year, games }: YearSectionProps) {
   const { themed } = useAppTheme()
+  const materialColors = useMaterialColors()
 
   return (
     <View style={themed($container)}>
-      <View style={themed($badge)}>
-        <Text weight="bold" size="xxs" style={themed($badgeText)}>
+      <View
+        style={[
+          themed($badge),
+          isAndroid && { backgroundColor: materialColors.primary },
+        ]}
+      >
+        <Text
+          weight="bold"
+          size="xxs"
+          style={[themed($badgeText), isAndroid && { color: materialColors.onPrimary }]}
+        >
           {year}
         </Text>
       </View>
@@ -44,7 +54,7 @@ const $container: ThemedStyle<ViewStyle> = ({ spacing }) => ({
 
 const $badge: ThemedStyle<ViewStyle> = ({ colors, spacing }) => ({
   alignSelf: "flex-start",
-  backgroundColor: isAndroid ? Color.android.dynamic.primary : colors.brandAccent,
+  backgroundColor: colors.brandAccent,
   borderRadius: spacing.md,
   borderWidth: isAndroid ? 0 : 2,
   borderColor: "#000",
@@ -55,7 +65,7 @@ const $badge: ThemedStyle<ViewStyle> = ({ colors, spacing }) => ({
 })
 
 const $badgeText: ThemedStyle<TextStyle> = ({ colors }) => ({
-  color: isAndroid ? Color.android.dynamic.onPrimary : colors.brandAccentText,
+  color: colors.brandAccentText,
 })
 
 const $listContent: ThemedStyle<ViewStyle> = ({ spacing }) => ({
