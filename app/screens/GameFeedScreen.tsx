@@ -1,7 +1,9 @@
-import { useLayoutEffect, useMemo, useState } from "react"
-import { Pressable, ScrollView, View, ViewStyle } from "react-native"
-import { useNavigation } from "expo-router"
-import { Ionicons } from "@expo/vector-icons"
+import { useMemo, useState } from "react"
+import { Platform, ScrollView, View, ViewStyle } from "react-native"
+import { Stack } from "expo-router"
+import { useMaterialColors } from "@expo/ui/jetpack-compose"
+import FilterList from "@expo/material-symbols/filter_list.xml"
+import { useSafeAreaInsets } from "react-native-safe-area-context"
 
 import { EmptyState } from "@/components/EmptyState"
 import { LoadingScreen } from "@/components/LoadingScreen"
@@ -12,47 +14,36 @@ import { YearSection } from "@/components/YearSection"
 import { useFeedGenres, useGamesByYear } from "@/services/api/games"
 import { useGenreFilter } from "@/stores/genreFilter"
 import { useAppTheme } from "@/theme/context"
-import { $styles } from "@/theme/styles"
 import type { ThemedStyle } from "@/theme/types"
 
 export function GameFeedScreen() {
-  const { themed, theme } = useAppTheme()
+  const { themed } = useAppTheme()
+  const materialColors = useMaterialColors()
+  const { bottom } = useSafeAreaInsets()
   const { data: yearGroups, isLoading, isError } = useGamesByYear()
   const { data: genres = [] } = useFeedGenres()
   const [showFilters, setShowFilters] = useState(false)
+  const [searchText, setSearchText] = useState("")
   const { selectedIds: genreIds, isSelected, toggleGenre } = useGenreFilter()
-  const navigation = useNavigation()
-
-  useLayoutEffect(() => {
-    navigation.setOptions({
-      headerRight: () => (
-        <Pressable onPress={() => setShowFilters((v) => !v)} hitSlop={8} style={$filterButton}>
-          <Ionicons
-            name={showFilters ? "funnel" : "funnel-outline"}
-            size={22}
-            color={theme.colors.brandSurfaceText}
-          />
-        </Pressable>
-      ),
-    })
-  }, [navigation, showFilters, theme.colors.brandSurfaceText])
 
   const filteredYearGroups = useMemo(() => {
     if (!yearGroups) return yearGroups
     const hasGenreFilter = genreIds.length > 0
+    const query = searchText.toLowerCase().trim()
 
-    if (!hasGenreFilter) return yearGroups
+    if (!hasGenreFilter && !query) return yearGroups
 
     return yearGroups
       .map((group) => ({
         ...group,
         games: group.games.filter((game) => {
           if (hasGenreFilter && !game.genres.some((g) => genreIds.includes(g.id))) return false
+          if (query && !game.name.toLowerCase().includes(query)) return false
           return true
         }),
       }))
       .filter((group) => group.games.length > 0)
-  }, [yearGroups, genreIds])
+  }, [yearGroups, genreIds, searchText])
 
   if (isLoading) {
     return <LoadingScreen />
@@ -67,9 +58,33 @@ export function GameFeedScreen() {
   }
 
   return (
-    <Screen preset="fixed" contentContainerStyle={$styles.flex1}>
+    <>
+      <Stack.SearchBar
+        placeholder="Search games..."
+        onChangeText={(e) => setSearchText(e.nativeEvent.text)}
+      />
+      <Stack.Toolbar placement="right">
+        <Stack.Toolbar.Button
+          icon={
+            Platform.OS === "ios"
+              ? showFilters
+                ? "line.3.horizontal.decrease.circle.fill"
+                : "line.3.horizontal.decrease.circle"
+              : FilterList
+          }
+          onPress={() => setShowFilters((v) => !v)}
+        />
+      </Stack.Toolbar>
       {showFilters && (
-        <View style={themed($filterPanel)}>
+        <View
+          style={[
+            themed($filterPanel),
+            isAndroid && {
+              borderBottomColor: materialColors.outline,
+              backgroundColor: materialColors.surfaceContainerLow,
+            },
+          ]}
+        >
           <Text weight="bold" size="xs" style={themed($filterLabel)}>
             Filter by Genre
           </Text>
@@ -86,8 +101,10 @@ export function GameFeedScreen() {
           </View>
         </View>
       )}
-
-      <ScrollView>
+      <ScrollView
+        contentContainerStyle={{ paddingBottom: bottom }}
+        contentInsetAdjustmentBehavior="automatic"
+      >
         {filteredYearGroups && filteredYearGroups.length > 0 ? (
           filteredYearGroups.map((group) => (
             <YearSection key={group.year} year={group.year} games={group.games} />
@@ -96,12 +113,8 @@ export function GameFeedScreen() {
           <EmptyState heading="No Games Match Filters" />
         )}
       </ScrollView>
-    </Screen>
+    </>
   )
-}
-
-const $filterButton: ViewStyle = {
-  marginRight: 16,
 }
 
 const $centered: ViewStyle = {
@@ -110,10 +123,12 @@ const $centered: ViewStyle = {
   alignItems: "center",
 }
 
+const isAndroid = Platform.OS === "android"
+
 const $filterPanel: ThemedStyle<ViewStyle> = ({ spacing, colors }) => ({
   paddingHorizontal: spacing.lg,
   paddingVertical: spacing.sm,
-  borderBottomWidth: 2,
+  borderBottomWidth: isAndroid ? 1 : 2,
   borderBottomColor: colors.border,
   backgroundColor: colors.background,
 })

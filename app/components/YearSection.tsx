@@ -1,8 +1,11 @@
-import { FlatList, TextStyle, View, ViewStyle } from "react-native"
+import { FlatList, Platform, TextStyle, View, ViewStyle } from "react-native"
+import { useMaterialColors } from "@expo/ui/jetpack-compose"
 
 import { Text } from "@/components/Text"
 import { useAppTheme } from "@/theme/context"
 import type { ThemedStyle } from "@/theme/types"
+
+const isAndroid = Platform.OS === "android"
 
 import { GameCard } from "./GameCard"
 import type { Game } from "../services/api/types"
@@ -14,11 +17,21 @@ interface YearSectionProps {
 
 export function YearSection({ year, games }: YearSectionProps) {
   const { themed } = useAppTheme()
+  const materialColors = useMaterialColors()
 
   return (
     <View style={themed($container)}>
-      <View style={themed($badge)}>
-        <Text weight="bold" size="xxs" style={themed($badgeText)}>
+      <View
+        style={[
+          themed($badge),
+          isAndroid && { backgroundColor: materialColors.primary },
+        ]}
+      >
+        <Text
+          weight="bold"
+          size="xxs"
+          style={[themed($badgeText), isAndroid && { color: materialColors.onPrimary }]}
+        >
           {year}
         </Text>
       </View>
@@ -43,7 +56,7 @@ const $badge: ThemedStyle<ViewStyle> = ({ colors, spacing }) => ({
   alignSelf: "flex-start",
   backgroundColor: colors.brandAccent,
   borderRadius: spacing.md,
-  borderWidth: 2,
+  borderWidth: isAndroid ? 0 : 2,
   borderColor: "#000",
   paddingHorizontal: spacing.sm,
   paddingVertical: spacing.xxs,

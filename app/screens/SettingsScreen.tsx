@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { Platform, Pressable, View, ViewStyle, TextStyle } from "react-native"
 import { router } from "expo-router"
+import { useSafeAreaInsets } from "react-native-safe-area-context"
 import DateTimePicker from "@react-native-community/datetimepicker"
 import Slider from "@react-native-community/slider"
 
@@ -15,6 +16,7 @@ import type { ThemedStyle } from "@/theme/types"
 
 export function SettingsScreen() {
   const { themed, theme } = useAppTheme()
+  const { bottom } = useSafeAreaInsets()
   const {
     displayName,
     setDisplayName,
@@ -33,7 +35,7 @@ export function SettingsScreen() {
   const formattedDate = birthDate ? dateValue.toLocaleDateString() : "Not set"
 
   return (
-    <Screen preset="scroll" contentContainerStyle={themed($container)}>
+    <Screen preset="scroll" contentContainerStyle={[themed($container), { paddingBottom: bottom }]}>
       {/* Profile */}
       <Text preset="subheading" text="Profile" style={themed($sectionHeader)} />
       <TextField

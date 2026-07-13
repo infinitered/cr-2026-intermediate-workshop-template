@@ -1,6 +1,7 @@
 import { FlatList, Image, ImageStyle, TextStyle, TouchableOpacity, View, ViewStyle } from "react-native"
 import { router } from "expo-router"
 import { Ionicons } from "@expo/vector-icons"
+import { useSafeAreaInsets } from "react-native-safe-area-context"
 
 import { Button } from "@/components/Button"
 import { LoadingScreen } from "@/components/LoadingScreen"
@@ -14,6 +15,7 @@ import type { ThemedStyle } from "@/theme/types"
 
 export function QueueScreen() {
   const { themed, theme } = useAppTheme()
+  const { bottom } = useSafeAreaInsets()
   const { queuedGames, availableGames, isLoading, chooseNextGame, removeFromQueue, moveInQueue } =
     useQueueService()
 
@@ -58,7 +60,7 @@ export function QueueScreen() {
         )}
       </View>
 
-      <View style={themed($bottomButton)}>
+      <View style={[themed($bottomButton), { paddingBottom: bottom + 16 }]}>
         <Button
           text={availableGames.length > 0 ? "Choose My Next Game" : "All Games Queued!"}
           preset="reversed"
