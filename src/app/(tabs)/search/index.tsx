@@ -11,7 +11,14 @@ import {
   Text,
   VStack,
 } from "@expo/ui/swift-ui"
-import { buttonStyle, clipShape, font, frame, foregroundStyle, listStyle } from "@expo/ui/swift-ui/modifiers"
+import {
+  buttonStyle,
+  clipShape,
+  font,
+  frame,
+  foregroundStyle,
+  listStyle,
+} from "@expo/ui/swift-ui/modifiers"
 
 import { useGamesByYear } from "@/services/api/games"
 import type { Game } from "@/services/api/types"
@@ -52,9 +59,7 @@ export default function SearchScreen() {
           <ContentUnavailableView
             title={searchText ? "No Results" : "Search for a game"}
             systemImage={searchText ? "magnifyingglass" : "gamecontroller"}
-            description={
-              searchText ? `No games match "${searchText}"` : "Type to search for games"
-            }
+            description={searchText ? `No games match "${searchText}"` : "Type to search for games"}
           />
         )}
       </Host>
