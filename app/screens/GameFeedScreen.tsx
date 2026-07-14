@@ -110,11 +110,7 @@ export function GameFeedScreen() {
   }, [yearGroups, genreIds, hideMature, sortOrder, sortAscending, searchQuery])
 
   if (isLoading) {
-    return (
-      <Screen preset="fixed" contentContainerStyle={$centered}>
-        <ActivityIndicator size="large" color={theme.colors.tint} />
-      </Screen>
-    )
+    return <LoadingScreen />
   }
 
   if (isError || !yearGroups || yearGroups.length === 0) {

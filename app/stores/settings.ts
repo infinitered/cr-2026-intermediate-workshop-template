@@ -16,6 +16,7 @@ interface SettingsState {
   hideMature: boolean
   minRating: number
   sortOrder: SortOrder
+  sortAscending: boolean
   shippingAddress: ShippingAddress
 }
 
@@ -25,6 +26,7 @@ const defaults: SettingsState = {
   hideMature: false,
   minRating: 3,
   sortOrder: "Rating",
+  sortAscending: false,
   shippingAddress: { street1: "", street2: "", city: "", state: "", zip: "" },
 }
 
@@ -43,6 +45,7 @@ export function useSettings() {
     setHideMature: (hideMature: boolean) => store.setState({ hideMature }),
     setMinRating: (minRating: number) => store.setState({ minRating }),
     setSortOrder: (sortOrder: SortOrder) => store.setState({ sortOrder }),
+    setSortAscending: (sortAscending: boolean) => store.setState({ sortAscending }),
     setShippingAddress: (updates: Partial<ShippingAddress>) =>
       store.setState((prev) => ({
         shippingAddress: { ...prev.shippingAddress, ...updates },
