@@ -1,77 +1,31 @@
-import { ViewStyle } from "react-native"
-import { Tabs } from "expo-router"
-import { Ionicons } from "@expo/vector-icons"
-
-import { useAppTheme } from "@/theme/context"
-import { typeScale } from "@/theme/typography"
+import { NativeTabs } from "expo-router/unstable-native-tabs"
 
 export default function TabsLayout() {
-  const {
-    theme: { colors },
-  } = useAppTheme()
-
-  const barBg = colors.brandSurface
-  const barTint = colors.brandSurfaceText
-  const barBorder = colors.brandBorder
-
-  const headerStyle = {
-    backgroundColor: barBg,
-    borderBottomWidth: 2,
-    borderBottomColor: barBorder,
-  }
-
   return (
-    <Tabs
-      screenOptions={{
-        headerShown: false,
-        tabBarStyle: {
-          backgroundColor: barBg,
-          borderTopColor: barBorder,
-          borderTopWidth: 2,
-          paddingTop: 8,
-        } satisfies ViewStyle,
-        tabBarActiveTintColor: colors.brandAccent,
-        tabBarInactiveTintColor: colors.trackInactive,
-        tabBarLabelStyle: {
-          fontFamily: typeScale.label2.fontFamily,
-          fontSize: typeScale.label2.fontSize,
-        },
-      }}
-    >
-      <Tabs.Screen
-        name="(home)"
-        options={{
-          title: "Games",
-          headerShown: false,
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="game-controller" size={size} color={color} />
-          ),
-        }}
-      />
-      <Tabs.Screen
-        name="queue"
-        options={{
-          title: "Queue",
-          headerShown: true,
-          headerStyle,
-          headerTintColor: barTint,
-          headerTitleStyle: { fontFamily: typeScale.headline1.fontFamily },
-          tabBarIcon: ({ color, size }) => <Ionicons name="list" size={size} color={color} />,
-        }}
-      />
-      <Tabs.Screen
-        name="settings"
-        options={{
-          title: "Settings",
-          headerShown: true,
-          headerStyle,
-          headerTintColor: barTint,
-          headerTitleStyle: { fontFamily: typeScale.headline1.fontFamily },
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="settings-sharp" size={size} color={color} />
-          ),
-        }}
-      />
-    </Tabs>
+    <NativeTabs>
+      <NativeTabs.Trigger name="(home)">
+        <NativeTabs.Trigger.Icon
+          md="sports_esports"
+          sf={{ default: "gamecontroller", selected: "gamecontroller.fill" }}
+        />
+        <NativeTabs.Trigger.Label>Games</NativeTabs.Trigger.Label>
+      </NativeTabs.Trigger>
+
+      <NativeTabs.Trigger name="queue">
+        <NativeTabs.Trigger.Icon
+          md="list"
+          sf={{ default: "list.bullet", selected: "list.bullet" }}
+        />
+        <NativeTabs.Trigger.Label>Queue</NativeTabs.Trigger.Label>
+      </NativeTabs.Trigger>
+
+      <NativeTabs.Trigger name="settings">
+        <NativeTabs.Trigger.Icon
+          md="settings"
+          sf={{ default: "gearshape", selected: "gearshape.fill" }}
+        />
+        <NativeTabs.Trigger.Label>Settings</NativeTabs.Trigger.Label>
+      </NativeTabs.Trigger>
+    </NativeTabs>
   )
 }

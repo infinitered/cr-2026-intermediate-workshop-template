@@ -17,6 +17,7 @@ import { useAppTheme } from "@/theme/context"
 import { $styles } from "@/theme/styles"
 import { useToolbarIcons, type ToolbarIconKey } from "@/utils/useToolbarIcons"
 import { LoadingScreen } from "@/components/LoadingScreen"
+import { useSafeAreaInsets } from "react-native-safe-area-context"
 
 type ViewMode = "gallery" | "list"
 
@@ -47,6 +48,7 @@ export function GameFeedScreen() {
   // Menu-row icons are iOS-only: Android overflow menus are conventionally text-only, and the
   // selected state still shows via the `isOn` checkmark. The toolbar trigger + search keep their icons.
   const menuIcon = (key: ToolbarIconKey) => (Platform.OS === "ios" ? toolbarIcon(key) : undefined)
+  const { bottom } = useSafeAreaInsets()
 
   const [sortAscending, setSortAscending] = useState(false)
   const [viewMode, setViewMode] = useState<ViewMode>("gallery")
@@ -115,7 +117,7 @@ export function GameFeedScreen() {
   }
 
   return (
-    <Screen preset="fixed" contentContainerStyle={$styles.flex1}>
+    <>
       <Stack.Toolbar placement="right">
         <Stack.Toolbar.Menu
           icon={toolbarIcon("filter")}
@@ -253,7 +255,10 @@ export function GameFeedScreen() {
 
       <FeedSearch onChangeText={setSearchQuery} />
 
-      <ScrollView style={$styles.flex1}>
+      <ScrollView
+        contentInsetAdjustmentBehavior="automatic"
+        contentContainerStyle={{ paddingBottom: bottom }}
+      >
         {filteredYearGroups && filteredYearGroups.length > 0 ? (
           filteredYearGroups.map((group) => (
             <YearSection
@@ -290,7 +295,7 @@ export function GameFeedScreen() {
           </FieldGroup.Section>
         </FieldGroup>
       </BottomSheet>
-    </Screen>
+    </>
   )
 }
 
