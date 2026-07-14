@@ -9,7 +9,7 @@ import {
   View,
   ViewStyle,
 } from "react-native"
-import { router } from "expo-router"
+import { Link, router } from "expo-router"
 import { Ionicons } from "@expo/vector-icons"
 
 import { Button } from "@/components/Button"
@@ -56,10 +56,37 @@ export function GameDetailScreen({ id }: GameDetailScreenProps) {
 
   return (
     <Screen preset="scroll">
+      <Stack.Screen
+        options={{
+          title: game?.name ?? "",
+          ...(Platform.OS === "ios"
+            ? { headerTransparent: true, title: "" }
+            : { headerShown: true }),
+        }}
+      />
+      {Platform.OS === "ios" && (
+        <Stack.Toolbar placement="left">
+          <Stack.Toolbar.Button icon="chevron.backward" onPress={() => router.back()} />
+        </Stack.Toolbar>
+      )}
+      <Stack.Toolbar placement="right">
+        <Stack.Toolbar.Button
+          icon={Platform.OS === "ios" ? "square.and.arrow.up" : ShareAndroid}
+          onPress={() => {
+            if (!game) return
+            const message = game.website
+              ? `Check out ${game.name}! ${game.website}`
+              : `Check out ${game.name}!`
+            Share.share({ message })
+          }}
+        />
+      </Stack.Toolbar>
       {/* Hero image with queue overlay at top-right */}
       <View>
         {game.background_image && (
-          <Image source={{ uri: game.background_image }} style={$heroImage} blurRadius={3} />
+          <Link.AppleZoomTarget>
+            <Image source={{ uri: game.background_image }} style={$heroImage} />
+          </Link.AppleZoomTarget>
         )}
         <TouchableOpacity
           style={themed($queueOverlay)}
@@ -229,7 +256,7 @@ const $centered: ViewStyle = {
 
 const $heroImage: ImageStyle = {
   width: "100%",
-  height: 180,
+  aspectRatio: 3 / 4,
 }
 
 const $queueOverlay: ThemedStyle<ViewStyle> = ({ spacing }) => ({

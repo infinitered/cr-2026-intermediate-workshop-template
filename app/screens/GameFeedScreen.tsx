@@ -118,8 +118,6 @@ export function GameFeedScreen() {
 
   return (
     <>
-      <FeedSearch onChangeText={setSearchQuery} />
-
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         contentContainerStyle={{ paddingBottom: bottom }}
@@ -160,7 +158,7 @@ export function GameFeedScreen() {
           </FieldGroup.Section>
         </FieldGroup>
       </BottomSheet>
-            <Stack.Toolbar placement="right">
+      <Stack.Toolbar placement="right">
         <Stack.Toolbar.Menu
           icon={toolbarIcon("filter")}
           variant={hasFilters ? "prominent" : "plain"}
@@ -236,64 +234,10 @@ export function GameFeedScreen() {
           </Stack.Toolbar.Menu>
         </Stack.Toolbar.Menu>
       </Stack.Toolbar>
-
-      {Platform.OS !== "android" && (
-        <Stack.Toolbar placement="bottom">
-          {searchActive ? (
-            <>
-              <Stack.Toolbar.View>
-                <TextField
-                  ref={searchInputRef}
-                  autoFocus
-                  value={searchQuery}
-                  onChangeText={setSearchQuery}
-                  placeholder="Search games"
-                  returnKeyType="search"
-                  containerStyle={{ width: windowWidth - 96 }}
-                  inputWrapperStyle={{ borderRadius: 999 }}
-                  LeftAccessory={(props) => (
-                    <View style={props.style}>
-                      <SymbolView
-                        name="magnifyingglass"
-                        tintColor={theme.colors.textDim}
-                        size={18}
-                      />
-                    </View>
-                  )}
-                  RightAccessory={
-                    searchQuery.length > 0
-                      ? (props) => (
-                          <Pressable
-                            onPress={clearSearch}
-                            style={props.style}
-                            hitSlop={8}
-                            accessibilityLabel="Clear search"
-                          >
-                            <SymbolView
-                              name="xmark.circle.fill"
-                              tintColor={theme.colors.textDim}
-                              size={18}
-                            />
-                          </Pressable>
-                        )
-                      : undefined
-                  }
-                />
-              </Stack.Toolbar.View>
-              <Stack.Toolbar.Spacer width={8} />
-              <Stack.Toolbar.Button icon={toolbarIcon("close")} onPress={closeSearch} />
-            </>
-          ) : (
-            <>
-              <Stack.Toolbar.Spacer />
-              <Stack.Toolbar.Button
-                icon={toolbarIcon("search")}
-                onPress={() => setSearchActive(true)}
-              />
-            </>
-          )}
-        </Stack.Toolbar>
-      )}
+      <Stack.SearchBar
+        placeholder="Search games..."
+        onChangeText={(e) => setSearchQuery(e.nativeEvent.text)}
+      />
     </>
   )
 }
