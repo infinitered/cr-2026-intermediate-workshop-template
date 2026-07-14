@@ -118,7 +118,49 @@ export function GameFeedScreen() {
 
   return (
     <>
-      <Stack.Toolbar placement="right">
+      <FeedSearch onChangeText={setSearchQuery} />
+
+      <ScrollView
+        contentInsetAdjustmentBehavior="automatic"
+        contentContainerStyle={{ paddingBottom: bottom }}
+      >
+        {filteredYearGroups && filteredYearGroups.length > 0 ? (
+          filteredYearGroups.map((group) => (
+            <YearSection
+              key={group.year}
+              year={group.year}
+              games={group.games}
+              viewMode={viewMode}
+            />
+          ))
+        ) : (
+          <EmptyState heading="No Games Match Filters" />
+        )}
+      </ScrollView>
+
+      <BottomSheet
+        isPresented={viewOptionsOpen}
+        onDismiss={() => setViewOptionsOpen(false)}
+        snapPoints={["half", "full"]}
+      >
+        <FieldGroup>
+          <FieldGroup.Section title="Sort By">
+            <Picker
+              selectedValue={sortOrder}
+              onValueChange={(value) => setSortOrder(value as SortOrder)}
+              appearance="menu"
+            >
+              {SORT_OPTIONS.map((order) => (
+                <Picker.Item key={order} label={order} value={order} />
+              ))}
+            </Picker>
+          </FieldGroup.Section>
+          <FieldGroup.Section title="Advanced">
+            <Switch value={hideMature} onValueChange={setHideMature} label="Hide Mature Content" />
+          </FieldGroup.Section>
+        </FieldGroup>
+      </BottomSheet>
+            <Stack.Toolbar placement="right">
         <Stack.Toolbar.Menu
           icon={toolbarIcon("filter")}
           variant={hasFilters ? "prominent" : "plain"}
@@ -252,49 +294,6 @@ export function GameFeedScreen() {
           )}
         </Stack.Toolbar>
       )}
-
-      <FeedSearch onChangeText={setSearchQuery} />
-
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        contentContainerStyle={{ paddingBottom: bottom }}
-      >
-        {filteredYearGroups && filteredYearGroups.length > 0 ? (
-          filteredYearGroups.map((group) => (
-            <YearSection
-              key={group.year}
-              year={group.year}
-              games={group.games}
-              viewMode={viewMode}
-            />
-          ))
-        ) : (
-          <EmptyState heading="No Games Match Filters" />
-        )}
-      </ScrollView>
-
-      <BottomSheet
-        isPresented={viewOptionsOpen}
-        onDismiss={() => setViewOptionsOpen(false)}
-        snapPoints={["half", "full"]}
-      >
-        <FieldGroup>
-          <FieldGroup.Section title="Sort By">
-            <Picker
-              selectedValue={sortOrder}
-              onValueChange={(value) => setSortOrder(value as SortOrder)}
-              appearance="menu"
-            >
-              {SORT_OPTIONS.map((order) => (
-                <Picker.Item key={order} label={order} value={order} />
-              ))}
-            </Picker>
-          </FieldGroup.Section>
-          <FieldGroup.Section title="Advanced">
-            <Switch value={hideMature} onValueChange={setHideMature} label="Hide Mature Content" />
-          </FieldGroup.Section>
-        </FieldGroup>
-      </BottomSheet>
     </>
   )
 }

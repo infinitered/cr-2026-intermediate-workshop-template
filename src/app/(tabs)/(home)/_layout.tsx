@@ -8,9 +8,8 @@ export default function HomeStackLayout() {
         name="index"
         options={{
           title: "Games",
-          headerLargeTitleEnabled: true,
+          headerLargeTitle: true,
           ...(Platform.OS === "ios" && { headerTransparent: true }),
-          headerBlurEffect: "systemUltraThinMaterial",
         }}
       />
     </Stack>
