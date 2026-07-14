@@ -1,7 +1,6 @@
 import { useMemo, useState } from "react"
 import { Platform, ScrollView, View, ViewStyle } from "react-native"
 import { Stack } from "expo-router"
-import { useMaterialColors } from "@expo/ui/jetpack-compose"
 import FilterList from "@expo/material-symbols/filter_list.xml"
 import { useSafeAreaInsets } from "react-native-safe-area-context"
 
@@ -18,7 +17,6 @@ import type { ThemedStyle } from "@/theme/types"
 
 export function GameFeedScreen() {
   const { themed } = useAppTheme()
-  const materialColors = useMaterialColors()
   const { bottom } = useSafeAreaInsets()
   const { data: yearGroups, isLoading, isError } = useGamesByYear()
   const { data: genres = [] } = useFeedGenres()

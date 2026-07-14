@@ -1,6 +1,5 @@
 import { Image, ImageStyle, Platform, Pressable, TextStyle, View, ViewStyle } from "react-native"
 import { Link } from "expo-router"
-import { useMaterialColors } from "@expo/ui/jetpack-compose"
 
 import { Text } from "@/components/Text"
 import { useAppTheme } from "@/theme/context"
@@ -17,7 +16,6 @@ interface GameCardProps {
 
 export function GameCard({ game }: GameCardProps) {
   const { themed } = useAppTheme()
-  const materialColors = useMaterialColors()
 
   return (
     <Link href={`/game/${game.id}`} asChild>
@@ -25,10 +23,6 @@ export function GameCard({ game }: GameCardProps) {
         <View
           style={[
             themed($cardInner),
-            isAndroid && {
-              backgroundColor: materialColors.surfaceContainer,
-              borderColor: materialColors.outline,
-            },
           ]}
         >
           <Link.AppleZoom>
@@ -38,7 +32,7 @@ export function GameCard({ game }: GameCardProps) {
               <View
                 style={[
                   themed([$image, $imagePlaceholder]),
-                  isAndroid && { backgroundColor: materialColors.surfaceContainerHigh },
+                
                 ]}
               />
             )}

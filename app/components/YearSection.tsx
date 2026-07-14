@@ -1,5 +1,4 @@
 import { FlatList, Platform, TextStyle, View, ViewStyle } from "react-native"
-import { useMaterialColors } from "@expo/ui/jetpack-compose"
 
 import { Text } from "@/components/Text"
 import { useAppTheme } from "@/theme/context"
@@ -17,20 +16,17 @@ interface YearSectionProps {
 
 export function YearSection({ year, games }: YearSectionProps) {
   const { themed } = useAppTheme()
-  const materialColors = useMaterialColors()
-
   return (
     <View style={themed($container)}>
       <View
         style={[
           themed($badge),
-          isAndroid && { backgroundColor: materialColors.primary },
         ]}
       >
         <Text
           weight="bold"
           size="xxs"
-          style={[themed($badgeText), isAndroid && { color: materialColors.onPrimary }]}
+          style={themed($badgeText)}
         >
           {year}
         </Text>
