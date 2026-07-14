@@ -1,13 +1,5 @@
 import { type ComponentRef, useMemo, useRef, useState } from "react"
-import {
-  ActivityIndicator,
-  Platform,
-  Pressable,
-  ScrollView,
-  useWindowDimensions,
-  View,
-  ViewStyle,
-} from "react-native"
+import { Platform, Pressable, ScrollView, useWindowDimensions, View, ViewStyle } from "react-native"
 import { Stack } from "expo-router"
 import { SymbolView } from "expo-symbols"
 import { BottomSheet, FieldGroup, Picker, Switch } from "@expo/ui"
@@ -24,6 +16,7 @@ import { useSettings, type SortOrder } from "@/stores/settings"
 import { useAppTheme } from "@/theme/context"
 import { $styles } from "@/theme/styles"
 import { useToolbarIcons, type ToolbarIconKey } from "@/utils/useToolbarIcons"
+import { LoadingScreen } from "@/components/LoadingScreen"
 
 type ViewMode = "gallery" | "list"
 
