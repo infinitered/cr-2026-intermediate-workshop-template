@@ -56,31 +56,6 @@ export function GameDetailScreen({ id }: GameDetailScreenProps) {
 
   return (
     <Screen preset="scroll">
-      <Stack.Screen
-        options={{
-          title: game?.name ?? "",
-          ...(Platform.OS === "ios"
-            ? { headerTransparent: true, title: "" }
-            : { headerShown: true }),
-        }}
-      />
-      {Platform.OS === "ios" && (
-        <Stack.Toolbar placement="left">
-          <Stack.Toolbar.Button icon="chevron.backward" onPress={() => router.back()} />
-        </Stack.Toolbar>
-      )}
-      <Stack.Toolbar placement="right">
-        <Stack.Toolbar.Button
-          icon={Platform.OS === "ios" ? "square.and.arrow.up" : ShareAndroid}
-          onPress={() => {
-            if (!game) return
-            const message = game.website
-              ? `Check out ${game.name}! ${game.website}`
-              : `Check out ${game.name}!`
-            Share.share({ message })
-          }}
-        />
-      </Stack.Toolbar>
       {/* Hero image with queue overlay at top-right */}
       <View>
         {game.background_image && (
@@ -261,7 +236,7 @@ const $heroImage: ImageStyle = {
 
 const $queueOverlay: ThemedStyle<ViewStyle> = ({ spacing }) => ({
   position: "absolute",
-  top: spacing.xs,
+  bottom: spacing.xs,
   right: spacing.xs,
   flexDirection: "row",
   alignItems: "center",
