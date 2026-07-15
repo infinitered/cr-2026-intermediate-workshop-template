@@ -1,9 +1,7 @@
-import { Image, ImageStyle, Pressable, TextStyle, View, ViewStyle } from "react-native"
-import { router } from "expo-router"
+import { Image, ImageStyle, Pressable, TextStyle, useColorScheme, View, ViewStyle } from "react-native"
+import { Color, router } from "expo-router"
 
 import { Text } from "@/components/Text"
-import { useAppTheme } from "@/theme/context"
-import type { ThemedStyle } from "@/theme/types"
 import { formatDate } from "@/utils/formatDate"
 
 import type { Game } from "../services/api/types"
@@ -18,16 +16,16 @@ interface GameCarouselCardProps {
  * with the title overlaid along the bottom edge.
  */
 export function GameCarouselCard({ game }: GameCarouselCardProps) {
-  const { themed } = useAppTheme()
+  useColorScheme()
 
   return (
     <Pressable style={$fill} onPress={() => router.push(`/game/${game.id}`)}>
       {game.background_image ? (
         <Image source={{ uri: game.background_image }} style={$image} resizeMode="cover" />
       ) : (
-        <View style={themed([$image, $imagePlaceholder])} />
+        <View style={[$image, $imagePlaceholder]} />
       )}
-      <View style={themed($overlay)}>
+      <View style={$overlay}>
         <Text weight="bold" size="xs" numberOfLines={1} style={$overlayText}>
           {game.name}
         </Text>
@@ -48,19 +46,19 @@ const $image: ImageStyle = {
   width: "100%",
 }
 
-const $imagePlaceholder: ThemedStyle<ViewStyle> = ({ colors }) => ({
-  backgroundColor: colors.palette.purpleMuted200,
-})
+const $imagePlaceholder: ViewStyle = {
+  backgroundColor: Color.android.dynamic.surfaceContainerHigh,
+}
 
-const $overlay: ThemedStyle<ViewStyle> = ({ spacing }) => ({
+const $overlay: ViewStyle = {
   position: "absolute",
   left: 0,
   right: 0,
   bottom: 0,
-  padding: spacing.xs,
-  backgroundColor: "rgba(0, 0, 0, 0.55)",
-})
+  padding: 6,
+  backgroundColor: Color.android.dynamic.surfaceContainer,
+}
 
 const $overlayText: TextStyle = {
-  color: "#fff",
+  color: Color.android.dynamic.onSurface,
 }

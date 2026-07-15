@@ -1,5 +1,7 @@
-import { Text, useColorScheme, View, ViewStyle } from "react-native"
+import { useColorScheme, View, ViewStyle } from "react-native"
 import { Color } from "expo-router"
+
+import { Text } from "@/components/Text"
 
 interface YearBadgeProps {
   year: string
@@ -10,7 +12,9 @@ export function YearBadge({ year }: YearBadgeProps) {
 
   return (
     <View style={$badge}>
-      <Text style={$badgeText}>{year}</Text>
+      <Text weight="bold" size="xxs" style={$badgeText}>
+        {year}
+      </Text>
     </View>
   )
 }
@@ -29,6 +33,4 @@ const $badge: ViewStyle = {
 
 const $badgeText = {
   color: Color.android.dynamic.onPrimaryContainer,
-  fontWeight: "bold" as const,
-  fontSize: 12,
 }
