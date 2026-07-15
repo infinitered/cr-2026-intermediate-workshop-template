@@ -1,10 +1,10 @@
-import { FlatList, TextStyle, View, ViewStyle } from "react-native"
+import { FlatList, View, ViewStyle } from "react-native"
 
-import { Text } from "@/components/Text"
 import { useAppTheme } from "@/theme/context"
 import type { ThemedStyle } from "@/theme/types"
 
 import { GameCard } from "./GameCard"
+import { YearBadge } from "./YearBadge"
 import type { Game } from "../services/api/types"
 
 interface YearSectionProps {
@@ -17,11 +17,7 @@ export function YearSection({ year, games }: YearSectionProps) {
 
   return (
     <View style={themed($container)}>
-      <View style={themed($badge)}>
-        <Text weight="bold" size="xxs" style={themed($badgeText)}>
-          {year}
-        </Text>
-      </View>
+      <YearBadge year={year} />
       <FlatList
         horizontal
         data={games}
@@ -37,22 +33,6 @@ export function YearSection({ year, games }: YearSectionProps) {
 const $container: ThemedStyle<ViewStyle> = ({ spacing }) => ({
   marginBottom: spacing.sm,
   marginTop: spacing.sm,
-})
-
-const $badge: ThemedStyle<ViewStyle> = ({ colors, spacing }) => ({
-  alignSelf: "flex-start",
-  backgroundColor: colors.brandAccent,
-  borderRadius: spacing.md,
-  borderWidth: 2,
-  borderColor: "#000",
-  paddingHorizontal: spacing.sm,
-  paddingVertical: spacing.xxs,
-  marginBottom: spacing.sm,
-  marginLeft: spacing.lg,
-})
-
-const $badgeText: ThemedStyle<TextStyle> = ({ colors }) => ({
-  color: colors.brandAccentText,
 })
 
 const $listContent: ThemedStyle<ViewStyle> = ({ spacing }) => ({
