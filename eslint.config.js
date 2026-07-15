@@ -76,31 +76,7 @@ module.exports = [
         },
       ],
 
-      "import/order": [
-        "error",
-        {
-          "alphabetize": {
-            order: "asc",
-            caseInsensitive: true,
-          },
-          "newlines-between": "always",
-          "groups": [
-            ["builtin", "external"],
-            "internal",
-            "unknown",
-            ["parent", "sibling"],
-            "index",
-          ],
-          "distinctGroup": false,
-          "pathGroups": [
-            { pattern: "react", group: "external", position: "before" },
-            { pattern: "react-native", group: "external", position: "before" },
-            { pattern: "expo{,-*}", group: "external", position: "before" },
-            { pattern: "@/**", group: "unknown", position: "after" },
-          ],
-          "pathGroupsExcludedImportTypes": ["react", "react-native", "expo", "expo-*"],
-        },
-      ],
+      "import/order": "off",
       "import/newline-after-import": "warn",
     },
   },

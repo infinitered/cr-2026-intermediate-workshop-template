@@ -52,7 +52,8 @@
         }
       }
     ],
-    "expo-build-properties"
+    "expo-build-properties",
+    "expo-image"
   ],
   "experiments": {
     "tsconfigPaths": true,
