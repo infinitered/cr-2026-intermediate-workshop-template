@@ -1,6 +1,11 @@
 import { useEffect, useState } from "react"
 import { useFonts } from "expo-font"
 import { Stack, SplashScreen } from "expo-router"
+import {
+  DarkTheme,
+  DefaultTheme,
+  ThemeProvider as NavigationThemeProvider,
+} from "expo-router/react-navigation"
 import { QueryClientProvider } from "@tanstack/react-query"
 import { KeyboardProvider } from "react-native-keyboard-controller"
 import { initialWindowMetrics, SafeAreaProvider } from "react-native-safe-area-context"
@@ -10,6 +15,7 @@ import { queryClient } from "@/services/api/queryClient"
 import { ThemeProvider } from "@/theme/context"
 import { customFontsToLoad } from "@/theme/typography"
 import { loadDateFnsLocale } from "@/utils/formatDate"
+import { useColorScheme } from "react-native"
 
 SplashScreen.preventAutoHideAsync()
 
@@ -31,6 +37,8 @@ if (__DEV__) {
 export default function Root() {
   const [fontsLoaded, fontError] = useFonts(customFontsToLoad)
   const [isI18nInitialized, setIsI18nInitialized] = useState(false)
+
+  const colorScheme = useColorScheme() as "light" | "dark"
 
   useEffect(() => {
     initI18n()
@@ -56,34 +64,39 @@ export default function Root() {
 
   return (
     <SafeAreaProvider initialMetrics={initialWindowMetrics}>
-      <ThemeProvider>
-        <KeyboardProvider>
-          <QueryClientProvider client={queryClient}>
-            <Stack screenOptions={{ headerShown: false }}>
-              <Stack.Screen name="(tabs)" />
-              <Stack.Screen
-                name="game/[id]"
-                options={{ headerShown: true, title: "Game Detail" }}
-              />
-              <Stack.Screen name="genre/[id]" options={{ headerShown: true, title: "Genre" }} />
-              <Stack.Screen
-                name="review/[gameId]"
-                options={{ headerShown: true, presentation: "modal" }}
-              />
-              <Stack.Screen name="shared" options={{ headerShown: true, presentation: "modal" }} />
-              <Stack.Screen
-                name="favorite-genres"
-                options={{ headerShown: true, title: "Favorite Genres" }}
-              />
-              <Stack.Screen
-                name="muted-keywords"
-                options={{ headerShown: true, title: "Muted Keywords" }}
-              />
-              <Stack.Screen name="disclosures" />
-            </Stack>
-          </QueryClientProvider>
-        </KeyboardProvider>
-      </ThemeProvider>
+      <NavigationThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
+        <ThemeProvider>
+          <KeyboardProvider>
+            <QueryClientProvider client={queryClient}>
+              <Stack screenOptions={{ headerShown: false }}>
+                <Stack.Screen name="(tabs)" />
+                <Stack.Screen
+                  name="game/[id]"
+                  options={{ headerShown: true, title: "Game Detail" }}
+                />
+                <Stack.Screen name="genre/[id]" options={{ headerShown: true, title: "Genre" }} />
+                <Stack.Screen
+                  name="review/[gameId]"
+                  options={{ headerShown: true, presentation: "modal" }}
+                />
+                <Stack.Screen
+                  name="shared"
+                  options={{ headerShown: true, presentation: "modal" }}
+                />
+                <Stack.Screen
+                  name="favorite-genres"
+                  options={{ headerShown: true, title: "Favorite Genres" }}
+                />
+                <Stack.Screen
+                  name="muted-keywords"
+                  options={{ headerShown: true, title: "Muted Keywords" }}
+                />
+                <Stack.Screen name="disclosures" />
+              </Stack>
+            </QueryClientProvider>
+          </KeyboardProvider>
+        </ThemeProvider>
+      </NavigationThemeProvider>
     </SafeAreaProvider>
   )
 }
