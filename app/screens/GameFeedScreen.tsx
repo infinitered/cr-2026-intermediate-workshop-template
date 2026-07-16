@@ -15,6 +15,7 @@ import { useFeedGenres } from "@/services/api/games"
 import { useAppTheme } from "@/theme/context"
 import { useToolbarIcons } from "@/utils/useToolbarIcons"
 import { SymbolView } from "node_modules/expo-symbols/build/SymbolView"
+import { FeedSearch } from "@/components/FeedSearch.android"
 
 export function GameFeedScreen() {
   const [searchQuery, setSearchQuery] = useState("")
@@ -188,6 +189,8 @@ export function GameFeedScreen() {
           )}
         </Stack.Toolbar>
       )}
+      <FeedSearch onChangeText={setSearchQuery} />
+
       <ScrollView>
         {yearGroups.map((group) => (
           <YearSection key={group.year} year={group.year} games={group.games} viewMode={viewMode} />
