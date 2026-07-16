@@ -11,8 +11,8 @@ import {
 } from "react-native"
 import { Link, router } from "expo-router"
 import { Ionicons } from "@expo/vector-icons"
+import { Button, Host } from "@expo/ui"
 
-import { Button } from "@/components/Button"
 import { EmptyState } from "@/components/EmptyState"
 import { LoadingScreen } from "@/components/LoadingScreen"
 import { Screen } from "@/components/Screen"
@@ -150,16 +150,17 @@ export function GameDetailScreen({ id }: GameDetailScreenProps) {
       </View>
 
       <View style={themed($writeReviewSection)}>
-        <Button
-          text="Write A Review"
-          style={themed($reviewButton)}
-          onPress={() =>
-            router.push({
-              pathname: "/review/[gameId]",
-              params: { gameId: id, gameName: game.name },
-            })
-          }
-        />
+        <Host matchContents>
+          <Button
+            label="Write A Review"
+            onPress={() =>
+              router.push({
+                pathname: "/review/[gameId]",
+                params: { gameId: id, gameName: game.name },
+              })
+            }
+          />
+        </Host>
       </View>
 
       {localReviews.map((review) => (
@@ -306,11 +307,7 @@ const $reviewsHeader: ThemedStyle<ViewStyle> = ({ spacing, colors }) => ({
 const $writeReviewSection: ThemedStyle<ViewStyle> = ({ spacing }) => ({
   paddingHorizontal: spacing.lg,
   paddingBottom: spacing.md,
-})
-
-const $reviewButton: ThemedStyle<ViewStyle> = ({ colors, spacing }) => ({
-  backgroundColor: colors.brandSurface,
-  borderRadius: spacing.xs,
+  alignItems: "center",
 })
 
 const $reviewCard: ThemedStyle<ViewStyle> = ({ spacing, colors }) => ({
