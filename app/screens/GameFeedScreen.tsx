@@ -1,10 +1,11 @@
-import { useState } from "react"
-import { ScrollView, ViewStyle } from "react-native"
+import { ComponentRef, useRef, useState } from "react"
+import { Platform, Pressable, ScrollView, useWindowDimensions, View, ViewStyle } from "react-native"
 import { Stack } from "expo-router"
 
 import { EmptyState } from "@/components/EmptyState"
 import { LoadingScreen } from "@/components/LoadingScreen"
 import { Screen } from "@/components/Screen"
+import { TextField } from "@/components/TextField"
 import { YearSection } from "@/components/YearSection"
 import { $styles } from "@/theme/styles"
 import { SORT_OPTIONS, useFilteredGamesByYear } from "@/stores/gameFeed"
@@ -13,9 +14,11 @@ import { useGenreFilter } from "@/stores/genreFilter"
 import { useFeedGenres } from "@/services/api/games"
 import { useAppTheme } from "@/theme/context"
 import { useToolbarIcons } from "@/utils/useToolbarIcons"
+import { SymbolView } from "node_modules/expo-symbols/build/SymbolView"
 
 export function GameFeedScreen() {
-  const { yearGroups, isLoading, isError } = useFilteredGamesByYear()
+  const [searchQuery, setSearchQuery] = useState("")
+  const { yearGroups, isLoading, isError } = useFilteredGamesByYear(searchQuery)
   const { theme } = useAppTheme()
   const { viewMode, setViewMode, sortOrder, sortAscending, setSortOrder, setSortAscending } =
     useSettings()
@@ -35,6 +38,19 @@ export function GameFeedScreen() {
       setSortAscending(true)
     }
   }
+
+  const closeSearch = () => {
+    setSearchActive(false)
+    setSearchQuery("")
+  }
+  const clearSearch = () => {
+    setSearchQuery("")
+    searchInputRef.current?.focus() // clear but keep typing
+  }
+
+  const { width: windowWidth } = useWindowDimensions()
+  const [searchActive, setSearchActive] = useState(false)
+  const searchInputRef = useRef<ComponentRef<typeof TextField>>(null)
 
   if (isLoading) {
     return <LoadingScreen />
@@ -120,6 +136,58 @@ export function GameFeedScreen() {
           </Stack.Toolbar.Menu>
         </Stack.Toolbar.Menu>
       </Stack.Toolbar>
+      {Platform.OS !== "android" && (
+        <Stack.Toolbar placement="bottom">
+          {searchActive ? (
+            <>
+              <Stack.Toolbar.View>
+                <TextField
+                  ref={searchInputRef}
+                  autoFocus
+                  value={searchQuery}
+                  onChangeText={setSearchQuery}
+                  placeholder="Search games"
+                  returnKeyType="search"
+                  containerStyle={{ width: windowWidth - 96 }}
+                  inputWrapperStyle={{ borderRadius: 999 }} // pill
+                  LeftAccessory={(props) => (
+                    <View style={props.style}>
+                      <SymbolView
+                        name="magnifyingglass"
+                        tintColor={theme.colors.textDim}
+                        size={18}
+                      />
+                    </View>
+                  )}
+                  RightAccessory={
+                    searchQuery.length > 0
+                      ? (props) => (
+                          <Pressable onPress={clearSearch} style={props.style} hitSlop={8}>
+                            <SymbolView
+                              name="xmark.circle.fill"
+                              tintColor={theme.colors.textDim}
+                              size={18}
+                            />
+                          </Pressable>
+                        )
+                      : undefined
+                  }
+                />
+              </Stack.Toolbar.View>
+              <Stack.Toolbar.Spacer width={8} />
+              <Stack.Toolbar.Button icon={toolbarIcon("close")} onPress={closeSearch} />
+            </>
+          ) : (
+            <>
+              <Stack.Toolbar.Spacer />
+              <Stack.Toolbar.Button
+                icon={toolbarIcon("search")}
+                onPress={() => setSearchActive(true)}
+              />
+            </>
+          )}
+        </Stack.Toolbar>
+      )}
       <ScrollView>
         {yearGroups.map((group) => (
           <YearSection key={group.year} year={group.year} games={group.games} viewMode={viewMode} />
