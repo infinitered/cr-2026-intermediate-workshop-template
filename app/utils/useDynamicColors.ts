@@ -1,42 +1,33 @@
-import { useSyncExternalStore } from "react"
+import { useEffect, useState } from "react"
 import { AppState, Platform, useColorScheme } from "react-native"
-import { getMaterialColors } from "@expo/ui/jetpack-compose"
-
-let currentPrimary = Platform.OS === "android" ? getMaterialColors().primary : ""
-const listeners = new Set<() => void>()
-
-if (Platform.OS === "android") {
-  AppState.addEventListener("change", (state) => {
-    if (state === "active") {
-      const sampled = getMaterialColors().primary
-      if (sampled !== currentPrimary) {
-        console.log("Material You palette changed, re-rendering app")
-        currentPrimary = sampled
-        listeners.forEach((l) => l())
-      }
-    }
-  })
-}
-
-function subscribe(onStoreChange: () => void) {
-  listeners.add(onStoreChange)
-  return () => listeners.delete(onStoreChange)
-}
-
-function getSnapshot() {
-  return currentPrimary
-}
+import { getMaterialColors, type MaterialColors } from "@expo/ui/jetpack-compose"
 
 /**
- * Ensures the app re-renders when the Material You palette changes
- * (e.g. wallpaper change). `useColorScheme` alone only fires on
- * light/dark toggles. This hook uses `useSyncExternalStore` to
- * guarantee a re-render when the wallpaper-derived palette changes.
- * Returns a `paletteKey` to use as a `key` prop on the root tree.
+ * Returns the resolved Material 3 color palette and re-renders when
+ * the palette changes (e.g. wallpaper change). On non-Android platforms,
+ * returns `null` for colors.
  */
 export function useDynamicColors() {
   const colorScheme = useColorScheme()
-  const primarySample = useSyncExternalStore(subscribe, getSnapshot)
 
-  return { colorScheme, paletteKey: `${colorScheme}-${primarySample}` }
+  const [colors, setColors] = useState<MaterialColors | null>(() =>
+    Platform.OS === "android" ? getMaterialColors() : null,
+  )
+
+  useEffect(() => {
+    if (Platform.OS !== "android") return
+
+    const sub = AppState.addEventListener("change", (state) => {
+      if (state === "active") {
+        const current = getMaterialColors()
+        setColors((prev) => {
+          if (prev && prev.primary === current.primary) return prev
+          return current
+        })
+      }
+    })
+    return () => sub.remove()
+  }, [])
+
+  return { colorScheme, colors }
 }
