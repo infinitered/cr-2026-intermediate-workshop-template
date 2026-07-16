@@ -1,6 +1,6 @@
 import { type ComponentRef, useMemo, useRef, useState } from "react"
 import { Platform, Pressable, ScrollView, useWindowDimensions, View, ViewStyle } from "react-native"
-import { Stack } from "expo-router"
+import { Color, Stack } from "expo-router"
 import { SymbolView } from "expo-symbols"
 import { BottomSheet, FieldGroup, Picker, Switch } from "@expo/ui"
 
@@ -237,6 +237,13 @@ export function GameFeedScreen() {
       <Stack.SearchBar
         placeholder="Search games..."
         onChangeText={(e) => setSearchQuery(e.nativeEvent.text)}
+        {...(Platform.OS === "android" && {
+          barTintColor: Color.android.dynamic.surfaceContainerHigh,
+          textColor: Color.android.dynamic.onSurface,
+          hintTextColor: Color.android.dynamic.onSurfaceVariant,
+          headerIconColor: Color.android.dynamic.onSurfaceVariant,
+          tintColor: Color.android.dynamic.primary,
+        })}
       />
     </>
   )

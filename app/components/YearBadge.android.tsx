@@ -1,14 +1,15 @@
-import { useColorScheme, View, ViewStyle } from "react-native"
+import { View, ViewStyle } from "react-native"
 import { Color } from "expo-router"
 
 import { Text } from "@/components/Text"
+import { useDynamicColors } from "@/utils/useDynamicColors"
 
 interface YearBadgeProps {
   year: string
 }
 
 export function YearBadge({ year }: YearBadgeProps) {
-  useColorScheme()
+  useDynamicColors()
 
   return (
     <View style={$badge}>

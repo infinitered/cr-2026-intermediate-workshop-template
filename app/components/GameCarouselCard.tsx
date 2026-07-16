@@ -1,4 +1,4 @@
-import { Image, ImageStyle, Pressable, TextStyle, useColorScheme, View, ViewStyle } from "react-native"
+import { Image, ImageStyle, Pressable, TextStyle, View, ViewStyle } from "react-native"
 import { Color, router } from "expo-router"
 
 import { Text } from "@/components/Text"
@@ -16,8 +16,6 @@ interface GameCarouselCardProps {
  * with the title overlaid along the bottom edge.
  */
 export function GameCarouselCard({ game }: GameCarouselCardProps) {
-  useColorScheme()
-
   return (
     <Pressable style={$fill} onPress={() => router.push(`/game/${game.id}`)}>
       {game.background_image ? (

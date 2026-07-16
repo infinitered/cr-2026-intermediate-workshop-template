@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
+import { Platform, useColorScheme } from "react-native"
 import { useFonts } from "expo-font"
-import { Stack, SplashScreen } from "expo-router"
+import { Color, Stack, SplashScreen } from "expo-router"
 import {
   DarkTheme,
   DefaultTheme,
@@ -15,7 +16,6 @@ import { queryClient } from "@/services/api/queryClient"
 import { ThemeProvider } from "@/theme/context"
 import { customFontsToLoad } from "@/theme/typography"
 import { loadDateFnsLocale } from "@/utils/formatDate"
-import { useColorScheme } from "react-native"
 
 SplashScreen.preventAutoHideAsync()
 
@@ -39,6 +39,25 @@ export default function Root() {
   const [isI18nInitialized, setIsI18nInitialized] = useState(false)
 
   const colorScheme = useColorScheme() as "light" | "dark"
+  const isDark = colorScheme === "dark"
+
+  const navigationTheme =
+    Platform.OS === "android"
+      ? {
+          dark: isDark,
+          colors: {
+            primary: Color.android.dynamic.primary,
+            background: Color.android.dynamic.background,
+            card: Color.android.dynamic.surface,
+            text: Color.android.dynamic.onSurface,
+            border: Color.android.dynamic.outlineVariant,
+            notification: Color.android.dynamic.error,
+          },
+          fonts: isDark ? DarkTheme.fonts : DefaultTheme.fonts,
+        }
+      : isDark
+        ? DarkTheme
+        : DefaultTheme
 
   useEffect(() => {
     initI18n()
@@ -64,7 +83,7 @@ export default function Root() {
 
   return (
     <SafeAreaProvider initialMetrics={initialWindowMetrics}>
-      <NavigationThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
+      <NavigationThemeProvider value={navigationTheme}>
         <ThemeProvider>
           <KeyboardProvider>
             <QueryClientProvider client={queryClient}>
