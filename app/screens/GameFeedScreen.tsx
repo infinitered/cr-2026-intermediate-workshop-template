@@ -15,13 +15,23 @@ import { useFeedGenres } from "@/services/api/games"
 import { useAppTheme } from "@/theme/context"
 import { useToolbarIcons } from "@/utils/useToolbarIcons"
 import { SymbolView } from "node_modules/expo-symbols/build/SymbolView"
-import { FeedSearch } from "@/components/FeedSearch.android"
+import { FeedSearch } from "@/components/FeedSearch"
+import { BottomSheet, FieldGroup, Picker, Switch } from "@expo/ui"
 
 export function GameFeedScreen() {
   const [searchQuery, setSearchQuery] = useState("")
   const { yearGroups, isLoading, isError } = useFilteredGamesByYear(searchQuery)
   const { theme } = useAppTheme()
-  const { viewMode, setViewMode, sortOrder, sortAscending, setSortOrder, setSortAscending } =
+  const {
+    viewMode,
+    setViewMode,
+    sortOrder,
+    sortAscending,
+    setSortOrder,
+    setSortAscending,
+    hideMature,
+    setHideMature,
+  } =
     useSettings()
   const { selectedIds: genreIds, isSelected, toggleGenre, clearGenres } = useGenreFilter()
   const { data: genres = [] } = useFeedGenres()
@@ -196,6 +206,29 @@ export function GameFeedScreen() {
           <YearSection key={group.year} year={group.year} games={group.games} viewMode={viewMode} />
         ))}
       </ScrollView>
+
+      <BottomSheet
+        isPresented={viewOptionsOpen}
+        onDismiss={() => setViewOptionsOpen(false)}
+        snapPoints={["half", "full"]}
+      >
+        <FieldGroup>
+          <FieldGroup.Section title="Sort By">
+            <Picker
+              selectedValue={sortOrder}
+              onValueChange={(value) => setSortOrder(value as SortOrder)}
+              appearance="menu"
+            >
+              {SORT_OPTIONS.map((order) => (
+                <Picker.Item key={order} label={order} value={order} />
+              ))}
+            </Picker>
+          </FieldGroup.Section>
+          <FieldGroup.Section title="Advanced">
+            <Switch value={hideMature} onValueChange={setHideMature} label="Hide Mature Content" />
+          </FieldGroup.Section>
+        </FieldGroup>
+      </BottomSheet>
     </Screen>
   )
 }
