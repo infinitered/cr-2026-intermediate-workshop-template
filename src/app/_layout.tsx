@@ -1,6 +1,12 @@
 import { useEffect, useState } from "react"
+import { Platform, useColorScheme } from "react-native"
 import { useFonts } from "expo-font"
-import { Stack, SplashScreen } from "expo-router"
+import { Color, Stack, SplashScreen } from "expo-router"
+import {
+  DarkTheme,
+  DefaultTheme,
+  ThemeProvider as NavigationThemeProvider,
+} from "expo-router/react-navigation"
 import { QueryClientProvider } from "@tanstack/react-query"
 import { KeyboardProvider } from "react-native-keyboard-controller"
 import { initialWindowMetrics, SafeAreaProvider } from "react-native-safe-area-context"
@@ -32,6 +38,27 @@ export default function Root() {
   const [fontsLoaded, fontError] = useFonts(customFontsToLoad)
   const [isI18nInitialized, setIsI18nInitialized] = useState(false)
 
+  const colorScheme = useColorScheme() as "light" | "dark"
+  const isDark = colorScheme === "dark"
+
+  const navigationTheme =
+    Platform.OS === "android"
+      ? {
+          dark: isDark,
+          colors: {
+            primary: Color.android.dynamic.primary,
+            background: Color.android.dynamic.background,
+            card: Color.android.dynamic.surface,
+            text: Color.android.dynamic.onSurface,
+            border: Color.android.dynamic.outlineVariant,
+            notification: Color.android.dynamic.error,
+          },
+          fonts: isDark ? DarkTheme.fonts : DefaultTheme.fonts,
+        }
+      : isDark
+        ? DarkTheme
+        : DefaultTheme
+
   useEffect(() => {
     initI18n()
       .then(() => setIsI18nInitialized(true))
@@ -56,34 +83,39 @@ export default function Root() {
 
   return (
     <SafeAreaProvider initialMetrics={initialWindowMetrics}>
-      <ThemeProvider>
-        <KeyboardProvider>
-          <QueryClientProvider client={queryClient}>
-            <Stack screenOptions={{ headerShown: false }}>
-              <Stack.Screen name="(tabs)" />
-              <Stack.Screen
-                name="game/[id]"
-                options={{ headerShown: true, title: "Game Detail" }}
-              />
-              <Stack.Screen name="genre/[id]" options={{ headerShown: true, title: "Genre" }} />
-              <Stack.Screen
-                name="review/[gameId]"
-                options={{ headerShown: true, presentation: "modal" }}
-              />
-              <Stack.Screen name="shared" options={{ headerShown: true, presentation: "modal" }} />
-              <Stack.Screen
-                name="favorite-genres"
-                options={{ headerShown: true, title: "Favorite Genres" }}
-              />
-              <Stack.Screen
-                name="muted-keywords"
-                options={{ headerShown: true, title: "Muted Keywords" }}
-              />
-              <Stack.Screen name="disclosures" />
-            </Stack>
-          </QueryClientProvider>
-        </KeyboardProvider>
-      </ThemeProvider>
+      <NavigationThemeProvider value={navigationTheme}>
+        <ThemeProvider>
+          <KeyboardProvider>
+            <QueryClientProvider client={queryClient}>
+              <Stack screenOptions={{ headerShown: false }}>
+                <Stack.Screen name="(tabs)" />
+                <Stack.Screen
+                  name="game/[id]"
+                  options={{ headerShown: true, title: "Game Detail" }}
+                />
+                <Stack.Screen name="genre/[id]" options={{ headerShown: true, title: "Genre" }} />
+                <Stack.Screen
+                  name="review/[gameId]"
+                  options={{ headerShown: true, presentation: "modal" }}
+                />
+                <Stack.Screen
+                  name="shared"
+                  options={{ headerShown: true, presentation: "modal" }}
+                />
+                <Stack.Screen
+                  name="favorite-genres"
+                  options={{ headerShown: true, title: "Favorite Genres" }}
+                />
+                <Stack.Screen
+                  name="muted-keywords"
+                  options={{ headerShown: true, title: "Muted Keywords" }}
+                />
+                <Stack.Screen name="disclosures" />
+              </Stack>
+            </QueryClientProvider>
+          </KeyboardProvider>
+        </ThemeProvider>
+      </NavigationThemeProvider>
     </SafeAreaProvider>
   )
 }
