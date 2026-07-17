@@ -147,7 +147,7 @@ export function SettingsScreen() {
         />
       </View>
       <Button
-        text="Favorite Genres"
+        text="My Consoles"
         preset="default"
         style={themed($queuePrefButton)}
         onPress={() => router.push("/favorite-genres")}

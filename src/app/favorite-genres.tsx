@@ -1,22 +1,22 @@
 import { Stack } from "expo-router"
 
-import { FavoriteGenresScreen } from "@/screens/FavoriteGenresScreen"
+import { MyConsolesScreen } from "@/screens/MyConsolesScreen"
 import { useAppTheme } from "@/theme/context"
 
-export default function FavoriteGenresRoute() {
+export default function MyConsolesRoute() {
   const { theme } = useAppTheme()
 
   return (
     <>
       <Stack.Screen
         options={{
-          title: "Favorite Genres",
+          title: "My Consoles",
           headerBackTitle: "Queue",
           headerStyle: { backgroundColor: theme.colors.brandSurface },
           headerTintColor: theme.colors.brandSurfaceText,
         }}
       />
-      <FavoriteGenresScreen />
+      <MyConsolesScreen />
     </>
   )
 }
