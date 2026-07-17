@@ -7,12 +7,11 @@ import { Screen } from "@/components/Screen"
 import { YearSection } from "@/components/YearSection"
 import { useFilteredGamesByYear } from "@/stores/gameFeed"
 import { $styles } from "@/theme/styles"
-
-type ViewMode = "gallery" | "list"
+import { useSettings } from "@/stores/settings"
 
 export function GameFeedScreen() {
   const { yearGroups, isLoading, isError } = useFilteredGamesByYear()
-  const [viewMode] = useState<ViewMode>("gallery")
+  const { viewMode } = useSettings()
 
   if (isLoading) {
     return <LoadingScreen />

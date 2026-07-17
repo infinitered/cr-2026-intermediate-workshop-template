@@ -2,6 +2,8 @@ import { createStore, useStore } from "@/utils/store"
 
 export type SortOrder = "Rating" | "Name" | "Release Date"
 
+export type ViewMode = "gallery" | "list"
+
 export interface ShippingAddress {
   street1: string
   street2: string
@@ -18,6 +20,7 @@ interface SettingsState {
   sortOrder: SortOrder
   sortAscending: boolean
   shippingAddress: ShippingAddress
+  viewMode: ViewMode
 }
 
 const defaults: SettingsState = {
@@ -28,6 +31,7 @@ const defaults: SettingsState = {
   sortOrder: "Rating",
   sortAscending: false,
   shippingAddress: { street1: "", street2: "", city: "", state: "", zip: "" },
+  viewMode: "gallery",
 }
 
 const store = createStore<SettingsState>(defaults, "settings")
@@ -50,5 +54,6 @@ export function useSettings() {
       store.setState((prev) => ({
         shippingAddress: { ...prev.shippingAddress, ...updates },
       })),
+    setViewMode: (viewMode: ViewMode) => store.setState({ viewMode }),
   }
 }
