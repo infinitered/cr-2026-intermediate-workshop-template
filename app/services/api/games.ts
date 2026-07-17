@@ -5,7 +5,7 @@ import { Game, GameDetail, Screenshot, Movie, PaginatedResponse } from "./types"
 
 const GAMES_PER_YEAR = 10
 const START_YEAR = 1985
-const END_YEAR = 1993
+const END_YEAR = 1995
 
 export const useGames = () => {
   return useQuery({
