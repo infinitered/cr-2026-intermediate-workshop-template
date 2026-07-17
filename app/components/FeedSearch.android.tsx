@@ -1,18 +1,19 @@
 import { View, type ViewStyle } from "react-native"
 import { DockedSearchBar, Host, Icon, Text } from "@expo/ui/jetpack-compose"
 
-import { useAppTheme } from "@/theme/context"
 import { useToolbarIcons } from "@/utils/useToolbarIcons"
 
-export function FeedSearch({ onChangeText }: { onChangeText: (t: string) => void }) {
-  const { theme, themeContext } = useAppTheme()
-  const searchIcon = useToolbarIcons(theme.colors.text)("search")
+import type { FeedSearchProps } from "@/components/FeedSearch"
+import { colors } from "@/theme/colors"
+
+export function FeedSearch({ onChangeText }: FeedSearchProps) {
+  const searchIcon = useToolbarIcons(colors.text)("search")
 
   return (
     <View style={$wrapper}>
       {/* Pin the Compose color scheme to the app theme, or the bar follows the device
           appearance (renders dark while the app is in light mode). */}
-      <Host useViewportSizeMeasurement style={$host} colorScheme={themeContext}>
+      <Host useViewportSizeMeasurement style={$host}>
         <DockedSearchBar onQueryChange={onChangeText}>
           <DockedSearchBar.LeadingIcon>
             {searchIcon ? <Icon source={searchIcon} size={24} /> : null}
