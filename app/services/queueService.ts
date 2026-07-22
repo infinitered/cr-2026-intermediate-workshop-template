@@ -1,12 +1,10 @@
 import { useGamesByYear } from "@/services/api/games"
 import type { Game } from "@/services/api/types"
-import { useFavoriteGenres } from "@/stores/favoriteGenres"
 import { useMutedKeywords } from "@/stores/mutedKeywords"
 import { useQueue, addToQueue, removeFromQueue, moveInQueue } from "@/stores/queue"
 
 export function useQueueService() {
   const { ids, isInQueue } = useQueue()
-  const { ids: favoriteGenreIds } = useFavoriteGenres()
   const { keywords: mutedKeywords } = useMutedKeywords()
   const { data: yearGroups = [], isLoading } = useGamesByYear()
 
@@ -40,13 +38,7 @@ export function useQueueService() {
           )
         : availableGames
     const candidates = unmuted.length > 0 ? unmuted : availableGames
-    // Prefer games matching favorite genres when available
-    const preferred =
-      favoriteGenreIds.length > 0
-        ? candidates.filter((g) => g.genres.some((genre) => favoriteGenreIds.includes(genre.id)))
-        : []
-    const pool = preferred.length > 0 ? preferred : candidates
-    const pick = pool[Math.floor(Math.random() * pool.length)]
+    const pick = candidates[Math.floor(Math.random() * candidates.length)]
     addToQueue(pick.id)
   }
 

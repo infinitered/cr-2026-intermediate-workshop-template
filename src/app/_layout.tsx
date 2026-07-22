@@ -71,7 +71,7 @@ export default function Root() {
               <Stack.Screen name="shared" options={{ headerShown: true, presentation: "modal" }} />
               <Stack.Screen
                 name="favorite-genres"
-                options={{ headerShown: true, title: "Favorite Genres" }}
+                options={{ headerShown: true, title: "My Consoles" }}
               />
               <Stack.Screen
                 name="muted-keywords"
