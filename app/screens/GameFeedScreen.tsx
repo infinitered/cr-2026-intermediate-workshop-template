@@ -5,13 +5,19 @@ import { EmptyState } from "@/components/EmptyState"
 import { LoadingScreen } from "@/components/LoadingScreen"
 import { Screen } from "@/components/Screen"
 import { YearSection } from "@/components/YearSection"
-import { useFilteredGamesByYear } from "@/stores/gameFeed"
 import { $styles } from "@/theme/styles"
+import { useFilteredGamesByYear } from "@/stores/gameFeed"
 import { useSettings } from "@/stores/settings"
+import { FeedSearch } from "@/components/FeedSearch"
+import { ViewOptionsSheet } from "@/components/ViewOptionsSheet"
+import { FilterMenu } from "@/components/FilterMenu"
 
 export function GameFeedScreen() {
-  const { yearGroups, isLoading, isError } = useFilteredGamesByYear()
+  const [searchQuery, setSearchQuery] = useState("")
+  const { yearGroups, isLoading, isError } = useFilteredGamesByYear(searchQuery)
   const { viewMode } = useSettings()
+
+  const [viewOptionsOpen, setViewOptionsOpen] = useState(false)
 
   if (isLoading) {
     return <LoadingScreen />
@@ -20,18 +26,29 @@ export function GameFeedScreen() {
   if (isError || !yearGroups || yearGroups.length === 0) {
     return (
       <Screen preset="fixed" contentContainerStyle={$centered}>
-        <EmptyState heading="There's Nothing Here..." />
+        <EmptyState
+          heading="There's Nothing Here..."
+          content="Try adjusting your filters or search query."
+          ButtonProps={{ text: "Clear Search" }}
+          buttonOnPress={() => setSearchQuery("")}
+        />
       </Screen>
     )
   }
 
   return (
     <Screen preset="fixed" contentContainerStyle={$styles.flex1}>
+      <FilterMenu handleOpenViewOptions={() => setViewOptionsOpen(true)} />
+
+      <FeedSearch searchQuery={searchQuery} onChangeText={setSearchQuery} />
+
       <ScrollView>
         {yearGroups.map((group) => (
           <YearSection key={group.year} year={group.year} games={group.games} viewMode={viewMode} />
         ))}
       </ScrollView>
+
+      <ViewOptionsSheet isOpen={viewOptionsOpen} onClose={() => setViewOptionsOpen(false)} />
     </Screen>
   )
 }
