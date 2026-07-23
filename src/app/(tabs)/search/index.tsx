@@ -11,7 +11,14 @@ import {
   Text,
   VStack,
 } from "@expo/ui/swift-ui"
-import { buttonStyle, font, foregroundStyle, frame, listStyle } from "@expo/ui/swift-ui/modifiers"
+import {
+  buttonStyle,
+  clipShape,
+  font,
+  foregroundStyle,
+  frame,
+  listStyle,
+} from "@expo/ui/swift-ui/modifiers"
 
 import { useGamesByYear } from "@/services/api/games"
 import type { Game } from "@/services/api/types"
@@ -42,13 +49,11 @@ export default function SearchScreen() {
         {filteredGames.length > 0 ? (
           <List modifiers={[listStyle("plain")]}>
             {filteredGames.map((game) => (
-              <Button
-                key={game.id}
-                onPress={() => router.push(`/game/${game.id}`)}
-                modifiers={[buttonStyle("plain")]}
-              >
-                <SearchRow game={game} />
-              </Button>
+              <Link key={game.id} href="/game/[id]" asChild>
+                <Button modifiers={[buttonStyle("plain")]}>
+                  <SearchRow game={game} />
+                </Button>
+              </Link>
             ))}
           </List>
         ) : (
