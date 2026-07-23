@@ -20,7 +20,7 @@ export function GameGallery({ games }: { games: Game[] }) {
             <GameCarouselCard game={game} />
           </RNHostView>
         ))}
-      </HorizontalMultiBrowseCarousel>c
+      </HorizontalMultiBrowseCarousel>
     </Host>
   )
 }
