@@ -9,11 +9,10 @@ import { Dropdown } from "@/components/Dropdown"
 import { Screen } from "@/components/Screen"
 import { Text } from "@/components/Text"
 import { useFeedGenres } from "@/services/api/games"
-import { useAppTheme } from "@/theme/context"
-import type { ThemedStyle } from "@/theme/types"
+import { colors } from "@/theme/colorsDark"
+import { spacing } from "@/theme/spacing"
 
 export function SharedContentScreen() {
-  const { themed, theme } = useAppTheme()
   const { resolvedSharedPayloads, isResolving, clearSharedPayloads } = useIncomingShare()
 
   // Genres already power the feed filter, so we reuse the same query here.
@@ -41,35 +40,35 @@ export function SharedContentScreen() {
   function handleAddGame() {
     // No persistence yet — just prove the flow works end to end.
     Alert.alert("Game added!", `${title.trim()} (${year}) is in your collection.`, [
-      { text: "Nice", onPress: dismiss },
+      { onPress: () => dismiss() },
     ])
   }
 
   if (isResolving) {
     return (
-      <Screen preset="fixed" contentContainerStyle={themed($center)}>
-        <ActivityIndicator color={theme.colors.tint} />
-        <Text style={themed($detail)}>Loading shared image…</Text>
+      <Screen preset="fixed" contentContainerStyle={$center}>
+        <ActivityIndicator color={colors.tint} />
+        <Text style={$detail}>Loading shared image...</Text>
       </Screen>
     )
   }
 
   if (!imageUri) {
     return (
-      <Screen preset="fixed" contentContainerStyle={themed($center)}>
+      <Screen preset="fixed" contentContainerStyle={$center}>
         <Text preset="subheading">Nothing shared yet</Text>
-        <Text style={themed($detail)}>Share an image from another app to add a new game.</Text>
+        <Text style={$detail}>Share an image from another app to add a new game.</Text>
       </Screen>
     )
   }
 
   return (
-    <Screen preset="fixed" contentContainerStyle={themed($container)}>
-      <View style={themed($cover)}>
+    <Screen preset="fixed" contentContainerStyle={$container}>
+      <View style={$cover}>
         <Image source={{ uri: imageUri }} style={$coverImage} contentFit="cover" />
       </View>
 
-      <Host style={themed($form)}>
+      <Host style={$form}>
         <FieldGroup>
           <FieldGroup.Section title="New Game">
             <TextInput
@@ -103,34 +102,34 @@ export function SharedContentScreen() {
   )
 }
 
-const $container: ThemedStyle<ViewStyle> = () => ({
+const $container: ViewStyle = {
   flex: 1,
-})
+}
 
-const $form: ThemedStyle<ViewStyle> = () => ({
+const $form: ViewStyle = {
   flex: 1,
-})
+}
 
-const $cover: ThemedStyle<ViewStyle> = ({ colors }) => ({
+const $cover: ViewStyle = {
   height: 200,
   overflow: "hidden",
   backgroundColor: colors.border,
-})
+}
 
 const $coverImage: ImageStyle = {
   width: "100%",
   height: "100%",
 }
 
-const $center: ThemedStyle<ViewStyle> = ({ spacing }) => ({
+const $center: ViewStyle = {
   flex: 1,
   justifyContent: "center",
   alignItems: "center",
   padding: spacing.lg,
-})
+}
 
-const $detail: ThemedStyle<ViewStyle> = ({ spacing, colors }) => ({
+const $detail: ViewStyle = {
   color: colors.textDim,
   marginTop: spacing.xs,
   textAlign: "center",
-})
+}
