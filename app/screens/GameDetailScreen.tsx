@@ -9,10 +9,9 @@ import {
   View,
   ViewStyle,
 } from "react-native"
-import { router } from "expo-router"
+import { Link, router } from "expo-router"
 import { Ionicons } from "@expo/vector-icons"
 
-import { Button } from "@/components/Button"
 import { EmptyState } from "@/components/EmptyState"
 import { LoadingScreen } from "@/components/LoadingScreen"
 import { Screen } from "@/components/Screen"
@@ -24,6 +23,8 @@ import { useAppTheme } from "@/theme/context"
 import { $styles } from "@/theme/styles"
 import type { ThemedStyle } from "@/theme/types"
 import { formatDate } from "@/utils/formatDate"
+import { Button, Host } from "@expo/ui"
+import { useSafeAreaInsets } from "react-native-safe-area-context"
 
 interface GameDetailScreenProps {
   id: number
@@ -35,6 +36,7 @@ export function GameDetailScreen({ id }: GameDetailScreenProps) {
   const { data: screenshots } = useGameScreenshots(id)
   const { isInQueue, toggleQueued } = useQueueService()
   const localReviews = useReviews(id)
+  const { bottom } = useSafeAreaInsets()
 
   if (isLoading) {
     return <LoadingScreen />
@@ -55,11 +57,17 @@ export function GameDetailScreen({ id }: GameDetailScreenProps) {
   const studio = game.developers?.map((d) => d.name).join(", ")
 
   return (
-    <Screen preset="scroll">
+    <Screen
+      preset="scroll"
+      style={{ flex: 1 }}
+      contentContainerStyle={{ paddingBottom: bottom + 16 }}
+    >
       {/* Hero image with queue overlay at top-right */}
       <View>
         {game.background_image && (
-          <Image source={{ uri: game.background_image }} style={$heroImage} blurRadius={3} />
+          <Link.AppleZoomTarget>
+            <Image source={{ uri: game.background_image }} style={$heroImage} />
+          </Link.AppleZoomTarget>
         )}
         <TouchableOpacity
           style={themed($queueOverlay)}
@@ -147,10 +155,9 @@ export function GameDetailScreen({ id }: GameDetailScreenProps) {
         </Text>
       </View>
 
-      <View style={themed($writeReviewSection)}>
+      <Host matchContents style={$writeReviewSection}>
         <Button
-          text="Write A Review"
-          style={themed($reviewButton)}
+          label="Write A Review"
           onPress={() =>
             router.push({
               pathname: "/review/[gameId]",
@@ -158,7 +165,7 @@ export function GameDetailScreen({ id }: GameDetailScreenProps) {
             })
           }
         />
-      </View>
+      </Host>
 
       {localReviews.map((review) => (
         <ReviewCard key={review.id} review={review} gameId={id} gameName={game.name} />
@@ -229,12 +236,12 @@ const $centered: ViewStyle = {
 
 const $heroImage: ImageStyle = {
   width: "100%",
-  height: 180,
+  aspectRatio: 3 / 4,
 }
 
 const $queueOverlay: ThemedStyle<ViewStyle> = ({ spacing }) => ({
   position: "absolute",
-  top: spacing.xs,
+  bottom: spacing.xs,
   right: spacing.xs,
   flexDirection: "row",
   alignItems: "center",
@@ -301,10 +308,9 @@ const $reviewsHeader: ThemedStyle<ViewStyle> = ({ spacing, colors }) => ({
   borderTopColor: colors.separator,
 })
 
-const $writeReviewSection: ThemedStyle<ViewStyle> = ({ spacing }) => ({
-  paddingHorizontal: spacing.lg,
-  paddingBottom: spacing.md,
-})
+const $writeReviewSection: ViewStyle = {
+  alignSelf: "center",
+}
 
 const $reviewButton: ThemedStyle<ViewStyle> = ({ colors, spacing }) => ({
   backgroundColor: colors.brandSurface,
