@@ -1,11 +1,12 @@
 import { router } from "expo-router"
 
-import { Screen } from "@/components/Screen"
 import { useSettings } from "@/stores/settings"
 import { Host, FieldGroup, TextInput, Switch, Slider, Button, Column, Text } from "@expo/ui"
 import { DatePicker } from "@/components/DatePicker"
 import { Dropdown } from "@/components/Dropdown"
 import { US_STATES } from "@/utils/usStates"
+import { useSafeAreaInsets } from "react-native-safe-area-context"
+import { ScrollView } from "react-native"
 
 export function SettingsScreen() {
   const {
@@ -20,9 +21,13 @@ export function SettingsScreen() {
     birthDate,
     setBirthDate,
   } = useSettings()
+  const { bottom } = useSafeAreaInsets()
 
   return (
-    <Screen preset="fixed" contentContainerStyle={{ flex: 1 }}>
+    <ScrollView
+      contentContainerStyle={{ flex: 1, paddingBottom: bottom + 16 }}
+      contentInsetAdjustmentBehavior="automatic"
+    >
       <Host style={{ flex: 1 }}>
         <FieldGroup>
           <FieldGroup.Section title="Profile">
@@ -89,6 +94,6 @@ export function SettingsScreen() {
           </FieldGroup.Section>
         </FieldGroup>
       </Host>
-    </Screen>
+    </ScrollView>
   )
 }

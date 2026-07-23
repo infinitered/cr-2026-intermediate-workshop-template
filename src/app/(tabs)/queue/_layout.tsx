@@ -1,15 +1,15 @@
 import { Stack } from "expo-router"
-import { Platform } from "react-native"
 
-export default function HomeStackLayout() {
+export default function Layout() {
   return (
     <Stack>
       <Stack.Screen
         name="index"
         options={{
-          title: "Games",
+          title: "Queue",
           headerLargeTitle: true,
-          ...(Platform.OS === "ios" && { headerTransparent: true }),
+          headerTransparent: true,
+          headerLargeTitleShadowVisible: true,
         }}
       />
     </Stack>

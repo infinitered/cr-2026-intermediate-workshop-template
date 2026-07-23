@@ -11,6 +11,7 @@ import { useSettings } from "@/stores/settings"
 import { FeedSearch } from "@/components/FeedSearch"
 import { ViewOptionsSheet } from "@/components/ViewOptionsSheet"
 import { FilterMenu } from "@/components/FilterMenu"
+import { useSafeAreaInsets } from "react-native-safe-area-context"
 
 export function GameFeedScreen() {
   const [searchQuery, setSearchQuery] = useState("")
@@ -18,6 +19,7 @@ export function GameFeedScreen() {
   const { viewMode } = useSettings()
 
   const [viewOptionsOpen, setViewOptionsOpen] = useState(false)
+  const { bottom } = useSafeAreaInsets()
 
   if (isLoading) {
     return <LoadingScreen />
@@ -37,7 +39,11 @@ export function GameFeedScreen() {
   }
 
   return (
-    <Screen preset="fixed" contentContainerStyle={$styles.flex1}>
+    <ScrollView
+      contentContainerStyle={{ paddingBottom: bottom }}
+      style={$styles.flex1}
+      contentInsetAdjustmentBehavior="automatic"
+    >
       <FilterMenu handleOpenViewOptions={() => setViewOptionsOpen(true)} />
 
       <FeedSearch searchQuery={searchQuery} onChangeText={setSearchQuery} />
@@ -49,7 +55,7 @@ export function GameFeedScreen() {
       </ScrollView>
 
       <ViewOptionsSheet isOpen={viewOptionsOpen} onClose={() => setViewOptionsOpen(false)} />
-    </Screen>
+    </ScrollView>
   )
 }
 
