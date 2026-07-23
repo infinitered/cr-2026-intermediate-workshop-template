@@ -1,10 +1,10 @@
 # Chain React 2026 — Intermediate Workshop Template
 
-A retro 80s games catalog app built with Expo SDK 55, React Native 0.83, and React 19. Workshop attendees start with this standard React Native app and progressively convert components to native platform UI using Expo's native component APIs.
+A retro 80s games catalog app built with Expo SDK 57, React Native 0.86 and React 19. Workshop attendees start with this standard React Native app and progressively convert components to native platform UI using Expo's native component APIs.
 
 ## Prerequisites
 
-- Node.js 18+
+- Node.js 22+
 - pnpm
 - Expo CLI (`npx expo`)
 - iOS Simulator (Xcode) and/or Android Emulator
