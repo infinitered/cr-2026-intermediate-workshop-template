@@ -49,7 +49,7 @@ export default function SearchScreen() {
         {filteredGames.length > 0 ? (
           <List modifiers={[listStyle("plain")]}>
             {filteredGames.map((game) => (
-              <Link key={game.id} href="/game/[id]" asChild>
+              <Link key={game.id} href={`/game/${game.id}`} asChild>
                 <Button modifiers={[buttonStyle("plain")]}>
                   <SearchRow game={game} />
                 </Button>
