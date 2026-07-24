@@ -10,11 +10,8 @@ export default function SharedRoute() {
     <>
       <Stack.Screen
         options={{
-          title: "Shared",
+          title: "Add a Game",
           headerShown: true,
-          presentation: "modal",
-          headerStyle: { backgroundColor: theme.colors.brandSurface },
-          headerTintColor: theme.colors.brandSurfaceText,
         }}
       />
       <SharedContentScreen />
