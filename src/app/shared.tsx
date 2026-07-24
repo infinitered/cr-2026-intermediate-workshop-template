@@ -12,8 +12,6 @@ export default function SharedRoute() {
         options={{
           title: "Add a Game",
           headerShown: true,
-          headerStyle: { backgroundColor: theme.colors.brandSurface },
-          headerTintColor: theme.colors.brandSurfaceText,
         }}
       />
       <SharedContentScreen />

@@ -1,28 +1,26 @@
 import { useMemo, useState } from "react"
 import { ActivityIndicator, Alert, View, type ImageStyle, type ViewStyle } from "react-native"
 import { Image } from "expo-image"
-import { router } from "expo-router"
+import { router, Stack } from "expo-router"
 import { useIncomingShare } from "expo-sharing"
-import { Button, FieldGroup, Host, TextInput } from "@expo/ui"
+import { Button, Column, FieldGroup, Host, Text, TextInput } from "@expo/ui"
 
 import { Dropdown } from "@/components/Dropdown"
 import { Screen } from "@/components/Screen"
-import { Text } from "@/components/Text"
 import { useFeedGenres } from "@/services/api/games"
 import { colors } from "@/theme/colorsDark"
 import { spacing } from "@/theme/spacing"
+import { useToolbarIcons } from "@/utils/useToolbarIcons"
 
 export function SharedContentScreen() {
   const { resolvedSharedPayloads, isResolving, clearSharedPayloads } = useIncomingShare()
 
-  // Genres already power the feed filter, so we reuse the same query here.
   const { data: genres = [] } = useFeedGenres()
   const genreItems = useMemo(
     () => genres.map((g) => ({ label: g.name, value: String(g.id) })),
     [genres],
   )
 
-  // We only care about the first image that was shared in.
   const sharedImage = resolvedSharedPayloads.find((p) => p.contentType === "image")
   const imageUri = sharedImage?.contentUri
 
@@ -32,13 +30,15 @@ export function SharedContentScreen() {
 
   const canSubmit = title.trim().length > 0 && year.length === 4 && genreId.length > 0
 
+  const toolbarIcon = useToolbarIcons(colors.brandSurfaceText)
+
   function dismiss() {
     clearSharedPayloads()
     router.back()
   }
 
   function handleAddGame() {
-    // No persistence yet — just prove the flow works end to end.
+    // No persistence yet, just prove the flow works end to end.
     Alert.alert("Game added!", `${title.trim()} (${year}) is in your collection.`, [
       { onPress: () => dismiss() },
     ])
@@ -48,7 +48,11 @@ export function SharedContentScreen() {
     return (
       <Screen preset="fixed" contentContainerStyle={$center}>
         <ActivityIndicator color={colors.tint} />
-        <Text style={$detail}>Loading shared image...</Text>
+        <Host matchContents>
+          <Text textStyle={{ color: colors.textDim, textAlign: "center" }}>
+            Loading shared image...
+          </Text>
+        </Host>
       </Screen>
     )
   }
@@ -56,14 +60,27 @@ export function SharedContentScreen() {
   if (!imageUri) {
     return (
       <Screen preset="fixed" contentContainerStyle={$center}>
-        <Text preset="subheading">Nothing shared yet</Text>
-        <Text style={$detail}>Share an image from another app to add a new game.</Text>
+        <Host matchContents>
+          <Column spacing={spacing.xs} alignment="center">
+            <Text textStyle={{ fontSize: 20, fontWeight: "600" }}>Nothing shared yet</Text>
+            <Text textStyle={{ color: colors.textDim, textAlign: "center" }}>
+              Share an image from another app to add a new game.
+            </Text>
+          </Column>
+        </Host>
       </Screen>
     )
   }
 
   return (
     <Screen preset="fixed" contentContainerStyle={$container}>
+      <Stack.Toolbar placement="right">
+        <Stack.Toolbar.Button
+          icon={toolbarIcon("close")}
+          accessibilityLabel="Close"
+          onPress={dismiss}
+        />
+      </Stack.Toolbar>
       <View style={$cover}>
         <Image source={{ uri: imageUri }} style={$coverImage} contentFit="cover" />
       </View>
@@ -92,10 +109,9 @@ export function SharedContentScreen() {
             />
           </FieldGroup.Section>
 
-          <FieldGroup.Section>
+          <Host matchContents>
             <Button label="Add to Collection" onPress={handleAddGame} disabled={!canSubmit} />
-            <Button variant="text" label="Cancel" onPress={dismiss} />
-          </FieldGroup.Section>
+          </Host>
         </FieldGroup>
       </Host>
     </Screen>
@@ -126,10 +142,5 @@ const $center: ViewStyle = {
   justifyContent: "center",
   alignItems: "center",
   padding: spacing.lg,
-}
-
-const $detail: ViewStyle = {
-  color: colors.textDim,
-  marginTop: spacing.xs,
-  textAlign: "center",
+  gap: spacing.xs,
 }
