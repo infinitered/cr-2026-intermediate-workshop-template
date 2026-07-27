@@ -150,7 +150,7 @@ export function SettingsScreen() {
         text="My Consoles"
         preset="default"
         style={themed($queuePrefButton)}
-        onPress={() => router.push("/favorite-genres")}
+        onPress={() => router.push("/my-consoles")}
       />
     </Screen>
   )
