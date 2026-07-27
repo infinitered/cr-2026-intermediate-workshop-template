@@ -19,13 +19,11 @@ if (__DEV__) {
   // to only execute this in development.
   require("@/devtools/ReactotronConfig")
 
-  // Enable MSW mocking of api responses
-  //
-  // To use actual API responses, make sure to set the
-  // EXPO_PUBLIC_RAWG_API_KEY var and comment out these lines
+  // MSW mocking disabled - using live API at cr-2026-retro-games-api.expo.app
+  // Keep polyfills for URL support on Android
   require("@/services/mocks/msw.polyfills")
-  const { server } = require("@/services/mocks/server")
-  server.listen()
+  // const { server } = require("@/services/mocks/server")
+  // server.listen()
 }
 
 export default function Root() {
