@@ -1,4 +1,13 @@
-import { FlatList, Image, ImageStyle, TextStyle, TouchableOpacity, View, ViewStyle } from "react-native"
+import {
+  FlatList,
+  Image,
+  ImageStyle,
+  ScrollView,
+  TextStyle,
+  TouchableOpacity,
+  View,
+  ViewStyle,
+} from "react-native"
 import { router } from "expo-router"
 import { Ionicons } from "@expo/vector-icons"
 
@@ -11,11 +20,13 @@ import { useQueueService } from "@/services/queueService"
 import { useAppTheme } from "@/theme/context"
 import { $styles } from "@/theme/styles"
 import type { ThemedStyle } from "@/theme/types"
+import { useSafeAreaInsets } from "react-native-safe-area-context"
 
 export function QueueScreen() {
   const { themed, theme } = useAppTheme()
   const { queuedGames, availableGames, isLoading, chooseNextGame, removeFromQueue, moveInQueue } =
     useQueueService()
+  const { bottom } = useSafeAreaInsets()
 
   if (isLoading) {
     return <LoadingScreen />
@@ -24,7 +35,7 @@ export function QueueScreen() {
   const isEmpty = queuedGames.length === 0
 
   return (
-    <Screen preset="fixed" contentContainerStyle={$styles.flex1}>
+    <ScrollView  style={[themed($bottomButton), { paddingBottom: bottom + 16 }]} contentInsetAdjustmentBehavior="automatic">
       <View style={$styles.flex1}>
         {!isEmpty && (
           <View style={themed($header)}>
@@ -67,7 +78,7 @@ export function QueueScreen() {
           disabled={availableGames.length === 0}
         />
       </View>
-    </Screen>
+    </View>
   )
 }
 
