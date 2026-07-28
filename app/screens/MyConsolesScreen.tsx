@@ -1,56 +1,42 @@
-import {
-  Image,
-  ImageStyle,
-  SectionList,
-  TextStyle,
-  TouchableOpacity,
-  View,
-  ViewStyle,
-} from "react-native"
+import { SectionList, TextStyle, TouchableOpacity, View, ViewStyle } from "react-native"
 import { Ionicons } from "@expo/vector-icons"
 
-import { LoadingScreen } from "@/components/LoadingScreen"
 import { Screen } from "@/components/Screen"
 import { Text } from "@/components/Text"
-import type { FeedGenre } from "@/services/api/games"
-import { useFavoriteGenresService } from "@/services/favoriteGenresService"
+import type { Console } from "@/services/myConsolesService"
+import { useMyConsolesService } from "@/services/myConsolesService"
 import { useAppTheme } from "@/theme/context"
 import { $styles } from "@/theme/styles"
 import type { ThemedStyle } from "@/theme/types"
 
-export function FavoriteGenresScreen() {
+export function MyConsolesScreen() {
   const { themed } = useAppTheme()
-  const { favoriteGenres, otherGenres, isLoading, isFavorite, toggleFavorite } =
-    useFavoriteGenresService()
-
-  if (isLoading) {
-    return <LoadingScreen />
-  }
+  const { myConsoles, otherConsoles, isOwned, toggleOwned } = useMyConsolesService()
 
   const sections = [
-    { title: "Favorite Genres", data: favoriteGenres, isFavoriteSection: true },
-    { title: "All Genres", data: otherGenres, isFavoriteSection: false },
+    { title: "My Consoles", data: myConsoles, isOwnedSection: true },
+    { title: "All Consoles", data: otherConsoles, isOwnedSection: false },
   ]
 
   return (
     <Screen preset="fixed">
       <SectionList
         sections={sections}
-        keyExtractor={(item) => String(item.id)}
+        keyExtractor={(item) => item.id}
         renderSectionHeader={({ section }) => (
           <View style={themed($sectionHeader)}>
             <Text weight="bold" size="sm">
               {section.title}
             </Text>
-            {section.isFavoriteSection && section.data.length === 0 && (
+            {section.isOwnedSection && section.data.length === 0 && (
               <Text size="xxs" style={themed($emptyHint)}>
-                Add genres below to personalize recommendations
+                Add consoles below to track your collection
               </Text>
             )}
           </View>
         )}
         renderItem={({ item }) => (
-          <GenreRow genre={item} isFavorite={isFavorite(item.id)} onToggle={toggleFavorite} />
+          <ConsoleRow console={item} isOwned={isOwned(item.id)} onToggle={toggleOwned} />
         )}
         ItemSeparatorComponent={() => <View style={themed($separator)} />}
         contentContainerStyle={themed($listContent)}
@@ -60,36 +46,28 @@ export function FavoriteGenresScreen() {
   )
 }
 
-interface GenreRowProps {
-  genre: FeedGenre
-  isFavorite: boolean
-  onToggle: (id: number) => void
+interface ConsoleRowProps {
+  console: Console
+  isOwned: boolean
+  onToggle: (id: string) => void
 }
 
-function GenreRow({ genre, isFavorite, onToggle }: GenreRowProps) {
+function ConsoleRow({ console: item, isOwned, onToggle }: ConsoleRowProps) {
   const { themed, theme } = useAppTheme()
 
   return (
     <View style={themed($row)}>
       <View style={[$styles.row, $styles.flex1, $rowContent]}>
-        {genre.image_background ? (
-          <Image source={{ uri: genre.image_background }} style={themed($thumbnail)} />
-        ) : (
-          <View style={[themed($thumbnail), themed($thumbnailPlaceholder)]} />
-        )}
         <View style={$textColumn}>
           <Text weight="bold" size="sm">
-            {genre.name}
-          </Text>
-          <Text size="xxs" style={themed($dimText)}>
-            {genre.gameCount} {genre.gameCount === 1 ? "game" : "games"}
+            {item.name}
           </Text>
         </View>
-        <TouchableOpacity onPress={() => onToggle(genre.id)} hitSlop={8}>
+        <TouchableOpacity onPress={() => onToggle(item.id)} hitSlop={8}>
           <Ionicons
-            name={isFavorite ? "remove-circle" : "add-circle"}
+            name={isOwned ? "remove-circle" : "add-circle"}
             size={28}
-            color={isFavorite ? theme.colors.error : theme.colors.brandAccent}
+            color={isOwned ? theme.colors.error : theme.colors.brandAccent}
           />
         </TouchableOpacity>
       </View>
@@ -132,17 +110,3 @@ const $rowContent: ViewStyle = {
 const $textColumn: ViewStyle = {
   flex: 1,
 }
-
-const $thumbnail: ThemedStyle<ImageStyle> = ({ spacing }) => ({
-  width: 48,
-  height: 48,
-  borderRadius: spacing.xs,
-})
-
-const $thumbnailPlaceholder: ThemedStyle<ViewStyle> = ({ colors }) => ({
-  backgroundColor: colors.border,
-})
-
-const $dimText: ThemedStyle<TextStyle> = ({ colors }) => ({
-  color: colors.textDim,
-})
