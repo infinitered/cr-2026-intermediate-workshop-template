@@ -27,9 +27,11 @@ const compareGames = (a: Game, b: Game, order: SortOrder) => {
  * current genre filter, mature filter, and sort order/direction from the stores.
  *
  * The feed toolbar only needs to flip store state (`setSortOrder`, `setHideMature`,
- * `toggleGenre`, …) — this hook re-derives the visible groups automatically.
+ * `toggleGenre`, …) — this hook re-derives the visible groups automatically. Search
+ * is the one input that stays in the screen (its control forks per platform), so the
+ * live query is passed in and folded into the same pipeline.
  */
-export function useFilteredGamesByYear() {
+export function useFilteredGamesByYear(searchQuery = "") {
   const { data: yearGroups, isLoading, isError } = useGamesByYear()
   const { selectedIds: genreIds } = useGenreFilter()
   const { sortOrder, sortAscending, hideMature } = useSettings()
@@ -37,10 +39,14 @@ export function useFilteredGamesByYear() {
   const groups = useMemo<YearGroup[] | undefined>(() => {
     if (!yearGroups) return yearGroups
     const hasGenreFilter = genreIds.length > 0
+    const query = searchQuery.trim().toLowerCase()
 
     return yearGroups
       .map((group) => {
         let games = group.games
+        if (query) {
+          games = games.filter((game) => game.name.toLowerCase().includes(query))
+        }
         if (hasGenreFilter) {
           games = games.filter((game) => game.genres.some((g) => genreIds.includes(g.id)))
         }
@@ -54,7 +60,7 @@ export function useFilteredGamesByYear() {
         return { ...group, games }
       })
       .filter((group) => group.games.length > 0)
-  }, [yearGroups, genreIds, hideMature, sortOrder, sortAscending])
+  }, [yearGroups, genreIds, hideMature, sortOrder, sortAscending, searchQuery])
 
   return { yearGroups: groups, isLoading, isError }
 }
