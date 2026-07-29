@@ -39,13 +39,10 @@ export default function TabsLayout() {
       }}
     >
       <Tabs.Screen
-        name="index"
+        name="(home)"
         options={{
           title: "Games",
-          headerShown: true,
-          headerStyle,
-          headerTintColor: barTint,
-          headerTitleStyle: { fontFamily: typeScale.headline1.fontFamily },
+          headerShown: false,
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="game-controller" size={size} color={color} />
           ),
