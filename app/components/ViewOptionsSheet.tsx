@@ -1,6 +1,7 @@
 import { SORT_OPTIONS, useFilteredGamesByYear } from "@/stores/gameFeed"
 import { useSettings, type SortOrder } from "@/stores/settings"
 import { BottomSheet, FieldGroup, Picker, Switch } from "@expo/ui"
+import { Dropdown } from "./Dropdown"
 
 interface ViewOptionsSheetProps {
   isOpen: boolean
@@ -14,15 +15,12 @@ export function ViewOptionsSheet({ isOpen, onClose }: ViewOptionsSheetProps) {
     <BottomSheet isPresented={isOpen} onDismiss={onClose} snapPoints={["half", "full"]}>
       <FieldGroup>
         <FieldGroup.Section title="Sort By">
-          <Picker
+          <Dropdown
+            title="Sort By"
             selectedValue={sortOrder}
-            onValueChange={(value) => setSortOrder(value as SortOrder)}
-            appearance="menu"
-          >
-            {SORT_OPTIONS.map((order) => (
-              <Picker.Item key={order} label={order} value={order} />
-            ))}
-          </Picker>
+            onValueChange={(v) => setSortOrder(v as SortOrder)}
+            items={SORT_OPTIONS.map((order) => ({ label: order, value: order }))}
+          />
         </FieldGroup.Section>
         <FieldGroup.Section title="Advanced">
           <Switch value={hideMature} onValueChange={setHideMature} label="Hide Mature Content" />
