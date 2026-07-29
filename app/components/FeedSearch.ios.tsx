@@ -3,7 +3,7 @@ import { Stack } from "expo-router"
 import type { FeedSearchProps } from "@/components/FeedSearch"
 import { TextField } from "@/components/TextField"
 
-import { SymbolView } from "node_modules/expo-symbols/build/SymbolView"
+import { SymbolView } from "expo-symbols"
 import { ComponentRef, useRef, useState } from "react"
 import { colors } from "@/theme/colors"
 import { useToolbarIcons } from "@/utils/useToolbarIcons"
