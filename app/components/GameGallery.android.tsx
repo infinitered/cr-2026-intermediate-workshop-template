@@ -8,8 +8,10 @@ const CAROUSEL_HEIGHT = 220
 const PREFERRED_ITEM_WIDTH = 220 // focused item; the carousel sizes peeking items around it
 
 export function GameGallery({ games }: { games: Game[] }) {
+  const carouselKey = games.map((game) => game.id).join(",")
+
   return (
-    <Host style={{ height: CAROUSEL_HEIGHT } satisfies ViewStyle}>
+    <Host key={carouselKey} style={{ height: CAROUSEL_HEIGHT } satisfies ViewStyle}>
       <HorizontalMultiBrowseCarousel
         preferredItemWidth={PREFERRED_ITEM_WIDTH}
         itemSpacing={8}
